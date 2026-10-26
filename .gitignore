@@ -1,0 +1,10 @@
+.env
+config.local.yaml
+data/
+*.wav
+*.mp3
+*.m4a
+*.flac
+__pycache__/
+.ipynb_checkpoints/
+
