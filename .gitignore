@@ -1,10 +1,15 @@
 .env
 config.local.yaml
-data/
+data/*
+!data/glossary.csv
+!data/glossary.txt
 *.wav
 *.mp3
 *.m4a
 *.flac
 __pycache__/
 .ipynb_checkpoints/
-
+transcripts_cache/
+test_output.json
+*.exe
+asr/baseline_profile_*.json
