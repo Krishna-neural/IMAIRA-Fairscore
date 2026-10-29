@@ -1,0 +1,2001 @@
+id,term,category
+1,refactoring,Software Engineering
+2,code review,Software Engineering
+3,merge conflict,Software Engineering
+4,branching strategy,Software Engineering
+5,feature flag,Software Engineering
+6,changelog,Software Engineering
+7,polyrepo,Software Engineering
+8,dependency injection,Software Engineering
+9,design pattern,Software Engineering
+10,factory pattern,Software Engineering
+11,builder pattern,Software Engineering
+12,adapter pattern,Software Engineering
+13,bridge pattern,Software Engineering
+14,decorator pattern,Software Engineering
+15,flyweight pattern,Software Engineering
+16,chain of responsibility,Software Engineering
+17,command pattern,Software Engineering
+18,mediator pattern,Software Engineering
+19,observer pattern,Software Engineering
+20,strategy pattern,Software Engineering
+21,template method,Software Engineering
+22,SOLID principles,Software Engineering
+23,open-closed principle,Software Engineering
+24,interface segregation principle,Software Engineering
+25,DRY principle,Software Engineering
+26,KISS principle,Software Engineering
+27,separation of concerns,Software Engineering
+28,coupling,Software Engineering
+29,abstraction,Software Engineering
+30,inheritance,Software Engineering
+31,composition,Software Engineering
+32,abstract class,Software Engineering
+33,method overriding,Software Engineering
+34,operator overloading,Software Engineering
+35,generics,Software Engineering
+36,lambda,Software Engineering
+37,higher-order function,Software Engineering
+38,side effect,Software Engineering
+39,immutability,Software Engineering
+40,recursion,Software Engineering
+41,memoization,Software Engineering
+42,monad,Software Engineering
+43,functor,Software Engineering
+44,object-oriented programming,Software Engineering
+45,declarative programming,Software Engineering
+46,reactive programming,Software Engineering
+47,asynchronous programming,Software Engineering
+48,callback,Software Engineering
+49,async await,Software Engineering
+50,generator,Software Engineering
+51,decorator,Software Engineering
+52,context manager,Software Engineering
+53,reference counting,Software Engineering
+54,stack overflow,Software Engineering
+55,call stack,Software Engineering
+56,reference,Software Engineering
+57,null pointer,Software Engineering
+58,buffer overflow,Software Engineering
+59,deadlock,Software Engineering
+60,starvation,Software Engineering
+61,mutex,Software Engineering
+62,spinlock,Software Engineering
+63,process,Software Engineering
+64,concurrency,Software Engineering
+65,multithreading,Software Engineering
+66,multiprocessing,Software Engineering
+67,context switch,Software Engineering
+68,interrupt,Software Engineering
+69,kernel,Software Engineering
+70,user space,Software Engineering
+71,paging,Software Engineering
+72,cache,Software Engineering
+73,endianness,Software Engineering
+74,bit manipulation,Software Engineering
+75,compiler,Software Engineering
+76,bytecode,Software Engineering
+77,ahead-of-time compilation,Software Engineering
+78,loader,Software Engineering
+79,assembler,Software Engineering
+80,parser,Software Engineering
+81,intermediate representation,Software Engineering
+82,dynamic typing,Software Engineering
+83,strong typing,Software Engineering
+84,type checking,Software Engineering
+85,type hint,Software Engineering
+86,virtual machine,Software Engineering
+87,CLR,Software Engineering
+88,transpiler,Software Engineering
+89,tree shaking,Software Engineering
+90,package manager,Software Engineering
+91,lock file,Software Engineering
+92,virtual environment,Software Engineering
+93,makefile,Software Engineering
+94,continuous delivery,Software Engineering
+95,unit test,Software Engineering
+96,integration test,Software Engineering
+97,regression test,Software Engineering
+98,sanity test,Software Engineering
+99,load test,Software Engineering
+100,soak test,Software Engineering
+101,fuzz testing,Software Engineering
+102,property-based testing,Software Engineering
+103,behavior-driven development,Software Engineering
+104,code coverage,Software Engineering
+105,mock object,Software Engineering
+106,fake object,Software Engineering
+107,test fixture,Software Engineering
+108,flaky test,Software Engineering
+109,test suite,Software Engineering
+110,test case,Software Engineering
+111,test harness,Software Engineering
+112,profiler,Software Engineering
+113,debugger,Software Engineering
+114,breakpoint,Software Engineering
+115,core dump,Software Engineering
+116,log level,Software Engineering
+117,distributed tracing,Software Engineering
+118,metrics,Software Engineering
+119,monitoring,Software Engineering
+120,exception handling,Software Engineering
+121,error handling,Software Engineering
+122,exponential backoff,Software Engineering
+123,circuit breaker,Software Engineering
+124,graceful degradation,Software Engineering
+125,scrum,Software Engineering
+126,user story,Software Engineering
+127,retrospective,Software Engineering
+128,sprint planning,Software Engineering
+129,definition of done,Software Engineering
+130,minimum viable product,Software Engineering
+131,prototype,Software Engineering
+132,spiral model,Software Engineering
+133,site reliability engineering,Software Engineering
+134,SLA,Software Engineering
+135,SLI,Software Engineering
+136,postmortem,Software Engineering
+137,on-call rotation,Software Engineering
+138,runbook,Software Engineering
+139,rollback,Software Engineering
+140,canary release,Software Engineering
+141,A/B testing,Software Engineering
+142,dark launch,Software Engineering
+143,spaghetti code,Software Engineering
+144,dead code,Software Engineering
+145,linting,Software Engineering
+146,code formatter,Software Engineering
+147,static analysis,Software Engineering
+148,scaffolding,Software Engineering
+149,API,Software Engineering
+150,framework,Software Engineering
+151,plugin,Software Engineering
+152,module,Software Engineering
+153,namespace,Software Engineering
+154,API versioning,Software Engineering
+155,deprecation,Software Engineering
+156,breaking change,Software Engineering
+157,docstring,Software Engineering
+158,technical specification,Software Engineering
+159,UML,Software Engineering
+160,class diagram,Software Engineering
+161,flowchart,Software Engineering
+162,use case diagram,Software Engineering
+163,bounded context,Software Engineering
+164,aggregate root,Software Engineering
+165,value object,Software Engineering
+166,unit of work,Software Engineering
+167,event sourcing,Software Engineering
+168,hexagonal architecture,Software Engineering
+169,clean architecture,Software Engineering
+170,microservices,Software Engineering
+171,modular monolith,Software Engineering
+172,serverless,Software Engineering
+173,function as a service,Software Engineering
+174,API gateway,Software Engineering
+175,sidecar pattern,Software Engineering
+176,publish-subscribe,Software Engineering
+177,event stream,Software Engineering
+178,webhook,Software Engineering
+179,WebSocket,Software Engineering
+180,gRPC,Software Engineering
+181,GraphQL,Software Engineering
+182,SOAP,Software Engineering
+183,XML,Software Engineering
+184,TOML,Software Engineering
+185,Avro,Software Engineering
+186,MessagePack,Software Engineering
+187,deserialization,Software Engineering
+188,base64 encoding,Software Engineering
+189,Unicode,Software Engineering
+190,regular expression,Software Engineering
+191,string interpolation,Software Engineering
+192,immutable string,Software Engineering
+193,optional type,Software Engineering
+194,tuple,Software Engineering
+195,dictionary,Software Engineering
+196,list comprehension,Software Engineering
+197,varargs,Software Engineering
+198,default argument,Software Engineering
+199,function signature,Software Engineering
+200,entry point,Software Engineering
+201,command line interface,Software Engineering
+202,environment variable,Software Engineering
+203,feature toggle,Software Engineering
+204,secrets management,Software Engineering
+205,CODEOWNERS file,Software Engineering
+206,git rebase,Software Engineering
+207,git stash,Software Engineering
+208,git blame,Software Engineering
+209,git tag,Software Engineering
+210,git hook,Software Engineering
+211,squash merge,Software Engineering
+212,detached HEAD,Software Engineering
+213,upstream branch,Software Engineering
+214,clone,Software Engineering
+215,pull request template,Software Engineering
+216,bug report,Software Engineering
+217,reproduction steps,Software Engineering
+218,five whys,Software Engineering
+219,pair programming,Software Engineering
+220,code kata,Software Engineering
+221,bus factor,Software Engineering
+222,cyclomatic complexity,Software Engineering
+223,maintainability index,Software Engineering
+224,lead time,Software Engineering
+225,deployment frequency,Software Engineering
+226,change failure rate,Software Engineering
+227,mean time between failures,Software Engineering
+228,latency,Software Engineering
+229,availability,Software Engineering
+230,durability,Software Engineering
+231,maintainability,Software Engineering
+232,portability,Software Engineering
+233,testability,Software Engineering
+234,high availability,Software Engineering
+235,disaster recovery,Software Engineering
+236,recovery point objective,Software Engineering
+237,vertical scaling,Software Engineering
+238,load shedding,Software Engineering
+239,thundering herd,Software Engineering
+240,hot spot,Software Engineering
+241,p95 latency,Software Engineering
+242,service level agreement,Software Engineering
+243,cost optimization,Software Engineering
+244,technical roadmap,Software Engineering
+245,vendor lock-in,Software Engineering
+246,permissive license,Software Engineering
+247,MIT license,Software Engineering
+248,Apache license,Software Engineering
+249,software bill of materials,Software Engineering
+250,typosquatting,Software Engineering
+251,REST,Software Engineering
+252,JSON,Software Engineering
+253,polymorphism,Software Engineering
+254,encapsulation,Software Engineering
+255,pull request,Software Engineering
+256,continuous integration,Software Engineering
+257,agile,Software Engineering
+258,Python,Programming Languages and Runtimes
+259,JavaScript,Programming Languages and Runtimes
+260,C language,Programming Languages and Runtimes
+261,C++,Programming Languages and Runtimes
+262,Go language,Programming Languages and Runtimes
+263,Kotlin,Programming Languages and Runtimes
+264,Ruby,Programming Languages and Runtimes
+265,PHP,Programming Languages and Runtimes
+266,R language,Programming Languages and Runtimes
+267,Julia,Programming Languages and Runtimes
+268,Haskell,Programming Languages and Runtimes
+269,Elixir,Programming Languages and Runtimes
+270,Clojure,Programming Languages and Runtimes
+271,Dart,Programming Languages and Runtimes
+272,PowerShell,Programming Languages and Runtimes
+273,COBOL,Programming Languages and Runtimes
+274,Fortran,Programming Languages and Runtimes
+275,Verilog,Programming Languages and Runtimes
+276,Solidity,Programming Languages and Runtimes
+277,F#,Programming Languages and Runtimes
+278,Groovy,Programming Languages and Runtimes
+279,Lisp,Programming Languages and Runtimes
+280,Prolog,Programming Languages and Runtimes
+281,Nim,Programming Languages and Runtimes
+282,PyPy,Programming Languages and Runtimes
+283,Cython,Programming Languages and Runtimes
+284,asyncio,Programming Languages and Runtimes
+285,Deno,Programming Languages and Runtimes
+286,GraalVM,Programming Languages and Runtimes
+287,Jupyter Notebook,Programming Languages and Runtimes
+288,JupyterLab,Programming Languages and Runtimes
+289,Kaggle,Programming Languages and Runtimes
+290,REPL,Programming Languages and Runtimes
+291,conda,Programming Languages and Runtimes
+292,Poetry,Programming Languages and Runtimes
+293,virtualenv,Programming Languages and Runtimes
+294,PyPI,Programming Languages and Runtimes
+295,pyproject.toml,Programming Languages and Runtimes
+296,wheel file,Programming Languages and Runtimes
+297,Python decorator,Programming Languages and Runtimes
+298,Python dataclass,Programming Languages and Runtimes
+299,type annotations,Programming Languages and Runtimes
+300,pyright,Programming Languages and Runtimes
+301,Black formatter,Programming Languages and Runtimes
+302,flake8,Programming Languages and Runtimes
+303,isort,Programming Languages and Runtimes
+304,unittest,Programming Languages and Runtimes
+305,tox,Programming Languages and Runtimes
+306,nox,Programming Languages and Runtimes
+307,click,Programming Languages and Runtimes
+308,logging module,Programming Languages and Runtimes
+309,itertools,Programming Languages and Runtimes
+310,functools,Programming Languages and Runtimes
+311,defaultdict,Programming Languages and Runtimes
+312,namedtuple,Programming Languages and Runtimes
+313,OrderedDict,Programming Languages and Runtimes
+314,bisect,Programming Languages and Runtimes
+315,aiohttp,Programming Languages and Runtimes
+316,Scrapy,Programming Languages and Runtimes
+317,Selenium WebDriver,Programming Languages and Runtimes
+318,Poetry lock,Programming Languages and Runtimes
+319,gunicorn,Programming Languages and Runtimes
+320,FastAPI,Programming Languages and Runtimes
+321,Django,Programming Languages and Runtimes
+322,Starlette,Programming Languages and Runtimes
+323,Gradio,Programming Languages and Runtimes
+324,Plotly,Programming Languages and Runtimes
+325,seaborn,Programming Languages and Runtimes
+326,Bokeh,Programming Languages and Runtimes
+327,NumPy,Programming Languages and Runtimes
+328,pandas,Programming Languages and Runtimes
+329,Dask,Programming Languages and Runtimes
+330,SymPy,Programming Languages and Runtimes
+331,statsmodels,Programming Languages and Runtimes
+332,XGBoost,Programming Languages and Runtimes
+333,CatBoost,Programming Languages and Runtimes
+334,TensorFlow,Programming Languages and Runtimes
+335,Keras,Programming Languages and Runtimes
+336,ONNX,Programming Languages and Runtimes
+337,TensorRT,Programming Languages and Runtimes
+338,Hugging Face Transformers,Programming Languages and Runtimes
+339,LlamaIndex,Programming Languages and Runtimes
+340,spaCy,Programming Languages and Runtimes
+341,Gensim,Programming Languages and Runtimes
+342,Pillow,Programming Languages and Runtimes
+343,soundfile,Programming Languages and Runtimes
+344,pydub,Programming Languages and Runtimes
+345,jiwer,Programming Languages and Runtimes
+346,jellyfish,Programming Languages and Runtimes
+347,WhisperX,Programming Languages and Runtimes
+348,silero-vad,Programming Languages and Runtimes
+349,pyannote,Programming Languages and Runtimes
+350,Kaldi,Programming Languages and Runtimes
+351,Vosk,Programming Languages and Runtimes
+352,edge-tts,Programming Languages and Runtimes
+353,Coqui TTS,Programming Languages and Runtimes
+354,llama.cpp,Programming Languages and Runtimes
+355,LM Studio,Programming Languages and Runtimes
+356,OpenAI API,Programming Languages and Runtimes
+357,Google AI Studio,Programming Languages and Runtimes
+358,Pydantic model,Programming Languages and Runtimes
+359,SQLAlchemy,Programming Languages and Runtimes
+360,Uvicorn worker,Programming Languages and Runtimes
+361,dotenv,Programming Languages and Runtimes
+362,python-dotenv,Programming Languages and Runtimes
+363,ruamel.yaml,Programming Languages and Runtimes
+364,rich library,Programming Languages and Runtimes
+365,structlog,Programming Languages and Runtimes
+366,cachetools,Programming Languages and Runtimes
+367,diskcache,Programming Languages and Runtimes
+368,pyarrow,Programming Languages and Runtimes
+369,openpyxl,Programming Languages and Runtimes
+370,python-docx,Programming Languages and Runtimes
+371,ReportLab,Programming Languages and Runtimes
+372,Tkinter,Programming Languages and Runtimes
+373,Kivy,Programming Languages and Runtimes
+374,Java,Programming Languages and Runtimes
+375,TypeScript,Programming Languages and Runtimes
+376,SQL,Programming Languages and Runtimes
+377,Node.js,Programming Languages and Runtimes
+378,Flask,Programming Languages and Runtimes
+379,scikit-learn,Programming Languages and Runtimes
+380,PyTorch,Programming Languages and Runtimes
+381,HTML,Web and Mobile Development
+382,DOM,Web and Mobile Development
+383,shadow DOM,Web and Mobile Development
+384,React,Web and Mobile Development
+385,Vue,Web and Mobile Development
+386,Next.js,Web and Mobile Development
+387,Express,Web and Mobile Development
+388,Spring Boot,Web and Mobile Development
+389,Laravel,Web and Mobile Development
+390,jQuery,Web and Mobile Development
+391,MobX,Web and Mobile Development
+392,Zustand,Web and Mobile Development
+393,useState,Web and Mobile Development
+394,useMemo,Web and Mobile Development
+395,useRef,Web and Mobile Development
+396,component,Web and Mobile Development
+397,props,Web and Mobile Development
+398,TSX,Web and Mobile Development
+399,client-side rendering,Web and Mobile Development
+400,incremental static regeneration,Web and Mobile Development
+401,hydration,Web and Mobile Development
+402,progressive web app,Web and Mobile Development
+403,web worker,Web and Mobile Development
+404,responsive design,Web and Mobile Development
+405,flexbox,Web and Mobile Development
+406,CSS grid,Web and Mobile Development
+407,CSS variables,Web and Mobile Development
+408,Tailwind CSS,Web and Mobile Development
+409,Material UI,Web and Mobile Development
+410,styled-components,Web and Mobile Development
+411,BEM naming,Web and Mobile Development
+412,ARIA attributes,Web and Mobile Development
+413,WCAG,Web and Mobile Development
+414,screen reader,Web and Mobile Development
+415,meta tags,Web and Mobile Development
+416,robots.txt,Web and Mobile Development
+417,code splitting,Web and Mobile Development
+418,Lighthouse,Web and Mobile Development
+419,Core Web Vitals,Web and Mobile Development
+420,cumulative layout shift,Web and Mobile Development
+421,time to first byte,Web and Mobile Development
+422,cache-control header,Web and Mobile Development
+423,ETag,Web and Mobile Development
+424,session storage,Web and Mobile Development
+425,IndexedDB,Web and Mobile Development
+426,CSRF,Web and Mobile Development
+427,same-origin policy,Web and Mobile Development
+428,content security policy,Web and Mobile Development
+429,HTTPS,Web and Mobile Development
+430,HTTP/3,Web and Mobile Development
+431,TLS,Web and Mobile Development
+432,SSL,Web and Mobile Development
+433,request header,Web and Mobile Development
+434,query parameter,Web and Mobile Development
+435,route,Web and Mobile Development
+436,router,Web and Mobile Development
+437,view layer,Web and Mobile Development
+438,MVVM,Web and Mobile Development
+439,ORM,Web and Mobile Development
+440,Prisma,Web and Mobile Development
+441,Sequelize,Web and Mobile Development
+442,Handlebars,Web and Mobile Development
+443,authorization,Web and Mobile Development
+444,OAuth 2.0,Web and Mobile Development
+445,OpenID Connect,Web and Mobile Development
+446,JWT,Web and Mobile Development
+447,access token,Web and Mobile Development
+448,single sign-on,Web and Mobile Development
+449,API key,Web and Mobile Development
+450,bearer token,Web and Mobile Development
+451,password hashing,Web and Mobile Development
+452,Argon2,Web and Mobile Development
+453,pepper,Web and Mobile Development
+454,role-based access control,Web and Mobile Development
+455,access control list,Web and Mobile Development
+456,OpenAPI,Web and Mobile Development
+457,Postman,Web and Mobile Development
+458,cURL,Web and Mobile Development
+459,endpoint,Web and Mobile Development
+460,pagination,Web and Mobile Development
+461,filtering,Web and Mobile Development
+462,HATEOAS,Web and Mobile Development
+463,idempotency key,Web and Mobile Development
+464,WebRTC,Web and Mobile Development
+465,MediaRecorder API,Web and Mobile Development
+466,Canvas API,Web and Mobile Development
+467,Chart.js,Web and Mobile Development
+468,Cypress,Web and Mobile Development
+469,Vitest,Web and Mobile Development
+470,Mocha,Web and Mobile Development
+471,Webpack,Web and Mobile Development
+472,Rollup,Web and Mobile Development
+473,Babel,Web and Mobile Development
+474,npm,Web and Mobile Development
+475,pnpm,Web and Mobile Development
+476,Gradle,Web and Mobile Development
+477,Cargo,Web and Mobile Development
+478,Homebrew,Web and Mobile Development
+479,winget,Web and Mobile Development
+480,Android,Web and Mobile Development
+481,React Native,Web and Mobile Development
+482,Xamarin,Web and Mobile Development
+483,Jetpack Compose,Web and Mobile Development
+484,Android Studio,Web and Mobile Development
+485,APK,Web and Mobile Development
+486,push notification,Web and Mobile Development
+487,deep link,Web and Mobile Development
+488,TestFlight,Web and Mobile Development
+489,Firestore,Web and Mobile Development
+490,Auth0,Web and Mobile Development
+491,Stripe,Web and Mobile Development
+492,Twilio,Web and Mobile Development
+493,Vercel,Web and Mobile Development
+494,Heroku,Web and Mobile Development
+495,Railway,Web and Mobile Development
+496,Fly.io,Web and Mobile Development
+497,Hugging Face Spaces,Web and Mobile Development
+498,Cloudflare Tunnel,Web and Mobile Development
+499,port forwarding,Web and Mobile Development
+500,hot reload,Web and Mobile Development
+501,source map,Web and Mobile Development
+502,shim,Web and Mobile Development
+503,can I use,Web and Mobile Development
+504,viewport,Web and Mobile Development
+505,favicon,Web and Mobile Development
+506,web push,Web and Mobile Development
+507,geolocation API,Web and Mobile Development
+508,drag and drop API,Web and Mobile Development
+509,file API,Web and Mobile Development
+510,XMLHttpRequest,Web and Mobile Development
+511,SWR,Web and Mobile Development
+512,TanStack Query,Web and Mobile Development
+513,Apollo Client,Web and Mobile Development
+514,urql,Web and Mobile Development
+515,Prisma schema,Web and Mobile Development
+516,Mongoose,Web and Mobile Development
+517,Knex,Web and Mobile Development
+518,Passport.js,Web and Mobile Development
+519,Helmet,Web and Mobile Development
+520,Nodemon,Web and Mobile Development
+521,Fastify,Web and Mobile Development
+522,Koa,Web and Mobile Development
+523,Hono,Web and Mobile Development
+524,Astro,Web and Mobile Development
+525,Eleventy,Web and Mobile Development
+526,Jekyll,Web and Mobile Development
+527,WordPress,Web and Mobile Development
+528,Strapi,Web and Mobile Development
+529,headless CMS,Web and Mobile Development
+530,no-code,Web and Mobile Development
+531,design system,Web and Mobile Development
+532,mockup,Web and Mobile Development
+533,usability testing,Web and Mobile Development
+534,information architecture,Web and Mobile Development
+535,Sketch,Web and Mobile Development
+536,Adobe XD,Web and Mobile Development
+537,typography,Web and Mobile Development
+538,responsive breakpoint,Web and Mobile Development
+539,skeleton loader,Web and Mobile Development
+540,toast notification,Web and Mobile Development
+541,dropdown menu,Web and Mobile Development
+542,accordion,Web and Mobile Development
+543,breadcrumb,Web and Mobile Development
+544,infinite scroll,Web and Mobile Development
+545,throttle,Web and Mobile Development
+546,input sanitization,Web and Mobile Development
+547,REST API,Web and Mobile Development
+548,XSS,Web and Mobile Development
+549,array,Data Structures and Algorithms
+550,doubly linked list,Data Structures and Algorithms
+551,stack,Data Structures and Algorithms
+552,queue,Data Structures and Algorithms
+553,heap,Data Structures and Algorithms
+554,max heap,Data Structures and Algorithms
+555,binary search tree,Data Structures and Algorithms
+556,AVL tree,Data Structures and Algorithms
+557,B-tree,Data Structures and Algorithms
+558,trie,Data Structures and Algorithms
+559,Fenwick tree,Data Structures and Algorithms
+560,suffix array,Data Structures and Algorithms
+561,graph,Data Structures and Algorithms
+562,undirected graph,Data Structures and Algorithms
+563,adjacency list,Data Structures and Algorithms
+564,hash table,Data Structures and Algorithms
+565,hash function,Data Structures and Algorithms
+566,hash collision,Data Structures and Algorithms
+567,open addressing,Data Structures and Algorithms
+568,Bloom filter,Data Structures and Algorithms
+569,disjoint set union,Data Structures and Algorithms
+570,union find,Data Structures and Algorithms
+571,LFU cache,Data Structures and Algorithms
+572,ring buffer,Data Structures and Algorithms
+573,binary search,Data Structures and Algorithms
+574,bubble sort,Data Structures and Algorithms
+575,selection sort,Data Structures and Algorithms
+576,merge sort,Data Structures and Algorithms
+577,heap sort,Data Structures and Algorithms
+578,radix sort,Data Structures and Algorithms
+579,topological sort,Data Structures and Algorithms
+580,breadth-first search,Data Structures and Algorithms
+581,Dijkstra's algorithm,Data Structures and Algorithms
+582,Floyd-Warshall algorithm,Data Structures and Algorithms
+583,Kruskal's algorithm,Data Structures and Algorithms
+584,Prim's algorithm,Data Structures and Algorithms
+585,shortest path,Data Structures and Algorithms
+586,greedy algorithm,Data Structures and Algorithms
+587,backtracking,Data Structures and Algorithms
+588,two pointers technique,Data Structures and Algorithms
+589,sliding window,Data Structures and Algorithms
+590,monotonic stack,Data Structures and Algorithms
+591,longest common subsequence,Data Structures and Algorithms
+592,Levenshtein distance,Data Structures and Algorithms
+593,Jaccard similarity,Data Structures and Algorithms
+594,cosine similarity,Data Structures and Algorithms
+595,Metaphone,Data Structures and Algorithms
+596,n-gram,Data Structures and Algorithms
+597,Rabin-Karp algorithm,Data Structures and Algorithms
+598,Boyer-Moore algorithm,Data Structures and Algorithms
+599,Big O notation,Data Structures and Algorithms
+600,space complexity,Data Structures and Algorithms
+601,NP-complete,Data Structures and Algorithms
+602,halting problem,Data Structures and Algorithms
+603,Turing machine,Data Structures and Algorithms
+604,regular language,Data Structures and Algorithms
+605,Huffman coding,Data Structures and Algorithms
+606,LZ77 compression,Data Structures and Algorithms
+607,dynamic array,Data Structures and Algorithms
+608,jagged array,Data Structures and Algorithms
+609,splay tree,Data Structures and Algorithms
+610,k-d tree,Data Structures and Algorithms
+611,octree,Data Structures and Algorithms
+612,R-tree,Data Structures and Algorithms
+613,locality-sensitive hashing,Data Structures and Algorithms
+614,simhash,Data Structures and Algorithms
+615,rope data structure,Data Structures and Algorithms
+616,gap buffer,Data Structures and Algorithms
+617,bit array,Data Structures and Algorithms
+618,sorted set,Data Structures and Algorithms
+619,multimap,Data Structures and Algorithms
+620,stack frame,Data Structures and Algorithms
+621,call tree,Data Structures and Algorithms
+622,master theorem,Data Structures and Algorithms
+623,loop invariant,Data Structures and Algorithms
+624,pigeonhole principle,Data Structures and Algorithms
+625,HyperLogLog,Data Structures and Algorithms
+626,count-min sketch,Data Structures and Algorithms
+627,randomized algorithm,Data Structures and Algorithms
+628,Las Vegas algorithm,Data Structures and Algorithms
+629,heuristic,Data Structures and Algorithms
+630,simulated annealing,Data Structures and Algorithms
+631,hill climbing,Data Structures and Algorithms
+632,particle swarm optimization,Data Structures and Algorithms
+633,linear programming,Data Structures and Algorithms
+634,integer programming,Data Structures and Algorithms
+635,constraint satisfaction,Data Structures and Algorithms
+636,graph coloring,Data Structures and Algorithms
+637,maximum flow,Data Structures and Algorithms
+638,bipartite matching,Data Structures and Algorithms
+639,strongly connected components,Data Structures and Algorithms
+640,Tarjan's algorithm,Data Structures and Algorithms
+641,bridge edge,Data Structures and Algorithms
+642,Hamiltonian path,Data Structures and Algorithms
+643,PageRank,Data Structures and Algorithms
+644,community detection,Data Structures and Algorithms
+645,forward-backward algorithm,Data Structures and Algorithms
+646,beam search decoding,Data Structures and Algorithms
+647,Hirschberg algorithm,Data Structures and Algorithms
+648,Smith-Waterman algorithm,Data Structures and Algorithms
+649,sequence alignment,Data Structures and Algorithms
+650,longest palindromic substring,Data Structures and Algorithms
+651,coin change problem,Data Structures and Algorithms
+652,partition problem,Data Structures and Algorithms
+653,sudoku solver,Data Structures and Algorithms
+654,flood fill,Data Structures and Algorithms
+655,path compression,Data Structures and Algorithms
+656,convex hull,Data Structures and Algorithms
+657,closest pair of points,Data Structures and Algorithms
+658,Voronoi diagram,Data Structures and Algorithms
+659,Bresenham line algorithm,Data Structures and Algorithms
+660,rasterization,Data Structures and Algorithms
+661,hash map,Data Structures and Algorithms
+662,linked list,Data Structures and Algorithms
+663,quick sort,Data Structures and Algorithms
+664,dynamic programming,Data Structures and Algorithms
+665,depth-first search,Data Structures and Algorithms
+666,relational database,Databases and Data Engineering
+667,ACID properties,Databases and Data Engineering
+668,CAP theorem,Databases and Data Engineering
+669,primary key,Databases and Data Engineering
+670,composite key,Databases and Data Engineering
+671,surrogate key,Databases and Data Engineering
+672,check constraint,Databases and Data Engineering
+673,database index,Databases and Data Engineering
+674,non-clustered index,Databases and Data Engineering
+675,full-text search,Databases and Data Engineering
+676,query optimizer,Databases and Data Engineering
+677,inner join,Databases and Data Engineering
+678,left join,Databases and Data Engineering
+679,full outer join,Databases and Data Engineering
+680,self join,Databases and Data Engineering
+681,common table expression,Databases and Data Engineering
+682,window function,Databases and Data Engineering
+683,GROUP BY,Databases and Data Engineering
+684,ORDER BY,Databases and Data Engineering
+685,INTERSECT,Databases and Data Engineering
+686,database view,Databases and Data Engineering
+687,materialized view,Databases and Data Engineering
+688,database trigger,Databases and Data Engineering
+689,transaction,Databases and Data Engineering
+690,savepoint,Databases and Data Engineering
+691,isolation level,Databases and Data Engineering
+692,repeatable read,Databases and Data Engineering
+693,dirty read,Databases and Data Engineering
+694,lost update,Databases and Data Engineering
+695,two-phase commit,Databases and Data Engineering
+696,pessimistic locking,Databases and Data Engineering
+697,write-ahead log,Databases and Data Engineering
+698,normalization,Databases and Data Engineering
+699,first normal form,Databases and Data Engineering
+700,second normal form,Databases and Data Engineering
+701,Boyce-Codd normal form,Databases and Data Engineering
+702,snowflake schema,Databases and Data Engineering
+703,dimension table,Databases and Data Engineering
+704,slowly changing dimension,Databases and Data Engineering
+705,data lake,Databases and Data Engineering
+706,data mart,Databases and Data Engineering
+707,data fabric,Databases and Data Engineering
+708,ELT,Databases and Data Engineering
+709,data pipeline,Databases and Data Engineering
+710,stream processing,Databases and Data Engineering
+711,data ingestion,Databases and Data Engineering
+712,directed acyclic graph,Databases and Data Engineering
+713,Apache Airflow,Databases and Data Engineering
+714,Prefect,Databases and Data Engineering
+715,Apache Spark,Databases and Data Engineering
+716,Hadoop,Databases and Data Engineering
+717,HDFS,Databases and Data Engineering
+718,Apache Hive,Databases and Data Engineering
+719,Trino,Databases and Data Engineering
+720,Apache Kafka,Databases and Data Engineering
+721,Kafka Streams,Databases and Data Engineering
+722,RabbitMQ,Databases and Data Engineering
+723,Amazon SQS,Databases and Data Engineering
+724,Google Pub/Sub,Databases and Data Engineering
+725,Redis,Databases and Data Engineering
+726,MongoDB,Databases and Data Engineering
+727,Cassandra,Databases and Data Engineering
+728,CouchDB,Databases and Data Engineering
+729,ArangoDB,Databases and Data Engineering
+730,OpenSearch,Databases and Data Engineering
+731,Apache Solr,Databases and Data Engineering
+732,InfluxDB,Databases and Data Engineering
+733,Prometheus TSDB,Databases and Data Engineering
+734,Apache Druid,Databases and Data Engineering
+735,Snowflake,Databases and Data Engineering
+736,Redshift,Databases and Data Engineering
+737,Delta Lake,Databases and Data Engineering
+738,Apache Hudi,Databases and Data Engineering
+739,ORC format,Databases and Data Engineering
+740,Avro format,Databases and Data Engineering
+741,row-oriented storage,Databases and Data Engineering
+742,sharding,Databases and Data Engineering
+743,leader-follower replication,Databases and Data Engineering
+744,multi-leader replication,Databases and Data Engineering
+745,eventual consistency,Databases and Data Engineering
+746,read replica,Databases and Data Engineering
+747,database backup,Databases and Data Engineering
+748,PostgreSQL,Databases and Data Engineering
+749,MySQL,Databases and Data Engineering
+750,SQLite,Databases and Data Engineering
+751,SQL Server,Databases and Data Engineering
+752,connection pooling,Databases and Data Engineering
+753,PgBouncer,Databases and Data Engineering
+754,Flyway,Databases and Data Engineering
+755,data quality,Databases and Data Engineering
+756,data cleansing,Databases and Data Engineering
+757,deduplication,Databases and Data Engineering
+758,imputation,Databases and Data Engineering
+759,reference data,Databases and Data Engineering
+760,data masking,Databases and Data Engineering
+761,pseudonymisation,Databases and Data Engineering
+762,vector database,Databases and Data Engineering
+763,Pinecone,Databases and Data Engineering
+764,Milvus,Databases and Data Engineering
+765,Chroma,Databases and Data Engineering
+766,pgvector,Databases and Data Engineering
+767,approximate nearest neighbor,Databases and Data Engineering
+768,IVF index,Databases and Data Engineering
+769,graph database,Databases and Data Engineering
+770,key-value store,Databases and Data Engineering
+771,wide-column store,Databases and Data Engineering
+772,object storage,Databases and Data Engineering
+773,file storage,Databases and Data Engineering
+774,MinIO,Databases and Data Engineering
+775,NFS,Databases and Data Engineering
+776,distributed file system,Databases and Data Engineering
+777,LSM tree,Databases and Data Engineering
+778,compaction,Databases and Data Engineering
+779,tombstone,Databases and Data Engineering
+780,hinted handoff,Databases and Data Engineering
+781,vector clock,Databases and Data Engineering
+782,Raft consensus,Databases and Data Engineering
+783,etcd,Databases and Data Engineering
+784,leader election,Databases and Data Engineering
+785,split brain,Databases and Data Engineering
+786,schema on read,Databases and Data Engineering
+787,schema evolution,Databases and Data Engineering
+788,data product,Databases and Data Engineering
+789,semantic layer,Databases and Data Engineering
+790,OLAP,Databases and Data Engineering
+791,data cube,Databases and Data Engineering
+792,pivot table,Databases and Data Engineering
+793,SQL injection prevention,Databases and Data Engineering
+794,prepared statement,Databases and Data Engineering
+795,query caching,Databases and Data Engineering
+796,slow query log,Databases and Data Engineering
+797,sequential scan,Databases and Data Engineering
+798,hash join,Databases and Data Engineering
+799,nested loop join,Databases and Data Engineering
+800,table statistics,Databases and Data Engineering
+801,autovacuum,Databases and Data Engineering
+802,lock escalation,Databases and Data Engineering
+803,row-level lock,Databases and Data Engineering
+804,advisory lock,Databases and Data Engineering
+805,JSONB,Databases and Data Engineering
+806,generated column,Databases and Data Engineering
+807,partial index,Databases and Data Engineering
+808,GIN index,Databases and Data Engineering
+809,BRIN index,Databases and Data Engineering
+810,bulk insert,Databases and Data Engineering
+811,COPY command,Databases and Data Engineering
+812,pg_dump,Databases and Data Engineering
+813,physical replication,Databases and Data Engineering
+814,WAL archiving,Databases and Data Engineering
+815,zero-downtime migration,Databases and Data Engineering
+816,dual writes,Databases and Data Engineering
+817,data reconciliation,Databases and Data Engineering
+818,exactly-once semantics,Databases and Data Engineering
+819,at-most-once delivery,Databases and Data Engineering
+820,watermark,Databases and Data Engineering
+821,windowing,Databases and Data Engineering
+822,sliding window aggregation,Databases and Data Engineering
+823,stateful processing,Databases and Data Engineering
+824,lambda architecture,Databases and Data Engineering
+825,kappa architecture,Databases and Data Engineering
+826,bronze layer,Databases and Data Engineering
+827,gold layer,Databases and Data Engineering
+828,Feast,Databases and Data Engineering
+829,Tecton,Databases and Data Engineering
+830,experiment tracking,Databases and Data Engineering
+831,DVC,Databases and Data Engineering
+832,foreign key,Databases and Data Engineering
+833,Amazon S3,Databases and Data Engineering
+834,ETL,Databases and Data Engineering
+835,data warehouse,Databases and Data Engineering
+836,data analysis,"Data Science, Statistics and Analytics"
+837,descriptive statistics,"Data Science, Statistics and Analytics"
+838,population,"Data Science, Statistics and Analytics"
+839,sample,"Data Science, Statistics and Analytics"
+840,random sampling,"Data Science, Statistics and Analytics"
+841,cluster sampling,"Data Science, Statistics and Analytics"
+842,median,"Data Science, Statistics and Analytics"
+843,mode,"Data Science, Statistics and Analytics"
+844,standard deviation,"Data Science, Statistics and Analytics"
+845,range,"Data Science, Statistics and Analytics"
+846,percentile,"Data Science, Statistics and Analytics"
+847,z-score,"Data Science, Statistics and Analytics"
+848,skewness,"Data Science, Statistics and Analytics"
+849,outlier,"Data Science, Statistics and Analytics"
+850,normal distribution,"Data Science, Statistics and Analytics"
+851,Poisson distribution,"Data Science, Statistics and Analytics"
+852,exponential distribution,"Data Science, Statistics and Analytics"
+853,Bernoulli distribution,"Data Science, Statistics and Analytics"
+854,gamma distribution,"Data Science, Statistics and Analytics"
+855,chi-square distribution,"Data Science, Statistics and Analytics"
+856,law of large numbers,"Data Science, Statistics and Analytics"
+857,probability,"Data Science, Statistics and Analytics"
+858,Bayes theorem,"Data Science, Statistics and Analytics"
+859,posterior probability,"Data Science, Statistics and Analytics"
+860,maximum likelihood estimation,"Data Science, Statistics and Analytics"
+861,maximum a posteriori,"Data Science, Statistics and Analytics"
+862,frequentist inference,"Data Science, Statistics and Analytics"
+863,null hypothesis,"Data Science, Statistics and Analytics"
+864,p-value,"Data Science, Statistics and Analytics"
+865,type I error,"Data Science, Statistics and Analytics"
+866,type II error,"Data Science, Statistics and Analytics"
+867,effect size,"Data Science, Statistics and Analytics"
+868,credible interval,"Data Science, Statistics and Analytics"
+869,paired t-test,"Data Science, Statistics and Analytics"
+870,ANOVA,"Data Science, Statistics and Analytics"
+871,Mann-Whitney U test,"Data Science, Statistics and Analytics"
+872,Kruskal-Wallis test,"Data Science, Statistics and Analytics"
+873,Shapiro-Wilk test,"Data Science, Statistics and Analytics"
+874,permutation test,"Data Science, Statistics and Analytics"
+875,bootstrap confidence interval,"Data Science, Statistics and Analytics"
+876,Bonferroni correction,"Data Science, Statistics and Analytics"
+877,correlation,"Data Science, Statistics and Analytics"
+878,Spearman correlation,"Data Science, Statistics and Analytics"
+879,covariance,"Data Science, Statistics and Analytics"
+880,causation,"Data Science, Statistics and Analytics"
+881,Simpson's paradox,"Data Science, Statistics and Analytics"
+882,linear regression,"Data Science, Statistics and Analytics"
+883,logistic regression,"Data Science, Statistics and Analytics"
+884,polynomial regression,"Data Science, Statistics and Analytics"
+885,lasso regression,"Data Science, Statistics and Analytics"
+886,residual,"Data Science, Statistics and Analytics"
+887,adjusted R-squared,"Data Science, Statistics and Analytics"
+888,variance inflation factor,"Data Science, Statistics and Analytics"
+889,heteroscedasticity,"Data Science, Statistics and Analytics"
+890,autocorrelation,"Data Science, Statistics and Analytics"
+891,trend,"Data Science, Statistics and Analytics"
+892,stationarity,"Data Science, Statistics and Analytics"
+893,ARIMA,"Data Science, Statistics and Analytics"
+894,exponential smoothing,"Data Science, Statistics and Analytics"
+895,Prophet,"Data Science, Statistics and Analytics"
+896,moving average,"Data Science, Statistics and Analytics"
+897,lag feature,"Data Science, Statistics and Analytics"
+898,cross-validation,"Data Science, Statistics and Analytics"
+899,stratified k-fold,"Data Science, Statistics and Analytics"
+900,train test split,"Data Science, Statistics and Analytics"
+901,validation set,"Data Science, Statistics and Analytics"
+902,test set,"Data Science, Statistics and Analytics"
+903,overfitting,"Data Science, Statistics and Analytics"
+904,bias-variance tradeoff,"Data Science, Statistics and Analytics"
+905,feature engineering,"Data Science, Statistics and Analytics"
+906,feature scaling,"Data Science, Statistics and Analytics"
+907,standardization,"Data Science, Statistics and Analytics"
+908,one-hot encoding,"Data Science, Statistics and Analytics"
+909,target encoding,"Data Science, Statistics and Analytics"
+910,binning,"Data Science, Statistics and Analytics"
+911,discretization,"Data Science, Statistics and Analytics"
+912,interaction features,"Data Science, Statistics and Analytics"
+913,principal component analysis,"Data Science, Statistics and Analytics"
+914,UMAP,"Data Science, Statistics and Analytics"
+915,singular value decomposition,"Data Science, Statistics and Analytics"
+916,factor analysis,"Data Science, Statistics and Analytics"
+917,missing completely at random,"Data Science, Statistics and Analytics"
+918,undersampling,"Data Science, Statistics and Analytics"
+919,SMOTE,"Data Science, Statistics and Analytics"
+920,cohort analysis,"Data Science, Statistics and Analytics"
+921,retention analysis,"Data Science, Statistics and Analytics"
+922,customer segmentation,"Data Science, Statistics and Analytics"
+923,RFM analysis,"Data Science, Statistics and Analytics"
+924,association rules,"Data Science, Statistics and Analytics"
+925,lift,"Data Science, Statistics and Analytics"
+926,confidence,"Data Science, Statistics and Analytics"
+927,multivariate test,"Data Science, Statistics and Analytics"
+928,randomized controlled trial,"Data Science, Statistics and Analytics"
+929,treatment group,"Data Science, Statistics and Analytics"
+930,minimum detectable effect,"Data Science, Statistics and Analytics"
+931,multi-armed bandit,"Data Science, Statistics and Analytics"
+932,Thompson sampling,"Data Science, Statistics and Analytics"
+933,difference-in-differences,"Data Science, Statistics and Analytics"
+934,instrumental variable,"Data Science, Statistics and Analytics"
+935,uplift modeling,"Data Science, Statistics and Analytics"
+936,survival analysis,"Data Science, Statistics and Analytics"
+937,Kaplan-Meier estimator,"Data Science, Statistics and Analytics"
+938,hazard rate,"Data Science, Statistics and Analytics"
+939,Markov chain,"Data Science, Statistics and Analytics"
+940,Markov chain Monte Carlo,"Data Science, Statistics and Analytics"
+941,Gibbs sampling,"Data Science, Statistics and Analytics"
+942,Monte Carlo simulation,"Data Science, Statistics and Analytics"
+943,kernel density estimation,"Data Science, Statistics and Analytics"
+944,box plot,"Data Science, Statistics and Analytics"
+945,scatter plot,"Data Science, Statistics and Analytics"
+946,heatmap,"Data Science, Statistics and Analytics"
+947,Q-Q plot,"Data Science, Statistics and Analytics"
+948,precision-recall curve,"Data Science, Statistics and Analytics"
+949,learning curve,"Data Science, Statistics and Analytics"
+950,residual plot,"Data Science, Statistics and Analytics"
+951,data storytelling,"Data Science, Statistics and Analytics"
+952,business intelligence,"Data Science, Statistics and Analytics"
+953,Power BI,"Data Science, Statistics and Analytics"
+954,Metabase,"Data Science, Statistics and Analytics"
+955,Superset,"Data Science, Statistics and Analytics"
+956,VLOOKUP,"Data Science, Statistics and Analytics"
+957,KPI dashboard,"Data Science, Statistics and Analytics"
+958,Gini coefficient,"Data Science, Statistics and Analytics"
+959,entropy,"Data Science, Statistics and Analytics"
+960,mutual information,"Data Science, Statistics and Analytics"
+961,Jensen-Shannon divergence,"Data Science, Statistics and Analytics"
+962,Mahalanobis distance,"Data Science, Statistics and Analytics"
+963,Manhattan distance,"Data Science, Statistics and Analytics"
+964,Minkowski distance,"Data Science, Statistics and Analytics"
+965,Cohen's kappa,"Data Science, Statistics and Analytics"
+966,Krippendorff's alpha,"Data Science, Statistics and Analytics"
+967,Bland-Altman plot,"Data Science, Statistics and Analytics"
+968,mean squared error,"Data Science, Statistics and Analytics"
+969,root mean squared error,"Data Science, Statistics and Analytics"
+970,median absolute deviation,"Data Science, Statistics and Analytics"
+971,isotonic regression,"Data Science, Statistics and Analytics"
+972,Platt scaling,"Data Science, Statistics and Analytics"
+973,temperature scaling,"Data Science, Statistics and Analytics"
+974,Brier score,"Data Science, Statistics and Analytics"
+975,lift chart,"Data Science, Statistics and Analytics"
+976,population stability index,"Data Science, Statistics and Analytics"
+977,concept drift,"Data Science, Statistics and Analytics"
+978,covariate shift,"Data Science, Statistics and Analytics"
+979,model monitoring,"Data Science, Statistics and Analytics"
+980,demographic parity,"Data Science, Statistics and Analytics"
+981,equal opportunity,"Data Science, Statistics and Analytics"
+982,disparate impact,"Data Science, Statistics and Analytics"
+983,subgroup analysis,"Data Science, Statistics and Analytics"
+984,bias audit,"Data Science, Statistics and Analytics"
+985,fairness audit,"Data Science, Statistics and Analytics"
+986,individual fairness,"Data Science, Statistics and Analytics"
+987,parity gap,"Data Science, Statistics and Analytics"
+988,matched pairs design,"Data Science, Statistics and Analytics"
+989,between-subject design,"Data Science, Statistics and Analytics"
+990,pilot study,"Data Science, Statistics and Analytics"
+991,inter-annotator agreement,"Data Science, Statistics and Analytics"
+992,gold standard,"Data Science, Statistics and Analytics"
+993,labeling noise,"Data Science, Statistics and Analytics"
+994,confidence interval,"Data Science, Statistics and Analytics"
+995,A/B test,"Data Science, Statistics and Analytics"
+996,artificial intelligence,Machine Learning and AI
+997,deep learning,Machine Learning and AI
+998,unsupervised learning,Machine Learning and AI
+999,semi-supervised learning,Machine Learning and AI
+1000,reinforcement learning,Machine Learning and AI
+1001,fine-tuning,Machine Learning and AI
+1002,LoRA,Machine Learning and AI
+1003,QLoRA,Machine Learning and AI
+1004,prompt tuning,Machine Learning and AI
+1005,RLHF,Machine Learning and AI
+1006,reward model,Machine Learning and AI
+1007,policy gradient,Machine Learning and AI
+1008,deep Q-network,Machine Learning and AI
+1009,Markov decision process,Machine Learning and AI
+1010,epsilon-greedy,Machine Learning and AI
+1011,perceptron,Machine Learning and AI
+1012,multilayer perceptron,Machine Learning and AI
+1013,ReLU,Machine Learning and AI
+1014,tanh,Machine Learning and AI
+1015,GELU,Machine Learning and AI
+1016,SwiGLU,Machine Learning and AI
+1017,cross-entropy loss,Machine Learning and AI
+1018,focal loss,Machine Learning and AI
+1019,triplet loss,Machine Learning and AI
+1020,CTC loss,Machine Learning and AI
+1021,stochastic gradient descent,Machine Learning and AI
+1022,batch size,Machine Learning and AI
+1023,learning rate schedule,Machine Learning and AI
+1024,cosine annealing,Machine Learning and AI
+1025,momentum,Machine Learning and AI
+1026,AdamW,Machine Learning and AI
+1027,Adagrad,Machine Learning and AI
+1028,vanishing gradient,Machine Learning and AI
+1029,exploding gradient,Machine Learning and AI
+1030,weight initialization,Machine Learning and AI
+1031,He initialization,Machine Learning and AI
+1032,layer normalization,Machine Learning and AI
+1033,dropout,Machine Learning and AI
+1034,weight decay,Machine Learning and AI
+1035,data augmentation,Machine Learning and AI
+1036,SpecAugment,Machine Learning and AI
+1037,epoch,Machine Learning and AI
+1038,iteration,Machine Learning and AI
+1039,convolutional neural network,Machine Learning and AI
+1040,pooling layer,Machine Learning and AI
+1041,padding,Machine Learning and AI
+1042,feature map,Machine Learning and AI
+1043,ResNet,Machine Learning and AI
+1044,Inception,Machine Learning and AI
+1045,MobileNet,Machine Learning and AI
+1046,YOLO,Machine Learning and AI
+1047,R-CNN,Machine Learning and AI
+1048,image classification,Machine Learning and AI
+1049,instance segmentation,Machine Learning and AI
+1050,recurrent neural network,Machine Learning and AI
+1051,LSTM,Machine Learning and AI
+1052,bidirectional RNN,Machine Learning and AI
+1053,encoder-decoder,Machine Learning and AI
+1054,self-attention,Machine Learning and AI
+1055,multi-head attention,Machine Learning and AI
+1056,positional encoding,Machine Learning and AI
+1057,transformer,Machine Learning and AI
+1058,GPT,Machine Learning and AI
+1059,large language model,Machine Learning and AI
+1060,small language model,Machine Learning and AI
+1061,decoder-only model,Machine Learning and AI
+1062,tokenizer,Machine Learning and AI
+1063,SentencePiece,Machine Learning and AI
+1064,WordPiece,Machine Learning and AI
+1065,context window,Machine Learning and AI
+1066,word embedding,Machine Learning and AI
+1067,GloVe,Machine Learning and AI
+1068,sentence embedding,Machine Learning and AI
+1069,SBERT,Machine Learning and AI
+1070,CLIP,Machine Learning and AI
+1071,semantic search,Machine Learning and AI
+1072,chunking,Machine Learning and AI
+1073,reranking,Machine Learning and AI
+1074,bi-encoder,Machine Learning and AI
+1075,BM25,Machine Learning and AI
+1076,prompt engineering,Machine Learning and AI
+1077,system prompt,Machine Learning and AI
+1078,zero-shot prompting,Machine Learning and AI
+1079,self-consistency,Machine Learning and AI
+1080,tool use,Machine Learning and AI
+1081,structured output,Machine Learning and AI
+1082,JSON mode,Machine Learning and AI
+1083,top-p sampling,Machine Learning and AI
+1084,nucleus sampling,Machine Learning and AI
+1085,stop sequence,Machine Learning and AI
+1086,max tokens,Machine Learning and AI
+1087,grounding,Machine Learning and AI
+1088,jailbreak,Machine Learning and AI
+1089,LLM as a judge,Machine Learning and AI
+1090,rubric-based evaluation,Machine Learning and AI
+1091,win rate,Machine Learning and AI
+1092,benchmark dataset,Machine Learning and AI
+1093,HumanEval,Machine Learning and AI
+1094,ROUGE,Machine Learning and AI
+1095,METEOR,Machine Learning and AI
+1096,perplexity,Machine Learning and AI
+1097,precision,Machine Learning and AI
+1098,F1 score,Machine Learning and AI
+1099,F-beta score,Machine Learning and AI
+1100,sensitivity,Machine Learning and AI
+1101,false positive,Machine Learning and AI
+1102,false negative,Machine Learning and AI
+1103,confusion matrix,Machine Learning and AI
+1104,PR AUC,Machine Learning and AI
+1105,micro average,Machine Learning and AI
+1106,top-k accuracy,Machine Learning and AI
+1107,normalized discounted cumulative gain,Machine Learning and AI
+1108,hit rate,Machine Learning and AI
+1109,kernel trick,Machine Learning and AI
+1110,random forest,Machine Learning and AI
+1111,AdaBoost,Machine Learning and AI
+1112,bagging,Machine Learning and AI
+1113,stacking,Machine Learning and AI
+1114,k-nearest neighbors,Machine Learning and AI
+1115,k-means clustering,Machine Learning and AI
+1116,hierarchical clustering,Machine Learning and AI
+1117,Gaussian mixture model,Machine Learning and AI
+1118,silhouette score,Machine Learning and AI
+1119,generative adversarial network,Machine Learning and AI
+1120,latent space,Machine Learning and AI
+1121,hyperparameter tuning,Machine Learning and AI
+1122,grid search,Machine Learning and AI
+1123,Bayesian optimization,Machine Learning and AI
+1124,learning rate finder,Machine Learning and AI
+1125,knowledge distillation,Machine Learning and AI
+1126,post-training quantization,Machine Learning and AI
+1127,quantization-aware training,Machine Learning and AI
+1128,float16,Machine Learning and AI
+1129,mixed precision training,Machine Learning and AI
+1130,model compression,Machine Learning and AI
+1131,model serving,Machine Learning and AI
+1132,online inference,Machine Learning and AI
+1133,KV cache,Machine Learning and AI
+1134,flash attention,Machine Learning and AI
+1135,tensor parallelism,Machine Learning and AI
+1136,pipeline parallelism,Machine Learning and AI
+1137,DeepSpeed,Machine Learning and AI
+1138,gradient accumulation,Machine Learning and AI
+1139,CUDA,Machine Learning and AI
+1140,cuDNN,Machine Learning and AI
+1141,VRAM,Machine Learning and AI
+1142,out of memory error,Machine Learning and AI
+1143,NPU,Machine Learning and AI
+1144,TPU,Machine Learning and AI
+1145,model registry,Machine Learning and AI
+1146,MLflow,Machine Learning and AI
+1147,TensorBoard,Machine Learning and AI
+1148,model card,Machine Learning and AI
+1149,responsible AI,Machine Learning and AI
+1150,SHAP,Machine Learning and AI
+1151,feature importance,Machine Learning and AI
+1152,partial dependence plot,Machine Learning and AI
+1153,saliency map,Machine Learning and AI
+1154,attention visualization,Machine Learning and AI
+1155,robustness,Machine Learning and AI
+1156,out-of-distribution detection,Machine Learning and AI
+1157,active learning,Machine Learning and AI
+1158,programmatic labeling,Machine Learning and AI
+1159,data-centric AI,Machine Learning and AI
+1160,data augmentation pipeline,Machine Learning and AI
+1161,multi-task learning,Machine Learning and AI
+1162,meta-learning,Machine Learning and AI
+1163,zero-shot learning,Machine Learning and AI
+1164,catastrophic forgetting,Machine Learning and AI
+1165,differential privacy,Machine Learning and AI
+1166,on-device inference,Machine Learning and AI
+1167,TinyML,Machine Learning and AI
+1168,AI agent,Machine Learning and AI
+1169,orchestration framework,Machine Learning and AI
+1170,planner,Machine Learning and AI
+1171,tool calling,Machine Learning and AI
+1172,computer vision,Machine Learning and AI
+1173,named entity recognition,Machine Learning and AI
+1174,dependency parsing,Machine Learning and AI
+1175,coreference resolution,Machine Learning and AI
+1176,text classification,Machine Learning and AI
+1177,latent Dirichlet allocation,Machine Learning and AI
+1178,machine translation,Machine Learning and AI
+1179,question answering,Machine Learning and AI
+1180,relation extraction,Machine Learning and AI
+1181,ontology,Machine Learning and AI
+1182,lemmatization,Machine Learning and AI
+1183,stemming,Machine Learning and AI
+1184,bag of words,Machine Learning and AI
+1185,code-switching,Machine Learning and AI
+1186,romanization,Machine Learning and AI
+1187,multilingual model,Machine Learning and AI
+1188,low-resource language,Machine Learning and AI
+1189,language identification,Machine Learning and AI
+1190,inverse text normalization,Machine Learning and AI
+1191,truecasing,Machine Learning and AI
+1192,disfluency detection,Machine Learning and AI
+1193,speech disfluency,Machine Learning and AI
+1194,word error rate,Machine Learning and AI
+1195,real-time factor,Machine Learning and AI
+1196,acoustic model,Machine Learning and AI
+1197,shallow fusion,Machine Learning and AI
+1198,contextual biasing,Machine Learning and AI
+1199,domain adaptation,Machine Learning and AI
+1200,accented speech,Machine Learning and AI
+1201,code-mixed speech,Machine Learning and AI
+1202,grapheme,Machine Learning and AI
+1203,pronunciation lexicon,Machine Learning and AI
+1204,word-level timestamps,Machine Learning and AI
+1205,word confidence score,Machine Learning and AI
+1206,no-speech probability,Machine Learning and AI
+1207,speaker diarization,Machine Learning and AI
+1208,speaker verification,Machine Learning and AI
+1209,speech enhancement,Machine Learning and AI
+1210,echo cancellation,Machine Learning and AI
+1211,sampling rate,Machine Learning and AI
+1212,mono audio,Machine Learning and AI
+1213,WAV file,Machine Learning and AI
+1214,MP3,Machine Learning and AI
+1215,Opus codec,Machine Learning and AI
+1216,spectrogram,Machine Learning and AI
+1217,log-mel features,Machine Learning and AI
+1218,MFCC,Machine Learning and AI
+1219,fundamental frequency,Machine Learning and AI
+1220,prosody,Machine Learning and AI
+1221,speaking rate,Machine Learning and AI
+1222,pause duration,Machine Learning and AI
+1223,articulation rate,Machine Learning and AI
+1224,HuBERT,Machine Learning and AI
+1225,Whisper model,Machine Learning and AI
+1226,distil-whisper,Machine Learning and AI
+1227,connectionist temporal classification,Machine Learning and AI
+1228,beam search,Machine Learning and AI
+1229,voice cloning,Machine Learning and AI
+1230,HiFi-GAN,Machine Learning and AI
+1231,VITS,Machine Learning and AI
+1232,SSML,Machine Learning and AI
+1233,goodness of pronunciation,Machine Learning and AI
+1234,gradient descent,Machine Learning and AI
+1235,neural network,Machine Learning and AI
+1236,recall,Machine Learning and AI
+1237,cloud computing,"Cloud, DevOps and Infrastructure"
+1238,Microsoft Azure,"Cloud, DevOps and Infrastructure"
+1239,EC2,"Cloud, DevOps and Infrastructure"
+1240,S3 bucket,"Cloud, DevOps and Infrastructure"
+1241,ECS,"Cloud, DevOps and Infrastructure"
+1242,Fargate,"Cloud, DevOps and Infrastructure"
+1243,Aurora,"Cloud, DevOps and Infrastructure"
+1244,VPC,"Cloud, DevOps and Infrastructure"
+1245,IAM role,"Cloud, DevOps and Infrastructure"
+1246,CloudWatch,"Cloud, DevOps and Infrastructure"
+1247,Route 53,"Cloud, DevOps and Infrastructure"
+1248,Cognito,"Cloud, DevOps and Infrastructure"
+1249,Step Functions,"Cloud, DevOps and Infrastructure"
+1250,SageMaker,"Cloud, DevOps and Infrastructure"
+1251,Elastic Beanstalk,"Cloud, DevOps and Infrastructure"
+1252,Azure Functions,"Cloud, DevOps and Infrastructure"
+1253,Azure Blob Storage,"Cloud, DevOps and Infrastructure"
+1254,Azure Active Directory,"Cloud, DevOps and Infrastructure"
+1255,Cosmos DB,"Cloud, DevOps and Infrastructure"
+1256,Compute Engine,"Cloud, DevOps and Infrastructure"
+1257,Cloud Functions,"Cloud, DevOps and Infrastructure"
+1258,Cloud Storage,"Cloud, DevOps and Infrastructure"
+1259,Vertex AI,"Cloud, DevOps and Infrastructure"
+1260,spot instance,"Cloud, DevOps and Infrastructure"
+1261,on-demand instance,"Cloud, DevOps and Infrastructure"
+1262,auto scaling,"Cloud, DevOps and Infrastructure"
+1263,elastic load balancer,"Cloud, DevOps and Infrastructure"
+1264,region,"Cloud, DevOps and Infrastructure"
+1265,multi-cloud,"Cloud, DevOps and Infrastructure"
+1266,private cloud,"Cloud, DevOps and Infrastructure"
+1267,public cloud,"Cloud, DevOps and Infrastructure"
+1268,platform as a service,"Cloud, DevOps and Infrastructure"
+1269,shared responsibility model,"Cloud, DevOps and Infrastructure"
+1270,FinOps,"Cloud, DevOps and Infrastructure"
+1271,cost allocation tag,"Cloud, DevOps and Infrastructure"
+1272,egress cost,"Cloud, DevOps and Infrastructure"
+1273,Docker,"Cloud, DevOps and Infrastructure"
+1274,container,"Cloud, DevOps and Infrastructure"
+1275,container registry,"Cloud, DevOps and Infrastructure"
+1276,Docker Compose,"Cloud, DevOps and Infrastructure"
+1277,Docker volume,"Cloud, DevOps and Infrastructure"
+1278,Docker Hub,"Cloud, DevOps and Infrastructure"
+1279,pod,"Cloud, DevOps and Infrastructure"
+1280,worker node,"Cloud, DevOps and Infrastructure"
+1281,kubelet,"Cloud, DevOps and Infrastructure"
+1282,Deployment,"Cloud, DevOps and Infrastructure"
+1283,Service,"Cloud, DevOps and Infrastructure"
+1284,ConfigMap,"Cloud, DevOps and Infrastructure"
+1285,Secret object,"Cloud, DevOps and Infrastructure"
+1286,Kustomize,"Cloud, DevOps and Infrastructure"
+1287,StatefulSet,"Cloud, DevOps and Infrastructure"
+1288,CronJob,"Cloud, DevOps and Infrastructure"
+1289,Horizontal Pod Autoscaler,"Cloud, DevOps and Infrastructure"
+1290,readiness probe,"Cloud, DevOps and Infrastructure"
+1291,resource requests,"Cloud, DevOps and Infrastructure"
+1292,taint and toleration,"Cloud, DevOps and Infrastructure"
+1293,persistent volume claim,"Cloud, DevOps and Infrastructure"
+1294,operator pattern,"Cloud, DevOps and Infrastructure"
+1295,Terraform,"Cloud, DevOps and Infrastructure"
+1296,Puppet,"Cloud, DevOps and Infrastructure"
+1297,Pulumi,"Cloud, DevOps and Infrastructure"
+1298,Vagrant,"Cloud, DevOps and Infrastructure"
+1299,configuration management,"Cloud, DevOps and Infrastructure"
+1300,Packer,"Cloud, DevOps and Infrastructure"
+1301,Jenkins,"Cloud, DevOps and Infrastructure"
+1302,GitLab CI,"Cloud, DevOps and Infrastructure"
+1303,CircleCI,"Cloud, DevOps and Infrastructure"
+1304,Argo CD,"Cloud, DevOps and Infrastructure"
+1305,GitOps,"Cloud, DevOps and Infrastructure"
+1306,build artifact,"Cloud, DevOps and Infrastructure"
+1307,artifact repository,"Cloud, DevOps and Infrastructure"
+1308,JFrog Artifactory,"Cloud, DevOps and Infrastructure"
+1309,Trivy,"Cloud, DevOps and Infrastructure"
+1310,Snyk,"Cloud, DevOps and Infrastructure"
+1311,Renovate,"Cloud, DevOps and Infrastructure"
+1312,Prometheus,"Cloud, DevOps and Infrastructure"
+1313,Loki,"Cloud, DevOps and Infrastructure"
+1314,Zipkin,"Cloud, DevOps and Infrastructure"
+1315,Datadog,"Cloud, DevOps and Infrastructure"
+1316,New Relic,"Cloud, DevOps and Infrastructure"
+1317,ELK stack,"Cloud, DevOps and Infrastructure"
+1318,Kibana,"Cloud, DevOps and Infrastructure"
+1319,Fluent Bit,"Cloud, DevOps and Infrastructure"
+1320,Zabbix,"Cloud, DevOps and Infrastructure"
+1321,PagerDuty,"Cloud, DevOps and Infrastructure"
+1322,Sentry,"Cloud, DevOps and Infrastructure"
+1323,Ubuntu,"Cloud, DevOps and Infrastructure"
+1324,CentOS,"Cloud, DevOps and Infrastructure"
+1325,Alpine Linux,"Cloud, DevOps and Infrastructure"
+1326,Windows Server,"Cloud, DevOps and Infrastructure"
+1327,WSL2,"Cloud, DevOps and Infrastructure"
+1328,shell script,"Cloud, DevOps and Infrastructure"
+1329,awk,"Cloud, DevOps and Infrastructure"
+1330,sed,"Cloud, DevOps and Infrastructure"
+1331,systemd,"Cloud, DevOps and Infrastructure"
+1332,SSH key,"Cloud, DevOps and Infrastructure"
+1333,rsync,"Cloud, DevOps and Infrastructure"
+1334,chown,"Cloud, DevOps and Infrastructure"
+1335,sudo,"Cloud, DevOps and Infrastructure"
+1336,file permissions,"Cloud, DevOps and Infrastructure"
+1337,inode,"Cloud, DevOps and Infrastructure"
+1338,fstab,"Cloud, DevOps and Infrastructure"
+1339,ext4,"Cloud, DevOps and Infrastructure"
+1340,RAID,"Cloud, DevOps and Infrastructure"
+1341,swap space,"Cloud, DevOps and Infrastructure"
+1342,htop,"Cloud, DevOps and Infrastructure"
+1343,iostat,"Cloud, DevOps and Infrastructure"
+1344,netstat,"Cloud, DevOps and Infrastructure"
+1345,lsof,"Cloud, DevOps and Infrastructure"
+1346,tcpdump,"Cloud, DevOps and Infrastructure"
+1347,journalctl,"Cloud, DevOps and Infrastructure"
+1348,dmesg,"Cloud, DevOps and Infrastructure"
+1349,CUDA toolkit,"Cloud, DevOps and Infrastructure"
+1350,environment path,"Cloud, DevOps and Infrastructure"
+1351,PowerShell execution policy,"Cloud, DevOps and Infrastructure"
+1352,Task Manager,"Cloud, DevOps and Infrastructure"
+1353,Event Viewer,"Cloud, DevOps and Infrastructure"
+1354,Tailscale,"Cloud, DevOps and Infrastructure"
+1355,OpenVPN,"Cloud, DevOps and Infrastructure"
+1356,Nginx,"Cloud, DevOps and Infrastructure"
+1357,Apache HTTP Server,"Cloud, DevOps and Infrastructure"
+1358,Envoy proxy,"Cloud, DevOps and Infrastructure"
+1359,Caddy,"Cloud, DevOps and Infrastructure"
+1360,forward proxy,"Cloud, DevOps and Infrastructure"
+1361,layer 4 load balancing,"Cloud, DevOps and Infrastructure"
+1362,layer 7 load balancing,"Cloud, DevOps and Infrastructure"
+1363,least connections,"Cloud, DevOps and Infrastructure"
+1364,health check,"Cloud, DevOps and Infrastructure"
+1365,chaos engineering,"Cloud, DevOps and Infrastructure"
+1366,Chaos Monkey,"Cloud, DevOps and Infrastructure"
+1367,capacity testing,"Cloud, DevOps and Infrastructure"
+1368,JMeter,"Cloud, DevOps and Infrastructure"
+1369,k6,"Cloud, DevOps and Infrastructure"
+1370,latency percentile,"Cloud, DevOps and Infrastructure"
+1371,bottleneck analysis,"Cloud, DevOps and Infrastructure"
+1372,Little's law,"Cloud, DevOps and Infrastructure"
+1373,Gustafson's law,"Cloud, DevOps and Infrastructure"
+1374,cluster autoscaler,"Cloud, DevOps and Infrastructure"
+1375,KEDA,"Cloud, DevOps and Infrastructure"
+1376,SAM,"Cloud, DevOps and Infrastructure"
+1377,Cloudflare Workers,"Cloud, DevOps and Infrastructure"
+1378,provisioned concurrency,"Cloud, DevOps and Infrastructure"
+1379,GPU instance,"Cloud, DevOps and Infrastructure"
+1380,GPU sharing,"Cloud, DevOps and Infrastructure"
+1381,Kaggle GPU,"Cloud, DevOps and Infrastructure"
+1382,RunPod,"Cloud, DevOps and Infrastructure"
+1383,Paperspace,"Cloud, DevOps and Infrastructure"
+1384,Modal,"Cloud, DevOps and Infrastructure"
+1385,Hugging Face Inference Endpoints,"Cloud, DevOps and Infrastructure"
+1386,Triton Inference Server,"Cloud, DevOps and Infrastructure"
+1387,BentoML,"Cloud, DevOps and Infrastructure"
+1388,Ray,"Cloud, DevOps and Infrastructure"
+1389,KServe,"Cloud, DevOps and Infrastructure"
+1390,model endpoint,"Cloud, DevOps and Infrastructure"
+1391,traffic splitting,"Cloud, DevOps and Infrastructure"
+1392,LaunchDarkly,"Cloud, DevOps and Infrastructure"
+1393,secrets manager,"Cloud, DevOps and Infrastructure"
+1394,KMS,"Cloud, DevOps and Infrastructure"
+1395,environment parity,"Cloud, DevOps and Infrastructure"
+1396,12-factor config,"Cloud, DevOps and Infrastructure"
+1397,staging environment,"Cloud, DevOps and Infrastructure"
+1398,production environment,"Cloud, DevOps and Infrastructure"
+1399,QA environment,"Cloud, DevOps and Infrastructure"
+1400,release candidate,"Cloud, DevOps and Infrastructure"
+1401,reproducible build,"Cloud, DevOps and Infrastructure"
+1402,hermetic build,"Cloud, DevOps and Infrastructure"
+1403,remote cache,"Cloud, DevOps and Infrastructure"
+1404,Nix,"Cloud, DevOps and Infrastructure"
+1405,Kubernetes,"Cloud, DevOps and Infrastructure"
+1406,GitHub Actions,"Cloud, DevOps and Infrastructure"
+1407,AWS Lambda,"Cloud, DevOps and Infrastructure"
+1408,load balancer,"Cloud, DevOps and Infrastructure"
+1409,TCP,Networking and Cybersecurity
+1410,IP address,Networking and Cybersecurity
+1411,IPv6,Networking and Cybersecurity
+1412,subnet,Networking and Cybersecurity
+1413,CIDR notation,Networking and Cybersecurity
+1414,DNS,Networking and Cybersecurity
+1415,A record,Networking and Cybersecurity
+1416,CNAME record,Networking and Cybersecurity
+1417,TXT record,Networking and Cybersecurity
+1418,ARP,Networking and Cybersecurity
+1419,ping,Networking and Cybersecurity
+1420,BGP,Networking and Cybersecurity
+1421,OSPF,Networking and Cybersecurity
+1422,VPN,Networking and Cybersecurity
+1423,port number,Networking and Cybersecurity
+1424,packet,Networking and Cybersecurity
+1425,frame,Networking and Cybersecurity
+1426,gateway,Networking and Cybersecurity
+1427,bandwidth,Networking and Cybersecurity
+1428,packet loss,Networking and Cybersecurity
+1429,round trip time,Networking and Cybersecurity
+1430,OSI model,Networking and Cybersecurity
+1431,three-way handshake,Networking and Cybersecurity
+1432,flow control,Networking and Cybersecurity
+1433,retransmission,Networking and Cybersecurity
+1434,keepalive,Networking and Cybersecurity
+1435,SMTP,Networking and Cybersecurity
+1436,POP3,Networking and Cybersecurity
+1437,SFTP,Networking and Cybersecurity
+1438,Telnet,Networking and Cybersecurity
+1439,SNMP,Networking and Cybersecurity
+1440,LDAP,Networking and Cybersecurity
+1441,RADIUS,Networking and Cybersecurity
+1442,CoAP,Networking and Cybersecurity
+1443,AMQP,Networking and Cybersecurity
+1444,RTSP,Networking and Cybersecurity
+1445,WebSocket protocol,Networking and Cybersecurity
+1446,TURN,Networking and Cybersecurity
+1447,peer-to-peer,Networking and Cybersecurity
+1448,mesh network,Networking and Cybersecurity
+1449,Ethernet,Networking and Cybersecurity
+1450,Zigbee,Networking and Cybersecurity
+1451,LTE,Networking and Cybersecurity
+1452,content filtering,Networking and Cybersecurity
+1453,DMZ,Networking and Cybersecurity
+1454,defense in depth,Networking and Cybersecurity
+1455,symmetric encryption,Networking and Cybersecurity
+1456,AES,Networking and Cybersecurity
+1457,RSA,Networking and Cybersecurity
+1458,Diffie-Hellman,Networking and Cybersecurity
+1459,SHA-256,Networking and Cybersecurity
+1460,HMAC,Networking and Cybersecurity
+1461,digital signature,Networking and Cybersecurity
+1462,certificate authority,Networking and Cybersecurity
+1463,X.509,Networking and Cybersecurity
+1464,Let's Encrypt,Networking and Cybersecurity
+1465,encryption at rest,Networking and Cybersecurity
+1466,encryption in transit,Networking and Cybersecurity
+1467,nonce,Networking and Cybersecurity
+1468,block cipher,Networking and Cybersecurity
+1469,padding oracle,Networking and Cybersecurity
+1470,side-channel attack,Networking and Cybersecurity
+1471,penetration testing,Networking and Cybersecurity
+1472,vulnerability assessment,Networking and Cybersecurity
+1473,blue team,Networking and Cybersecurity
+1474,bug bounty,Networking and Cybersecurity
+1475,man-in-the-middle attack,Networking and Cybersecurity
+1476,spear phishing,Networking and Cybersecurity
+1477,social engineering,Networking and Cybersecurity
+1478,malware,Networking and Cybersecurity
+1479,trojan,Networking and Cybersecurity
+1480,DDoS attack,Networking and Cybersecurity
+1481,brute force attack,Networking and Cybersecurity
+1482,password spraying,Networking and Cybersecurity
+1483,session hijacking,Networking and Cybersecurity
+1484,remote code execution,Networking and Cybersecurity
+1485,OWASP Top 10,Networking and Cybersecurity
+1486,CVE,Networking and Cybersecurity
+1487,CWE,Networking and Cybersecurity
+1488,SIEM,Networking and Cybersecurity
+1489,web application firewall,Networking and Cybersecurity
+1490,intrusion detection system,Networking and Cybersecurity
+1491,endpoint detection and response,Networking and Cybersecurity
+1492,honeypot,Networking and Cybersecurity
+1493,attack surface,Networking and Cybersecurity
+1494,security posture,Networking and Cybersecurity
+1495,compliance,Networking and Cybersecurity
+1496,HIPAA,Networking and Cybersecurity
+1497,SOC 2,Networking and Cybersecurity
+1498,DPDP Act,Networking and Cybersecurity
+1499,CCPA,Networking and Cybersecurity
+1500,data breach,Networking and Cybersecurity
+1501,consent management,Networking and Cybersecurity
+1502,data protection officer,Networking and Cybersecurity
+1503,privacy impact assessment,Networking and Cybersecurity
+1504,data minimization,Networking and Cybersecurity
+1505,data residency,Networking and Cybersecurity
+1506,cross-border transfer,Networking and Cybersecurity
+1507,access log,Networking and Cybersecurity
+1508,immutable log,Networking and Cybersecurity
+1509,secure deletion,Networking and Cybersecurity
+1510,retention schedule,Networking and Cybersecurity
+1511,opt-out,Networking and Cybersecurity
+1512,anonymized dataset,Networking and Cybersecurity
+1513,k-anonymity,Networking and Cybersecurity
+1514,secure enclave,Networking and Cybersecurity
+1515,hardware security module,Networking and Cybersecurity
+1516,git secrets,Networking and Cybersecurity
+1517,environment file,Networking and Cybersecurity
+1518,least privilege access,Networking and Cybersecurity
+1519,service account,Networking and Cybersecurity
+1520,mutual TLS,Networking and Cybersecurity
+1521,security headers,Networking and Cybersecurity
+1522,HSTS,Networking and Cybersecurity
+1523,SameSite cookie,Networking and Cybersecurity
+1524,secure cookie,Networking and Cybersecurity
+1525,output encoding,Networking and Cybersecurity
+1526,parameterized queries,Networking and Cybersecurity
+1527,software composition analysis,Networking and Cybersecurity
+1528,DAST,Networking and Cybersecurity
+1529,secure SDLC,Networking and Cybersecurity
+1530,DevSecOps,Networking and Cybersecurity
+1531,security champion,Networking and Cybersecurity
+1532,forensics,Networking and Cybersecurity
+1533,indicator of compromise,Networking and Cybersecurity
+1534,tabletop exercise,Networking and Cybersecurity
+1535,business continuity plan,Networking and Cybersecurity
+1536,backup rotation,Networking and Cybersecurity
+1537,air-gapped backup,Networking and Cybersecurity
+1538,SQL injection,Networking and Cybersecurity
+1539,firewall,Networking and Cybersecurity
+1540,encryption,Networking and Cybersecurity
+1541,stress,Core Engineering
+1542,Young's modulus,Core Engineering
+1543,yield strength,Core Engineering
+1544,ultimate strength,Core Engineering
+1545,creep,Core Engineering
+1546,torque,Core Engineering
+1547,shear force,Core Engineering
+1548,bending moment,Core Engineering
+1549,finite element analysis,Core Engineering
+1550,computer-aided design,Core Engineering
+1551,computer numerical control,Core Engineering
+1552,geometric dimensioning and tolerancing,Core Engineering
+1553,3D printing,Core Engineering
+1554,injection molding,Core Engineering
+1555,forging,Core Engineering
+1556,machining,Core Engineering
+1557,lathe,Core Engineering
+1558,drilling,Core Engineering
+1559,heat treatment,Core Engineering
+1560,quenching,Core Engineering
+1561,tempering,Core Engineering
+1562,Brinell hardness,Core Engineering
+1563,Poisson's ratio,Core Engineering
+1564,shear modulus,Core Engineering
+1565,Hooke's law,Core Engineering
+1566,buckling,Core Engineering
+1567,beam,Core Engineering
+1568,cantilever,Core Engineering
+1569,column,Core Engineering
+1570,shaft,Core Engineering
+1571,gear ratio,Core Engineering
+1572,cam,Core Engineering
+1573,spring,Core Engineering
+1574,damper,Core Engineering
+1575,clutch,Core Engineering
+1576,pulley,Core Engineering
+1577,chain drive,Core Engineering
+1578,pneumatic actuator,Core Engineering
+1579,hydraulic cylinder,Core Engineering
+1580,compressor,Core Engineering
+1581,boiler,Core Engineering
+1582,condenser,Core Engineering
+1583,evaporator,Core Engineering
+1584,HVAC,Core Engineering
+1585,first law of thermodynamics,Core Engineering
+1586,enthalpy,Core Engineering
+1587,internal energy,Core Engineering
+1588,heat transfer,Core Engineering
+1589,convection,Core Engineering
+1590,thermal conductivity,Core Engineering
+1591,Rankine cycle,Core Engineering
+1592,Otto cycle,Core Engineering
+1593,Brayton cycle,Core Engineering
+1594,internal combustion engine,Core Engineering
+1595,Reynolds number,Core Engineering
+1596,Bernoulli's principle,Core Engineering
+1597,laminar flow,Core Engineering
+1598,boundary layer,Core Engineering
+1599,lift coefficient,Core Engineering
+1600,Mach number,Core Engineering
+1601,Navier-Stokes equations,Core Engineering
+1602,fluid statics,Core Engineering
+1603,Pascal's law,Core Engineering
+1604,dynamics,Core Engineering
+1605,statics,Core Engineering
+1606,equilibrium,Core Engineering
+1607,angular momentum,Core Engineering
+1608,work-energy theorem,Core Engineering
+1609,vibration,Core Engineering
+1610,resonance,Core Engineering
+1611,modal analysis,Core Engineering
+1612,robotics,Core Engineering
+1613,kinematic chain,Core Engineering
+1614,end effector,Core Engineering
+1615,forward kinematics,Core Engineering
+1616,stepper motor,Core Engineering
+1617,induction motor,Core Engineering
+1618,synchronous motor,Core Engineering
+1619,encoder,Core Engineering
+1620,sensor,Core Engineering
+1621,gyroscope,Core Engineering
+1622,IMU,Core Engineering
+1623,ultrasonic sensor,Core Engineering
+1624,thermocouple,Core Engineering
+1625,strain gauge,Core Engineering
+1626,load cell,Core Engineering
+1627,Hall effect sensor,Core Engineering
+1628,limit switch,Core Engineering
+1629,PLC,Core Engineering
+1630,HMI,Core Engineering
+1631,ladder logic,Core Engineering
+1632,Industry 4.0,Core Engineering
+1633,predictive maintenance,Core Engineering
+1634,reliability engineering,Core Engineering
+1635,failure mode and effects analysis,Core Engineering
+1636,root cause analysis tool,Core Engineering
+1637,lean manufacturing,Core Engineering
+1638,5S,Core Engineering
+1639,total quality management,Core Engineering
+1640,statistical process control,Core Engineering
+1641,process capability,Core Engineering
+1642,quality assurance,Core Engineering
+1643,ISO 9001,Core Engineering
+1644,bill of materials,Core Engineering
+1645,supply chain management,Core Engineering
+1646,enterprise resource planning,Core Engineering
+1647,Kirchhoff's current law,Core Engineering
+1648,Kirchhoff's voltage law,Core Engineering
+1649,Norton's theorem,Core Engineering
+1650,voltage,Core Engineering
+1651,resistance,Core Engineering
+1652,inductance,Core Engineering
+1653,impedance,Core Engineering
+1654,power factor,Core Engineering
+1655,reactive power,Core Engineering
+1656,alternating current,Core Engineering
+1657,direct current,Core Engineering
+1658,phasor,Core Engineering
+1659,RC circuit,Core Engineering
+1660,RLC circuit,Core Engineering
+1661,time constant,Core Engineering
+1662,frequency response,Core Engineering
+1663,Z-transform,Core Engineering
+1664,sampling theorem,Core Engineering
+1665,aliasing,Core Engineering
+1666,low-pass filter,Core Engineering
+1667,band-pass filter,Core Engineering
+1668,notch filter,Core Engineering
+1669,infinite impulse response filter,Core Engineering
+1670,Hamming window,Core Engineering
+1671,wavelet transform,Core Engineering
+1672,signal-to-noise ratio,Core Engineering
+1673,dynamic range,Core Engineering
+1674,modulation,Core Engineering
+1675,frequency modulation,Core Engineering
+1676,quadrature amplitude modulation,Core Engineering
+1677,orthogonal frequency division multiplexing,Core Engineering
+1678,transmission line,Core Engineering
+1679,waveguide,Core Engineering
+1680,diode,Core Engineering
+1681,Zener diode,Core Engineering
+1682,photodiode,Core Engineering
+1683,MOSFET,Core Engineering
+1684,IGBT,Core Engineering
+1685,thyristor,Core Engineering
+1686,comparator,Core Engineering
+1687,oscillator,Core Engineering
+1688,voltage regulator,Core Engineering
+1689,boost converter,Core Engineering
+1690,switching power supply,Core Engineering
+1691,inverter,Core Engineering
+1692,power grid,Core Engineering
+1693,circuit breaker device,Core Engineering
+1694,fuse,Core Engineering
+1695,surge protection,Core Engineering
+1696,wind turbine,Core Engineering
+1697,lithium-ion battery,Core Engineering
+1698,electric vehicle,Core Engineering
+1699,regenerative braking,Core Engineering
+1700,microprocessor,Core Engineering
+1701,Raspberry Pi,Core Engineering
+1702,STM32,Core Engineering
+1703,ARM Cortex,Core Engineering
+1704,x86 architecture,Core Engineering
+1705,pipelining,Core Engineering
+1706,cache hierarchy,Core Engineering
+1707,memory-mapped I/O,Core Engineering
+1708,interrupt service routine,Core Engineering
+1709,FreeRTOS,Core Engineering
+1710,bootloader,Core Engineering
+1711,device driver,Core Engineering
+1712,I2C,Core Engineering
+1713,UART,Core Engineering
+1714,USB,Core Engineering
+1715,GPIO,Core Engineering
+1716,PWM,Core Engineering
+1717,DAC,Core Engineering
+1718,JTAG,Core Engineering
+1719,logic analyzer,Core Engineering
+1720,multimeter,Core Engineering
+1721,breadboard,Core Engineering
+1722,schematic capture,Core Engineering
+1723,Altium Designer,Core Engineering
+1724,Gerber file,Core Engineering
+1725,surface mount technology,Core Engineering
+1726,signal integrity,Core Engineering
+1727,electromagnetic interference,Core Engineering
+1728,ASIC,Core Engineering
+1729,hardware description language,Core Engineering
+1730,logic gate,Core Engineering
+1731,finite state machine,Core Engineering
+1732,sequential logic,Core Engineering
+1733,Karnaugh map,Core Engineering
+1734,decoder,Core Engineering
+1735,memory cell,Core Engineering
+1736,DRAM,Core Engineering
+1737,ROM,Core Engineering
+1738,setup time,Core Engineering
+1739,clock skew,Core Engineering
+1740,timing closure,Core Engineering
+1741,place and route,Core Engineering
+1742,testbench,Core Engineering
+1743,structural engineering,Core Engineering
+1744,prestressed concrete,Core Engineering
+1745,dead load,Core Engineering
+1746,live load,Core Engineering
+1747,seismic load,Core Engineering
+1748,pile foundation,Core Engineering
+1749,soil mechanics,Core Engineering
+1750,settlement,Core Engineering
+1751,geotechnical engineering,Core Engineering
+1752,total station,Core Engineering
+1753,GIS,Core Engineering
+1754,transportation engineering,Core Engineering
+1755,traffic flow,Core Engineering
+1756,hydraulics,Core Engineering
+1757,open channel flow,Core Engineering
+1758,wastewater treatment,Core Engineering
+1759,construction management,Core Engineering
+1760,critical path method,Core Engineering
+1761,bill of quantities,Core Engineering
+1762,Revit,Core Engineering
+1763,STAAD Pro,Core Engineering
+1764,ETABS,Core Engineering
+1765,mass transfer,Core Engineering
+1766,absorption,Core Engineering
+1767,reaction kinetics,Core Engineering
+1768,reactor design,Core Engineering
+1769,continuous stirred tank reactor,Core Engineering
+1770,piping and instrumentation diagram,Core Engineering
+1771,material balance,Core Engineering
+1772,catalyst,Core Engineering
+1773,biomedical engineering,Core Engineering
+1774,aerodynamics,Core Engineering
+1775,orbital mechanics,Core Engineering
+1776,PID controller,Core Engineering
+1777,feedback loop,Core Engineering
+1778,closed loop,Core Engineering
+1779,gain margin,Core Engineering
+1780,root locus,Core Engineering
+1781,Nyquist plot,Core Engineering
+1782,Kalman filter,Core Engineering
+1783,system identification,Core Engineering
+1784,Ohm's law,Core Engineering
+1785,strain,Core Engineering
+1786,product manager,"Business, Product and Management Roles"
+1787,scrum master,"Business, Product and Management Roles"
+1788,data analyst,"Business, Product and Management Roles"
+1789,data scientist,"Business, Product and Management Roles"
+1790,machine learning engineer,"Business, Product and Management Roles"
+1791,software engineer,"Business, Product and Management Roles"
+1792,backend engineer,"Business, Product and Management Roles"
+1793,full stack engineer,"Business, Product and Management Roles"
+1794,site reliability engineer,"Business, Product and Management Roles"
+1795,test automation engineer,"Business, Product and Management Roles"
+1796,solutions architect,"Business, Product and Management Roles"
+1797,engineering manager,"Business, Product and Management Roles"
+1798,technical lead,"Business, Product and Management Roles"
+1799,principal engineer,"Business, Product and Management Roles"
+1800,chief executive officer,"Business, Product and Management Roles"
+1801,chief operating officer,"Business, Product and Management Roles"
+1802,chief product officer,"Business, Product and Management Roles"
+1803,chief information security officer,"Business, Product and Management Roles"
+1804,program manager,"Business, Product and Management Roles"
+1805,delivery manager,"Business, Product and Management Roles"
+1806,UX designer,"Business, Product and Management Roles"
+1807,UI designer,"Business, Product and Management Roles"
+1808,user researcher,"Business, Product and Management Roles"
+1809,developer advocate,"Business, Product and Management Roles"
+1810,account executive,"Business, Product and Management Roles"
+1811,sales development representative,"Business, Product and Management Roles"
+1812,pre-sales consultant,"Business, Product and Management Roles"
+1813,implementation consultant,"Business, Product and Management Roles"
+1814,technical account manager,"Business, Product and Management Roles"
+1815,operations manager,"Business, Product and Management Roles"
+1816,procurement manager,"Business, Product and Management Roles"
+1817,financial analyst,"Business, Product and Management Roles"
+1818,venture capitalist,"Business, Product and Management Roles"
+1819,auditor,"Business, Product and Management Roles"
+1820,accountant,"Business, Product and Management Roles"
+1821,compliance officer,"Business, Product and Management Roles"
+1822,legal counsel,"Business, Product and Management Roles"
+1823,talent acquisition specialist,"Business, Product and Management Roles"
+1824,recruiter,"Business, Product and Management Roles"
+1825,learning and development,"Business, Product and Management Roles"
+1826,training and placement cell,"Business, Product and Management Roles"
+1827,hiring manager,"Business, Product and Management Roles"
+1828,interview panel,"Business, Product and Management Roles"
+1829,mock interview,"Business, Product and Management Roles"
+1830,technical interview round,"Business, Product and Management Roles"
+1831,case interview,"Business, Product and Management Roles"
+1832,aptitude test,"Business, Product and Management Roles"
+1833,psychometric test,"Business, Product and Management Roles"
+1834,resume screening,"Business, Product and Management Roles"
+1835,offer letter,"Business, Product and Management Roles"
+1836,probation period,"Business, Product and Management Roles"
+1837,360 feedback,"Business, Product and Management Roles"
+1838,key result area,"Business, Product and Management Roles"
+1839,attrition rate,"Business, Product and Management Roles"
+1840,retention,"Business, Product and Management Roles"
+1841,organizational structure,"Business, Product and Management Roles"
+1842,matrix organization,"Business, Product and Management Roles"
+1843,cross-functional team,"Business, Product and Management Roles"
+1844,stakeholder management,"Business, Product and Management Roles"
+1845,business requirements document,"Business, Product and Management Roles"
+1846,software requirements specification,"Business, Product and Management Roles"
+1847,functional requirement,"Business, Product and Management Roles"
+1848,user persona,"Business, Product and Management Roles"
+1849,jobs to be done,"Business, Product and Management Roles"
+1850,product-market fit,"Business, Product and Management Roles"
+1851,go-to-market strategy,"Business, Product and Management Roles"
+1852,product backlog grooming,"Business, Product and Management Roles"
+1853,MoSCoW method,"Business, Product and Management Roles"
+1854,Kano model,"Business, Product and Management Roles"
+1855,impact effort matrix,"Business, Product and Management Roles"
+1856,opportunity cost,"Business, Product and Management Roles"
+1857,cost-benefit analysis,"Business, Product and Management Roles"
+1858,business case,"Business, Product and Management Roles"
+1859,net present value,"Business, Product and Management Roles"
+1860,internal rate of return,"Business, Product and Management Roles"
+1861,break-even point,"Business, Product and Management Roles"
+1862,unit economics,"Business, Product and Management Roles"
+1863,customer lifetime value,"Business, Product and Management Roles"
+1864,monthly recurring revenue,"Business, Product and Management Roles"
+1865,annual recurring revenue,"Business, Product and Management Roles"
+1866,gross margin,"Business, Product and Management Roles"
+1867,burn rate,"Business, Product and Management Roles"
+1868,revenue run rate,"Business, Product and Management Roles"
+1869,gross merchandise value,"Business, Product and Management Roles"
+1870,churn rate,"Business, Product and Management Roles"
+1871,activation rate,"Business, Product and Management Roles"
+1872,monthly active users,"Business, Product and Management Roles"
+1873,net promoter score,"Business, Product and Management Roles"
+1874,customer effort score,"Business, Product and Management Roles"
+1875,service level,"Business, Product and Management Roles"
+1876,objectives and key results,"Business, Product and Management Roles"
+1877,North Star metric,"Business, Product and Management Roles"
+1878,vanity metric,"Business, Product and Management Roles"
+1879,lagging indicator,"Business, Product and Management Roles"
+1880,funnel optimization,"Business, Product and Management Roles"
+1881,network effect,"Business, Product and Management Roles"
+1882,platform business,"Business, Product and Management Roles"
+1883,subscription model,"Business, Product and Management Roles"
+1884,usage-based pricing,"Business, Product and Management Roles"
+1885,value-based pricing,"Business, Product and Management Roles"
+1886,business model canvas,"Business, Product and Management Roles"
+1887,lean canvas,"Business, Product and Management Roles"
+1888,PESTLE analysis,"Business, Product and Management Roles"
+1889,BCG matrix,"Business, Product and Management Roles"
+1890,competitive analysis,"Business, Product and Management Roles"
+1891,market sizing,"Business, Product and Management Roles"
+1892,social media marketing,"Business, Product and Management Roles"
+1893,pay per click,"Business, Product and Management Roles"
+1894,cost per mille,"Business, Product and Management Roles"
+1895,click-through rate,"Business, Product and Management Roles"
+1896,return on ad spend,"Business, Product and Management Roles"
+1897,sales qualified lead,"Business, Product and Management Roles"
+1898,sales pipeline,"Business, Product and Management Roles"
+1899,cold outreach,"Business, Product and Management Roles"
+1900,customer relationship management,"Business, Product and Management Roles"
+1901,HubSpot,"Business, Product and Management Roles"
+1902,Jira,"Business, Product and Management Roles"
+1903,Trello,"Business, Product and Management Roles"
+1904,Asana,"Business, Product and Management Roles"
+1905,Slack,"Business, Product and Management Roles"
+1906,Zoom,"Business, Product and Management Roles"
+1907,Microsoft 365,"Business, Product and Management Roles"
+1908,PowerPoint,"Business, Product and Management Roles"
+1909,Gantt chart,"Business, Product and Management Roles"
+1910,project charter,"Business, Product and Management Roles"
+1911,milestone,"Business, Product and Management Roles"
+1912,dependency mapping,"Business, Product and Management Roles"
+1913,critical path,"Business, Product and Management Roles"
+1914,risk register,"Business, Product and Management Roles"
+1915,contingency plan,"Business, Product and Management Roles"
+1916,change request,"Business, Product and Management Roles"
+1917,service desk,"Business, Product and Management Roles"
+1918,ITIL,"Business, Product and Management Roles"
+1919,vendor management,"Business, Product and Management Roles"
+1920,statement of work,"Business, Product and Management Roles"
+1921,non-disclosure agreement,"Business, Product and Management Roles"
+1922,intellectual property,"Business, Product and Management Roles"
+1923,trademark,"Business, Product and Management Roles"
+1924,trade secret,"Business, Product and Management Roles"
+1925,term sheet,"Business, Product and Management Roles"
+1926,seed funding,"Business, Product and Management Roles"
+1927,bridge round,"Business, Product and Management Roles"
+1928,SAFE note,"Business, Product and Management Roles"
+1929,equity dilution,"Business, Product and Management Roles"
+1930,employee stock option,"Business, Product and Management Roles"
+1931,valuation,"Business, Product and Management Roles"
+1932,post-money valuation,"Business, Product and Management Roles"
+1933,pitch deck,"Business, Product and Management Roles"
+1934,demo day,"Business, Product and Management Roles"
+1935,accelerator,"Business, Product and Management Roles"
+1936,startup,"Business, Product and Management Roles"
+1937,bootstrapping,"Business, Product and Management Roles"
+1938,scaling,"Business, Product and Management Roles"
+1939,acquisition,"Business, Product and Management Roles"
+1940,merger,"Business, Product and Management Roles"
+1941,profit and loss statement,"Business, Product and Management Roles"
+1942,cash flow statement,"Business, Product and Management Roles"
+1943,working capital,"Business, Product and Management Roles"
+1944,accounts receivable,"Business, Product and Management Roles"
+1945,depreciation,"Business, Product and Management Roles"
+1946,capital expenditure,"Business, Product and Management Roles"
+1947,budgeting,"Business, Product and Management Roles"
+1948,variance analysis,"Business, Product and Management Roles"
+1949,fiscal year,"Business, Product and Management Roles"
+1950,year-over-year growth,"Business, Product and Management Roles"
+1951,gross profit,"Business, Product and Management Roles"
+1952,operating margin,"Business, Product and Management Roles"
+1953,return on equity,"Business, Product and Management Roles"
+1954,debt to equity ratio,"Business, Product and Management Roles"
+1955,inventory turnover,"Business, Product and Management Roles"
+1956,supply chain,"Business, Product and Management Roles"
+1957,warehouse management,"Business, Product and Management Roles"
+1958,inventory management,"Business, Product and Management Roles"
+1959,procurement,"Business, Product and Management Roles"
+1960,just-in-time inventory,"Business, Product and Management Roles"
+1961,economic order quantity,"Business, Product and Management Roles"
+1962,service-level agreement penalty,"Business, Product and Management Roles"
+1963,environmental social governance,"Business, Product and Management Roles"
+1964,diversity equity and inclusion,"Business, Product and Management Roles"
+1965,unconscious bias,"Business, Product and Management Roles"
+1966,language bias,"Business, Product and Management Roles"
+1967,fair hiring,"Business, Product and Management Roles"
+1968,interview rubric,"Business, Product and Management Roles"
+1969,calibration session,"Business, Product and Management Roles"
+1970,candidate experience,"Business, Product and Management Roles"
+1971,candidate feedback,"Business, Product and Management Roles"
+1972,competency framework,"Business, Product and Management Roles"
+1973,employability skills,"Business, Product and Management Roles"
+1974,communication skills,"Business, Product and Management Roles"
+1975,presentation skills,"Business, Product and Management Roles"
+1976,storytelling,"Business, Product and Management Roles"
+1977,conflict resolution,"Business, Product and Management Roles"
+1978,critical thinking,"Business, Product and Management Roles"
+1979,emotional intelligence,"Business, Product and Management Roles"
+1980,leadership,"Business, Product and Management Roles"
+1981,coaching,"Business, Product and Management Roles"
+1982,reskilling,"Business, Product and Management Roles"
+1983,job description,"Business, Product and Management Roles"
+1984,job family,"Business, Product and Management Roles"
+1985,cost per hire,"Business, Product and Management Roles"
+1986,offer acceptance rate,"Business, Product and Management Roles"
+1987,placement rate,"Business, Product and Management Roles"
+1988,edtech,"Business, Product and Management Roles"
+1989,HR tech,"Business, Product and Management Roles"
+1990,AI interviewer,"Business, Product and Management Roles"
+1991,assessment platform,"Business, Product and Management Roles"
+1992,skills passport,"Business, Product and Management Roles"
+1993,credential verification,"Business, Product and Management Roles"
+1994,digital badge,"Business, Product and Management Roles"
+1995,proof of skill,"Business, Product and Management Roles"
+1996,key performance indicator,"Business, Product and Management Roles"
+1997,return on investment,"Business, Product and Management Roles"
+1998,product roadmap,"Business, Product and Management Roles"
+1999,stakeholder,"Business, Product and Management Roles"
+2000,business analyst,"Business, Product and Management Roles"

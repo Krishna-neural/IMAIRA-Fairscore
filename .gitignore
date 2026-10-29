@@ -1,5 +1,6 @@
 .env
 config.local.yaml
+data/
 .cache/
 .pytest_cache/
 *.sqlite
@@ -10,3 +11,7 @@ config.local.yaml
 *.flac
 __pycache__/
 .ipynb_checkpoints/
+transcripts_cache/
+test_output.json
+*.exe
+asr/baseline_profile_*.json
