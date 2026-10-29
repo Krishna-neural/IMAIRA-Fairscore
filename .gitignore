@@ -1,8 +1,6 @@
 .env
 config.local.yaml
-data/*
-!data/glossary.csv
-!data/glossary.txt
+data/
 *.wav
 *.mp3
 *.m4a
