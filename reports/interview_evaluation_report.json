@@ -1,85 +1,106 @@
 [
   {
-    "filename": "test_voice_v3.wav",
-    "audio_duration_sec": 40.59,
-    "total_latency_sec": 11.8,
+    "filename": "test_voice (wrong v2).wav",
+    "audio_duration_sec": 8.41,
+    "total_latency_sec": 10.82,
+    "model_used": "gemini-3.5-flash-lite",
     "matched_question": {
-      "question_id": "Q084",
-      "prompt": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
-      "domain": "Databases & OS",
-      "match_confidence": 0.389
+      "question_id": "Q032",
+      "prompt": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+      "domain": "Algorithms",
+      "match_confidence": 0.8379710144927536
     },
     "transcripts": {
-      "raw_spoken": "A process is a running program with its own memory space. So one process cannot directly change another process's data. A thread is a unit of execution inside a process and all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes. The risk is that shared memory can cause a risk condition. So we protect it with a mutex or a semaphore. For example, a web browser can run each tab as a separate process for isolation while one tab uses several threads for rendering and network calls.",
-      "corrected": "A process is a running program with its own memory space. So process cannot directly change another process's data. A thread is a unit of execution inside a process all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes. The risk is that shared memory can cause a risk condition. So we protect it with a mutex or a semaphore. For example, a web browser can run each tab as a separate process for isolation while one tab uses several threads for rendering and network calls."
+      "raw_spoken": "a hash map never has collisions because the hash function always gives a unique index for every key",
+      "corrected": "a hash map never has collisions because the hash function always gives a unique index for every key"
     },
     "scores": {
-      "content_completeness": 3.67,
-      "content_correctness": 5.0,
-      "raw_content": 3.7,
-      "calibrated_content": 2.97,
-      "answer_structure": 4.1,
-      "calibrated_structure": 4.37,
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.0,
+      "calibrated_structure": 1.49,
       "structure_subcomponents": {
-        "framing": 4.5,
-        "coherence": 4.5,
-        "closure": 3.0
+        "framing": 0.0,
+        "coherence": 0.0,
+        "closure": 0.0
       },
-      "overall_fairscore": 3.53
+      "overall_fairscore": 1.54
     },
-    "where_got_wrong": [],
+    "where_got_wrong": [
+      {
+        "concept": "Hash Collisions",
+        "severity": "CRITICAL",
+        "error": "The candidate stated that hash maps never experience collisions. In reality, due to the pigeonhole principle, any hash function mapping a large keyspace to a smaller array index space will produce collisions, which must be handled explicitly.",
+        "candidate_quote": "a hash map never has collisions because the hash function always gives a unique index for every key"
+      }
+    ],
     "rubric_idea_breakdown": [
       {
-        "idea_id": "Q084_IDEA_1",
-        "criterion": "A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.",
-        "verdict": "DEMONSTRATED",
-        "points_awarded": 1.0,
-        "evidence_quote": "a process is a running program with its own memory",
-        "timestamp": "0.52s - 3.52s"
+        "idea_id": "Q032_IDEA_1",
+        "criterion": "Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate incorrectly claimed that a hash map never has collisions due to a unique index for every key, failing to mention collision resolution mechanisms like chaining or open addressing.",
+        "timestamp": "Not Found"
       },
       {
-        "idea_id": "Q084_IDEA_2",
-        "criterion": "Threads are lightweight execution units within a process sharing the same address space, code segment, and heap, but retaining independent stacks and registers.",
-        "verdict": "PARTIALLY_DEMONSTRATED",
-        "points_awarded": 0.5,
-        "evidence_quote": "a process is a running program",
-        "timestamp": "0.52s - 2.48s"
+        "idea_id": "Q032_IDEA_2",
+        "criterion": "Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate made no mention of the load factor, its formula (N / C), or its role in indicating table density.",
+        "timestamp": "Not Found"
       },
       {
-        "idea_id": "Q084_IDEA_3",
-        "criterion": "IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.",
-        "verdict": "PARTIALLY_DEMONSTRATED",
-        "points_awarded": 0.5,
-        "evidence_quote": "a process is a running program",
-        "timestamp": "0.52s - 2.48s"
+        "idea_id": "Q032_IDEA_3",
+        "criterion": "Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate did not mention resizing, rehashing, or load factor thresholds.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Incorrectly claimed that hash maps do not have collisions.",
+        "evidence_quote": "a hash map never has collisions because the hash function always gives a unique index for every key",
+        "timestamp": "0.00s - 7.32s",
+        "why_it_matters": "Collisions are inevitable in hash maps when distinct keys hash to the same index, requiring specific resolution strategies.",
+        "improvement_action": "Explain how separate chaining or open addressing handles multiple keys mapping to the same bucket.",
+        "example_sentence": "Hash collisions happen when two different keys generate the same hash value, so we use chaining or probing to resolve them."
+      },
+      {
+        "priority": 2,
+        "issue": "Omitted any explanation of the load factor.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "The load factor measures how full the hash table is and dictates when resizing is required to preserve O(1) performance.",
+        "improvement_action": "Define the load factor as the ratio of stored elements to total capacity.",
+        "example_sentence": "The load factor is the ratio of elements to buckets, indicating when the table needs to grow."
+      },
+      {
+        "priority": 3,
+        "issue": "Omitted the process of resizing and rehashing.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Resizing maintains efficient operations by preventing excessive collisions as the table fills up.",
+        "improvement_action": "Describe how exceeding the maximum load factor triggers array expansion and rehashing.",
+        "example_sentence": "When the load factor exceeds the threshold, we resize the array and rehash all entries."
       }
     ],
     "corrections_made": [
       {
-        "timestamp": "4.66s - 5.28s",
-        "original_spoken": "one process",
-        "corrected_term": "process",
-        "recheck_conf": 0.92,
-        "reason": "audio_supported"
-      },
-      {
-        "timestamp": "10.70s - 11.32s",
-        "original_spoken": "process and",
-        "corrected_term": "process",
-        "recheck_conf": 0.92,
-        "reason": "audio_supported"
-      },
-      {
-        "timestamp": "28.60s - 29.02s",
-        "original_spoken": "mutex",
-        "corrected_term": "mutex",
+        "timestamp": "0.96s - 1.54s",
+        "original_spoken": "hash map",
+        "corrected_term": "hash map",
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ],
-    "is_uncertain": true,
-    "uncertainty_reasons": [
-      "Over 50% of rubric ideas are marked partially demonstrated (2/3)"
     ]
   }
 ]

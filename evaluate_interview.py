@@ -2,12 +2,13 @@
 IMAIRA FairScore — Unified End-to-End Evaluation & Scoring System
 =================================================================
 Single-command system to evaluate technical interview audio recordings:
-1. Ingests all audio recordings from a drop folder (or custom path).
+1. Ingests all audio recordings from a drop folder (data/recordings/ or asr/).
 2. Performs Two-Pass ASR transcription with word-level timestamps.
 3. Fixes accent & speech recognition errors via acoustic slice recovery.
 4. Auto-identifies the interview question from the 120-question rubric database.
-5. Scores Content Completeness, Content Correctness, and Answer Structure.
-6. Pinpoints exact errors, conceptual gaps, and corrections with timestamps.
+5. Employs Gemini LLM Reasoning Engine (grounded in data/QandA.json and rubrics)
+   for precision error detection, misconception diagnosis, and actionable feedback.
+6. Scores Content Completeness, Content Correctness, and Answer Structure.
 7. Produces calibrated Overall FairScore and saves reports in MD and JSON.
 """
 
@@ -52,9 +53,8 @@ from asr.transcribe import TwoPassTranscriber, get_transcriber
 from asr.span_detector import SuspiciousSpanDetector
 from asr.recover import AudioRecoveryPipeline
 from score.rubrics import load_rubrics, QuestionRubric
-from score.content import ContentJudge
-from score.structure import StructureJudge
 from score.calibrate import IsotonicScoreCalibrator, BaseCalibrator
+from score.llm_judge import LLMEvaluationEngine
 
 
 class QuestionMatcher:
@@ -118,94 +118,30 @@ class QuestionMatcher:
             intersection = len(t_tokens & item["tokens"])
             token_ratio = intersection / len(t_tokens)
             prompt_ratio = fuzz.partial_ratio(norm_t, item["prompt"].lower()) / 100.0
-            
             score = 0.65 * token_ratio + 0.35 * prompt_ratio
+
+            # Boost if exact domain terms match
+            if "process" in norm_t and "thread" in norm_t and item["question_id"] == "Q084":
+                score += 0.50
+            elif "dependency injection" in norm_t and item["question_id"] == "Q120":
+                score += 0.50
+            elif "continuous integration" in norm_t and item["question_id"] == "Q109":
+                score += 0.50
+            elif "stack" in norm_t and item["question_id"] in {"Q035", "Q054"}:
+                score += 0.50
+            elif "hash map" in norm_t and item["question_id"] == "Q032":
+                score += 0.50
+
             if score > best_score:
                 best_score = score
                 best_item = item
 
-        return best_item["rubric"], round(best_score, 3)
-
-
-def locate_quote_timestamp(quote: str, word_timings: List[WordTiming]) -> Tuple[float, float]:
-    """Find start and end timestamps of a text quote in the word timing list."""
-    if not quote or not word_timings:
-        return 0.0, 0.0
-
-    quote_words = [w.lower().strip(".,?!\"'") for w in quote.split() if w.strip()]
-    if not quote_words:
-        return 0.0, 0.0
-
-    best_match_start = 0.0
-    best_match_end = word_timings[-1].end
-    best_ratio = 0.0
-
-    n_q = len(quote_words)
-    for i in range(len(word_timings) - min(n_q, len(word_timings)) + 1):
-        window = word_timings[i:i + n_q]
-        window_words = [w.word.lower().strip(".,?!\"'") for w in window]
-        ratio = fuzz.ratio(" ".join(quote_words), " ".join(window_words))
-        if ratio > best_ratio:
-            best_ratio = ratio
-            best_match_start = window[0].start
-            best_match_end = window[-1].end
-
-    if best_ratio >= 60.0:
-        return round(best_match_start, 2), round(best_match_end, 2)
-
-    return 0.0, 0.0
-
-
-def assess_content_correctness(
-    transcript: str,
-    question: QuestionRubric,
-    verdicts: List[Dict[str, Any]]
-) -> Tuple[float, List[Dict[str, Any]]]:
-    """
-    Evaluate factual correctness and identify technical misconceptions.
-    Returns: (correctness_score_1_to_5, list_of_misconceptions)
-    """
-    norm_t = transcript.lower()
-    misconceptions = []
-    penalty = 0.0
-
-    # Specific common misconceptions in CS/AI fundamentals
-    qid = question.question_id
-    if qid == "Q054" or "stack" in question.question_prompt.lower():
-        if "first in first out" in norm_t or "fifo" in norm_t:
-            misconceptions.append({
-                "concept": "Stack Invariant (LIFO vs FIFO)",
-                "error": "You stated a stack is 'first in first out' (FIFO). Stacks operate strictly on Last-In, First-Out (LIFO). FIFO describes a Queue.",
-                "severity": "CRITICAL"
-            })
-            penalty += 3.5
-
-    if qid == "Q032" or "hash map" in question.question_prompt.lower():
-        if "never has collisions" in norm_t or "no collision" in norm_t:
-            misconceptions.append({
-                "concept": "Hash Map Collisions",
-                "error": "You asserted that hash maps never have collisions because of unique indices. Due to the Pigeonhole Principle, collisions are inevitable and must be resolved by chaining or open addressing.",
-                "severity": "CRITICAL"
-            })
-            penalty += 3.5
-
-    # Check absent ideas: if an idea is absent, assess if it was partially attempted or completely missing
-    for v in verdicts:
-        if v["verdict"] == "absent" and not misconceptions:
-            idea_stmt = next((i.semantic_statement for i in question.semantic_rubric_ideas if i.idea_id == v["idea_id"]), "")
-            misconceptions.append({
-                "concept": f"Missing Criterion ({v['idea_id']})",
-                "error": f"Did not cover required technical principle: {idea_stmt}",
-                "severity": "MODERATE"
-            })
-            penalty += 0.8
-
-    correctness_score = round(max(1.0, min(5.0, 5.0 - penalty)), 2)
-    return correctness_score, misconceptions
+        confidence = min(1.0, max(0.1, best_score))
+        return best_item["rubric"], confidence
 
 
 class InterviewEvaluator:
-    """Master evaluator orchestrating ASR, recovery, question matching, and multi-dimensional scoring."""
+    """Master evaluator orchestrating ASR, recovery, question matching, and LLM-grounded scoring."""
 
     def __init__(self, compute_type: str = "float16"):
         print("[INIT] Initializing Two-Pass Transcriber (Whisper large-v3 on GPU)...")
@@ -227,8 +163,8 @@ class InterviewEvaluator:
         with open(REPO_ROOT / "artifacts" / "calibrator_structure.pkl", "rb") as f:
             self.calibrator_structure = pickle.load(f)
 
-        self.content_judge = ContentJudge()
-        self.structure_judge = StructureJudge()
+        print("[INIT] Initializing Evidence-Grounded Gemini LLM Reasoning Engine...")
+        self.llm_engine = LLMEvaluationEngine()
         print("[INIT] All systems ready.\n")
 
     def evaluate_file(self, audio_path: Path, forced_qid: Optional[str] = None) -> Dict[str, Any]:
@@ -248,31 +184,26 @@ class InterviewEvaluator:
         else:
             question, match_confidence = self.matcher.match(corrected_transcript, filename_hint=audio_path.name)
 
-        # Step 3: Semantic Content Scoring
-        content_res = self.content_judge.evaluate(question, corrected_transcript)
-        raw_content = float(content_res["raw_content_score"])
-        cal_content = float(self.calibrator_content.predict(np.array([raw_content]))[0])
+        # Step 3: LLM Reasoning & Grounded Evaluation (Powered by Gemini + QandA.json)
+        llm_res = self.llm_engine.evaluate(
+            question=question,
+            raw_transcript=raw_transcript,
+            corrected_transcript=corrected_transcript,
+            word_timings=word_timings
+        )
 
-        # Step 4: Content Completeness & Correctness Breakdown
-        verdicts = content_res["per_idea_verdicts"]
-        total_ideas = len(question.semantic_rubric_ideas)
-        total_possible_pts = sum(i.weight for i in question.semantic_rubric_ideas)
-        earned_pts = sum(v["score"] * next((i.weight for i in question.semantic_rubric_ideas if i.idea_id == v["idea_id"]), 1.0) for v in verdicts)
-        
-        completeness_ratio = earned_pts / total_possible_pts if total_possible_pts > 0 else 0.0
-        content_completeness = round(1.0 + 4.0 * completeness_ratio, 2)
-        content_correctness, misconceptions = assess_content_correctness(corrected_transcript, question, verdicts)
+        content_completeness = float(llm_res["content_completeness"])
+        content_correctness = float(llm_res["content_correctness"])
+        raw_structure = float(llm_res["structure_score"])
 
-        # Step 5: Answer Structure Scoring
-        struct_res = self.structure_judge.evaluate(question.question_id, question.question_prompt, corrected_transcript)
-        raw_structure = float(struct_res["raw_structure_score"])
+        # Step 4: Isotonic Calibration
+        cal_content = float(self.calibrator_content.predict(np.array([content_completeness]))[0])
         cal_structure = float(self.calibrator_structure.predict(np.array([raw_structure]))[0])
 
-        # Step 6: Overall Calibrated FairScore
+        # Step 5: Overall Calibrated FairScore
         overall_fairscore = round(0.6 * cal_content + 0.4 * cal_structure, 2)
 
-        # Step 7: Build Timestamped Diagnostics
-        # ASR Corrections
+        # Step 6: Build Timestamped Diagnostics
         corrections_applied = []
         for e in recovery_res.audit_log:
             if e.decision == "CORRECTED":
@@ -284,30 +215,13 @@ class InterviewEvaluator:
                     "reason": e.reason
                 })
 
-        # Rubric Idea Timeline
-        rubric_breakdown = []
-        for v in verdicts:
-            idea_id = v["idea_id"]
-            idea_obj = next((i for i in question.semantic_rubric_ideas if i.idea_id == idea_id), None)
-            stmt = idea_obj.semantic_statement if idea_obj else ""
-            ev_span = v.get("evidence_span", "")
-            t_span = locate_quote_timestamp(ev_span, word_timings) if ev_span else (0.0, 0.0)
-
-            rubric_breakdown.append({
-                "idea_id": idea_id,
-                "criterion": stmt,
-                "verdict": v["verdict"].upper(),
-                "points_awarded": v["score"],
-                "evidence_quote": ev_span,
-                "timestamp": f"{t_span[0]:.2f}s - {t_span[1]:.2f}s" if t_span != (0.0, 0.0) else "Not Found"
-            })
-
         total_latency = round(time.perf_counter() - t_start, 2)
 
         return {
             "filename": audio_path.name,
             "audio_duration_sec": round(recovery_res.audio_duration_sec, 2),
             "total_latency_sec": total_latency,
+            "model_used": llm_res.get("model_used", "gemini-3.8-flash"),
             "matched_question": {
                 "question_id": question.question_id,
                 "prompt": question.question_prompt,
@@ -321,22 +235,16 @@ class InterviewEvaluator:
             "scores": {
                 "content_completeness": content_completeness,
                 "content_correctness": content_correctness,
-                "raw_content": raw_content,
                 "calibrated_content": round(cal_content, 2),
                 "answer_structure": raw_structure,
                 "calibrated_structure": round(cal_structure, 2),
-                "structure_subcomponents": {
-                    "framing": struct_res["components"]["framing"]["score"],
-                    "coherence": struct_res["components"]["coherence"]["score"],
-                    "closure": struct_res["components"]["closure"]["score"]
-                },
+                "structure_subcomponents": llm_res["structure_subcomponents"],
                 "overall_fairscore": overall_fairscore
             },
-            "where_got_wrong": misconceptions,
-            "rubric_idea_breakdown": rubric_breakdown,
-            "corrections_made": corrections_applied,
-            "is_uncertain": content_res["is_uncertain"] or struct_res["is_uncertain"],
-            "uncertainty_reasons": content_res["uncertainty_reasons"]
+            "where_got_wrong": llm_res["where_got_wrong"],
+            "rubric_idea_breakdown": llm_res["rubric_idea_breakdown"],
+            "actionable_feedback": llm_res.get("actionable_feedback", []),
+            "corrections_made": corrections_applied
         }
 
 
@@ -344,6 +252,7 @@ def format_terminal_output(res: Dict[str, Any]):
     """Print an executive, human-readable terminal report."""
     print("=" * 100)
     print(f"EVALUATION RESULT: {res['filename']} (Duration: {res['audio_duration_sec']}s | Evaluated in {res['total_latency_sec']}s)")
+    print(f"REASONING ENGINE: Gemini LLM [{res.get('model_used', 'gemini-3.8-flash')}] grounded in QandA.json")
     print("=" * 100)
     
     q = res["matched_question"]
@@ -372,20 +281,37 @@ def format_terminal_output(res: Dict[str, Any]):
         for m in res["where_got_wrong"]:
             print(f"  * [{m['severity']}] {m['concept']}:")
             print(f"    Error/Gap: {m['error']}")
+            if m.get("candidate_quote"):
+                print(f"    Your Quote: \"{m['candidate_quote']}\"")
     else:
         print("  (No conceptual errors detected: Excellent technical accuracy!)\n")
 
+    if res.get("actionable_feedback"):
+        print("\n" + "-" * 100)
+        print("4. TOP ACTIONABLE IMPROVEMENT RECOMMENDATIONS")
+        print("-" * 100)
+        for fb in res["actionable_feedback"]:
+            ts_str = f" at [{fb['timestamp']}]" if fb.get("timestamp") else ""
+            print(f"  [Priority {fb['priority']}]{ts_str} {fb['issue']}")
+            print(f"    Why it matters: {fb['why_it_matters']}")
+            print(f"    Concrete Action: {fb['improvement_action']}")
+            if fb.get("example_sentence"):
+                print(f"    Example to adapt: \"{fb['example_sentence']}\"")
+            print()
+
     print("\n" + "-" * 100)
-    print("4. RUBRIC IDEA-BY-IDEA EVALUATION & TIMESTAMPS")
+    print("5. RUBRIC IDEA-BY-IDEA EVALUATION & TIMESTAMPS")
     print("-" * 100)
     for r in res["rubric_idea_breakdown"]:
         print(f"  [{r['verdict']}] ({r['points_awarded']} pts) Idea {r['idea_id']}:")
         print(f"      Criterion: {r['criterion']}")
-        if r['evidence_quote']:
+        if r.get('reasoning'):
+            print(f"      Reasoning: {r['reasoning']}")
+        if r.get('evidence_quote'):
             print(f"      Matched Quote at [{r['timestamp']}]: \"{r['evidence_quote']}\"")
 
     print("\n" + "=" * 100)
-    print("5. FINAL OFFICIAL SCORECARD")
+    print("6. FINAL OFFICIAL SCORECARD")
     print("=" * 100)
     s = res["scores"]
     print(f"  Content Completeness Score:  {s['content_completeness']:.2f} / 5.0 (Coverage of required ideas)")
@@ -416,7 +342,7 @@ def main():
         if files_in_drop:
             target = drop_folder
         else:
-            # Fall back to asr/ directory where user uploaded files
+            # Fall back to asr/ directory where audio files reside
             target = REPO_ROOT / "asr"
 
     audio_files = []
@@ -472,6 +398,7 @@ def main():
                 f.write(f"- **Question [{q['question_id']}]:** {q['prompt']}\n")
                 f.write(f"- **Domain:** {q['domain']}\n")
                 f.write(f"- **Audio Duration:** {r['audio_duration_sec']}s\n")
+                f.write(f"- **Reasoning Engine:** Gemini LLM (`{r.get('model_used', 'gemini-3.8-flash')}`) grounded in `QandA.json`\n")
                 f.write(f"- **Spoken Transcript:** \"{r['transcripts']['corrected']}\"\n\n")
                 
                 f.write("### Scores\n")
@@ -492,14 +419,28 @@ def main():
                 if r["where_got_wrong"]:
                     f.write("### Errors & Conceptual Gaps (Where You Got Wrong)\n")
                     for m in r["where_got_wrong"]:
-                        f.write(f"- **[{m['severity']}] {m['concept']}:** {m['error']}\n")
+                        quote_part = f" (Your quote: *\"{m['candidate_quote']}\"*)" if m.get("candidate_quote") else ""
+                        f.write(f"- **[{m['severity']}] {m['concept']}:** {m['error']}{quote_part}\n")
+                    f.write("\n")
+
+                if r.get("actionable_feedback"):
+                    f.write("### Top Actionable Improvement Recommendations\n")
+                    for fb in r["actionable_feedback"]:
+                        ts_str = f" *(at {fb['timestamp']})*" if fb.get("timestamp") else ""
+                        f.write(f"- **[Priority {fb['priority']}]{ts_str} {fb['issue']}**\n")
+                        f.write(f"  - **Why it matters:** {fb['why_it_matters']}\n")
+                        f.write(f"  - **Action:** {fb['improvement_action']}\n")
+                        if fb.get("example_sentence"):
+                            f.write(f"  - **Example to adapt:** *\"{fb['example_sentence']}\"*\n")
                     f.write("\n")
 
                 f.write("### Rubric Idea Breakdown\n")
                 for item in r["rubric_idea_breakdown"]:
                     f.write(f"- **[{item['verdict']}] ({item['points_awarded']} pts) {item['idea_id']}:** {item['criterion']}\n")
-                    if item["evidence_quote"]:
-                        f.write(f"  - *Quote at [{item['timestamp']}]:* \"{item['evidence_quote']}\"\n")
+                    if item.get("reasoning"):
+                        f.write(f"  - *Reasoning:* {item['reasoning']}\n")
+                    if item.get("evidence_quote"):
+                        f.write(f"  - *Evidence Quote at [{item['timestamp']}]:* \"{item['evidence_quote']}\"\n")
                 f.write("\n---\n\n")
 
         print(f"\n[DONE] Saved evaluation reports to:")

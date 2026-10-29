@@ -1,42 +1,58 @@
 # IMAIRA FairScore — Candidate Interview Evaluation Report
 
-**Date:** 2026-10-29 23:23:09
+**Date:** 2026-10-30 00:09:31
 
 ## 1. Executive Summary Table
 
 | File | Matched Question | Completeness | Correctness | Structure | **Overall FairScore** |
 |:---|:---|:---:|:---:|:---:|:---:|
-| `test_voice_v3.wav` | **Q084**: Compare a Process and a Thread, and expl... | 3.67 | 5.0 | 4.1 | **3.53 / 5.0** |
+| `test_voice (wrong v2).wav` | **Q032**: Explain how a Hash Map handles collision... | 1.0 | 1.5 | 0.0 | **1.54 / 5.0** |
 
 ---
 
-## Candidate Evaluation: `test_voice_v3.wav`
+## Candidate Evaluation: `test_voice (wrong v2).wav`
 
-- **Question [Q084]:** Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.
-- **Domain:** Databases & OS
-- **Audio Duration:** 40.59s
-- **Spoken Transcript:** "A process is a running program with its own memory space. So process cannot directly change another process's data. A thread is a unit of execution inside a process all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes. The risk is that shared memory can cause a risk condition. So we protect it with a mutex or a semaphore. For example, a web browser can run each tab as a separate process for isolation while one tab uses several threads for rendering and network calls."
+- **Question [Q032]:** Explain how a Hash Map handles collisions and the significance of the load factor.
+- **Domain:** Algorithms
+- **Audio Duration:** 8.41s
+- **Reasoning Engine:** Gemini LLM (`gemini-3.5-flash-lite`) grounded in `QandA.json`
+- **Spoken Transcript:** "a hash map never has collisions because the hash function always gives a unique index for every key"
 
 ### Scores
-- **Content Completeness Score:** 3.67 / 5.0
-- **Content Correctness Score:** 5.0 / 5.0
-- **Answer Structure Score:** 4.1 / 5.0
-- **Calibrated Content Score:** 2.97 / 5.0
-- **Calibrated Structure Score:** 4.37 / 5.0
-- **OVERALL FAIRSCORE:** **3.53 / 5.0**
+- **Content Completeness Score:** 1.0 / 5.0
+- **Content Correctness Score:** 1.5 / 5.0
+- **Answer Structure Score:** 0.0 / 5.0
+- **Calibrated Content Score:** 1.57 / 5.0
+- **Calibrated Structure Score:** 1.49 / 5.0
+- **OVERALL FAIRSCORE:** **1.54 / 5.0**
 
 ### ASR & Accent Corrections Applied
-- `[4.66s - 5.28s]` Spoken `one process` $\rightarrow$ Corrected `process`
-- `[10.70s - 11.32s]` Spoken `process and` $\rightarrow$ Corrected `process`
-- `[28.60s - 29.02s]` Spoken `mutex` $\rightarrow$ Corrected `mutex`
+- `[0.96s - 1.54s]` Spoken `hash map` $\rightarrow$ Corrected `hash map`
+
+### Errors & Conceptual Gaps (Where You Got Wrong)
+- **[CRITICAL] Hash Collisions:** The candidate stated that hash maps never experience collisions. In reality, due to the pigeonhole principle, any hash function mapping a large keyspace to a smaller array index space will produce collisions, which must be handled explicitly. (Your quote: *"a hash map never has collisions because the hash function always gives a unique index for every key"*)
+
+### Top Actionable Improvement Recommendations
+- **[Priority 1] *(at 0.00s - 7.32s)* Incorrectly claimed that hash maps do not have collisions.**
+  - **Why it matters:** Collisions are inevitable in hash maps when distinct keys hash to the same index, requiring specific resolution strategies.
+  - **Action:** Explain how separate chaining or open addressing handles multiple keys mapping to the same bucket.
+  - **Example to adapt:** *"Hash collisions happen when two different keys generate the same hash value, so we use chaining or probing to resolve them."*
+- **[Priority 2] Omitted any explanation of the load factor.**
+  - **Why it matters:** The load factor measures how full the hash table is and dictates when resizing is required to preserve O(1) performance.
+  - **Action:** Define the load factor as the ratio of stored elements to total capacity.
+  - **Example to adapt:** *"The load factor is the ratio of elements to buckets, indicating when the table needs to grow."*
+- **[Priority 3] Omitted the process of resizing and rehashing.**
+  - **Why it matters:** Resizing maintains efficient operations by preventing excessive collisions as the table fills up.
+  - **Action:** Describe how exceeding the maximum load factor triggers array expansion and rehashing.
+  - **Example to adapt:** *"When the load factor exceeds the threshold, we resize the array and rehash all entries."*
 
 ### Rubric Idea Breakdown
-- **[DEMONSTRATED] (1.0 pts) Q084_IDEA_1:** A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.
-  - *Quote at [0.52s - 3.52s]:* "a process is a running program with its own memory"
-- **[PARTIALLY_DEMONSTRATED] (0.5 pts) Q084_IDEA_2:** Threads are lightweight execution units within a process sharing the same address space, code segment, and heap, but retaining independent stacks and registers.
-  - *Quote at [0.52s - 2.48s]:* "a process is a running program"
-- **[PARTIALLY_DEMONSTRATED] (0.5 pts) Q084_IDEA_3:** IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.
-  - *Quote at [0.52s - 2.48s]:* "a process is a running program"
+- **[MISSING] (0.0 pts) Q032_IDEA_1:** Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).
+  - *Reasoning:* The candidate incorrectly claimed that a hash map never has collisions due to a unique index for every key, failing to mention collision resolution mechanisms like chaining or open addressing.
+- **[MISSING] (0.0 pts) Q032_IDEA_2:** Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.
+  - *Reasoning:* The candidate made no mention of the load factor, its formula (N / C), or its role in indicating table density.
+- **[MISSING] (0.0 pts) Q032_IDEA_3:** Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.
+  - *Reasoning:* The candidate did not mention resizing, rehashing, or load factor thresholds.
 
 ---
 
