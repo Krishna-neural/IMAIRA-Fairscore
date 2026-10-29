@@ -1,0 +1,2859 @@
+[
+  {
+    "filename": "Prem_script14.m4a",
+    "audio_duration_sec": 31.58,
+    "total_latency_sec": 13.7,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "ENG057",
+      "prompt": "How do Kubernetes Pod Disruption Budgets (PDB) and Horizontal Pod Autoscaling (HPA) interact during cluster upgrades?",
+      "domain": "Cloud Infrastructure & Containers",
+      "match_confidence": 0.3497252747252747
+    },
+    "transcripts": {
+      "raw_spoken": "Kubernetes is a container orchestration platform that runs and manages containers across a cluster of machines. The smallest unit is a pod which holds one or more containers. We declare the desired state in a deployment, and Kubernetes keeps that state by restarting failed pods, which is called self -healing. A service gives pods a stable address and balances load, and an ingress routes external traffic. The horizontal pod autoscaler can add pods when CPU usage rises.",
+      "corrected": "Kubernetes is a container orchestration platform that runs and manages containers across a cluster of machines. The smallest unit is a pod which holds one or more containers. We declare the desired state in a deployment, and Kubernetes keeps that state by restarting failed pods, which is called self -healing. A service gives pods a stable address and balances load, and an ingress routes external traffic. The Horizontal Pod Autoscaler can add pod when CPU usage rises."
+    },
+    "scores": {
+      "content_completeness": 2.0,
+      "content_correctness": 5.0,
+      "calibrated_content": 2.27,
+      "answer_structure": 0.52,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.7,
+        "coherence": 0.5,
+        "closure": 0.3
+      },
+      "overall_fairscore": 1.96
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "ENG057_IDEA_1",
+        "criterion": "Explains the operational protocols and architectural mechanics of Cloud Infrastructure & Containers.",
+        "verdict": "PARTIAL",
+        "points_awarded": 0.5,
+        "evidence_quote": "Kubernetes is a container orchestration platform that runs and manages containers across a cluster of machines.",
+        "reasoning": "The candidate explains container orchestration and basic Kubernetes concepts (pods, deployments, self-healing, services), but fails to address the specific operational protocols or mechanics of Pod Disruption Budgets and node drains during cluster upgrades.",
+        "timestamp": "0.86s - 7.64s"
+      },
+      {
+        "idea_id": "ENG057_IDEA_2",
+        "criterion": "Articulates security safeguards, reliability protections, and scalability tradeoffs in Cloud Infrastructure & Containers.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate mentions that the horizontal pod autoscaler can add pods when CPU usage rises, but does not articulate security safeguards, reliability protections like PDBs, or scalability tradeoffs during cluster upgrades as requested by the rubric.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Failed to explain Pod Disruption Budgets (PDB) and their role during node drains and cluster upgrades.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "PDBs ensure high availability by preventing too many pods from being deleted simultaneously during voluntary disruptions like cluster maintenance.",
+        "improvement_action": "Explain how PDBs specify minimum available pods and how the eviction API interacts with them during node draining.",
+        "example_sentence": "A Pod Disruption Budget ensures a minimum number of replicas remain available when nodes are drained for cluster upgrades."
+      },
+      {
+        "priority": 2,
+        "issue": "Omitted the specific interaction between HPA and PDB during scaling and upgrade events.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Understanding how autoscaling and disruption budgets work together is critical for maintaining application uptime during infrastructure changes.",
+        "improvement_action": "Describe how HPA scales out replacement pods on healthy nodes when an eviction is delayed by a PDB.",
+        "example_sentence": "When a node drain is blocked by a PDB, the HPA can spin up replacement pods on other available nodes to satisfy the budget."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.86s - 1.54s",
+        "original_spoken": "Kubernetes",
+        "corrected_term": "Kubernetes",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "26.50s - 28.28s",
+        "original_spoken": "horizontal pod autoscaler",
+        "corrected_term": "Horizontal Pod Autoscaler",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "28.98s - 29.46s",
+        "original_spoken": "pods",
+        "corrected_term": "pod",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Prem_script15.m4a",
+    "audio_duration_sec": 31.72,
+    "total_latency_sec": 11.46,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q084",
+      "prompt": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+      "domain": "Databases & OS",
+      "match_confidence": 0.2514705882352941
+    },
+    "transcripts": {
+      "raw_spoken": "Symmetric encryption uses the same secret key to encrypt and decrypt, and AES is a common example. It is fast, but the two sides must share the key securely. Asymmetric encryption uses a public key and a private key pair, and RSA is a common example. It is slower, so it is mainly used for key exchange and digital signatures. In HTTPS, TLS uses asymmetric cryptography during the handshake to agree on a session key. And this switches to symmetric encryption for the actual data.",
+      "corrected": "Symmetric encryption uses the same secret key to encrypt and decrypt, and AES is a common example. It is fast, but the two sides must share the key securely. Asymmetric encryption uses a public key and a private key pair, and RSA is a common example. It is slower, so it is mainly used for key exchange and digital signatures. In HTTPS, TLS uses asymmetric cryptography during the handshake to agree on a session key. And this switches to symmetric encryption for the actual data."
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.4,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.0,
+        "coherence": 1.0,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Process vs Thread and IPC",
+        "severity": "CRITICAL",
+        "error": "The candidate completely answered a different question entirely, discussing symmetric and asymmetric encryption (AES, RSA, TLS) instead of comparing processes and threads and explaining Inter-Process Communication (IPC) mechanisms.",
+        "candidate_quote": "Symmetric encryption uses the same secret key to encrypt and decrypt, and AES is a common example."
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q084_IDEA_1",
+        "criterion": "A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate's response discusses symmetric and asymmetric encryption instead of processes, address spaces, or process isolation.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q084_IDEA_2",
+        "criterion": "Threads are lightweight execution units within a process sharing the same address space, code segment, and heap, but retaining independent stacks and registers.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate's response discusses encryption algorithms instead of threads, shared address spaces, stacks, or registers.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q084_IDEA_3",
+        "criterion": "IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate's response mentions HTTPS and TLS handshakes rather than Inter-Process Communication mechanisms like pipes, shared memory, or message queues.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Complete off-topic answer addressing encryption instead of operating system concepts.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Answering the wrong question results in zero credit for technical knowledge regarding processes and threads.",
+        "improvement_action": "Carefully read the question prompt to ensure the core topics (Processes, Threads, IPC) are directly addressed before speaking.",
+        "example_sentence": "A process is an independent execution instance with its own virtual address space, whereas threads share the same address space within a process."
+      },
+      {
+        "priority": 2,
+        "issue": "Omission of process and thread definitions and distinctions.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Understanding process isolation and thread lightweight execution is fundamental to operating systems and database architecture.",
+        "improvement_action": "Review OS fundamentals regarding process memory descriptors, context switching overhead, and thread stack sharing.",
+        "example_sentence": "Threads share the process heap and code segments but maintain separate stacks and CPU registers for independent execution."
+      },
+      {
+        "priority": 3,
+        "issue": "Omission of Inter-Process Communication (IPC) mechanisms.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Processes need structured IPC mechanisms like pipes, shared memory, and message queues to exchange data safely across isolated address spaces.",
+        "improvement_action": "Study common IPC mechanisms and their use cases, such as shared memory for high-throughput or pipes for simple data streams.",
+        "example_sentence": "Processes communicate across isolated address spaces using mechanisms such as pipes, message queues, and shared memory segments."
+      }
+    ],
+    "corrections_made": []
+  },
+  {
+    "filename": "Prem_script16.m4a",
+    "audio_duration_sec": 26.56,
+    "total_latency_sec": 11.75,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "ENG049",
+      "prompt": "When should you use Non-Parametric Bootstrap Resampling instead of Student's t-distribution for computing confidence intervals?",
+      "domain": "Statistics & Probability",
+      "match_confidence": 0.34365816585036313
+    },
+    "transcripts": {
+      "raw_spoken": "a p -value is the probability of seeing data at least as extreme as what we observe assuming the null hypothesis is true if the p -value is below a chosen significance level often 0 .05 we reject the null hypothesis it is not the probability that the null hypothesis is true also a small p -value does not mean the effect is large so we should report the effect size and a confidence interval as well",
+      "corrected": "p-value is the probability of seeing data at least as extreme as what we observe assuming the null hypothesis is true if the p -value is below a chosen significance level often 0 .05 we reject the null hypothesis it is not the probability that the null hypothesis is true also a small p -value does not mean the effect is large so we should report the effect size and confidence interval as well"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 1.4,
+      "calibrated_structure": 1.76,
+      "structure_subcomponents": {
+        "framing": 1.0,
+        "coherence": 2.0,
+        "closure": 1.0
+      },
+      "overall_fairscore": 1.64
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Question Mismatch / Irrelevant Answer",
+        "severity": "CRITICAL",
+        "error": "The candidate explained what a p-value is and discussed hypothesis testing principles, which is entirely off-topic for a question asking about when to use Non-Parametric Bootstrap Resampling instead of Student's t-distribution for confidence intervals.",
+        "candidate_quote": "p-value is the probability of seeing data at least as extreme as what we observe assuming the null hypothesis is true"
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "ENG049_IDEA_1",
+        "criterion": "Explains the foundational mathematical or algorithmic theory of Statistics & Probability.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate discusses the definition and interpretation of p-values and confidence intervals, but completely fails to explain non-parametric bootstrap resampling or compare it to Student's t-distribution as required by the question.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "ENG049_IDEA_2",
+        "criterion": "Identifies validation strategies, failure mitigations, or optimization techniques in Statistics & Probability.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate does not identify validation strategies, failure mitigations, or when to switch from parametric t-distributions to non-parametric bootstrap resampling.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Failed to address the core question regarding non-parametric bootstrap resampling versus Student's t-distribution.",
+        "evidence_quote": "p-value is the probability of seeing data at least as extreme as what we observe...",
+        "timestamp": "0.00s - 5.50s",
+        "why_it_matters": "Answering a different question than the one asked results in a complete failure to demonstrate knowledge of the required statistical technique.",
+        "improvement_action": "Focus specifically on bootstrap resampling, explaining how it builds empirical sampling distributions through random sampling with replacement, particularly for non-linear statistics or skewed data where t-distributions fail.",
+        "example_sentence": "We use non-parametric bootstrap resampling instead of the Student's t-distribution when calculating confidence intervals for non-linear statistics like the median or when the underlying data is heavily skewed."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.00s - 1.48s",
+        "original_spoken": "a p -value",
+        "corrected_term": "p-value",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "24.20s - 25.12s",
+        "original_spoken": "a confidence interval",
+        "corrected_term": "confidence interval",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Prem_ws10.m4a",
+    "audio_duration_sec": 6.97,
+    "total_latency_sec": 7.96,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "ENG016",
+      "prompt": "How do you implement a distributed sliding-window rate limiter using Redis and what concurrency race conditions must be addressed?",
+      "domain": "Distributed Systems & API Design",
+      "match_confidence": 0.4040880503144654
+    },
+    "transcripts": {
+      "raw_spoken": "rest is stateful because the server must remember each client session state built between requests",
+      "corrected": "rest is stateful because the server must remember each client session state built between requests"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.0,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.0,
+        "coherence": 0.0,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [
+      {
+        "concept": "REST Architecture State",
+        "severity": "CRITICAL",
+        "error": "The candidate states that REST is stateful, which is incorrect; REST (Representational State Transfer) is fundamentally stateless, meaning each request from a client must contain all the information necessary to understand and process the request.",
+        "candidate_quote": "rest is stateful because the server must remember each client session state built between requests"
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "ENG016_IDEA_1",
+        "criterion": "Explains the core principles and underlying mechanics of Distributed Systems & API Design.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate discusses REST architecture being stateful rather than implementing a distributed sliding-window rate limiter using Redis, failing to address any core principles of the required topic.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "ENG016_IDEA_2",
+        "criterion": "Articulates practical tradeoffs, failure modes, or architectural optimizations for Distributed Systems & API Design.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate fails to discuss practical tradeoffs, failure modes, or architectural optimizations relevant to Redis-based distributed rate limiting and race conditions.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Failed to address the core question regarding Redis-based sliding-window rate limiters.",
+        "evidence_quote": "rest is stateful because the server must remember each client session state built between requests",
+        "timestamp": "0.00s - 6.10s",
+        "why_it_matters": "Answering the specific technical prompt is critical for demonstrating architectural competence in distributed systems.",
+        "improvement_action": "Focus your answer directly on Redis sorted sets (ZSET), ZREMRANGEBYSCORE, ZCARD, and ZADD commands.",
+        "example_sentence": "To implement a sliding window rate limiter in Redis, I would use a sorted set to store request timestamps."
+      },
+      {
+        "priority": 2,
+        "issue": "Incorrect statement regarding REST architecture being stateful.",
+        "evidence_quote": "rest is stateful because the server must remember each client session state built between requests",
+        "timestamp": "0.00s - 6.10s",
+        "why_it_matters": "Confunding stateless REST principles with session management indicates a fundamental misunderstanding of web architecture.",
+        "improvement_action": "Remember that REST APIs are stateless, pushing session state management to the client side or external stores.",
+        "example_sentence": "REST architectures are stateless, requiring clients to send all necessary authentication and session context with every request."
+      },
+      {
+        "priority": 3,
+        "issue": "Omitted explanation of race conditions and atomic execution mechanisms.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Without atomicity via Lua scripts or transactions, concurrent requests can bypass rate limits due to read-write race conditions.",
+        "improvement_action": "Explain how Lua scripts execute multiple Redis commands atomically to prevent race conditions during concurrent checks.",
+        "example_sentence": "We must execute the rate limiting logic inside a Redis Lua script to ensure atomicity across concurrent client requests."
+      }
+    ],
+    "corrections_made": []
+  },
+  {
+    "filename": "Prem_ws8.m4a",
+    "audio_duration_sec": 6.27,
+    "total_latency_sec": 6.29,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "ENG055",
+      "prompt": "Why is Precision-Recall AUC more informative than ROC-AUC when evaluating fraud detection models with 99.9% negative class prevalence?",
+      "domain": "Statistics & Probability",
+      "match_confidence": 0.5315980629539951
+    },
+    "transcripts": {
+      "raw_spoken": "Precision is true positives divided by true positives plus false negatives.",
+      "corrected": "precision positives divided by true positives plus false negatives."
+    },
+    "scores": {
+      "content_completeness": 2.0,
+      "content_correctness": 3.5,
+      "calibrated_content": 2.27,
+      "answer_structure": 0.75,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 1.0,
+        "coherence": 1.0,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.96
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Precision Formula Definition",
+        "severity": "MODERATE",
+        "error": "The candidate incorrectly defined precision as true positives divided by true positives plus false negatives (which is actually the definition of Recall or True Positive Rate). Precision is defined as true positives divided by true positives plus false positives.",
+        "candidate_quote": "precision positives divided by true positives plus false negatives."
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "ENG055_IDEA_1",
+        "criterion": "Explains the foundational mathematical or algorithmic theory of Statistics & Probability.",
+        "verdict": "PARTIAL",
+        "points_awarded": 0.5,
+        "evidence_quote": "precision positives divided by true positives plus false negatives.",
+        "reasoning": "The candidate partially defines precision formulas, though there is a slight error in the spoken text ('precision positives divided by...'), and they completely omit the core comparison regarding ROC-AUC versus PR-AUC under 99.9% class imbalance.",
+        "timestamp": "0.86s - 5.12s"
+      },
+      {
+        "idea_id": "ENG055_IDEA_2",
+        "criterion": "Identifies validation strategies, failure mitigations, or optimization techniques in Statistics & Probability.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate does not identify validation strategies, failure mitigations, or the impact of True Negatives on the False Positive Rate for rare event detection.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "The candidate failed to address why ROC-AUC is misleading in extreme class imbalance and how Precision-Recall AUC excludes True Negatives.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "In 99.9% negative datasets, massive True Negatives keep the False Positive Rate artificially low in ROC curves, hiding poor precision.",
+        "improvement_action": "Explain that ROC-AUC relies on True Negatives in the FPR denominator, whereas PR-AUC excludes TN entirely.",
+        "example_sentence": "ROC-AUC can look deceptively high because the huge number of true negatives keeps the false positive rate near zero."
+      },
+      {
+        "priority": 2,
+        "issue": "The candidate confused the formula for precision with recall.",
+        "evidence_quote": "precision positives divided by true positives plus false negatives.",
+        "timestamp": "0.86s - 5.12s",
+        "why_it_matters": "Confusing fundamental evaluation metrics undermines technical credibility during interviews.",
+        "improvement_action": "Clearly distinguish precision (TP / (TP + FP)) from recall (TP / (TP + FN)).",
+        "example_sentence": "Precision is defined as true positives divided by the sum of true positives and false positives."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.86s - 2.46s",
+        "original_spoken": "Precision is true",
+        "corrected_term": "precision",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Prem_ws9.m4a",
+    "audio_duration_sec": 5.71,
+    "total_latency_sec": 7.14,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "ENG092",
+      "prompt": "How do you calculate thermal resistance and size heat sinks for power MOSFETs using the thermal equivalent of Ohm's Law?",
+      "domain": "Electrical Engineering",
+      "match_confidence": 0.4946969696969697
+    },
+    "transcripts": {
+      "raw_spoken": "Ohm's law says voltage equals current divided by resistance.",
+      "corrected": "Ohm's law says voltage equals current divided by resistance."
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 1.0,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 1.0,
+        "coherence": 1.0,
+        "closure": 1.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Ohm's Law formulation",
+        "severity": "CRITICAL",
+        "error": "The candidate stated that voltage equals current divided by resistance, which is mathematically incorrect. Ohm's law defines voltage as current multiplied by resistance (V = I * R).",
+        "candidate_quote": "Ohm's law says voltage equals current divided by resistance."
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "ENG092_IDEA_1",
+        "criterion": "Explains the physical laws, material dynamics, or circuit principles governing Electrical Engineering.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate's statement incorrectly describes Ohm's law as voltage equals current divided by resistance (which is actually Resistance = Voltage / Current or Current = Voltage / Resistance), and fails to mention the thermal equivalent of Ohm's law, temperature difference, power dissipation, or thermal resistance for power MOSFETs.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "ENG092_IDEA_2",
+        "criterion": "Applies failure analysis, design safety factors, or troubleshooting methods to Electrical Engineering.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate provides no explanation of junction-to-ambient thermal resistance paths, maximum junction temperatures, safety factors, or heat sink sizing calculations.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Stated an incorrect formula for Ohm's law.",
+        "evidence_quote": "Ohm's law says voltage equals current divided by resistance.",
+        "timestamp": "0.00s - 4.22s",
+        "why_it_matters": "A correct understanding of Ohm's law is foundational for applying its thermal equivalent, where temperature difference acts as voltage, power as current, and thermal resistance as electrical resistance.",
+        "improvement_action": "Review the basic electrical Ohm's law formula (V = I * R) and learn its thermal equivalent Delta T = P_diss * R_th.",
+        "example_sentence": "Ohm's law states that voltage equals current multiplied by resistance, which thermally maps to temperature difference equaling power dissipation times thermal resistance."
+      },
+      {
+        "priority": 2,
+        "issue": "Failed to explain the series components of thermal resistance for power MOSFETs.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Calculating heat sink size requires summing junction-to-case, case-to-sink, and sink-to-ambient thermal resistances.",
+        "improvement_action": "Study how to sum series thermal resistances from the semiconductor junction down to the ambient environment.",
+        "example_sentence": "Total thermal resistance is the sum of junction-to-case, case-to-sink, and sink-to-ambient resistances."
+      },
+      {
+        "priority": 3,
+        "issue": "Omitted the heat sink sizing equation based on maximum junction temperature.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Without the sizing equation, it is impossible to ensure that MOSFET junction temperatures remain below safe limits.",
+        "improvement_action": "Practice calculating required sink-to-ambient thermal resistance using maximum junction temperature, ambient temperature, and power dissipation.",
+        "example_sentence": "The required heat sink thermal resistance is calculated by subtracting internal thermal resistances from the total allowable thermal resistance."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.00s - 1.66s",
+        "original_spoken": "Ohm's law",
+        "corrected_term": "Ohm's law",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "1.94s - 2.44s",
+        "original_spoken": "voltage",
+        "corrected_term": "voltage",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Rupesh_script1.m4a",
+    "audio_duration_sec": 45.05,
+    "total_latency_sec": 13.97,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q084",
+      "prompt": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+      "domain": "Databases & OS",
+      "match_confidence": 0.8922087585034013
+    },
+    "transcripts": {
+      "raw_spoken": "A process is a running program with its own memory space. So one process cannot directly change another process's data. A thread is a unit of execution instead of a process, and all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes. The risk is that shared memory can cause a race condition. So we protect it with a mutex or a semfor. For example, a web browser can run each tab as a separate process for isolation, while one tab uses several threads for rendering and network calls.",
+      "corrected": "A process is a running program with its own memory space. So one process cannot directly change another process data. A thread is a unit of execution instead of process and all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes. The risk is that shared memory can cause a race condition. So we protect it with mutex or a semfor. For example, a web browser can run each tab as a separate process for isolation, while one tab uses several threads for rendering and network calls."
+    },
+    "scores": {
+      "content_completeness": 3.67,
+      "content_correctness": 5.0,
+      "calibrated_content": 2.92,
+      "answer_structure": 3.55,
+      "calibrated_structure": 3.17,
+      "structure_subcomponents": {
+        "framing": 4.0,
+        "coherence": 3.5,
+        "closure": 3.0
+      },
+      "overall_fairscore": 3.02
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q084_IDEA_1",
+        "criterion": "A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "A process is a running program with its own memory space. So one process cannot directly change another process data.",
+        "reasoning": "The candidate correctly explains that a process has its own isolated memory space and that processes cannot directly access each other's data.",
+        "timestamp": "0.24s - 8.68s"
+      },
+      {
+        "idea_id": "Q084_IDEA_2",
+        "criterion": "Threads are lightweight execution units within a process sharing the same address space, code segment, and heap, but retaining independent stacks and registers.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "A thread is a unit of execution instead of process and all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes.",
+        "reasoning": "The candidate accurately describes threads as units of execution sharing heap memory within a process, and notes the lower overhead of thread creation and context switching.",
+        "timestamp": "9.26s - 24.70s"
+      },
+      {
+        "idea_id": "Q084_IDEA_3",
+        "criterion": "IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate failed to explain common Inter-Process Communication (IPC) mechanisms such as pipes, shared memory, message queues, signals, or UNIX domain sockets.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Omission of Inter-Process Communication (IPC) mechanisms.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Since processes have isolated address spaces, they require specific IPC mechanisms like pipes, message queues, shared memory, or sockets to communicate and share data safely.",
+        "improvement_action": "Explain how different IPC mechanisms allow independent processes to exchange data, highlighting examples such as pipes or shared memory.",
+        "example_sentence": "Processes can communicate using IPC mechanisms like pipes, message queues, or shared memory segments."
+      },
+      {
+        "priority": 2,
+        "issue": "Incomplete discussion of thread resources.",
+        "evidence_quote": "all threads in that process share the same heap memory",
+        "timestamp": "13.36s - 16.60s",
+        "why_it_matters": "While sharing heap and code segments, threads maintain their own independent execution stacks and registers, which is crucial for concurrent execution flow.",
+        "improvement_action": "Mention that while threads share the heap and data segments, each thread maintains its own stack and register set.",
+        "example_sentence": "Each thread retains its own private stack and register set while sharing the process heap."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "7.58s - 8.50s",
+        "original_spoken": "process's",
+        "corrected_term": "process",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "12.26s - 12.80s",
+        "original_spoken": "a process,",
+        "corrected_term": "process",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "30.68s - 31.56s",
+        "original_spoken": "a mutex",
+        "corrected_term": "mutex",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Rupesh_script2.m4a",
+    "audio_duration_sec": 36.55,
+    "total_latency_sec": 11.5,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q120",
+      "prompt": "What is Dependency Injection and how does it improve software modularity and testability?",
+      "domain": "Python & SE",
+      "match_confidence": 0.8476612903225806
+    },
+    "transcripts": {
+      "raw_spoken": "dependency injection means that a class receives the objects it depend on from outside instead of creating them itself this is a form of inversion of control and it reduces coupling between components the biggest benefit is testing because in a unit test we can pass a mob object or a fake database instead of the real one for example an order service can take a payment gateway through its constructor so in production we inject the real gateway and in test we inject a stub frameworks like springboard and do this automatically",
+      "corrected": "dependency injection means that a class receives the objects it depend on from outside instead of creating them itself this is a form of inversion of control and it reduces coupling between components the biggest benefit is testing because in a unit test we can pass a mob object or a fake database instead of the real one for example an order service can take a payment gateway through its constructor so in production we inject the real gateway and in test we inject a stub frameworks like spring and do this automatically"
+    },
+    "scores": {
+      "content_completeness": 5.0,
+      "content_correctness": 5.0,
+      "calibrated_content": 4.19,
+      "answer_structure": 0.95,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 1.0,
+        "coherence": 1.0,
+        "closure": 0.8
+      },
+      "overall_fairscore": 3.11
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q120_IDEA_1",
+        "criterion": "A design pattern where an object receives its dependencies from external callers rather than creating them internally.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "dependency injection means that a class receives the objects it depend on from outside instead of creating them itself",
+        "reasoning": "The candidate clearly explains that an object receives its dependencies from external sources rather than instantiating them internally.",
+        "timestamp": "0.00s - 8.02s"
+      },
+      {
+        "idea_id": "Q120_IDEA_2",
+        "criterion": "Decouples high-level business logic from specific concrete implementations and third-party libraries.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "this is a form of inversion of control and it reduces coupling between components",
+        "reasoning": "The candidate directly addresses the decoupling aspect by mentioning that it reduces coupling between components.",
+        "timestamp": "8.02s - 13.36s"
+      },
+      {
+        "idea_id": "Q120_IDEA_3",
+        "criterion": "Drastically improves testability by allowing unit tests to inject lightweight mock or stub dependencies in place of live external services.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "the biggest benefit is testing because in a unit test we can pass a mob object or a fake database instead of the real one",
+        "reasoning": "The candidate correctly identifies testability improvements by allowing mock or fake objects to be injected during tests.",
+        "timestamp": "13.36s - 21.40s"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Minor speech transcription slip ('mob object' instead of 'mock object').",
+        "evidence_quote": "we can pass a mob object or a fake database",
+        "timestamp": "16.92s - 19.88s",
+        "why_it_matters": "Using precise technical terminology ensures clarity during technical discussions.",
+        "improvement_action": "Ensure standard terminology like 'mock object' or 'stub' is explicitly used.",
+        "example_sentence": "In our unit tests, we can pass a mock object or a stub instead of the real dependency."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.00s - 1.42s",
+        "original_spoken": "dependency injection",
+        "corrected_term": "dependency injection",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "32.90s - 33.62s",
+        "original_spoken": "springboard",
+        "corrected_term": "spring",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Rupesh_script3.m4a",
+    "audio_duration_sec": 38.17,
+    "total_latency_sec": 17.62,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q109",
+      "prompt": "Compare Git branching strategies: Git Flow versus Trunk-Based Development.",
+      "domain": "Python & SE",
+      "match_confidence": 0.8372386537480877
+    },
+    "transcripts": {
+      "raw_spoken": "Continuous integration means developers merge their code into a shared branch frequently, and every change triggers an automated build and unit test. This catches integration bugs early before the pileup. Continuous delivery extends this by making sure the code is always in a deployable state, with automated release to a stagging environment and a one -click deploy to production. Continuous deployment goes one step further and releases automatically. A typical pipeline uses GitHub Actions or Jenkins to run linting text, a docker build, and then a deployment with a rollback plan.",
+      "corrected": "continuous integration developers merge their code into a shared branch frequently, and every change triggers an automated build unit test This catches integration bugs early before the continuous delivery extends this by making sure the code is always in a deployable state, with automated release to a stagging environment and a one -click deploy to production. Continuous deployment goes one step further and releases automatically. A typical pipeline uses GitHub Actions Jenkins to run linting a Docker build, and then Deployment with a rollback plan."
+    },
+    "scores": {
+      "content_completeness": 1.67,
+      "content_correctness": 5.0,
+      "calibrated_content": 1.99,
+      "answer_structure": 2.4,
+      "calibrated_structure": 2.43,
+      "structure_subcomponents": {
+        "framing": 2.0,
+        "coherence": 3.0,
+        "closure": 2.0
+      },
+      "overall_fairscore": 2.17
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q109_IDEA_1",
+        "criterion": "Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate does not mention Git Flow, long-lived branches like master, develop, feature, release, hotfix, or scheduled monolithic releases.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q109_IDEA_2",
+        "criterion": "Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.",
+        "verdict": "PARTIAL",
+        "points_awarded": 0.5,
+        "evidence_quote": "Continuous integration developers merge their code into a shared branch frequently",
+        "reasoning": "The candidate discusses merging code into a shared branch frequently, which touches on continuous integration, but fails to explicitly compare or contrast Git Flow versus Trunk-Based Development or detail the trunk/main branch structure.",
+        "timestamp": "0.00s - 5.18s"
+      },
+      {
+        "idea_id": "Q109_IDEA_3",
+        "criterion": "Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate mentions automated CI testing and builds, but completely omits feature flags and their role in Trunk-Based Development.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Failed to compare Git Flow and Trunk-Based Development, which was the core question.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Answering the prompt requires directly addressing both branching models and their distinct trade-offs regarding lead time and merge conflicts.",
+        "improvement_action": "Structure your answer to first define Git Flow's long-lived branches and monolithic releases, then contrast it with Trunk-Based Development's short-lived branches.",
+        "example_sentence": "Unlike GitFlow's long-lived branches, Trunk-Based Development relies on developers committing directly to main multiple times daily."
+      },
+      {
+        "priority": 2,
+        "issue": "Omitted the use of feature flags in Trunk-Based Development.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Feature flags are critical in Trunk-Based Development to decouple code deployment from feature release when using short-lived branches.",
+        "improvement_action": "Explain how feature flags allow unready features to be safely merged into the trunk without exposing them to end users.",
+        "example_sentence": "We use runtime feature flags to hide incomplete features in production while practicing trunk-based development."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.00s - 1.86s",
+        "original_spoken": "Continuous integration means",
+        "corrected_term": "continuous integration",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "8.08s - 8.88s",
+        "original_spoken": "and unit test.",
+        "corrected_term": "unit test",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "11.88s - 13.36s",
+        "original_spoken": "pileup. Continuous delivery",
+        "corrected_term": "continuous delivery",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "29.10s - 30.36s",
+        "original_spoken": "GitHub Actions or",
+        "corrected_term": "GitHub Actions",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "31.44s - 32.66s",
+        "original_spoken": "linting text,",
+        "corrected_term": "linting",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "32.96s - 33.32s",
+        "original_spoken": "docker",
+        "corrected_term": "Docker",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "34.26s - 35.18s",
+        "original_spoken": "a deployment",
+        "corrected_term": "Deployment",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Rupesh_script4.m4a",
+    "audio_duration_sec": 38.78,
+    "total_latency_sec": 15.05,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q032",
+      "prompt": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+      "domain": "Algorithms",
+      "match_confidence": 0.9113562091503268
+    },
+    "transcripts": {
+      "raw_spoken": "A hash map stores key value pairs. A hash function converts the key into an integer, and that integer decides the bucket index in an array. So, look up in O of 1 on average. A collision happens when two different keys land in the same bucket. Chaining handles this by keeping a linked list in each bucket while open addressing probes for the next free slot. To keep performance good, the table tracks its load factor and resize when it gets too full. In the worst case, with many collisions, look up degrades to O of n.",
+      "corrected": "A hash map stores key value pairs. A hash function converts the key into an integer, and that integer decides the bucket index in an array. So, look up in O of 1 on average. A collision happens when two different keys land in the same bucket. Chaining handles this by keeping a linked list in each bucket while open addressing probes for the next free slot. To keep performance good, the table tracks its load factor and resize when it gets too full. In the worst case, with many collisions, look up degrades to O of n."
+    },
+    "scores": {
+      "content_completeness": 5.0,
+      "content_correctness": 5.0,
+      "calibrated_content": 4.19,
+      "answer_structure": 4.2,
+      "calibrated_structure": 4.37,
+      "structure_subcomponents": {
+        "framing": 4.0,
+        "coherence": 4.5,
+        "closure": 4.0
+      },
+      "overall_fairscore": 4.26
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q032_IDEA_1",
+        "criterion": "Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "A collision happens when two different keys land in the same bucket. Chaining handles this by keeping a linked list in each bucket while open addressing probes for the next free slot.",
+        "reasoning": "The candidate accurately explains hash collisions and mentions both separate chaining (linked lists) and open addressing.",
+        "timestamp": "13.28s - 24.56s"
+      },
+      {
+        "idea_id": "Q032_IDEA_2",
+        "criterion": "Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "To keep performance good, the table tracks its load factor and resize when it gets too full.",
+        "reasoning": "The candidate identifies the load factor as an indicator of table fullness used to maintain performance.",
+        "timestamp": "24.80s - 31.00s"
+      },
+      {
+        "idea_id": "Q032_IDEA_3",
+        "criterion": "Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "the table tracks its load factor and resize when it gets too full. In the worst case, with many collisions, look up degrades to O of n.",
+        "reasoning": "The candidate explains that exceeding the load factor triggers a resize, preserving amortized efficiency (and notes the worst-case degradation).",
+        "timestamp": "26.28s - 37.44s"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Load factor definition could be stated more precisely as a mathematical ratio (N / C).",
+        "evidence_quote": "To keep performance good, the table tracks its load factor and resize when it gets too full.",
+        "timestamp": "24.80s - 31.00s",
+        "why_it_matters": "Defining the load factor explicitly as the ratio of stored entries to total capacity clarifies the exact trigger threshold for resizing.",
+        "improvement_action": "Mention that the load factor is calculated as number of entries divided by capacity.",
+        "example_sentence": "The load factor is the ratio of stored entries to total bucket capacity."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "21.38s - 22.16s",
+        "original_spoken": "open addressing",
+        "corrected_term": "open addressing",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Rupesh_script5.m4a",
+    "audio_duration_sec": 32.18,
+    "total_latency_sec": 19.06,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q035",
+      "prompt": "Compare Breadth-First Search (BFS) and Depth-First Search (DFS): traversal order, data structures, and optimal use cases.",
+      "domain": "Algorithms",
+      "match_confidence": 0.8019682470639409
+    },
+    "transcripts": {
+      "raw_spoken": "A stack in a list in a first -out structure. You push items on top and pop from the top, so the most recent item comes out first. A queue is first in first out, so you enqueue at the back and dequeue from the front. Stacks are used for the function call stack, undo operations, and depth -first search. Queues are used for task scheduling, message queue, and breadth -first search. Both can be implemented with an array or a linked list, and the main operations take constant time.",
+      "corrected": "A stack in a list in a first -out structure. You push items on top and pop from the top, so the most recent item comes out first. A queue is first in first out, so you enqueue at the back and dequeue from the front. Stacks are used for the function call stack undo operations, and depth-first search Queues are used for task scheduling, message queue, and breadth -first search. Both can be implemented with an array or a linked list, and the main operations take constant time."
+    },
+    "scores": {
+      "content_completeness": 2.33,
+      "content_correctness": 5.0,
+      "calibrated_content": 2.53,
+      "answer_structure": 2.88,
+      "calibrated_structure": 2.59,
+      "structure_subcomponents": {
+        "framing": 3.0,
+        "coherence": 3.0,
+        "closure": 2.5
+      },
+      "overall_fairscore": 2.55
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q035_IDEA_1",
+        "criterion": "BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs.",
+        "verdict": "PARTIAL",
+        "points_awarded": 0.5,
+        "evidence_quote": "Queues are used for task scheduling, message queue, and breadth -first search.",
+        "reasoning": "The candidate mentions that queues are used for breadth-first search and describes a queue as first-in-first-out, but does not explicitly explain level-by-level exploration or the shortest path guarantee in unweighted graphs.",
+        "timestamp": "20.20s - 24.92s"
+      },
+      {
+        "idea_id": "Q035_IDEA_2",
+        "criterion": "DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion.",
+        "verdict": "PARTIAL",
+        "points_awarded": 0.5,
+        "evidence_quote": "Stacks are used for the function call stack, undo operations, and depth -first search.",
+        "reasoning": "The candidate identifies stacks as the data structure used for depth-first search and notes that LIFO behavior applies, but fails to explain exploring as deeply as possible along each branch before backtracking.",
+        "timestamp": "14.24s - 20.00s"
+      },
+      {
+        "idea_id": "Q035_IDEA_3",
+        "criterion": "BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate provides no comparison of memory profiles (O(V) vs O(H)) or specific optimal use cases like topological sort or cycle detection.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Omitted the memory complexity and traversal mechanics comparison between BFS and DFS.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Understanding space complexity (O(V) for BFS vs O(H) for DFS) is crucial for selecting the right traversal algorithm in memory-constrained environments.",
+        "improvement_action": "Explain that BFS memory grows with the graph frontier width, whereas DFS memory is bounded by the maximum tree depth.",
+        "example_sentence": "BFS requires O(V) space for the queue frontier, while DFS uses O(H) space for the recursion stack."
+      },
+      {
+        "priority": 2,
+        "issue": "Did not explain how DFS explores branches or backtracks.",
+        "evidence_quote": "Stacks are used for the function call stack, undo operations, and depth -first search.",
+        "timestamp": "14.24s - 20.00s",
+        "why_it_matters": "Explaining the traversal strategy clarifies why a LIFO stack or recursion naturally supports backtracking.",
+        "improvement_action": "Describe how DFS visits nodes by going as deep as possible down each branch before backtracking.",
+        "example_sentence": "DFS explores as deeply as possible along each branch before backtracking."
+      },
+      {
+        "priority": 3,
+        "issue": "Failed to mention that BFS guarantees the shortest path in unweighted graphs.",
+        "evidence_quote": "Queues are used for task scheduling, message queue, and breadth -first search.",
+        "timestamp": "20.20s - 24.92s",
+        "why_it_matters": "Shortest path finding is the primary distinguishing advantage of BFS over DFS in unweighted graphs.",
+        "improvement_action": "Explicitly state that level-order traversal with a queue guarantees finding the shortest path in unweighted graphs.",
+        "example_sentence": "Because BFS explores level by level, it guarantees finding the shortest path in unweighted graphs."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "15.90s - 16.56s",
+        "original_spoken": "call stack,",
+        "corrected_term": "call stack",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "18.40s - 20.00s",
+        "original_spoken": "depth -first search.",
+        "corrected_term": "depth-first search",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Rupesh_ws1.m4a",
+    "audio_duration_sec": 6.78,
+    "total_latency_sec": 8.06,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q054",
+      "prompt": "What is a Monotonic Stack and what class of problems does it solve efficiently?",
+      "domain": "Algorithms",
+      "match_confidence": 0.9853053435114504
+    },
+    "transcripts": {
+      "raw_spoken": "A stack is a first in first out. So the first item you push is the first item you pop",
+      "corrected": "A stack is a first in first out. So the first item you push is the first item you pop"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.0,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.0,
+        "coherence": 0.0,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Stack Data Structure",
+        "severity": "CRITICAL",
+        "error": "The candidate defines a stack as First-In-First-Out (FIFO), which is actually the definition of a queue. A stack is Last-In-First-Out (LIFO).",
+        "candidate_quote": "A stack is a first in first out."
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q054_IDEA_1",
+        "criterion": "A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate defines a standard queue (FIFO: 'first in first out') rather than a monotonic stack and its ordering invariant.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q054_IDEA_2",
+        "criterion": "Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate does not mention problems solved by a monotonic stack such as Next Greater Element or Largest Rectangle in Histogram.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q054_IDEA_3",
+        "criterion": "Every element is pushed and popped at most once, guaranteeing linear amortized complexity.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate does not explain amortized O(N) complexity or the push/pop bounds.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Incorrect definition of a stack (confused with a queue).",
+        "evidence_quote": "A stack is a first in first out.",
+        "timestamp": "0.00s - 2.28s",
+        "why_it_matters": "A stack is a Last-In-First-Out (LIFO) data structure, whereas First-In-First-Out (FIFO) describes a queue.",
+        "improvement_action": "Correct your foundational understanding: a stack operates on LIFO principles.",
+        "example_sentence": "A stack is a Last-In-First-Out data structure where the last item pushed is the first to be popped."
+      },
+      {
+        "priority": 2,
+        "issue": "Failed to define what a monotonic stack is and its ordering invariant.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "A monotonic stack maintains elements in strictly increasing or decreasing order by popping elements that violate the condition.",
+        "improvement_action": "Explain how elements are popped when they violate the increasing or decreasing order rule.",
+        "example_sentence": "A monotonic stack maintains elements in decreasing order by popping smaller elements before pushing a new value."
+      },
+      {
+        "priority": 3,
+        "issue": "Omitted the class of problems solved and amortized O(N) complexity.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Monotonic stacks are specifically used for problems like Next Greater Element to achieve linear time complexity.",
+        "improvement_action": "Mention applications such as Next Greater Element and explain the amortized O(N) push/pop guarantee.",
+        "example_sentence": "It efficiently solves Next Greater Element problems in O(N) time because each element is pushed and popped at most once."
+      }
+    ],
+    "corrections_made": []
+  },
+  {
+    "filename": "Rupesh_ws2.m4a",
+    "audio_duration_sec": 8.13,
+    "total_latency_sec": 7.59,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q032",
+      "prompt": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+      "domain": "Algorithms",
+      "match_confidence": 0.7669590643274854
+    },
+    "transcripts": {
+      "raw_spoken": "A hash map never has collisions because the hash function always gives a unique index for every key.",
+      "corrected": "A hash map never hash collision the hash function always gives a unique index for every key."
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.0,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.0,
+        "coherence": 0.0,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Hash Collisions",
+        "severity": "CRITICAL",
+        "error": "The candidate stated that a hash map never has collisions because hash functions always produce unique indices. In reality, due to the pigeonhole principle, distinct keys can map to the same index, requiring collision resolution strategies.",
+        "candidate_quote": "A hash map never has collisions because the hash function always gives a unique index for every key."
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q032_IDEA_1",
+        "criterion": "Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate incorrectly claimed that hash maps never experience collisions due to unique indices, failing to address collision resolution techniques like chaining or open addressing.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q032_IDEA_2",
+        "criterion": "Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate completely omitted any mention of the load factor, its formula, or its role in indicating table density.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q032_IDEA_3",
+        "criterion": "Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate did not discuss resizing, rehashing, or load factor thresholds.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Incorrectly claimed that hash maps do not experience collisions.",
+        "evidence_quote": "A hash map never has collisions because the hash function always gives a unique index for every key.",
+        "timestamp": "0.00s - 7.16s",
+        "why_it_matters": "Understanding that collisions are inevitable when mapping a large key space to a smaller array size is fundamental to designing hash-based data structures.",
+        "improvement_action": "Explain that collisions happen when two different keys hash to the same bucket, and describe how separate chaining or open addressing resolves them.",
+        "example_sentence": "Collisions occur when distinct keys produce the same hash index and are resolved using separate chaining or open addressing."
+      },
+      {
+        "priority": 2,
+        "issue": "Failed to define the load factor and its significance.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "The load factor dictates when a hash map needs to resize to maintain efficient O(1) average time complexity for lookups and insertions.",
+        "improvement_action": "Define the load factor as the ratio of stored elements to total capacity and explain its role in triggering resize operations.",
+        "example_sentence": "The load factor measures table density as the ratio of entries to buckets and triggers resizing when exceeded."
+      },
+      {
+        "priority": 3,
+        "issue": "Omitted the resizing and rehashing mechanism.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Without resizing and rehashing, a full hash map would degrade to linear search times during collisions.",
+        "improvement_action": "Describe how exceeding the load factor threshold prompts allocating a larger array and rehashing existing keys.",
+        "example_sentence": "When the load factor exceeds the threshold, the hash map doubles its capacity and rehashes all existing entries."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "1.46s - 2.80s",
+        "original_spoken": "has collisions because",
+        "corrected_term": "hash collision",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Saksham_script18.m4a",
+    "audio_duration_sec": 30.46,
+    "total_latency_sec": 13.56,
+    "model_used": "deterministic_offline",
+    "matched_question": {
+      "question_id": "ENG089",
+      "prompt": "How do ground loops generate 50/60 Hz hum in sensitive audio and instrumentation circuits, and how do star grounding topologies eliminate them?",
+      "domain": "Electrical Engineering",
+      "match_confidence": 0.3004458041958042
+    },
+    "transcripts": {
+      "raw_spoken": "ohm's law says voltage equals current times resistance so v equals ir kirchoff's current law says the total current entering a node equals the total current leaving it which comes from conservation of charge kirchoff's voltage law says the sum of voltage rises and drops around any closed loop is zero which comes from conservation of energy together they let us analyze circuits for example in a series circuit the same current flows through each resistor and the voltage drop add up to the supply voltage the key terms here are only",
+      "corrected": "ohm's law says voltage equals current times resistance equals ir kirchoff's current law says the total current entering a node equals the total current leaving it which comes from conservation of charge kirchoff's voltage law says the sum of voltage rises and drops around any closed loop is zero which comes from conservation of energy together they let us analyze circuits for example in a series circuit the same current flows through each resistor and the voltage drop add up to the supply voltage the key terms here are only"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 5.0,
+      "calibrated_content": 1.57,
+      "answer_structure": 3.5,
+      "calibrated_structure": 3.06,
+      "structure_subcomponents": {
+        "framing": 3.5,
+        "coherence": 3.5,
+        "closure": 3.5
+      },
+      "overall_fairscore": 2.16
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "ENG089_IDEA_1",
+        "criterion": "Explains the physical laws, material dynamics, or circuit principles governing Electrical Engineering.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "Keyword overlap coverage: 10%",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "ENG089_IDEA_2",
+        "criterion": "Applies failure analysis, design safety factors, or troubleshooting methods to Electrical Engineering.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "Keyword overlap coverage: 0%",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [],
+    "corrections_made": [
+      {
+        "timestamp": "2.72s - 3.82s",
+        "original_spoken": "resistance so v",
+        "corrected_term": "resistance",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Saksham_script19.m4a",
+    "audio_duration_sec": 26.19,
+    "total_latency_sec": 11.35,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "ENG076",
+      "prompt": "Explain engineering stress-strain curves, Hooke's law, yield strength, and the offset method for determining yield point.",
+      "domain": "Mechanical Engineering",
+      "match_confidence": 0.4159199652022618
+    },
+    "transcripts": {
+      "raw_spoken": "Stress is the internal force per unit area in a material measured in pascal strain is the relative deformation which is the change in length divided by the original length so it has no unit in the elastic region stress is proportional to strain which is hook's law and the ratio is young's modulus a measure of stiffness steel has a much higher young's modulus than rubber if the stress goes beyond the yield strength the material deforms permanently and eventually it can fracture",
+      "corrected": "Stress is the internal force per unit area in a material measured in pascal strain is the relative deformation which is the change in length divided by the original length so it has no unit in the elastic region stress is proportional to strain which is Hooke's law and the ratio is young's modulus a measure of stiffness steel has a much higher young's modulus than rubber if the stress goes beyond the yield strength the material deforms permanently and eventually it can fracture"
+    },
+    "scores": {
+      "content_completeness": 4.0,
+      "content_correctness": 5.0,
+      "calibrated_content": 3.17,
+      "answer_structure": 3.55,
+      "calibrated_structure": 3.17,
+      "structure_subcomponents": {
+        "framing": 4.0,
+        "coherence": 3.5,
+        "closure": 3.0
+      },
+      "overall_fairscore": 3.17
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "ENG076_IDEA_1",
+        "criterion": "Explains the physical laws, material dynamics, or circuit principles governing Mechanical Engineering.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "in the elastic region stress is proportional to strain which is Hooke's law and the ratio is young's modulus a measure of stiffness",
+        "reasoning": "The candidate correctly explains stress, strain, Hooke's law, and Young's modulus, fulfilling the physical laws and material dynamics requirements.",
+        "timestamp": "10.16s - 16.76s"
+      },
+      {
+        "idea_id": "ENG076_IDEA_2",
+        "criterion": "Applies failure analysis, design safety factors, or troubleshooting methods to Mechanical Engineering.",
+        "verdict": "PARTIAL",
+        "points_awarded": 0.5,
+        "evidence_quote": "if the stress goes beyond the yield strength the material deforms permanently and eventually it can fracture",
+        "reasoning": "The candidate mentions yield strength and permanent deformation but omits explaining the offset method (0.2% offset) required to determine the yield point for ductile materials.",
+        "timestamp": "19.36s - 24.70s"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "The candidate omitted the 0.2% offset method used to determine yield strength in ductile materials.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Many engineering materials do not exhibit a well-defined yield point, making the offset method essential for standardizing yield strength measurement.",
+        "improvement_action": "Explain how a line is drawn parallel to the elastic slope starting from a 0.002 strain offset to find the yield point.",
+        "example_sentence": "For metals without a distinct yield point, we use the 0.2% offset method by drawing a parallel line from a strain of 0.002."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "4.24s - 4.58s",
+        "original_spoken": "strain",
+        "corrected_term": "strain",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "11.54s - 11.84s",
+        "original_spoken": "stress",
+        "corrected_term": "stress",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "13.36s - 13.84s",
+        "original_spoken": "hook's law",
+        "corrected_term": "Hooke's law",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Saksham_ws5.m4a",
+    "audio_duration_sec": 10.82,
+    "total_latency_sec": 7.3,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q090",
+      "prompt": "Compare Docker Containers and Virtual Machines (VMs): architecture, isolation, and overhead.",
+      "domain": "Databases & OS",
+      "match_confidence": 0.5186746987951807
+    },
+    "transcripts": {
+      "raw_spoken": "two one a container includes its own full guest operating system and kernel which is why it is heavier than a virtual machine a p -value",
+      "corrected": "two one a container includes its own full guest operating system and kernel which is why it is heavier than a virtual machine a p-value"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 1.0,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 1.0,
+        "coherence": 1.0,
+        "closure": 1.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Container architecture and kernel sharing",
+        "severity": "CRITICAL",
+        "error": "The candidate incorrectly stated that containers include their own full guest operating system and kernel and are heavier than virtual machines. In reality, containers share the host operating system kernel and are lightweight compared to VMs.",
+        "candidate_quote": "a container includes its own full guest operating system and kernel which is why it is heavier than a virtual machine"
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q090_IDEA_1",
+        "criterion": "Virtual Machines run full guest operating systems on top of a hypervisor (Type 1 or Type 2), virtualizing hardware.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate did not mention virtual machines running full guest operating systems on top of a hypervisor or hardware virtualization. Instead, the candidate incorrectly attributed a full guest OS and kernel to containers.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q090_IDEA_2",
+        "criterion": "Containers share the host operating system kernel, packaging only user-space binaries, libraries, and application dependencies.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate did not describe containers sharing the host operating system kernel or packaging user-space libraries. Instead, the candidate incorrectly stated that a container includes its own full guest operating system and kernel.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q090_IDEA_3",
+        "criterion": "VMs provide strong hardware-level security isolation at high memory/startup overhead; containers provide process-level isolation (via Linux namespaces and cgroups) with near-native performance and sub-second startup.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate did not explain isolation depths, namespaces, cgroups, security isolation, or overhead differences between VMs and containers.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Incorrect architectural description of containers sharing the host kernel.",
+        "evidence_quote": "a container includes its own full guest operating system and kernel which is why it is heavier than a virtual machine",
+        "timestamp": "0.70s - 7.88s",
+        "why_it_matters": "Containers are lightweight because they share the host OS kernel, whereas VMs run distinct guest operating systems via a hypervisor.",
+        "improvement_action": "Clarify that containers share the host kernel and only package user-space components, making them lighter than VMs.",
+        "example_sentence": "Unlike virtual machines, Docker containers share the host operating system kernel and isolate application processes using namespaces and cgroups."
+      },
+      {
+        "priority": 2,
+        "issue": "Omission of virtualization overhead and isolation mechanisms.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Understanding isolation depth and overhead is core to comparing containers and VMs.",
+        "improvement_action": "Contrast the hardware-level isolation of VMs with the process-level isolation of containers.",
+        "example_sentence": "Virtual machines provide strong hardware-level isolation with higher overhead, while containers provide process-level isolation with sub-second startup times."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "8.70s - 9.22s",
+        "original_spoken": "p -value",
+        "corrected_term": "p-value",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Saksham_ws6.m4a",
+    "audio_duration_sec": 10.26,
+    "total_latency_sec": 7.81,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "ENG037",
+      "prompt": "Compare Bayesian parameter estimation with Frequentist Maximum Likelihood Estimation (MLE) under sparse sample sizes.",
+      "domain": "Statistics & Probability",
+      "match_confidence": 0.4303396660909614
+    },
+    "transcripts": {
+      "raw_spoken": "a p -value is the probability that the null hypothesis is true so a p -value of 0 .03 means there is a 3 % chance the null hypothesis is true",
+      "corrected": "a p-value is the probability that the null hypothesis is true so a p -value of 0 .03 means there is a 3 % chance the null hypothesis is true"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.2,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.0,
+        "coherence": 0.5,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [
+      {
+        "concept": "p-value definition",
+        "severity": "CRITICAL",
+        "error": "A p-value is not the probability that the null hypothesis is true. It is the probability of observing test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is correct.",
+        "candidate_quote": "a p -value is the probability that the null hypothesis is true"
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "ENG037_IDEA_1",
+        "criterion": "Explains the foundational mathematical or algorithmic theory of Statistics & Probability.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate discusses p-values and null hypothesis testing rather than comparing Bayesian parameter estimation with Frequentist Maximum Likelihood Estimation (MLE) under sparse sample sizes.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "ENG037_IDEA_2",
+        "criterion": "Identifies validation strategies, failure mitigations, or optimization techniques in Statistics & Probability.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate fails to identify validation strategies, regularization, or inference considerations related to Bayesian estimation versus MLE under sparse samples.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Answered a completely different topic (p-values and hypothesis testing) instead of comparing Bayesian estimation and MLE under sparse samples.",
+        "evidence_quote": "a p -value is the probability that the null hypothesis is true",
+        "timestamp": "0.00s - 3.70s",
+        "why_it_matters": "Failing to address the core prompt results in a complete lack of credit for the required technical concepts.",
+        "improvement_action": "Review the definitions and differences between parameter estimation (MLE, Bayesian) and hypothesis testing.",
+        "example_sentence": "Under sparse sample sizes, MLE suffers from severe overfitting, whereas Bayesian estimation uses prior distributions to regularize parameters."
+      },
+      {
+        "priority": 2,
+        "issue": "Demonstrated a critical misconception regarding the definition of a p-value.",
+        "evidence_quote": "a p -value of 0 .03 means there is a 3 % chance the null hypothesis is true",
+        "timestamp": "4.12s - 9.62s",
+        "why_it_matters": "Confusing the p-value with the probability of the null hypothesis is a fundamental statistical error.",
+        "improvement_action": "Remember that a p-value measures data extremity given the null hypothesis, not the probability of the hypothesis itself.",
+        "example_sentence": "A p-value represents the probability of obtaining test statistics at least as extreme as observed, assuming the null hypothesis is true."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.64s - 1.10s",
+        "original_spoken": "p -value",
+        "corrected_term": "p-value",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Sukhpreet_script1 (1).m4a",
+    "audio_duration_sec": 55.08,
+    "total_latency_sec": 16.49,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q084",
+      "prompt": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+      "domain": "Databases & OS",
+      "match_confidence": 0.8382916666666667
+    },
+    "transcripts": {
+      "raw_spoken": "A process is a running program with its own memory space. So one process cannot be directly changed, another process is data. A thread is a unit of occlusion inside a process and all threads in that process share the same HEP memory. Because of this, creating a thread and doing a content switch between the threads is cheaper than doing it for processes. The risk is that sharing memories can cause a race condition so we protect it with a bluetex or a sembaphos. For example, a web browser can run each step as a separate process of isolation. While one tab using several threads for rendering and network calls.",
+      "corrected": "A process is a running program with its own memory space. So one process cannot be directly changed, another process is data. A thread is a unit of occlusion inside a process all threads in that process share the same HEP memory. Because of this, creating a thread and doing a content switch between the threads is cheaper than doing it for processes. The risk is that sharing memories can cause a race condition so we protect it with a bluetex or a sembaphos. For example, a web browser can run each step as a separate process of isolation. While one tab using several threads for rendering and network calls."
+    },
+    "scores": {
+      "content_completeness": 3.67,
+      "content_correctness": 5.0,
+      "calibrated_content": 2.92,
+      "answer_structure": 3.35,
+      "calibrated_structure": 2.73,
+      "structure_subcomponents": {
+        "framing": 4.0,
+        "coherence": 3.0,
+        "closure": 3.0
+      },
+      "overall_fairscore": 2.85
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q084_IDEA_1",
+        "criterion": "A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "A process is a running program with its own memory space.",
+        "reasoning": "The candidate correctly identifies that a process is an independent execution unit with its own separate memory space and isolation.",
+        "timestamp": "0.00s - 3.56s"
+      },
+      {
+        "idea_id": "Q084_IDEA_2",
+        "criterion": "Threads are lightweight execution units within a process sharing the same address space, code segment, and heap, but retaining independent stacks and registers.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "A thread is a unit of occlusion inside a process all threads in that process share the same HEP memory.",
+        "reasoning": "The candidate explains threads as units of execution within a process that share heap memory, and notes that switching between them is cheaper.",
+        "timestamp": "8.00s - 17.54s"
+      },
+      {
+        "idea_id": "Q084_IDEA_3",
+        "criterion": "IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate completely omits the explanation of Inter-Process Communication (IPC) mechanisms such as pipes, shared memory, message queues, or sockets.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Omission of Inter-Process Communication (IPC) mechanisms.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "The prompt explicitly requires comparing processes and threads AND explaining common IPC mechanisms like pipes, message queues, and shared memory to enable isolated processes to communicate.",
+        "improvement_action": "Explain common IPC methods used for data exchange between isolated processes.",
+        "example_sentence": "Processes communicate using mechanisms like pipes, message queues, and shared memory segments."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.64s - 0.90s",
+        "original_spoken": "process",
+        "corrected_term": "process",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "12.02s - 12.98s",
+        "original_spoken": "process and",
+        "corrected_term": "process",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Sukhpreet_script1.m4a",
+    "audio_duration_sec": 55.08,
+    "total_latency_sec": 16.66,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q084",
+      "prompt": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+      "domain": "Databases & OS",
+      "match_confidence": 0.8382916666666667
+    },
+    "transcripts": {
+      "raw_spoken": "A process is a running program with its own memory space. So one process cannot be directly changed, another process is data. A thread is a unit of occlusion inside a process and all threads in that process share the same HEP memory. Because of this, creating a thread and doing a content switch between the threads is cheaper than doing it for processes. The risk is that sharing memories can cause a race condition so we protect it with a bluetex or a sembaphos. For example, a web browser can run each step as a separate process of isolation. While one tab using several threads for rendering and network calls.",
+      "corrected": "A process is a running program with its own memory space. So one process cannot be directly changed, another process is data. A thread is a unit of occlusion inside a process all threads in that process share the same HEP memory. Because of this, creating a thread and doing a content switch between the threads is cheaper than doing it for processes. The risk is that sharing memories can cause a race condition so we protect it with a bluetex or a sembaphos. For example, a web browser can run each step as a separate process of isolation. While one tab using several threads for rendering and network calls."
+    },
+    "scores": {
+      "content_completeness": 3.67,
+      "content_correctness": 5.0,
+      "calibrated_content": 2.92,
+      "answer_structure": 3.55,
+      "calibrated_structure": 3.17,
+      "structure_subcomponents": {
+        "framing": 4.0,
+        "coherence": 3.5,
+        "closure": 3.0
+      },
+      "overall_fairscore": 3.02
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q084_IDEA_1",
+        "criterion": "A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "A process is a running program with its own memory space.",
+        "reasoning": "The candidate correctly identifies that a process is an isolated execution instance with its own independent memory space.",
+        "timestamp": "0.00s - 3.56s"
+      },
+      {
+        "idea_id": "Q084_IDEA_2",
+        "criterion": "Threads are lightweight execution units within a process sharing the same address space, code segment, and heap, but retaining independent stacks and registers.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "A thread is a unit of occlusion inside a process all threads in that process share the same HEP memory.",
+        "reasoning": "The candidate explains threads as lightweight execution units sharing memory (heap), and notes that thread context switching is cheaper.",
+        "timestamp": "8.00s - 17.54s"
+      },
+      {
+        "idea_id": "Q084_IDEA_3",
+        "criterion": "IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate does not mention or explain any Inter-Process Communication (IPC) mechanisms such as pipes, shared memory, message queues, signals, or sockets.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Omission of Inter-Process Communication (IPC) mechanisms.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "IPC is a core requirement of the question, explaining how isolated processes can safely exchange data and synchronize.",
+        "improvement_action": "Describe standard IPC mechanisms such as pipes, message queues, shared memory, and sockets.",
+        "example_sentence": "Processes can communicate using mechanisms like pipes, message queues, or shared memory segments."
+      },
+      {
+        "priority": 2,
+        "issue": "Minor speech-recognition or articulation slips in technical terminology ('occlusion' instead of 'execution', 'HEP' instead of 'heap', 'bluetex' instead of 'mutex').",
+        "evidence_quote": "A thread is a unit of occlusion inside a process all threads in that process share the same HEP memory.",
+        "timestamp": "8.00s - 17.54s",
+        "why_it_matters": "Using precise technical vocabulary ensures clarity and prevents misunderstandings during technical discussions.",
+        "improvement_action": "Verify key terms like heap, mutex, and semaphores when discussing concurrency.",
+        "example_sentence": "Threads share the same heap memory and use mutexes or semaphores to prevent race conditions."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.64s - 0.90s",
+        "original_spoken": "process",
+        "corrected_term": "process",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "12.02s - 12.98s",
+        "original_spoken": "process and",
+        "corrected_term": "process",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Sukhpreet_script2 (1).m4a",
+    "audio_duration_sec": 49.27,
+    "total_latency_sec": 14.41,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q120",
+      "prompt": "What is Dependency Injection and how does it improve software modularity and testability?",
+      "domain": "Python & SE",
+      "match_confidence": 0.8322820037105751
+    },
+    "transcripts": {
+      "raw_spoken": "dependency injection means that a class receives the object it depends on from outsider in inspect of creating them in itself this is a form of inversion of control and it reduce coupling between components the biggest benefit is testing because in a unit test we can pass a mock object or a fake database insert of the real one for example an order service can take a payment gateway through it construction so in production we inject the real gateway and in testing in test is we inject a stub framework like string board do this automatically",
+      "corrected": "dependency injection means that a class receives the object it depends on from outsider in inspect of creating them in itself this is a form of inversion of control and it reduce coupling between components the biggest benefit is testing because in a unit test can pass a mock object or a fake database insert of the real one for example an order service can take a payment gateway through it construction so in production we inject the real gateway and in testing in test is we inject a framework like string board do this automatically"
+    },
+    "scores": {
+      "content_completeness": 5.0,
+      "content_correctness": 5.0,
+      "calibrated_content": 4.19,
+      "answer_structure": 4.55,
+      "calibrated_structure": 4.37,
+      "structure_subcomponents": {
+        "framing": 5.0,
+        "coherence": 4.5,
+        "closure": 4.0
+      },
+      "overall_fairscore": 4.26
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q120_IDEA_1",
+        "criterion": "A design pattern where an object receives its dependencies from external callers rather than creating them internally.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "dependency injection means that a class receives the object it depends on from outsider in inspect of creating them in itself",
+        "reasoning": "The candidate clearly explains that dependencies are received from an external source rather than being created inside the class.",
+        "timestamp": "0.52s - 11.48s"
+      },
+      {
+        "idea_id": "Q120_IDEA_2",
+        "criterion": "Decouples high-level business logic from specific concrete implementations and third-party libraries.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "this is a form of inversion of control and it reduce coupling between components",
+        "reasoning": "The candidate explicitly notes that dependency injection reduces coupling between components as a form of inversion of control.",
+        "timestamp": "11.48s - 18.32s"
+      },
+      {
+        "idea_id": "Q120_IDEA_3",
+        "criterion": "Drastically improves testability by allowing unit tests to inject lightweight mock or stub dependencies in place of live external services.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "the biggest benefit is testing because in a unit test can pass a mock object or a fake database insert of the real one",
+        "reasoning": "The candidate explains how testability is improved by allowing mock or fake objects to be passed during unit testing.",
+        "timestamp": "18.32s - 29.02s"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Minor speech transcription and wording artifacts (e.g., 'outsider' instead of 'outside', 'insert' instead of 'instead').",
+        "evidence_quote": "from outsider in inspect of creating them in itself",
+        "timestamp": "6.70s - 11.48s",
+        "why_it_matters": "Clear articulation prevents misunderstandings in professional technical discussions.",
+        "improvement_action": "Ensure technical terms like 'outside' and 'instead' are pronounced distinctly.",
+        "example_sentence": "A class receives its dependencies from an outside source instead of instantiating them internally."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.52s - 1.56s",
+        "original_spoken": "dependency injection",
+        "corrected_term": "dependency injection",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "23.12s - 24.60s",
+        "original_spoken": "unit test we",
+        "corrected_term": "unit test",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "42.20s - 43.76s",
+        "original_spoken": "stub framework",
+        "corrected_term": "framework",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Sukhpreet_script2.m4a",
+    "audio_duration_sec": 49.27,
+    "total_latency_sec": 14.59,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q120",
+      "prompt": "What is Dependency Injection and how does it improve software modularity and testability?",
+      "domain": "Python & SE",
+      "match_confidence": 0.8322820037105751
+    },
+    "transcripts": {
+      "raw_spoken": "dependency injection means that a class receives the object it depends on from outsider in inspect of creating them in itself this is a form of inversion of control and it reduce coupling between components the biggest benefit is testing because in a unit test we can pass a mock object or a fake database insert of the real one for example an order service can take a payment gateway through it construction so in production we inject the real gateway and in testing in test is we inject a stub framework like string board do this automatically",
+      "corrected": "dependency injection means that a class receives the object it depends on from outsider in inspect of creating them in itself this is a form of inversion of control and it reduce coupling between components the biggest benefit is testing because in a unit test can pass a mock object or a fake database insert of the real one for example an order service can take a payment gateway through it construction so in production we inject the real gateway and in testing in test is we inject a framework like string board do this automatically"
+    },
+    "scores": {
+      "content_completeness": 5.0,
+      "content_correctness": 5.0,
+      "calibrated_content": 4.19,
+      "answer_structure": 0.95,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 1.0,
+        "coherence": 1.0,
+        "closure": 0.8
+      },
+      "overall_fairscore": 3.11
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q120_IDEA_1",
+        "criterion": "A design pattern where an object receives its dependencies from external callers rather than creating them internally.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "dependency injection means that a class receives the object it depends on from outsider in inspect of creating them in itself",
+        "reasoning": "The candidate clearly explains that dependencies are received from an external source rather than being created inside the class.",
+        "timestamp": "0.52s - 11.48s"
+      },
+      {
+        "idea_id": "Q120_IDEA_2",
+        "criterion": "Decouples high-level business logic from specific concrete implementations and third-party libraries.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "this is a form of inversion of control and it reduce coupling between components",
+        "reasoning": "The candidate explicitly notes that it reduces coupling between components and mentions inversion of control.",
+        "timestamp": "11.48s - 18.32s"
+      },
+      {
+        "idea_id": "Q120_IDEA_3",
+        "criterion": "Drastically improves testability by allowing unit tests to inject lightweight mock or stub dependencies in place of live external services.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "the biggest benefit is testing because in a unit test can pass a mock object or a fake database insert of the real one",
+        "reasoning": "The candidate details how unit testing is improved by passing mock objects or fakes instead of live services.",
+        "timestamp": "18.32s - 29.02s"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Occasional minor speech-recognition transcription glitches (e.g., 'outsider' instead of 'outside', 'insert' instead of 'instead')",
+        "evidence_quote": "from outsider in inspect of creating them in itself",
+        "timestamp": "6.70s - 11.48s",
+        "why_it_matters": "Clear terminology ensures precise technical communication during interviews.",
+        "improvement_action": "Practice articulating technical terms like 'outside' and 'instead' clearly.",
+        "example_sentence": "A class receives its dependencies from the outside instead of instantiating them directly."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.52s - 1.56s",
+        "original_spoken": "dependency injection",
+        "corrected_term": "dependency injection",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "23.12s - 24.60s",
+        "original_spoken": "unit test we",
+        "corrected_term": "unit test",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "42.20s - 43.76s",
+        "original_spoken": "stub framework",
+        "corrected_term": "framework",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Sukhpreet_script3.m4a",
+    "audio_duration_sec": 52.85,
+    "total_latency_sec": 16.98,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q109",
+      "prompt": "Compare Git branching strategies: Git Flow versus Trunk-Based Development.",
+      "domain": "Python & SE",
+      "match_confidence": 0.8026289926289926
+    },
+    "transcripts": {
+      "raw_spoken": "continuously integrating means developers marry their code into a shared branch frequently and every changes triggers and automated build and unit test is this gets integration bugs easily before they fill up continuously deliver extends this by making sure the code is always a deployable state with automated release to the staging environment and a one -click deploy to produce continuous deployment goes one step further and release automatically a typical pipeline use github actions and junks to run leaning test is a doctor build then deployment with the rollback plan",
+      "corrected": "continuous integration means developers marry their code into a shared branch frequently and every changes triggers and automated build and unit test this gets integration bugs easily before they fill up continuously deliver extends this by making sure the code is always a deployable state with automated release to the staging environment and a one click deploy to produce continuous deployment goes one step further and release automatically a typical pipeline use github actions and junks to run leaning test is a doctor build then Deployment with the rollback plan"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 5.0,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.52,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.5,
+        "coherence": 0.6,
+        "closure": 0.4
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q109_IDEA_1",
+        "criterion": "Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate's response focuses entirely on CI/CD pipelines (continuous integration, continuous delivery, and continuous deployment) and fails to discuss Git Flow, long-lived branches, or scheduled monolithic releases.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q109_IDEA_2",
+        "criterion": "Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate mentions merging code into a shared branch frequently (\"developers marry their code into a shared branch frequently\"), but this is discussed in the context of general continuous integration rather than Trunk-Based Development, short-lived branches, or merging into a central trunk/main branch.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q109_IDEA_3",
+        "criterion": "Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate does not mention feature flags, runtime toggles, or decoupling code deployment from feature release as required by this rubric idea.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "The candidate completely omitted Git Flow and its characteristics (long-lived branches, formal merge gates, scheduled monolithic releases).",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Comparing Git Flow is a core requirement of the question to contrast traditional branching with modern workflows.",
+        "improvement_action": "Explain Git Flow's structure using long-lived branches like master, develop, feature, and release branches.",
+        "example_sentence": "Git Flow utilizes long-lived branches like develop and master alongside feature branches for scheduled releases."
+      },
+      {
+        "priority": 2,
+        "issue": "The candidate did not explain Trunk-Based Development or its core mechanism of short-lived branches merging into a central trunk.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Trunk-Based Development is the primary modern alternative to Git Flow that enables continuous integration and rapid delivery.",
+        "improvement_action": "Describe how developers commit short-lived branches directly into the main trunk multiple times a day.",
+        "example_sentence": "Trunk-based development requires developers to merge short-lived branches directly into the main branch multiple times daily."
+      },
+      {
+        "priority": 3,
+        "issue": "The candidate omitted the use of feature flags to decouple code deployment from feature release.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Feature flags are essential in trunk-based development to safely merge uncompleted features into production without exposing them to users.",
+        "improvement_action": "Incorporate feature flags into your explanation of how risky or incomplete features are hidden in production.",
+        "example_sentence": "We use runtime feature flags to hide incomplete features from users while continuously deploying code to production."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.49s - 1.84s",
+        "original_spoken": "continuously integrating",
+        "corrected_term": "continuous integration",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "11.80s - 12.84s",
+        "original_spoken": "unit test is",
+        "corrected_term": "unit test",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "32.38s - 32.64s",
+        "original_spoken": "-click",
+        "corrected_term": "click",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "48.52s - 49.06s",
+        "original_spoken": "deployment",
+        "corrected_term": "Deployment",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Sukhpreet_ws1.m4a",
+    "audio_duration_sec": 10.03,
+    "total_latency_sec": 7.97,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q054",
+      "prompt": "What is a Monotonic Stack and what class of problems does it solve efficiently?",
+      "domain": "Algorithms",
+      "match_confidence": 0.9741803278688524
+    },
+    "transcripts": {
+      "raw_spoken": "a stack is first in first out so the first item use push is the first item you pop",
+      "corrected": "stack is first in first out so the first item use push is the first item you pop"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.0,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.0,
+        "coherence": 0.0,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Stack Data Structure Definition",
+        "severity": "CRITICAL",
+        "error": "The candidate stated that a stack is first-in-first-out (FIFO). A stack is actually a last-in-first-out (LIFO) data structure where the last item pushed is the first item popped.",
+        "candidate_quote": "a stack is first in first out so the first item use push is the first item you pop"
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q054_IDEA_1",
+        "criterion": "A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate incorrectly defines a stack as first-in-first-out (FIFO, which describes a queue) rather than last-in-first-out (LIFO), and fails to mention monotonicity or order maintenance.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q054_IDEA_2",
+        "criterion": "Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate does not mention Next Greater Element, Daily Temperatures, Largest Rectangle in Histogram, or O(N) linear time problem classes.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q054_IDEA_3",
+        "criterion": "Every element is pushed and popped at most once, guaranteeing linear amortized complexity.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate provides no mention of push/pop invariants or amortized O(N) complexity.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Incorrectly defined a stack as FIFO instead of LIFO.",
+        "evidence_quote": "a stack is first in first out",
+        "timestamp": "0.00s - 2.64s",
+        "why_it_matters": "A stack is fundamentally a Last-In-First-Out (LIFO) data structure, which is the foundational property required for a monotonic stack to track previous or subsequent elements.",
+        "improvement_action": "Correctly define a stack as Last-In-First-Out (LIFO) before explaining specialized variants like monotonic stacks.",
+        "example_sentence": "A stack is a Last-In-First-Out data structure, whereas a monotonic stack maintains elements in a specific sorted order."
+      },
+      {
+        "priority": 2,
+        "issue": "Failed to define the monotonicity property of a monotonic stack.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "A monotonic stack maintains elements in strictly increasing or decreasing order by popping elements that violate the invariant.",
+        "improvement_action": "Explain that a monotonic stack maintains elements in sorted order by removing elements that violate the condition when a new element is processed.",
+        "example_sentence": "A monotonic stack maintains elements in strictly increasing or decreasing order by popping elements that violate the invariant before pushing a new element."
+      },
+      {
+        "priority": 3,
+        "issue": "Omitted the class of problems solved efficiently and the amortized O(N) complexity.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Monotonic stacks are specifically used to solve problems like Next Greater Element or Largest Rectangle in Histogram in linear time.",
+        "improvement_action": "Mention that monotonic stacks solve problems involving nearest greater or smaller elements in amortized O(N) time.",
+        "example_sentence": "It efficiently solves problems like the Next Greater Element in amortized O(N) time because each element is pushed and popped at most once."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.00s - 0.78s",
+        "original_spoken": "a stack",
+        "corrected_term": "stack",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "Sukhpreet_ws2.m4a",
+    "audio_duration_sec": 8.68,
+    "total_latency_sec": 8.52,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q032",
+      "prompt": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+      "domain": "Algorithms",
+      "match_confidence": 0.7426119402985074
+    },
+    "transcripts": {
+      "raw_spoken": "a hash map never has glides because the hash function always give a unique index for every key",
+      "corrected": "a hash map never has glides because the hash function always give a unique index for every key"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.0,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.0,
+        "coherence": 0.0,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Hash Collisions and Hash Functions",
+        "severity": "CRITICAL",
+        "error": "The candidate claims hash maps never have collisions and that hash functions always produce unique indices. In reality, due to the pigeonhole principle, hash functions frequently map different keys to the same index, requiring collision resolution strategies.",
+        "candidate_quote": "a hash map never has glides because the hash function always give a unique index for every key"
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q032_IDEA_1",
+        "criterion": "Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate incorrectly claimed that hash maps never experience collisions (\"glides\" in transcript) because hash functions give unique indices, missing the explanation of collision resolution methods.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q032_IDEA_2",
+        "criterion": "Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate failed to mention the load factor, its formula (N/C), or its role in measuring table density.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q032_IDEA_3",
+        "criterion": "Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate provided no explanation of resizing, rehashing, or load factor thresholds.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Incorrectly stated that hash maps never experience collisions.",
+        "evidence_quote": "a hash map never has glides because the hash function always give a unique index for every key",
+        "timestamp": "0.00s - 6.72s",
+        "why_it_matters": "Understanding that collisions are inevitable is fundamental to understanding how hash tables work and why collision resolution techniques are necessary.",
+        "improvement_action": "Explain that collisions occur when two different keys hash to the same index, and describe resolution methods like separate chaining or open addressing.",
+        "example_sentence": "Hash collisions occur when distinct keys map to the same bucket, requiring strategies like chaining to resolve them."
+      },
+      {
+        "priority": 2,
+        "issue": "Omitted the concept and significance of the load factor.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "The load factor dictates when a hash map needs to resize to maintain efficient O(1) average time complexity for lookups and insertions.",
+        "improvement_action": "Define the load factor as the ratio of stored entries to total capacity and explain its role in triggering table resize operations.",
+        "example_sentence": "The load factor is the ratio of elements to buckets, indicating when the table needs to be resized."
+      },
+      {
+        "priority": 3,
+        "issue": "Failed to explain resizing and rehashing.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Resizing prevents performance degradation as the hash table fills up by reallocating a larger array and rehashing existing keys.",
+        "improvement_action": "Describe how exceeding the maximum load factor triggers a resize, typically doubling the capacity and rehashing elements.",
+        "example_sentence": "When the load factor exceeds the threshold, the table capacity is doubled and all entries are rehashed."
+      }
+    ],
+    "corrections_made": []
+  },
+  {
+    "filename": "test.wav",
+    "audio_duration_sec": 37.07,
+    "total_latency_sec": 13.37,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "ENG006",
+      "prompt": "What is the difference between Property-Based Testing and Example-Based Unit Testing, and how does Mutation Testing assess test suite quality?",
+      "domain": "Testing & Code Quality",
+      "match_confidence": 0.235792662954471
+    },
+    "transcripts": {
+      "raw_spoken": "hello my name is krishna upta i'm testing the speech recognition system of imaira today is wednesday october 28 20 26 i would like to check how accurate the system recognizes my words numbers and sentences my favorite technology are artificial intelligence machine learning and robotics please recognize the this sentence clearly i wanted to build an intelligent assistant that understand my voice and respond accurately this is the end of my test recording",
+      "corrected": "hello my name is Krishna Gupta i'm testing the speech recognition system of IMAIRA today is wednesday october 28 20 26 i would like to check how accurate the system recognizes my words numbers and sentences my favorite technology are artificial intelligence machine learning and robotics please recognize the this sentence clearly i wanted to build an intelligent assistant that understand my voice and respond accurately this is the end of my test recording"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 5.0,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.0,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.0,
+        "coherence": 0.0,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "ENG006_IDEA_1",
+        "criterion": "Contrasts developer-chosen input examples with property-based testing verifying invariant rules across generated inputs with shrinking.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate provided an irrelevant speech-recognition test recording rather than discussing property-based testing, example-based unit testing, or input shrinking.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "ENG006_IDEA_2",
+        "criterion": "Explains that mutation testing injects code defects to measure whether the test suite detects them, quantifying test suite effectiveness.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate completely omitted any discussion of mutation testing, code defects, or test suite effectiveness evaluation.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "The candidate completely failed to answer the interview question about property-based testing and example-based testing.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Demonstrating knowledge of testing methodologies is critical for evaluating software engineering and code quality competency.",
+        "improvement_action": "Explain the fundamental difference between static input-output examples and generative property-based testing invariants.",
+        "example_sentence": "Example-based tests use hardcoded values, whereas property-based testing validates universal invariants across randomly generated inputs."
+      },
+      {
+        "priority": 2,
+        "issue": "The candidate omitted all explanation of mutation testing and how it assesses test suite quality.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Mutation testing is an essential technique for measuring the effectiveness and fault-detection capability of a test suite.",
+        "improvement_action": "Describe how artificial faults are injected into source code to verify if tests fail when code is mutated.",
+        "example_sentence": "Mutation testing introduces intentional code faults to check if the existing test suite can detect the changes."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "1.56s - 2.08s",
+        "original_spoken": "krishna upta",
+        "corrected_term": "Krishna Gupta",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "4.66s - 6.08s",
+        "original_spoken": "imaira",
+        "corrected_term": "IMAIRA",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "test_voice (wrong v1).wav",
+    "audio_duration_sec": 7.62,
+    "total_latency_sec": 7.55,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q035",
+      "prompt": "Compare Breadth-First Search (BFS) and Depth-First Search (DFS): traversal order, data structures, and optimal use cases.",
+      "domain": "Algorithms",
+      "match_confidence": 0.9762345679012345
+    },
+    "transcripts": {
+      "raw_spoken": "A stack is first in first out, so the first item you push in the first item you pop",
+      "corrected": "stack is first in first out, so the first item you push in the first item you pop"
+    },
+    "scores": {
+      "content_completeness": 1.67,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.99,
+      "answer_structure": 0.0,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.0,
+        "coherence": 0.0,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.79
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Stack Data Structure Properties",
+        "severity": "CRITICAL",
+        "error": "The candidate defined a stack as 'first in first out' (FIFO), which describes a Queue. A Stack is fundamentally Last-In-First-Out (LIFO).",
+        "candidate_quote": "stack is first in first out"
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q035_IDEA_1",
+        "criterion": "BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate provided no information about Breadth-First Search (BFS), queue usage, or shortest path guarantees.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q035_IDEA_2",
+        "criterion": "DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion.",
+        "verdict": "PARTIAL",
+        "points_awarded": 0.5,
+        "evidence_quote": "stack is first in first out, so the first item you push in the first item you pop",
+        "reasoning": "The candidate mentions a stack, but exhibits a critical conceptual error by stating that a stack is 'first in first out' (FIFO) instead of 'last in first out' (LIFO), and does not discuss DFS traversal mechanics.",
+        "timestamp": "0.62s - 6.60s"
+      },
+      {
+        "idea_id": "Q035_IDEA_3",
+        "criterion": "BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate did not provide any comparison of memory profiles or optimal use cases for BFS and DFS.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Confused the fundamental properties of a Stack with a Queue.",
+        "evidence_quote": "stack is first in first out",
+        "timestamp": "0.62s - 3.08s",
+        "why_it_matters": "A stack operates on Last-In-First-Out (LIFO) principles, which is core to how Depth-First Search handles recursive backtracking and paths.",
+        "improvement_action": "Clarify that stacks use LIFO (Last-In-First-Out) while queues use FIFO (First-In-First-Out).",
+        "example_sentence": "A stack is a Last-In-First-Out (LIFO) data structure used in DFS, whereas a queue is First-In-First-Out (FIFO)."
+      },
+      {
+        "priority": 2,
+        "issue": "Failed to describe Breadth-First Search (BFS) and its traversal characteristics.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "BFS is essential for finding the shortest path in unweighted graphs using a FIFO queue.",
+        "improvement_action": "Explain that BFS explores graphs level by level using a queue.",
+        "example_sentence": "BFS explores graph nodes level-by-level using a queue, guaranteeing the shortest path in unweighted graphs."
+      },
+      {
+        "priority": 3,
+        "issue": "Omitted the comparison of memory profiles and optimal use cases between BFS and DFS.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Understanding memory complexity (O(V) for BFS vs O(H) for DFS) is critical for selecting the right algorithm.",
+        "improvement_action": "Compare memory growth and state typical use cases for both algorithms.",
+        "example_sentence": "BFS memory grows with the graph width, while DFS memory is bounded by the maximum tree depth."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.62s - 1.52s",
+        "original_spoken": "A stack",
+        "corrected_term": "stack",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "test_voice (wrong v2).wav",
+    "audio_duration_sec": 8.41,
+    "total_latency_sec": 7.43,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q032",
+      "prompt": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+      "domain": "Algorithms",
+      "match_confidence": 0.8379710144927536
+    },
+    "transcripts": {
+      "raw_spoken": "a hash map never has collisions because the hash function always gives a unique index for every key",
+      "corrected": "a hash map never has collisions because the hash function always gives a unique index for every key"
+    },
+    "scores": {
+      "content_completeness": 1.0,
+      "content_correctness": 1.5,
+      "calibrated_content": 1.57,
+      "answer_structure": 0.0,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 0.0,
+        "coherence": 0.0,
+        "closure": 0.0
+      },
+      "overall_fairscore": 1.54
+    },
+    "where_got_wrong": [
+      {
+        "concept": "Hash Collisions",
+        "severity": "CRITICAL",
+        "error": "The candidate stated that hash maps never have collisions and hash functions always yield unique indices. In practice, due to the pigeonhole principle, distinct keys can hash to the same index, requiring collision resolution strategies.",
+        "candidate_quote": "a hash map never has collisions because the hash function always gives a unique index for every key"
+      }
+    ],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q032_IDEA_1",
+        "criterion": "Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate incorrectly claimed that hash maps never experience collisions due to unique indices, failing to explain collision resolution mechanisms like chaining or open addressing.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q032_IDEA_2",
+        "criterion": "Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate did not mention the load factor, its definition as the ratio of stored elements to capacity, or table density.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q032_IDEA_3",
+        "criterion": "Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate omitted any discussion of resizing thresholds, rehashing, or how load factor impacts amortized O(1) performance.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Incorrectly claimed that hash maps do not experience collisions.",
+        "evidence_quote": "a hash map never has collisions because the hash function always gives a unique index for every key",
+        "timestamp": "0.00s - 7.32s",
+        "why_it_matters": "Understanding collisions is fundamental because finite array sizes and diverse key spaces inevitably cause multiple keys to map to the same index.",
+        "improvement_action": "Explain how hash collisions occur and discuss resolution methods such as separate chaining or open addressing.",
+        "example_sentence": "Collisions occur when two distinct keys hash to the same index, which can be resolved using separate chaining with linked lists."
+      },
+      {
+        "priority": 2,
+        "issue": "Omitted the definition and significance of the load factor.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "The load factor dictates when a hash map needs to resize, balancing memory usage against time complexity.",
+        "improvement_action": "Define the load factor as the ratio of elements to buckets and explain its role in triggering resize operations.",
+        "example_sentence": "The load factor is the ratio of stored elements to total capacity, indicating when the table needs to resize."
+      },
+      {
+        "priority": 3,
+        "issue": "Failed to mention resizing and rehashing mechanisms.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Resizing prevents performance degradation by ensuring search operations remain efficient over time.",
+        "improvement_action": "Describe how exceeding the maximum load factor triggers a capacity increase and rehashing of existing entries.",
+        "example_sentence": "When the load factor exceeds the threshold, the hash map doubles its capacity and rehashes all existing entries."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.96s - 1.54s",
+        "original_spoken": "hash map",
+        "corrected_term": "hash map",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "test_voice_v1.wav",
+    "audio_duration_sec": 42.82,
+    "total_latency_sec": 16.56,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q109",
+      "prompt": "Compare Git branching strategies: Git Flow versus Trunk-Based Development.",
+      "domain": "Python & SE",
+      "match_confidence": 0.8082479030754892
+    },
+    "transcripts": {
+      "raw_spoken": "Continuous integration means developers merge their codes into a shared branch frequently, and every change triggers an automated build and unit test. This catches integration bugs early, before they pile up. Continuous delivery extends this by making sure the code is always in a deployable state, with automated release to a staging environment and a one -click deploy to production. Continuous deployment goes one step further, and releases automatically. A typical pipeline uses GitHub Actions or Jenkins to run linting, tests, a doctor build, and then a deployment with a rollback plan.",
+      "corrected": "continuous integration developers merge their codes into a shared branch frequently, and every change triggers an automated build and unit test. This catches iteration bugs early, before they pile up. Continuous delivery extends this by making sure the code is always in a deployable state, with automated release to a staging environment and a one -click deploy to production. Continuous deployment goes one step further, and releases automatically. A typical pipeline uses GitHub Actions Jenkins to run linting, tests, a doctor build, and then Deployment with a rollback plan."
+    },
+    "scores": {
+      "content_completeness": 1.67,
+      "content_correctness": 5.0,
+      "calibrated_content": 1.99,
+      "answer_structure": 2.4,
+      "calibrated_structure": 2.43,
+      "structure_subcomponents": {
+        "framing": 2.0,
+        "coherence": 3.0,
+        "closure": 2.0
+      },
+      "overall_fairscore": 2.17
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q109_IDEA_1",
+        "criterion": "Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate does not mention Git Flow, long-lived branches like master/develop/release, or scheduled monolithic releases.",
+        "timestamp": "Not Found"
+      },
+      {
+        "idea_id": "Q109_IDEA_2",
+        "criterion": "Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.",
+        "verdict": "PARTIAL",
+        "points_awarded": 0.5,
+        "evidence_quote": "Continuous integration means developers merge their codes into a shared branch frequently",
+        "reasoning": "The candidate mentions merging code into a shared branch frequently, which aligns with continuous integration / trunk-based concepts, but does not explicitly name Trunk-Based Development or detail the trunk/main branching practice.",
+        "timestamp": "0.84s - 6.26s"
+      },
+      {
+        "idea_id": "Q109_IDEA_3",
+        "criterion": "Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate discusses automated CI testing and deployment pipelines, but completely omits the use of Feature Flags to decouple code deployment from feature release.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "The candidate completely omitted any discussion of Git Flow and its long-lived branches.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Git Flow is one of the two core strategies requested by the comparison question.",
+        "improvement_action": "Explain Git Flow's structure, including long-lived branches like master, develop, and feature branches, alongside its formal merge gates.",
+        "example_sentence": "Git Flow uses long-lived branches such as develop and master with formal release gates."
+      },
+      {
+        "priority": 2,
+        "issue": "The candidate failed to explain Feature Flags in the context of Trunk-Based Development.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Feature flags are essential for safely deploying incomplete features to production without exposing them to users prematurely.",
+        "improvement_action": "Describe how feature flags decouple code deployment from feature release in trunk-based workflows.",
+        "example_sentence": "We use runtime feature flags to hide unready features in production."
+      },
+      {
+        "priority": 3,
+        "issue": "The response drifted into a general CI/CD pipeline definition rather than focusing on branching strategies.",
+        "evidence_quote": "A typical pipeline uses GitHub Actions or Jenkins to run linting, tests...",
+        "timestamp": "31.16s - 36.72s",
+        "why_it_matters": "Staying focused on the specific prompt ensures all rubric requirements are met.",
+        "improvement_action": "Directly compare the merge frequency and branch lifespan differences between Git Flow and Trunk-Based Development.",
+        "example_sentence": "Unlike Git Flow's scheduled releases, Trunk-Based Development relies on multiple daily merges to main."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.84s - 2.34s",
+        "original_spoken": "Continuous integration means",
+        "corrected_term": "continuous integration",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "11.68s - 12.30s",
+        "original_spoken": "integration",
+        "corrected_term": "iteration",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "32.82s - 34.06s",
+        "original_spoken": "GitHub Actions or",
+        "corrected_term": "GitHub Actions",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "39.64s - 40.24s",
+        "original_spoken": "a deployment",
+        "corrected_term": "Deployment",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "test_voice_v2.wav",
+    "audio_duration_sec": 38.08,
+    "total_latency_sec": 14.25,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q120",
+      "prompt": "What is Dependency Injection and how does it improve software modularity and testability?",
+      "domain": "Python & SE",
+      "match_confidence": 0.8588126159554731
+    },
+    "transcripts": {
+      "raw_spoken": "Dependency injection means that a class receives the object it depends on from outside instead of creating them itself. This is a form of inversion of control and it reduces coupling between components. The biggest benefit is testing, because in a unit test we can pass a mock object or a fake database instead of the real one. For example, an order service can take a payment gateway through its constructor, so in production we inject the real gateway and in test we inject a stub. Frameworks like Spring Boot do this automatically.",
+      "corrected": "dependency injection means that a class receives the object it depends on from outside instead of creating them itself. This is a form of inversion of control and it reduces coupling between components. The biggest benefit is testing, because in a unit test can pass a mock object or a fake database instead of the real one. For example, an order service can take a payment gateway through its constructor, so in production we inject the real gateway and in test we inject a stub. Frameworks like Spring Boot this automatically."
+    },
+    "scores": {
+      "content_completeness": 5.0,
+      "content_correctness": 5.0,
+      "calibrated_content": 4.19,
+      "answer_structure": 0.97,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 1.0,
+        "coherence": 1.0,
+        "closure": 0.9
+      },
+      "overall_fairscore": 3.11
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q120_IDEA_1",
+        "criterion": "A design pattern where an object receives its dependencies from external callers rather than creating them internally.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "dependency injection means that a class receives the object it depends on from outside instead of creating them itself.",
+        "reasoning": "The candidate accurately explains that dependencies are received from outside rather than being instantiated internally.",
+        "timestamp": "0.74s - 8.22s"
+      },
+      {
+        "idea_id": "Q120_IDEA_2",
+        "criterion": "Decouples high-level business logic from specific concrete implementations and third-party libraries.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "This is a form of inversion of control and it reduces coupling between components.",
+        "reasoning": "The candidate identifies that dependency injection reduces coupling and decouples components.",
+        "timestamp": "8.60s - 13.36s"
+      },
+      {
+        "idea_id": "Q120_IDEA_3",
+        "criterion": "Drastically improves testability by allowing unit tests to inject lightweight mock or stub dependencies in place of live external services.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "The biggest benefit is testing, because in a unit test can pass a mock object or a fake database instead of the real one.",
+        "reasoning": "The candidate clearly explains how testability is improved by allowing mock objects or stubs to be injected during tests.",
+        "timestamp": "13.80s - 22.54s"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "The explanation could explicitly mention constructor, method, or property injection types to provide more architectural depth.",
+        "evidence_quote": "an order service can take a payment gateway through its constructor",
+        "timestamp": "23.94s - 27.10s",
+        "why_it_matters": "Mentioning specific injection mechanisms demonstrates a deeper practical understanding of how dependency injection is implemented in codebase designs.",
+        "improvement_action": "Briefly distinguish between constructor injection, setter injection, and interface injection when explaining the pattern.",
+        "example_sentence": "Dependencies are typically supplied via constructor injection, method arguments, or property setters."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "0.74s - 1.56s",
+        "original_spoken": "Dependency injection",
+        "corrected_term": "dependency injection",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "17.02s - 18.18s",
+        "original_spoken": "unit test we",
+        "corrected_term": "unit test",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "34.24s - 35.56s",
+        "original_spoken": "Spring Boot do",
+        "corrected_term": "Spring Boot",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  },
+  {
+    "filename": "test_voice_v3.wav",
+    "audio_duration_sec": 40.59,
+    "total_latency_sec": 14.14,
+    "model_used": "gemini-3.5-flash-lite",
+    "matched_question": {
+      "question_id": "Q084",
+      "prompt": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+      "domain": "Databases & OS",
+      "match_confidence": 0.8890625
+    },
+    "transcripts": {
+      "raw_spoken": "A process is a running program with its own memory space. So one process cannot directly change another process's data. A thread is a unit of execution inside a process and all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes. The risk is that shared memory can cause a risk condition. So we protect it with a mutex or a semaphore. For example, a web browser can run each tab as a separate process for isolation while one tab uses several threads for rendering and network calls.",
+      "corrected": "A process is a running program with its own memory space. So process cannot directly change another process's data. A thread is a unit of execution inside a process all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes. The risk is that shared memory can cause a risk condition. So we protect it with a mutex or a semaphore. For example, a web browser can run each tab as a separate process for isolation while one tab uses several threads for rendering and network calls."
+    },
+    "scores": {
+      "content_completeness": 3.67,
+      "content_correctness": 5.0,
+      "calibrated_content": 2.92,
+      "answer_structure": 0.84,
+      "calibrated_structure": 1.49,
+      "structure_subcomponents": {
+        "framing": 1.0,
+        "coherence": 0.8,
+        "closure": 0.7
+      },
+      "overall_fairscore": 2.35
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q084_IDEA_1",
+        "criterion": "A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "A process is a running program with its own memory space. So process cannot directly change another process's data.",
+        "reasoning": "The candidate correctly explains that a process is an isolated execution instance with its own memory space preventing direct modification by other processes.",
+        "timestamp": "0.52s - 7.64s"
+      },
+      {
+        "idea_id": "Q084_IDEA_2",
+        "criterion": "Threads are lightweight execution units within a process sharing the same address space, code segment, and heap, but retaining independent stacks and registers.",
+        "verdict": "COVERED",
+        "points_awarded": 1.0,
+        "evidence_quote": "A thread is a unit of execution inside a process all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes.",
+        "reasoning": "The candidate accurately identifies threads as lightweight execution units within a process sharing the same heap memory and having lower context-switch overhead.",
+        "timestamp": "7.92s - 22.10s"
+      },
+      {
+        "idea_id": "Q084_IDEA_3",
+        "criterion": "IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.",
+        "verdict": "MISSING",
+        "points_awarded": 0.0,
+        "evidence_quote": "",
+        "reasoning": "The candidate did not explain common Inter-Process Communication (IPC) mechanisms such as pipes, shared memory, message queues, signals, or sockets.",
+        "timestamp": "Not Found"
+      }
+    ],
+    "actionable_feedback": [
+      {
+        "priority": 1,
+        "issue": "Omission of Inter-Process Communication (IPC) mechanisms.",
+        "evidence_quote": "",
+        "timestamp": null,
+        "why_it_matters": "Since processes are isolated in their own memory spaces, explicit IPC mechanisms are required for them to communicate and share data safely.",
+        "improvement_action": "Explain standard IPC mechanisms like pipes, message queues, shared memory, and sockets.",
+        "example_sentence": "Processes can communicate with each other using mechanisms like pipes, message queues, or shared memory."
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "4.66s - 5.28s",
+        "original_spoken": "one process",
+        "corrected_term": "process",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "10.70s - 11.32s",
+        "original_spoken": "process and",
+        "corrected_term": "process",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "28.60s - 29.02s",
+        "original_spoken": "mutex",
+        "corrected_term": "mutex",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ]
+  }
+]
