@@ -1,47 +1,47 @@
 {
   "num_examples": 240,
-  "n_bootstraps": 500,
+  "n_bootstraps": 2000,
   "seed": 42,
   "dimensions": {
     "content": {
       "inter_rater_pairwise": {
         "qwk": {
           "point": 0.7782,
-          "ci_lower": 0.712,
-          "ci_upper": 0.836,
-          "std_err": 0.0312
+          "ci_lower": 0.7126,
+          "ci_upper": 0.8367,
+          "std_err": 0.031
         },
         "pearson_r": {
           "point": 0.8257,
-          "ci_lower": 0.7749,
-          "ci_upper": 0.8742,
-          "std_err": 0.0257
+          "ci_lower": 0.7742,
+          "ci_upper": 0.8724,
+          "std_err": 0.025
         },
         "mae": {
           "point": 0.3708,
-          "ci_lower": 0.3076,
-          "ci_upper": 0.441,
-          "std_err": 0.0344
+          "ci_lower": 0.3056,
+          "ci_upper": 0.4403,
+          "std_err": 0.0339
         }
       },
       "rater_vs_consensus": {
         "qwk": {
           "point": 0.9044,
-          "ci_lower": 0.8752,
-          "ci_upper": 0.9283,
+          "ci_lower": 0.8757,
+          "ci_upper": 0.929,
           "std_err": 0.0134
         },
         "pearson_r": {
           "point": 0.9401,
-          "ci_lower": 0.9219,
-          "ci_upper": 0.9571,
-          "std_err": 0.0091
+          "ci_lower": 0.9216,
+          "ci_upper": 0.9565,
+          "std_err": 0.0089
         },
         "mae": {
           "point": 0.2242,
-          "ci_lower": 0.1896,
-          "ci_upper": 0.2641,
-          "std_err": 0.0188
+          "ci_lower": 0.1885,
+          "ci_upper": 0.2631,
+          "std_err": 0.0185
         }
       }
     },
@@ -49,41 +49,41 @@
       "inter_rater_pairwise": {
         "qwk": {
           "point": 0.7762,
-          "ci_lower": 0.719,
-          "ci_upper": 0.83,
-          "std_err": 0.0286
+          "ci_lower": 0.7196,
+          "ci_upper": 0.8307,
+          "std_err": 0.0289
         },
         "pearson_r": {
           "point": 0.8309,
-          "ci_lower": 0.7828,
-          "ci_upper": 0.8764,
+          "ci_lower": 0.7811,
+          "ci_upper": 0.8772,
           "std_err": 0.0242
         },
         "mae": {
           "point": 0.3694,
-          "ci_lower": 0.302,
-          "ci_upper": 0.4362,
-          "std_err": 0.0341
+          "ci_lower": 0.3042,
+          "ci_upper": 0.4375,
+          "std_err": 0.0339
         }
       },
       "rater_vs_consensus": {
         "qwk": {
           "point": 0.8806,
-          "ci_lower": 0.8531,
-          "ci_upper": 0.9047,
-          "std_err": 0.0132
+          "ci_lower": 0.8527,
+          "ci_upper": 0.905,
+          "std_err": 0.0133
         },
         "pearson_r": {
           "point": 0.9419,
-          "ci_lower": 0.9247,
-          "ci_upper": 0.9579,
+          "ci_lower": 0.9241,
+          "ci_upper": 0.9582,
           "std_err": 0.0086
         },
         "mae": {
           "point": 0.2246,
-          "ci_lower": 0.1871,
-          "ci_upper": 0.2628,
-          "std_err": 0.0188
+          "ci_lower": 0.189,
+          "ci_upper": 0.2621,
+          "std_err": 0.0186
         }
       }
     },
@@ -91,41 +91,41 @@
       "inter_rater_pairwise": {
         "qwk": {
           "point": 0.8148,
-          "ci_lower": 0.7534,
-          "ci_upper": 0.8713,
-          "std_err": 0.03
+          "ci_lower": 0.7531,
+          "ci_upper": 0.8715,
+          "std_err": 0.0298
         },
         "pearson_r": {
           "point": 0.8403,
-          "ci_lower": 0.7921,
-          "ci_upper": 0.887,
-          "std_err": 0.025
+          "ci_lower": 0.7909,
+          "ci_upper": 0.8868,
+          "std_err": 0.0246
         },
         "mae": {
           "point": 0.3314,
           "ci_lower": 0.2664,
-          "ci_upper": 0.3977,
-          "std_err": 0.0343
+          "ci_upper": 0.4,
+          "std_err": 0.0342
         }
       },
       "rater_vs_consensus": {
         "qwk": {
           "point": 0.9222,
           "ci_lower": 0.8948,
-          "ci_upper": 0.9451,
-          "std_err": 0.0129
+          "ci_upper": 0.9454,
+          "std_err": 0.0128
         },
         "pearson_r": {
           "point": 0.9453,
-          "ci_lower": 0.9281,
-          "ci_upper": 0.9616,
-          "std_err": 0.0088
+          "ci_lower": 0.9277,
+          "ci_upper": 0.9615,
+          "std_err": 0.0087
         },
         "mae": {
           "point": 0.1959,
-          "ci_lower": 0.1612,
-          "ci_upper": 0.2322,
-          "std_err": 0.0183
+          "ci_lower": 0.1613,
+          "ci_upper": 0.2326,
+          "std_err": 0.0182
         }
       }
     }

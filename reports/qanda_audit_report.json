@@ -1,0 +1,43 @@
+{
+  "total_records": 120,
+  "unique_ids": 120,
+  "categories": {
+    "Software and Computer Science Fundamentals": 30,
+    "Data, Machine Learning and Artificial Intelligence": 25,
+    "Web Development, Cloud Computing and Cybersecurity": 20,
+    "Core Engineering": 20,
+    "Business, Product Management and Human Resources": 25
+  },
+  "subcategories_count": 25,
+  "difficulties": {
+    "Intermediate": 55,
+    "Advanced": 43,
+    "Expert": 22
+  },
+  "question_types": {
+    "Conceptual": 22,
+    "Technical Application": 24,
+    "Scenario-Based": 18,
+    "Analytical": 17,
+    "Optimization": 8,
+    "System Design": 7,
+    "Security and Reliability": 7,
+    "Troubleshooting": 8,
+    "Business-Oriented Technical": 9
+  },
+  "question_formulas": {
+    "Custom Question Prompt": 120
+  },
+  "answer_template_families": {
+    "Custom / Non-Templated": 120
+  },
+  "boilerplate_ratio": 0.0,
+  "has_semantic_rubric_ideas": true,
+  "scoring_risks": [
+    "Dataset is clean and non-templated; includes valid semantic rubric propositions.",
+    "Dataset contains zero human candidate evaluation scores and is not suitable for score calibration."
+  ],
+  "recommended_role": "SCORING_AND_REFERENCE_KNOWLEDGE_BASE",
+  "suitable_for_rubric_replacement": true,
+  "suitable_for_calibration": false
+}

@@ -15,6 +15,7 @@ data:
   heldout_dataset_path: "data/dataset_heldout_60.json"
   heldout_lock_path: "reports/held_out_execution_lock.json"
   phase0_report_path: "reports/phase0_agreement_ceiling.json"
+  qanda_reference_path: "data/QandA.json"
   artifacts_dir: "artifacts"
   cache_dir: ".cache"
 
