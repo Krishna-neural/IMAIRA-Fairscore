@@ -1,6 +1,10 @@
 .env
 config.local.yaml
 data/
+.cache/
+.pytest_cache/
+*.sqlite
+*.sqlite3
 *.wav
 *.mp3
 *.m4a

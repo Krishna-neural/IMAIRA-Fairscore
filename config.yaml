@@ -1,0 +1,36 @@
+# IMAIRA-Fairscore Configuration - Member 3: CPU 1
+
+model:
+  provider: "gemini"
+  name: "gemini-2.5-flash"
+  temperature: 0.0
+  n_runs: 3
+  max_retries: 5
+  base_delay: 1.0
+  max_delay: 32.0
+
+data:
+  rubrics_path: "data/rubrics_120.json"
+  dev_dataset_path: "data/dataset_dev_240.json"
+  heldout_dataset_path: "data/dataset_heldout_60.json"
+  heldout_lock_path: "reports/held_out_execution_lock.json"
+  phase0_report_path: "reports/phase0_agreement_ceiling.json"
+  qanda_reference_path: "data/QandA.json"
+  artifacts_dir: "artifacts"
+  cache_dir: ".cache"
+
+evaluation:
+  bootstrap_iterations: 2000
+  bootstrap_seed: 42
+  contested_spread_threshold: 1.0
+  max_flip_rate_threshold: 0.05
+  min_tokens_threshold: 5
+
+calibration:
+  n_splits: 5
+  random_state: 42
+  methods:
+    - "isotonic"
+    - "ridge"
+    - "identity"
+  default_method: "isotonic"
