@@ -1,0 +1,85 @@
+[
+  {
+    "filename": "test_voice_v3.wav",
+    "audio_duration_sec": 40.59,
+    "total_latency_sec": 11.8,
+    "matched_question": {
+      "question_id": "Q084",
+      "prompt": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+      "domain": "Databases & OS",
+      "match_confidence": 0.389
+    },
+    "transcripts": {
+      "raw_spoken": "A process is a running program with its own memory space. So one process cannot directly change another process's data. A thread is a unit of execution inside a process and all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes. The risk is that shared memory can cause a risk condition. So we protect it with a mutex or a semaphore. For example, a web browser can run each tab as a separate process for isolation while one tab uses several threads for rendering and network calls.",
+      "corrected": "A process is a running program with its own memory space. So process cannot directly change another process's data. A thread is a unit of execution inside a process all threads in that process share the same heap memory. Because of this, creating a thread and doing a context switch between threads is cheaper than doing it for processes. The risk is that shared memory can cause a risk condition. So we protect it with a mutex or a semaphore. For example, a web browser can run each tab as a separate process for isolation while one tab uses several threads for rendering and network calls."
+    },
+    "scores": {
+      "content_completeness": 3.67,
+      "content_correctness": 5.0,
+      "raw_content": 3.7,
+      "calibrated_content": 2.97,
+      "answer_structure": 4.1,
+      "calibrated_structure": 4.37,
+      "structure_subcomponents": {
+        "framing": 4.5,
+        "coherence": 4.5,
+        "closure": 3.0
+      },
+      "overall_fairscore": 3.53
+    },
+    "where_got_wrong": [],
+    "rubric_idea_breakdown": [
+      {
+        "idea_id": "Q084_IDEA_1",
+        "criterion": "A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.",
+        "verdict": "DEMONSTRATED",
+        "points_awarded": 1.0,
+        "evidence_quote": "a process is a running program with its own memory",
+        "timestamp": "0.52s - 3.52s"
+      },
+      {
+        "idea_id": "Q084_IDEA_2",
+        "criterion": "Threads are lightweight execution units within a process sharing the same address space, code segment, and heap, but retaining independent stacks and registers.",
+        "verdict": "PARTIALLY_DEMONSTRATED",
+        "points_awarded": 0.5,
+        "evidence_quote": "a process is a running program",
+        "timestamp": "0.52s - 2.48s"
+      },
+      {
+        "idea_id": "Q084_IDEA_3",
+        "criterion": "IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.",
+        "verdict": "PARTIALLY_DEMONSTRATED",
+        "points_awarded": 0.5,
+        "evidence_quote": "a process is a running program",
+        "timestamp": "0.52s - 2.48s"
+      }
+    ],
+    "corrections_made": [
+      {
+        "timestamp": "4.66s - 5.28s",
+        "original_spoken": "one process",
+        "corrected_term": "process",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "10.70s - 11.32s",
+        "original_spoken": "process and",
+        "corrected_term": "process",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      },
+      {
+        "timestamp": "28.60s - 29.02s",
+        "original_spoken": "mutex",
+        "corrected_term": "mutex",
+        "recheck_conf": 0.92,
+        "reason": "audio_supported"
+      }
+    ],
+    "is_uncertain": true,
+    "uncertainty_reasons": [
+      "Over 50% of rubric ideas are marked partially demonstrated (2/3)"
+    ]
+  }
+]
