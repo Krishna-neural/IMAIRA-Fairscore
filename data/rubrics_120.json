@@ -1,0 +1,3849 @@
+[
+  {
+    "question_id": "Q001",
+    "question_prompt": "Explain gradient descent and how the learning rate affects optimization.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q001_IDEA_1",
+        "semantic_statement": "Parameters are updated iteratively in the direction of the negative gradient of the loss function to reach an optimum.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts descriptions like 'stepping downhill along the slope' or phonetic ASR variants like 'greatient decent'."
+      },
+      {
+        "idea_id": "Q001_IDEA_2",
+        "semantic_statement": "The learning rate scales step size, where too large causes divergence or overshooting and too small causes slow convergence.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts phrases like 'big steps miss the minimum', 'small steps take forever', or 'learning rate controls jump size'."
+      },
+      {
+        "idea_id": "Q001_IDEA_3",
+        "semantic_statement": "Convergence conditions involve monitoring loss gradient magnitude or loss plateauing across successive epochs.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts mentions of stopping criteria, loss flattening out, or gradient vanishing at minima."
+      }
+    ]
+  },
+  {
+    "question_id": "Q002",
+    "question_prompt": "What is the bias-variance tradeoff and how does model complexity relate to it?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q002_IDEA_1",
+        "semantic_statement": "High bias stems from overly simplistic models underfitting training data and missing true relationships.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 'underfitting', 'rigid assumptions', or 'model cannot learn pattern'."
+      },
+      {
+        "idea_id": "Q002_IDEA_2",
+        "semantic_statement": "High variance occurs when complex models overfit training noise rather than generalizing to unseen data.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 'overfitting', 'memorizing noise', or 'sensitiveness to training set changes'."
+      },
+      {
+        "idea_id": "Q002_IDEA_3",
+        "semantic_statement": "Optimal generalization requires balancing complexity to minimize total error composed of bias squared, variance, and irreducible noise.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts sweet spot tradeoff descriptions, curve intersections, or regularization as a balancing mechanism."
+      }
+    ]
+  },
+  {
+    "question_id": "Q003",
+    "question_prompt": "Describe overfitting and explain three common techniques to prevent it.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q003_IDEA_1",
+        "semantic_statement": "Overfitting occurs when a model learns training data details and noise too closely, failing to generalize to new inputs.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 'memorizes training set', 'poor test performance despite low train loss'."
+      },
+      {
+        "idea_id": "Q003_IDEA_2",
+        "semantic_statement": "L1/L2 regularization penalizes large weights to constrain model capacity.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts lasso/ridge explanations, weight decay, or shrinking coefficients toward zero."
+      },
+      {
+        "idea_id": "Q003_IDEA_3",
+        "semantic_statement": "Data augmentation, early stopping, or dropout provide additional mechanisms to prevent overfitting by restricting memorization.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts dropout randomly turning off units, stopping when validation loss rises, or generating synthetic examples."
+      }
+    ]
+  },
+  {
+    "question_id": "Q004",
+    "question_prompt": "Explain how the backpropagation algorithm computes gradients in neural networks.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q004_IDEA_1",
+        "semantic_statement": "Applies the mathematical chain rule of calculus backwards from the output loss through hidden layers.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 'chain rule', 'differentiating backward', or 'propagating loss gradient from end to start'."
+      },
+      {
+        "idea_id": "Q004_IDEA_2",
+        "semantic_statement": "Caches intermediate forward activations and computes partial derivatives of loss with respect to weights and biases.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts storing layer activations during forward pass, calculating dL/dW, or error accumulation."
+      },
+      {
+        "idea_id": "Q004_IDEA_3",
+        "semantic_statement": "Gradients are then supplied to optimization algorithms to update parameters in proportion to their contribution to loss.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts feeding gradients to SGD or Adam to adjust weights."
+      }
+    ]
+  },
+  {
+    "question_id": "Q005",
+    "question_prompt": "What is the difference between L1 (Lasso) and L2 (Ridge) regularization?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q005_IDEA_1",
+        "semantic_statement": "L1 penalizes the sum of absolute values of weights, driving non-essential coefficients exactly to zero for feature selection.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 'absolute penalty', 'sparse weights', or 'sets unhelpful features to zero'."
+      },
+      {
+        "idea_id": "Q005_IDEA_2",
+        "semantic_statement": "L2 penalizes the sum of squared weights, shrinking parameters smoothly without forcing exact zeros.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 'squared penalty', 'weight decay', or 'shrinks weights proportionally'."
+      },
+      {
+        "idea_id": "Q005_IDEA_3",
+        "semantic_statement": "Geometrically, L1 has sharp diamond-shaped constraint boundaries intersecting axes, whereas L2 has smooth spherical contours.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts descriptions of diamond vs circle intersections or non-differentiability at zero."
+      }
+    ]
+  },
+  {
+    "question_id": "Q006",
+    "question_prompt": "Explain the architecture and purpose of the self-attention mechanism in Transformers.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q006_IDEA_1",
+        "semantic_statement": "Transforms input representations into Query, Key, and Value vectors via learnable linear projections.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts QKV matrix multiplication or projection explanation."
+      },
+      {
+        "idea_id": "Q006_IDEA_2",
+        "semantic_statement": "Computes compatibility attention scores using scaled dot products between queries and keys, normalized via softmax.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 'softmax of Q times K transpose divided by square root of dimension' or similarity weighting."
+      },
+      {
+        "idea_id": "Q006_IDEA_3",
+        "semantic_statement": "Produces output as a weighted sum of Value vectors, allowing each token to dynamically attend to any other token regardless of distance.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts capture of long-range dependencies, dynamic context mixing, or O(1) path length between tokens."
+      }
+    ]
+  },
+  {
+    "question_id": "Q007",
+    "question_prompt": "Compare Batch Normalization and Layer Normalization, explaining where each is typically used.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q007_IDEA_1",
+        "semantic_statement": "Batch Normalization computes mean and variance across the batch dimension for each feature channel, common in CNNs.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts normalizing across images in a batch or spatial feature map normalization."
+      },
+      {
+        "idea_id": "Q007_IDEA_2",
+        "semantic_statement": "Layer Normalization computes mean and variance across all features/channels for an individual sample independently, standard in RNNs and Transformers.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts per-token normalization, sequence-length invariance, or batch-size independent normalization."
+      },
+      {
+        "idea_id": "Q007_IDEA_3",
+        "semantic_statement": "LayerNorm is preferred in sequential models because variable sequence lengths and small batch sizes degrade BatchNorm statistics.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts explanations of batch size sensitivity or sequence padding issues in BatchNorm."
+      }
+    ]
+  },
+  {
+    "question_id": "Q008",
+    "question_prompt": "What is the vanishing gradient problem in deep networks and how do modern architectures solve it?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q008_IDEA_1",
+        "semantic_statement": "Occurs when repeated multiplication of small derivatives (e.g. sigmoid or tanh) causes early layer gradients to shrink exponentially toward zero.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts gradients dying out, weights in early layers not updating, or derivative of sigmoid being less than 0.25."
+      },
+      {
+        "idea_id": "Q008_IDEA_2",
+        "semantic_statement": "ReLU activations eliminate vanishing gradients in the positive domain by maintaining a constant gradient of 1.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts non-saturating activation, linear positive regime, or avoiding saturation."
+      },
+      {
+        "idea_id": "Q008_IDEA_3",
+        "semantic_statement": "Residual skip connections allow gradients to flow directly through identity pathways without exponential attenuation.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts ResNet identity shortcuts, skip connections, or highway gradients."
+      }
+    ]
+  },
+  {
+    "question_id": "Q009",
+    "question_prompt": "Explain the ROC curve and the difference between ROC-AUC and Precision-Recall AUC for imbalanced datasets.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q009_IDEA_1",
+        "semantic_statement": "ROC plots True Positive Rate against False Positive Rate across all classification thresholds.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts TPR vs FPR or sensitivity versus one minus specificity curve."
+      },
+      {
+        "idea_id": "Q009_IDEA_2",
+        "semantic_statement": "ROC-AUC can be overly optimistic on highly imbalanced data because a large True Negative count suppresses the False Positive Rate.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts high TN diluting FPR, or dominant negative class masking poor minority detection."
+      },
+      {
+        "idea_id": "Q009_IDEA_3",
+        "semantic_statement": "Precision-Recall AUC focuses strictly on the positive class without incorporating True Negatives, making it far more informative for rare event detection.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts PR-AUC reflecting actual minority precision or being robust to heavy negative skew."
+      }
+    ]
+  },
+  {
+    "question_id": "Q010",
+    "question_prompt": "Describe how Word2Vec Skip-Gram and CBOW architectures learn continuous vector representations.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q010_IDEA_1",
+        "semantic_statement": "Continuous Bag of Words (CBOW) predicts a target center word given its surrounding context words.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts context-to-center prediction or averaging surrounding embeddings."
+      },
+      {
+        "idea_id": "Q010_IDEA_2",
+        "semantic_statement": "Skip-gram predicts context words given a single input center word, typically performing better on rare words.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts center-to-context prediction or window-based neighborhood prediction."
+      },
+      {
+        "idea_id": "Q010_IDEA_3",
+        "semantic_statement": "Both leverage negative sampling or hierarchical softmax to avoid computing expensive denominator sums over the entire vocabulary.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts contrastive negative word sampling or speeding up softmax partition function."
+      }
+    ]
+  },
+  {
+    "question_id": "Q011",
+    "question_prompt": "What is Cross-Entropy Loss and why is it preferred over Mean Squared Error for classification?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q011_IDEA_1",
+        "semantic_statement": "Cross-entropy measures the divergence between true one-hot probability distributions and predicted softmax probabilities.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts negative log-likelihood of correct class or Kullback-Leibler divergence from ground truth."
+      },
+      {
+        "idea_id": "Q011_IDEA_2",
+        "semantic_statement": "When paired with softmax or sigmoid, cross-entropy produces linear error gradients that do not saturate when predictions are wrong.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts gradients (p - y) not stalling, steep slopes for confident mistakes, or avoiding flat saturation regions."
+      },
+      {
+        "idea_id": "Q011_IDEA_3",
+        "semantic_statement": "MSE with sigmoid generates non-convex loss surfaces with vanishing gradients when the prediction is completely incorrect.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts local minima traps, flat derivative when sigmoid is near 0 or 1, or quadratic penalty being poorly calibrated."
+      }
+    ]
+  },
+  {
+    "question_id": "Q012",
+    "question_prompt": "Explain Dropout and why it works effectively as an ensemble approximation.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q012_IDEA_1",
+        "semantic_statement": "Randomly deactivates a fraction p of neuron activations during each forward training pass.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts masking neurons to zero with probability p during training."
+      },
+      {
+        "idea_id": "Q012_IDEA_2",
+        "semantic_statement": "Prevents co-adaptation of features by forcing individual neurons to learn useful representations independently of specific peer neurons.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts breaking feature interdependence, stopping neurons from relying on one another, or robust feature learning."
+      },
+      {
+        "idea_id": "Q012_IDEA_3",
+        "semantic_statement": "At inference time, all neurons are active and scaled by (1-p), acting as an implicit geometric average of exponentially many thinned subnetworks.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts ensemble of 2^N subnetworks, scaling activations at test time, or inverted dropout during training."
+      }
+    ]
+  },
+  {
+    "question_id": "Q013",
+    "question_prompt": "Compare the Adam optimizer with standard Stochastic Gradient Descent (SGD) with momentum.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q013_IDEA_1",
+        "semantic_statement": "SGD with momentum tracks an exponentially decaying moving average of past gradients to accelerate along consistent directions and dampen oscillations.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts velocity term, rolling downhill like a heavy ball, or smoothing out zig-zag paths."
+      },
+      {
+        "idea_id": "Q013_IDEA_2",
+        "semantic_statement": "Adam maintains both first moments (momentum) and second moments (uncentered variance of squared gradients) for adaptive per-parameter learning rates.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts tracking mean and variance of gradients, or scaling updates individually per weight."
+      },
+      {
+        "idea_id": "Q013_IDEA_3",
+        "semantic_statement": "Adam includes bias-correction terms to counter zero-initialization artifacts during initial training steps.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts warm-up correction factor (1 - beta^t) in early iterations."
+      }
+    ]
+  },
+  {
+    "question_id": "Q014",
+    "question_prompt": "What is Low-Rank Adaptation (LoRA) for parameter-efficient LLM fine-tuning?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q014_IDEA_1",
+        "semantic_statement": "Freezes pre-trained base model weights and decomposes the weight update matrix delta W into two low-rank matrices A and B (rank r << d).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts delta W = B * A with small inner dimension r, or keeping base model frozen."
+      },
+      {
+        "idea_id": "Q014_IDEA_2",
+        "semantic_statement": "Drastically reduces trainable parameters, GPU memory requirements, and storage overhead during fine-tuning.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 90%+ memory savings, fine-tuning on consumer GPUs, or lightweight adapter checkpoints."
+      },
+      {
+        "idea_id": "Q014_IDEA_3",
+        "semantic_statement": "During inference, low-rank adapters can be folded directly back into base weights without incurring latency penalties.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts merging W_new = W_0 + B*A with zero inference overhead."
+      }
+    ]
+  },
+  {
+    "question_id": "Q015",
+    "question_prompt": "Describe Byte-Pair Encoding (BPE) and its advantages over word-level and character-level tokenization.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q015_IDEA_1",
+        "semantic_statement": "Iteratively merges the most frequently occurring adjacent pair of bytes or character tokens into a new vocabulary token.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts greedy frequency-based pair merging or subword grammar construction."
+      },
+      {
+        "idea_id": "Q015_IDEA_2",
+        "semantic_statement": "Eliminates out-of-vocabulary (OOV) errors by falling back to base characters or raw bytes for unseen words.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts handling unknown words gracefully without needing <UNK> tokens."
+      },
+      {
+        "idea_id": "Q015_IDEA_3",
+        "semantic_statement": "Balances vocabulary size and sequence length between verbose character representations and massive sparse word vocabularies.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts subword middle ground, handling morphological prefixes/suffixes, or compact sequence representation."
+      }
+    ]
+  },
+  {
+    "question_id": "Q016",
+    "question_prompt": "What is Retrieval-Augmented Generation (RAG) and how does it reduce LLM hallucinations?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q016_IDEA_1",
+        "semantic_statement": "Queries an external vector database or search index to retrieve relevant document passages using dense embedding similarity.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts semantic search over external knowledge base or embedding cosine lookup."
+      },
+      {
+        "idea_id": "Q016_IDEA_2",
+        "semantic_statement": "Injects retrieved context passages directly into the LLM prompt to ground the generation process.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts conditioning generator on factual chunks or supplying background facts in prompt."
+      },
+      {
+        "idea_id": "Q016_IDEA_3",
+        "semantic_statement": "Significantly reduces hallucination by requiring the model to cite and synthesize retrieved facts rather than solely recalling frozen parametric weights.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts grounding in real-time verified data or keeping answers anchored in source text."
+      }
+    ]
+  },
+  {
+    "question_id": "Q017",
+    "question_prompt": "Explain the Reinforcement Learning from Human Feedback (RLHF) pipeline used in training aligned LLMs.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q017_IDEA_1",
+        "semantic_statement": "Begins with Supervised Fine-Tuning (SFT) on curated high-quality demonstration prompts and responses.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts instruction tuning or initial human-demonstration training."
+      },
+      {
+        "idea_id": "Q017_IDEA_2",
+        "semantic_statement": "Trains a Reward Model on human preference pairs where annotators rank multiple model completions.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts preference learning, Elo-style ranking, or predicting scalar reward for responses."
+      },
+      {
+        "idea_id": "Q017_IDEA_3",
+        "semantic_statement": "Optimizes the policy model against the reward model using PPO or DPO while penalizing KL-divergence from the initial SFT model to prevent mode collapse.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts PPO reinforcement learning, DPO direct preference, or KL penalty to avoid reward hacking."
+      }
+    ]
+  },
+  {
+    "question_id": "Q018",
+    "question_prompt": "Compare post-training quantization techniques: INT8 vs FP16 vs NormalFloat4 (NF4).",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q018_IDEA_1",
+        "semantic_statement": "Quantization maps high-precision floating point numbers to lower bit-width integers or specialized representations to shrink memory footprints.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts compressing FP32/FP16 weights to 8-bit or 4-bit representations."
+      },
+      {
+        "idea_id": "Q018_IDEA_2",
+        "semantic_statement": "INT8 uses uniform quantization with scale factors and zero points, potentially suffering precision loss on extreme activation outliers.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts uniform scaling, calibration datasets, or outlier clipping issues."
+      },
+      {
+        "idea_id": "Q018_IDEA_3",
+        "semantic_statement": "NF4 and modern 4-bit methods exploit normally distributed weight distributions to allocate quantiles with minimal theoretical information loss.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts quantile quantization, QLoRA NF4 format, or maintaining accuracy with 4-bit models."
+      }
+    ]
+  },
+  {
+    "question_id": "Q019",
+    "question_prompt": "What are convolution operations and pooling layers in Convolutional Neural Networks (CNNs)?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q019_IDEA_1",
+        "semantic_statement": "Convolutional kernels slide across spatial dimensions computing dot products to extract translation-invariant local features like edges and textures.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts sliding filter matrices, feature maps, or weight sharing across spatial grids."
+      },
+      {
+        "idea_id": "Q019_IDEA_2",
+        "semantic_statement": "Pooling layers (e.g. Max Pooling) downsample spatial resolutions to reduce computational load and increase effective receptive fields.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts sub-sampling, taking the maximum value in a window, or spatial compression."
+      },
+      {
+        "idea_id": "Q019_IDEA_3",
+        "semantic_statement": "Parameter sharing across locations provides spatial equivariance and drastically reduces parameter counts compared to fully connected layers.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts weight reuse across pixels, shift tolerance, or sparse connectivity."
+      }
+    ]
+  },
+  {
+    "question_id": "Q020",
+    "question_prompt": "Explain the attention mask and causal masking in decoder-only language models like GPT.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q020_IDEA_1",
+        "semantic_statement": "Causal masking sets upper-triangular attention logits to negative infinity before the softmax computation.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts masking future tokens, lower triangular attention matrix, or autoregressive constraint."
+      },
+      {
+        "idea_id": "Q020_IDEA_2",
+        "semantic_statement": "Prevents earlier token positions from accessing or attending to subsequent future tokens during training and generation.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts stopping information leakage from the future or maintaining left-to-right causal order."
+      },
+      {
+        "idea_id": "Q020_IDEA_3",
+        "semantic_statement": "Allows parallel teacher-forcing training across the entire sequence while matching autoregressive step-by-step inference.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts parallel training without lookahead cheating or next-token prediction consistency."
+      }
+    ]
+  },
+  {
+    "question_id": "Q021",
+    "question_prompt": "What is the difference between supervised, unsupervised, and self-supervised learning?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q021_IDEA_1",
+        "semantic_statement": "Supervised learning optimizes models using explicit external ground-truth target labels paired with input features.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts labeled data pairs (X, Y) or regression/classification targets."
+      },
+      {
+        "idea_id": "Q021_IDEA_2",
+        "semantic_statement": "Unsupervised learning discovers intrinsic patterns, clusterings, or latent distributions in unlabelled data.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts clustering like K-Means, dimensionality reduction like PCA, or density estimation."
+      },
+      {
+        "idea_id": "Q021_IDEA_3",
+        "semantic_statement": "Self-supervised learning generates pseudo-labels automatically from raw data structure, such as masked language modeling or contrastive image views.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts predicting masked tokens, next word prediction, or pretext tasks without human annotation."
+      }
+    ]
+  },
+  {
+    "question_id": "Q022",
+    "question_prompt": "Describe K-Means clustering and discuss how to select the optimal number of clusters K.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q022_IDEA_1",
+        "semantic_statement": "Iteratively alternates between assigning points to the nearest centroid and recalculating centroids as cluster means.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts assignment step and update step until convergence or inertia stabilization."
+      },
+      {
+        "idea_id": "Q022_IDEA_2",
+        "semantic_statement": "Elbow method evaluates within-cluster sum of squares (inertia) across K values to find the point of diminishing returns.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts plotting inertia versus K and identifying the bend/elbow."
+      },
+      {
+        "idea_id": "Q022_IDEA_3",
+        "semantic_statement": "Silhouette analysis measures how similar an object is to its own cluster compared to neighboring clusters.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts silhouette coefficients ranging from -1 to 1 or cohesion versus separation."
+      }
+    ]
+  },
+  {
+    "question_id": "Q023",
+    "question_prompt": "Explain Principal Component Analysis (PCA) and its relationship to eigendecomposition.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q023_IDEA_1",
+        "semantic_statement": "Projects high-dimensional data onto orthogonal axes that maximize variance and minimize reconstruction error.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts dimensionality reduction, finding directions of maximum spread, or decorrelating features."
+      },
+      {
+        "idea_id": "Q023_IDEA_2",
+        "semantic_statement": "Computes the covariance matrix of mean-centered data and calculates its eigenvectors and eigenvalues.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts eigendecomposition of X^T X or singular value decomposition (SVD)."
+      },
+      {
+        "idea_id": "Q023_IDEA_3",
+        "semantic_statement": "Principal components correspond to eigenvectors sorted by descending eigenvalues reflecting explained variance ratio.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts selecting top k eigenvectors corresponding to largest eigenvalues."
+      }
+    ]
+  },
+  {
+    "question_id": "Q024",
+    "question_prompt": "What is Gradient Boosting and how does XGBoost optimize tree construction?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q024_IDEA_1",
+        "semantic_statement": "Builds an ensemble sequentially where each new decision tree is trained to predict the pseudo-residuals or negative gradients of the previous ensemble.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts fitting errors of previous trees, sequential residual minimization, or boosting."
+      },
+      {
+        "idea_id": "Q024_IDEA_2",
+        "semantic_statement": "XGBoost uses second-order Taylor expansions of the loss function (gradient and hessian) for faster and more precise objective optimization.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts first and second derivatives, gradient and hessian calculation, or Newton-Raphson approximation."
+      },
+      {
+        "idea_id": "Q024_IDEA_3",
+        "semantic_statement": "Incorporates built-in tree regularization (L1/L2 on leaf weights) and optimal split finding via weighted quantile sketches.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts gamma and lambda pruning, handling missing values natively, or parallel histogram splitting."
+      }
+    ]
+  },
+  {
+    "question_id": "Q025",
+    "question_prompt": "Explain early stopping and how validation loss divergence signals the onset of overfitting.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q025_IDEA_1",
+        "semantic_statement": "Monitors model performance on an independent validation set after each training epoch.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts tracking validation loss or metric across epochs."
+      },
+      {
+        "idea_id": "Q025_IDEA_2",
+        "semantic_statement": "Training loss continuing to decrease while validation loss begins increasing indicates the model is memorizing training quirks rather than generalizing.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts the divergence gap between train and val loss curves."
+      },
+      {
+        "idea_id": "Q025_IDEA_3",
+        "semantic_statement": "Stops training when validation loss fails to improve for a pre-configured patience period and restores best checkpoint weights.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts patience counter, saving best checkpoint, or stopping before overtraining."
+      }
+    ]
+  },
+  {
+    "question_id": "Q026",
+    "question_prompt": "What are generative adversarial networks (GANs) and how do the generator and discriminator interact?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q026_IDEA_1",
+        "semantic_statement": "Generator synthesizes realistic data samples from latent random noise vectors.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts creating fake images/data from noise."
+      },
+      {
+        "idea_id": "Q026_IDEA_2",
+        "semantic_statement": "Discriminator acts as a binary classifier distinguishing between genuine real data and synthetic generator outputs.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts real versus fake classification or critic role."
+      },
+      {
+        "idea_id": "Q026_IDEA_3",
+        "semantic_statement": "Trained via a minimax two-player game where the generator attempts to fool the discriminator while the discriminator sharpens its detection ability.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts adversarial zero-sum game, Nash equilibrium, or competing objectives."
+      }
+    ]
+  },
+  {
+    "question_id": "Q027",
+    "question_prompt": "Explain the concept of temperature in LLM sampling and its mathematical effect on logits.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q027_IDEA_1",
+        "semantic_statement": "Divides raw unnormalized model logits by scalar temperature T before computing softmax probabilities.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts z_i / T in softmax formula or scaling logit distribution."
+      },
+      {
+        "idea_id": "Q027_IDEA_2",
+        "semantic_statement": "Low temperature (T -> 0) sharpens the probability distribution toward greedy argmax selection, yielding deterministic and conservative completions.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts greedy decoding, less randomness, or focusing probability on top token."
+      },
+      {
+        "idea_id": "Q027_IDEA_3",
+        "semantic_statement": "High temperature (T > 1) flattens the distribution toward uniformity, increasing diversity, creativity, and risk of incoherent text.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts flattening probabilities, increasing entropy, or promoting rare token exploration."
+      }
+    ]
+  },
+  {
+    "question_id": "Q028",
+    "question_prompt": "What is contrastive learning and how does InfoNCE loss optimize representations?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q028_IDEA_1",
+        "semantic_statement": "Pulls representations of positive augmented views of the same sample together while pushing representations of negative samples apart.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts maximizing similarity of positive pairs and minimizing similarity of negative pairs, as in SimCLR or CLIP."
+      },
+      {
+        "idea_id": "Q028_IDEA_2",
+        "semantic_statement": "InfoNCE formulates a multi-class classification objective where the positive pair must be identified among a set of negative distractors.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts categorical cross-entropy over cosine similarities or noise-contrastive estimation."
+      },
+      {
+        "idea_id": "Q028_IDEA_3",
+        "semantic_statement": "Maximizes a lower bound on the mutual information between different views of the underlying data.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts mutual information maximization or self-supervised feature clustering."
+      }
+    ]
+  },
+  {
+    "question_id": "Q029",
+    "question_prompt": "Describe transfer learning and domain adaptation in deep learning.",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q029_IDEA_1",
+        "semantic_statement": "Reuses knowledge encoded in a model pre-trained on a massive general dataset to accelerate learning on a specialized target domain.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts initializing with pre-trained weights instead of random weights, e.g. ImageNet or foundational LLMs."
+      },
+      {
+        "idea_id": "Q029_IDEA_2",
+        "semantic_statement": "Fine-tunes higher task-specific layers while freezing lower generic feature extractors to prevent catastrophic forgetting.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts freezing early layers, updating classifier head, or gradual unfreezing."
+      },
+      {
+        "idea_id": "Q029_IDEA_3",
+        "semantic_statement": "Domain adaptation addresses covariate shift where source and target feature distributions differ while tasks remain aligned.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts aligning feature distributions across domains or adapting to new data distributions."
+      }
+    ]
+  },
+  {
+    "question_id": "Q030",
+    "question_prompt": "What is catastrophic forgetting in continual learning and what techniques alleviate it?",
+    "domain": "Machine Learning",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q030_IDEA_1",
+        "semantic_statement": "Occurs when a neural network overwrites previously acquired knowledge upon being trained sequentially on new distinct tasks.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts losing old skills when learning new ones or weights shifting away from past task minima."
+      },
+      {
+        "idea_id": "Q030_IDEA_2",
+        "semantic_statement": "Experience replay buffers store and interleave samples from historical tasks during new task optimization.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts rehearsal memory, memory buffers, or generative replay."
+      },
+      {
+        "idea_id": "Q030_IDEA_3",
+        "semantic_statement": "Regularization methods like Elastic Weight Consolidation (EWC) penalize updates to parameters critical to prior tasks based on Fisher Information.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts protecting important weights, quadratic penalties on critical parameters, or parameter isolation."
+      }
+    ]
+  },
+  {
+    "question_id": "Q031",
+    "question_prompt": "Compare QuickSort and MergeSort: time complexities, space complexities, and stability.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q031_IDEA_1",
+        "semantic_statement": "QuickSort has O(N log N) average time but O(N^2) worst-case time with O(log N) in-place auxiliary stack space, and is typically unstable.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts pivot selection worst-case, in-place partitioning, or non-stable swapping."
+      },
+      {
+        "idea_id": "Q031_IDEA_2",
+        "semantic_statement": "MergeSort guarantees O(N log N) worst-case time but requires O(N) auxiliary memory for merging sub-arrays, and is stable.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts divide-and-conquer stability, extra buffer allocation, or consistent O(N log N)."
+      },
+      {
+        "idea_id": "Q031_IDEA_3",
+        "semantic_statement": "QuickSort is generally preferred for arrays due to superior cache locality, whereas MergeSort excels on linked lists or external sorting.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts cache performance of contiguous in-place swaps versus pointer-based merging."
+      }
+    ]
+  },
+  {
+    "question_id": "Q032",
+    "question_prompt": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q032_IDEA_1",
+        "semantic_statement": "Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts chaining with buckets, linear/quadratic probing, or Robin Hood hashing."
+      },
+      {
+        "idea_id": "Q032_IDEA_2",
+        "semantic_statement": "Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts threshold ratio determining how full the table is."
+      },
+      {
+        "idea_id": "Q032_IDEA_3",
+        "semantic_statement": "Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts doubling capacity and rehashing elements to keep O(1) performance."
+      }
+    ]
+  },
+  {
+    "question_id": "Q033",
+    "question_prompt": "What is the difference between a Binary Search Tree (BST) and a self-balancing tree like an AVL or Red-Black Tree?",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q033_IDEA_1",
+        "semantic_statement": "A standard BST maintains the invariant that left descendants are smaller and right descendants are larger than the root node.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts left < node < right property."
+      },
+      {
+        "idea_id": "Q033_IDEA_2",
+        "semantic_statement": "Unbalanced BSTs can degenerate into O(N) skewed linked lists when inserting sorted data, ruining logarithmic search guarantees.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts skewed tree, worst-case linear search, or linked list degradation."
+      },
+      {
+        "idea_id": "Q033_IDEA_3",
+        "semantic_statement": "Self-balancing trees execute tree rotations during insertions and deletions to guarantee strict O(log N) height boundaries.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts AVL height balance difference <= 1, Red-Black color constraints, and tree rotations."
+      }
+    ]
+  },
+  {
+    "question_id": "Q034",
+    "question_prompt": "Explain Dynamic Programming and compare top-down memoization with bottom-up tabulation.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q034_IDEA_1",
+        "semantic_statement": "Applies to problems exhibiting optimal substructure and overlapping subproblems by caching subproblem solutions.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts breaking into subproblems, reusing computed states, or avoiding redundant recursion."
+      },
+      {
+        "idea_id": "Q034_IDEA_2",
+        "semantic_statement": "Top-down memoization utilizes recursion with a cache/hash table to solve subproblems on demand.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts recursive approach with lookup table or decorator caching."
+      },
+      {
+        "idea_id": "Q034_IDEA_3",
+        "semantic_statement": "Bottom-up tabulation solves smaller subproblems iteratively in topological order, populating an array/table and avoiding recursion call stack overhead.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts iterative table filling, base-case up approach, or space optimization tricks."
+      }
+    ]
+  },
+  {
+    "question_id": "Q035",
+    "question_prompt": "Compare Breadth-First Search (BFS) and Depth-First Search (DFS): traversal order, data structures, and optimal use cases.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q035_IDEA_1",
+        "semantic_statement": "BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts queue usage, level-order traversal, or shortest hop distance."
+      },
+      {
+        "idea_id": "Q035_IDEA_2",
+        "semantic_statement": "DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts stack usage, recursive backtracking, or exploring branches to leaf nodes."
+      },
+      {
+        "idea_id": "Q035_IDEA_3",
+        "semantic_statement": "BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts memory profile comparison or DFS for backtracking/connected components."
+      }
+    ]
+  },
+  {
+    "question_id": "Q036",
+    "question_prompt": "Explain Dijkstra's shortest path algorithm and explain why it fails with negative edge weights.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q036_IDEA_1",
+        "semantic_statement": "Maintains a min-priority queue of tentative distances, greedily extracting the vertex with the lowest known distance and relaxing its outgoing edges.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts greedy selection of minimum distance node and edge relaxation via min-heap."
+      },
+      {
+        "idea_id": "Q036_IDEA_2",
+        "semantic_statement": "Runs in O((V + E) log V) time with an adjacency list and binary heap.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts heap-based complexity or standard graph runtime."
+      },
+      {
+        "idea_id": "Q036_IDEA_3",
+        "semantic_statement": "Fails with negative edges because once a node is visited/settled, Dijkstra assumes its shortest path is permanently finalized and never revisits it.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts greedy assumption violation, negative cycles, or need for Bellman-Ford."
+      }
+    ]
+  },
+  {
+    "question_id": "Q037",
+    "question_prompt": "Describe the Min-Heap / Max-Heap data structure, its heap invariant, and heapify complexity.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q037_IDEA_1",
+        "semantic_statement": "A complete binary tree stored as an array where every parent node satisfies the comparison invariant relative to its children (parent <= children for min-heap).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts parent-child order property, array indexing 2i+1 and 2i+2, or complete tree."
+      },
+      {
+        "idea_id": "Q037_IDEA_2",
+        "semantic_statement": "Extract-min and Insert operations take O(log N) time by bubbling elements up or sifting down.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts push/pop in logarithmic time or sift-up and sift-down."
+      },
+      {
+        "idea_id": "Q037_IDEA_3",
+        "semantic_statement": "Building a heap from an arbitrary array of N elements (heapify) runs in O(N) linear time, not O(N log N).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts linear build-heap derivation or summing nodes times height."
+      }
+    ]
+  },
+  {
+    "question_id": "Q038",
+    "question_prompt": "How would you design a Least Recently Used (LRU) Cache with O(1) get and put operations?",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q038_IDEA_1",
+        "semantic_statement": "Combines a Hash Map for O(1) key lookups with a Doubly Linked List to maintain temporal access ordering.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts hash table pointing to doubly linked list nodes."
+      },
+      {
+        "idea_id": "Q038_IDEA_2",
+        "semantic_statement": "On 'get' or update, the accessed node is unlinked and moved to the head (most recently used) in O(1) pointer operations.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts moving accessed item to head or MRU position."
+      },
+      {
+        "idea_id": "Q038_IDEA_3",
+        "semantic_statement": "On 'put' when capacity is exceeded, the node at the tail (least recently used) is evicted from both list and hash map in O(1).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts removing tail node, deleting from hash map, and decrementing size."
+      }
+    ]
+  },
+  {
+    "question_id": "Q039",
+    "question_prompt": "What is a Trie (Prefix Tree) and how does its lookup complexity compare to a Hash Map for prefix queries?",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q039_IDEA_1",
+        "semantic_statement": "A tree structure where each node represents a character, and paths from the root represent strings or prefixes.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts character tree, prefix sharing, or n-ary tree with alphabet branching."
+      },
+      {
+        "idea_id": "Q039_IDEA_2",
+        "semantic_statement": "Lookup, insertion, and prefix search take O(L) time where L is the length of the string, independent of the total number of words N.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts O(word length) time complexity or prefix matching efficiency."
+      },
+      {
+        "idea_id": "Q039_IDEA_3",
+        "semantic_statement": "Unlike Hash Maps which cannot perform prefix matching without scanning all keys, Tries support autocomplete and prefix queries in O(prefix_length + K).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts prefix sub-tree traversal, autocomplete support, or lexicographical sorting."
+      }
+    ]
+  },
+  {
+    "question_id": "Q040",
+    "question_prompt": "Explain bitwise operations and show how to check if an integer is a power of two in O(1) time.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q040_IDEA_1",
+        "semantic_statement": "A power of two in binary representation contains exactly one set bit ('1') with all other bits being zero (e.g. 8 is 1000).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts single bit set or binary power representations."
+      },
+      {
+        "idea_id": "Q040_IDEA_2",
+        "semantic_statement": "Subtracting 1 flips the least significant set bit and turns all trailing zeros to ones (e.g. 7 is 0111).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts n - 1 inverts trailing bits or changes binary pattern."
+      },
+      {
+        "idea_id": "Q040_IDEA_3",
+        "semantic_statement": "The bitwise condition '(n > 0) and (n & (n - 1) == 0)' evaluates to true if and only if n is a power of two in O(1) time.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts n & (n - 1) clears lowest set bit, leaving 0 for powers of two."
+      }
+    ]
+  },
+  {
+    "question_id": "Q041",
+    "question_prompt": "Describe the Two-Pointer technique and state the conditions required for it to apply.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q041_IDEA_1",
+        "semantic_statement": "Maintains two index pointers that traverse an iterable in coordinated fashion (e.g., opposite ends moving inward or fast/slow pointers).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts left/right pointers, sliding pointers, or fast and slow runner pointers."
+      },
+      {
+        "idea_id": "Q041_IDEA_2",
+        "semantic_statement": "Requires monotonic properties, typically provided by a sorted array or structural linear sequence, to guarantee correct directionality decisions.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts sorted input requirement, monotonic sum behavior, or deterministic movement logic."
+      },
+      {
+        "idea_id": "Q041_IDEA_3",
+        "semantic_statement": "Reduces brute-force O(N^2) search spaces to O(N) linear time by eliminating redundant comparisons.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts linear scan speedup, single pass efficiency, or avoiding nested loops."
+      }
+    ]
+  },
+  {
+    "question_id": "Q042",
+    "question_prompt": "What is Topological Sorting and under what conditions does a valid topological order exist?",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q042_IDEA_1",
+        "semantic_statement": "A linear ordering of vertices such that for every directed edge (u, v), vertex u comes before vertex v in the ordering.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts dependency ordering, prerequisite sequencing, or scheduling order."
+      },
+      {
+        "idea_id": "Q042_IDEA_2",
+        "semantic_statement": "Only exists if and only if the directed graph is a Directed Acyclic Graph (DAG) with zero directed cycles.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts DAG requirement or cycle impossibility."
+      },
+      {
+        "idea_id": "Q042_IDEA_3",
+        "semantic_statement": "Can be computed via Kahn's algorithm (tracking in-degrees with a queue) or DFS post-order traversal with cycle detection in O(V + E) time.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts in-degree zero queue processing or reverse DFS finish times."
+      }
+    ]
+  },
+  {
+    "question_id": "Q043",
+    "question_prompt": "Explain the Disjoint Set Union (Union-Find) data structure and the impact of path compression.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q043_IDEA_1",
+        "semantic_statement": "Tracks partitioned elements into disjoint subsets supporting 'find' (identify root representative) and 'union' (merge two sets).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts set partitioning, connected components tracking, or Kruskal's algorithm helper."
+      },
+      {
+        "idea_id": "Q043_IDEA_2",
+        "semantic_statement": "Path compression flattens tree structures during 'find' calls by attaching traversed nodes directly to the root representative.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts pointing traversed nodes directly to root or reducing tree height during lookups."
+      },
+      {
+        "idea_id": "Q043_IDEA_3",
+        "semantic_statement": "Combined with union by rank/size, operations achieve nearly O(1) amortized time, formally bounded by the inverse Ackermann function alpha(N).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts inverse Ackermann complexity, O(alpha(N)), or practically constant amortized time."
+      }
+    ]
+  },
+  {
+    "question_id": "Q044",
+    "question_prompt": "Explain the Sliding Window algorithmic pattern and how to identify problems suitable for it.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q044_IDEA_1",
+        "semantic_statement": "Maintains a continuous contiguous subarray/substring window that expands its right boundary and contracts its left boundary dynamically.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts dynamic two-pointer window over contiguous sequence."
+      },
+      {
+        "idea_id": "Q044_IDEA_2",
+        "semantic_statement": "Applies to optimization or search problems over contiguous sequences where subproblem validity exhibits monotonicity with respect to window resizing.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts contiguous subarray problems, max/min sum of length k, or longest substring with k unique elements."
+      },
+      {
+        "idea_id": "Q044_IDEA_3",
+        "semantic_statement": "Achieves O(N) time complexity by updating aggregate state incrementally as elements enter and exit the window rather than recalculating from scratch.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts incremental state updates or avoiding O(N^2) window recomputations."
+      }
+    ]
+  },
+  {
+    "question_id": "Q045",
+    "question_prompt": "What is amortized time complexity and how does it apply to dynamic array resizings?",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q045_IDEA_1",
+        "semantic_statement": "Amortized analysis averages the running time of operations over a sequence of actions, ensuring that occasional expensive operations do not dominate aggregate performance.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts average cost per operation over worst-case sequence or aggregate method."
+      },
+      {
+        "idea_id": "Q045_IDEA_2",
+        "semantic_statement": "Dynamic arrays allocate double capacity when full (geometric resizing), copying N elements in O(N) time.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts doubling array size, copying over existing items, or O(N) reallocation."
+      },
+      {
+        "idea_id": "Q045_IDEA_3",
+        "semantic_statement": "Because the expensive O(N) copy occurs only after N insertions of cost O(1), the total cost across N operations is O(N), yielding amortized O(1) per append.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts O(1) amortized append, accounting/potential method explanation, or geometric series convergence."
+      }
+    ]
+  },
+  {
+    "question_id": "Q046",
+    "question_prompt": "Compare Bellman-Ford and Floyd-Warshall algorithms for shortest path calculations.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q046_IDEA_1",
+        "semantic_statement": "Bellman-Ford computes single-source shortest paths in graphs with negative edge weights in O(V * E) time by relaxing all edges V-1 times.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts single source, negative edge handling, edge relaxation V-1 times."
+      },
+      {
+        "idea_id": "Q046_IDEA_2",
+        "semantic_statement": "Bellman-Ford detects negative cycles if an edge can still be relaxed on the V-th iteration.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts negative weight cycle detection rule."
+      },
+      {
+        "idea_id": "Q046_IDEA_3",
+        "semantic_statement": "Floyd-Warshall computes all-pairs shortest paths using dynamic programming over intermediate vertices in O(V^3) time and O(V^2) space.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts all-pairs shortest path, matrix dynamic programming, or triple nested loop."
+      }
+    ]
+  },
+  {
+    "question_id": "Q047",
+    "question_prompt": "Describe the Boyer-Moore Majority Vote algorithm and its time and space bounds.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q047_IDEA_1",
+        "semantic_statement": "Finds the majority element that appears strictly more than N/2 times in an array in O(N) time and O(1) auxiliary space.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts linear time, constant space majority finder."
+      },
+      {
+        "idea_id": "Q047_IDEA_2",
+        "semantic_statement": "Maintains a candidate element and a counter, incrementing when matching the candidate and decrementing when differing.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts counter increment/decrement mechanism or pair-wise cancellation."
+      },
+      {
+        "idea_id": "Q047_IDEA_3",
+        "semantic_statement": "When counter reaches zero, the current element becomes the new candidate; requires a second verification pass if a majority element is not guaranteed.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts candidate reset at zero count and second pass verification."
+      }
+    ]
+  },
+  {
+    "question_id": "Q048",
+    "question_prompt": "Explain how to detect a cycle in a linked list using Floyd's Tortoise and Hare algorithm.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q048_IDEA_1",
+        "semantic_statement": "Initializes a slow pointer moving one node per step and a fast pointer moving two nodes per step.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts slow (1x) and fast (2x) pointer movement."
+      },
+      {
+        "idea_id": "Q048_IDEA_2",
+        "semantic_statement": "If the linked list contains a cycle, the fast pointer will eventually wrap around and meet the slow pointer within the loop.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts fast catches up to slow or collision inside cycle."
+      },
+      {
+        "idea_id": "Q048_IDEA_3",
+        "semantic_statement": "To locate the cycle start, reset one pointer to the list head and advance both at 1 step per iteration; their intersection is the cycle entrance.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts resetting one pointer to head and stepping at equal speed to find entrance."
+      }
+    ]
+  },
+  {
+    "question_id": "Q049",
+    "question_prompt": "What is the difference between counting sort, radix sort, and comparison-based sorting lower bounds?",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q049_IDEA_1",
+        "semantic_statement": "Comparison-based sorting algorithms (like MergeSort or QuickSort) are mathematically bounded by Omega(N log N) decision tree height limits.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts N log N information-theoretic lower bound for comparisons."
+      },
+      {
+        "idea_id": "Q049_IDEA_2",
+        "semantic_statement": "Counting sort counts occurrences of each distinct integer key, achieving O(N + K) linear time when range K is small.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts frequency array, non-comparison sorting, or O(N + K) runtime."
+      },
+      {
+        "idea_id": "Q049_IDEA_3",
+        "semantic_statement": "Radix sort processes keys digit-by-digit or byte-by-byte using a stable sub-sort (e.g. counting sort), achieving O(d * (N + K)) time for d-digit keys.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts digit-by-digit sorting, LSD/MSD stable passes, or linear sorting for fixed bit widths."
+      }
+    ]
+  },
+  {
+    "question_id": "Q050",
+    "question_prompt": "Explain the A* search algorithm and the admissibility condition of heuristics.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q050_IDEA_1",
+        "semantic_statement": "Selects paths minimizing total estimated cost f(n) = g(n) + h(n), where g(n) is the exact cost from start and h(n) is estimated cost to goal.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts f = g + h formula, cost so far plus heuristic estimate to target."
+      },
+      {
+        "idea_id": "Q050_IDEA_2",
+        "semantic_statement": "An admissible heuristic never overestimates the true minimal cost to reach the goal (h(n) <= h*(n)).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts optimistic heuristic, never overestimating cost, or admissible definition."
+      },
+      {
+        "idea_id": "Q050_IDEA_3",
+        "semantic_statement": "Admissibility (and consistency/monotonicity in graphs) guarantees that A* finds the provably optimal shortest path.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts optimal path guarantee or consistency preventing node re-expansions."
+      }
+    ]
+  },
+  {
+    "question_id": "Q051",
+    "question_prompt": "What is the Segment Tree data structure and what operations does it optimize?",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q051_IDEA_1",
+        "semantic_statement": "A binary tree representing intervals or segments of an array where internal nodes store aggregate associative values (e.g., sum, min, max).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts interval tree, array segmentation, or range query tree."
+      },
+      {
+        "idea_id": "Q051_IDEA_2",
+        "semantic_statement": "Executes arbitrary range queries (e.g. range minimum or range sum) in O(log N) time.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts range query logarithmic time or merging segment results."
+      },
+      {
+        "idea_id": "Q051_IDEA_3",
+        "semantic_statement": "Supports point updates and range updates (via lazy propagation) in O(log N) time, outperforming naive array scans.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts logarithmic point/range update and lazy propagation."
+      }
+    ]
+  },
+  {
+    "question_id": "Q052",
+    "question_prompt": "Explain the Kadane algorithm for the Maximum Subarray Sum problem.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q052_IDEA_1",
+        "semantic_statement": "Iterates through the array maintaining a running local maximum sum ending at the current index.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts current_max ending at i or local sum tracking."
+      },
+      {
+        "idea_id": "Q052_IDEA_2",
+        "semantic_statement": "Decides at each element whether to extend the existing subarray or start a fresh subarray: current_max = max(num, current_max + num).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts reset when running sum drops below zero or element itself is greater."
+      },
+      {
+        "idea_id": "Q052_IDEA_3",
+        "semantic_statement": "Tracks the global maximum across all indices, achieving O(N) time and O(1) auxiliary space.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts linear single-pass, constant extra memory, or global max update."
+      }
+    ]
+  },
+  {
+    "question_id": "Q053",
+    "question_prompt": "Describe QuickSelect and how it finds the k-th smallest element in an unordered list.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q053_IDEA_1",
+        "semantic_statement": "Uses the partitioning logic of QuickSort around a chosen pivot element.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts pivot partitioning or dividing into left/right partitions."
+      },
+      {
+        "idea_id": "Q053_IDEA_2",
+        "semantic_statement": "Recurses or iterates into only the one partition containing index k, discarding the other half.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts single-sided recursion or ignoring the irrelevant half."
+      },
+      {
+        "idea_id": "Q053_IDEA_3",
+        "semantic_statement": "Achieves O(N) average time complexity, though worst-case is O(N^2) unless median-of-medians pivot selection is used.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts linear average time, O(N) recurrence T(N) = T(N/2) + O(N), and worst-case quadratic."
+      }
+    ]
+  },
+  {
+    "question_id": "Q054",
+    "question_prompt": "What is a Monotonic Stack and what class of problems does it solve efficiently?",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q054_IDEA_1",
+        "semantic_statement": "A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts stack maintaining ordered elements by popping violators."
+      },
+      {
+        "idea_id": "Q054_IDEA_2",
+        "semantic_statement": "Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts next greater/smaller element queries or histogram area calculation."
+      },
+      {
+        "idea_id": "Q054_IDEA_3",
+        "semantic_statement": "Every element is pushed and popped at most once, guaranteeing linear amortized complexity.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts each item pushed/popped once, amortized O(N) runtime."
+      }
+    ]
+  },
+  {
+    "question_id": "Q055",
+    "question_prompt": "Explain the concept of Branch and Bound and how it differs from pure Backtracking.",
+    "domain": "Algorithms",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q055_IDEA_1",
+        "semantic_statement": "Systematically explores the solution space of combinatorial optimization problems by organizing them into a state-space tree.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts state-space tree exploration for optimization problems."
+      },
+      {
+        "idea_id": "Q055_IDEA_2",
+        "semantic_statement": "Calculates upper or lower mathematical bounds on the objective function at each node.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts computing bound on potential solution quality at sub-tree root."
+      },
+      {
+        "idea_id": "Q055_IDEA_3",
+        "semantic_statement": "Prunes entire sub-trees whose bound proves they cannot produce a solution better than the best solution found so far.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts pruning sub-optimal branches, bounding vs feasibility backtracking, or branch-and-cut."
+      }
+    ]
+  },
+  {
+    "question_id": "Q056",
+    "question_prompt": "Explain the CAP Theorem and discuss the tradeoffs when a network partition occurs.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q056_IDEA_1",
+        "semantic_statement": "CAP states a distributed system can guarantee at most two of Consistency, Availability, and Partition Tolerance simultaneously.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts CAP definition or impossibility of all three."
+      },
+      {
+        "idea_id": "Q056_IDEA_2",
+        "semantic_statement": "In physical distributed networks, Partition Tolerance (P) is mandatory because network cables, switches, and nodes can inevitably fail.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts network partitions are unavoidable in real distributed infrastructure."
+      },
+      {
+        "idea_id": "Q056_IDEA_3",
+        "semantic_statement": "When a partition occurs, an architect must choose between Consistency (CP, rejecting stale writes/reads) or Availability (AP, serving stale or divergent reads).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts CP vs AP tradeoff, returning error vs returning stale data."
+      }
+    ]
+  },
+  {
+    "question_id": "Q057",
+    "question_prompt": "What is Consistent Hashing and how does it prevent massive data remapping in distributed caches?",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q057_IDEA_1",
+        "semantic_statement": "Maps both cache nodes and data keys onto a circular hash ring (e.g. 0 to 2^32 - 1).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts circular hash ring representation or modular keyspace mapping."
+      },
+      {
+        "idea_id": "Q057_IDEA_2",
+        "semantic_statement": "Keys are routed to the first node encountered moving clockwise around the ring from the key's hash position.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts assigning key to first server clockwise on the ring."
+      },
+      {
+        "idea_id": "Q057_IDEA_3",
+        "semantic_statement": "Adding or removing a server relocates only K/N keys on average rather than remapping all keys as standard modulo hashing does.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts minimal key remapping, virtual nodes for uniform load distribution, or avoiding cache thundering herds."
+      }
+    ]
+  },
+  {
+    "question_id": "Q058",
+    "question_prompt": "Compare Database Sharding and Master-Replica Replication: goals and architectural complexities.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q058_IDEA_1",
+        "semantic_statement": "Replication copies identical data across multiple nodes to increase read throughput and provide high availability/failover.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts read scaling, backup replicas, or primary-secondary failover."
+      },
+      {
+        "idea_id": "Q058_IDEA_2",
+        "semantic_statement": "Sharding horizontally partitions data rows across multiple independent database instances based on a shard key to scale write capacity and storage volume.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts horizontal partitioning, splitting data by user_id/tenant, or scaling writes beyond single node limits."
+      },
+      {
+        "idea_id": "Q058_IDEA_3",
+        "semantic_statement": "Sharding introduces complex cross-shard joins, distributed two-phase transactions, and resharding rebalances.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts distributed transactions, scatter-gather queries, or shard key hotspots."
+      }
+    ]
+  },
+  {
+    "question_id": "Q059",
+    "question_prompt": "Explain the difference between Monolithic and Microservices architectures, including operational tradeoffs.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q059_IDEA_1",
+        "semantic_statement": "Monolith combines all domain capabilities, shared database models, and deployment artifacts into a single unified codebase.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts single deployable unit, shared codebase, or single relational database."
+      },
+      {
+        "idea_id": "Q059_IDEA_2",
+        "semantic_statement": "Microservices partition system functionality into independently deployable, loosely coupled services communicating via network APIs (HTTP/gRPC/events).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts independent services, bounded contexts, or decoupled deployments."
+      },
+      {
+        "idea_id": "Q059_IDEA_3",
+        "semantic_statement": "Microservices improve autonomous team velocity and domain scalability, but drastically increase operational complexity, network latency, distributed tracing, and eventual consistency challenges.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts distributed debugging, network overhead, CI/CD complexity, or eventual consistency."
+      }
+    ]
+  },
+  {
+    "question_id": "Q060",
+    "question_prompt": "Compare Apache Kafka and RabbitMQ: message delivery semantics, storage models, and ideal use cases.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q060_IDEA_1",
+        "semantic_statement": "Kafka is an append-only distributed commit log where consumers track their own offsets and messages are retained persistently on disk.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts distributed log, pull-based consumer offsets, durable stream retention."
+      },
+      {
+        "idea_id": "Q060_IDEA_2",
+        "semantic_statement": "RabbitMQ is a message broker with complex AMQP routing exchanges where messages are acknowledged and deleted from the queue upon consumption.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts push-based broker, exchange routing, queue draining after ack."
+      },
+      {
+        "idea_id": "Q060_IDEA_3",
+        "semantic_statement": "Kafka is optimized for high-throughput event streaming, replayability, and log analytics, while RabbitMQ excels at granular task queuing and complex routing topologies.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts streaming throughput vs granular task queue routing."
+      }
+    ]
+  },
+  {
+    "question_id": "Q061",
+    "question_prompt": "Describe Cache-Aside (Lazy Loading) versus Write-Through and Write-Back caching strategies.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q061_IDEA_1",
+        "semantic_statement": "Cache-Aside checks the cache first; on a miss, reads from the database, writes data into the cache, and returns it to the client.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts lazy loading on cache miss, application-managed caching."
+      },
+      {
+        "idea_id": "Q061_IDEA_2",
+        "semantic_statement": "Write-Through writes synchronously to both cache and underlying database simultaneously before acknowledging success.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts dual synchronous write, strong cache consistency, write latency penalty."
+      },
+      {
+        "idea_id": "Q061_IDEA_3",
+        "semantic_statement": "Write-Back (Write-Behind) writes immediately to cache and asynchronously flushes batches to the database, maximizing write performance but risking data loss upon cache crash.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts async DB flush, low latency writes, risk of data loss on power failure."
+      }
+    ]
+  },
+  {
+    "question_id": "Q062",
+    "question_prompt": "Explain Rate Limiting algorithms: Token Bucket versus Leaky Bucket versus Sliding Window Log.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q062_IDEA_1",
+        "semantic_statement": "Token Bucket replenishes tokens at a constant rate into a bucket of fixed capacity; requests consume tokens and allow bursts up to capacity.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts token accumulation, constant refill rate, burst tolerance."
+      },
+      {
+        "idea_id": "Q062_IDEA_2",
+        "semantic_statement": "Leaky Bucket processes incoming requests at a smooth, strictly constant outflow rate, buffering bursts in a queue or discarding overflow.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts steady outflow rate, smoothing traffic spikes, FIFO request drain."
+      },
+      {
+        "idea_id": "Q062_IDEA_3",
+        "semantic_statement": "Sliding Window Log records timestamps of each request in a sorted set, pruning timestamps older than the window to provide exact boundary protection at higher memory cost.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts timestamp log, exact sliding window, Redis sorted sets implementation."
+      }
+    ]
+  },
+  {
+    "question_id": "Q063",
+    "question_prompt": "How do you implement a distributed lock using Redis (Redlock) or ZooKeeper?",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q063_IDEA_1",
+        "semantic_statement": "Requires atomic lock acquisition using an exclusive key creation with time-to-live expiration (e.g., SET resource_id random_val NX PX ttl).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts atomic SETNX with TTL or ephemeral sequential znode."
+      },
+      {
+        "idea_id": "Q063_IDEA_2",
+        "semantic_statement": "Release must verify that the lock value matches the unique client identifier using a Lua script to avoid releasing another client's acquired lock.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts Lua script atomicity check, UUID owner verification, or preventing releasing expired lock."
+      },
+      {
+        "idea_id": "Q063_IDEA_3",
+        "semantic_statement": "Redlock acquires locks across an independent majority of N Redis nodes to guard against master-replica failover race conditions.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts majority consensus (N/2 + 1), clock drift considerations, or ZooKeeper session expiration."
+      }
+    ]
+  },
+  {
+    "question_id": "Q064",
+    "question_prompt": "Compare Layer 4 (Transport) and Layer 7 (Application) Load Balancing.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q064_IDEA_1",
+        "semantic_statement": "Layer 4 operates at TCP/UDP transport level, routing packets based on IP addresses and ports without inspecting application payload.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts TCP routing, IP/port forwarding, no SSL termination, high raw throughput."
+      },
+      {
+        "idea_id": "Q064_IDEA_2",
+        "semantic_statement": "Layer 7 operates at application level (HTTP/HTTPS/gRPC), inspecting headers, cookies, HTTP methods, and URL paths.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts HTTP inspection, path-based routing, header filtering, cookie affinity."
+      },
+      {
+        "idea_id": "Q064_IDEA_3",
+        "semantic_statement": "Layer 7 enables intelligent routing, SSL termination, and rate limiting, but consumes significantly more CPU resources per connection than Layer 4.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts TLS termination, content-based routing, higher compute overhead."
+      }
+    ]
+  },
+  {
+    "question_id": "Q065",
+    "question_prompt": "What is API Idempotency and how do you implement it for distributed financial transactions?",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q065_IDEA_1",
+        "semantic_statement": "An operation is idempotent if executing it multiple times produces the identical side-effect and outcome as executing it once.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts repeated calls yield same state or safe retries."
+      },
+      {
+        "idea_id": "Q065_IDEA_2",
+        "semantic_statement": "Clients generate a unique Idempotency Key (e.g. UUID) transmitted in HTTP headers on mutation requests.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts Idempotency-Key header or unique transaction token."
+      },
+      {
+        "idea_id": "Q065_IDEA_3",
+        "semantic_statement": "The server records the key and execution state in an atomic database store with unique constraints, returning cached responses on duplicate requests.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts database unique constraint, returning saved response on replay, or atomic check-and-insert."
+      }
+    ]
+  },
+  {
+    "question_id": "Q066",
+    "question_prompt": "Explain the Outbox Pattern for reliable event publishing in microservices.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q066_IDEA_1",
+        "semantic_statement": "Addresses the dual-write problem where updating a database and publishing an event to a message broker cannot share a local transaction.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts dual write inconsistency, avoiding partial failure between DB and broker."
+      },
+      {
+        "idea_id": "Q066_IDEA_2",
+        "semantic_statement": "Persists domain state changes and outgoing event records into an 'outbox' table within the identical local ACID database transaction.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts writing event to outbox table inside same database commit."
+      },
+      {
+        "idea_id": "Q066_IDEA_3",
+        "semantic_statement": "An asynchronous message relay (or CDC tool like Debezium) polls or tails the database transaction log to publish events to the broker with at-least-once guarantees.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts CDC log tailing, Debezium, polling publisher, at-least-once delivery."
+      }
+    ]
+  },
+  {
+    "question_id": "Q067",
+    "question_prompt": "How do Content Delivery Networks (CDNs) optimize content delivery and handle cache invalidation?",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q067_IDEA_1",
+        "semantic_statement": "Distributes edge cache servers geographically close to end users to serve static and cached dynamic assets with low latency.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts edge caching, point of presence (PoP), reduced round-trip time."
+      },
+      {
+        "idea_id": "Q067_IDEA_2",
+        "semantic_statement": "Employs HTTP caching headers like Cache-Control, max-age, ETag, and stale-while-revalidate to control client and edge lifetimes.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts Cache-Control headers, ETags, TTLs, conditional requests."
+      },
+      {
+        "idea_id": "Q067_IDEA_3",
+        "semantic_statement": "Supports active cache purging (via API URL/tag invalidation) and versioned asset URLs (cache busting via content hashes) for instant updates.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts cache busting hashes, programmatic purge API, surrogate keys."
+      }
+    ]
+  },
+  {
+    "question_id": "Q068",
+    "question_prompt": "Compare ACID transactional guarantees in relational databases with the BASE model in distributed databases.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q068_IDEA_1",
+        "semantic_statement": "ACID guarantees Atomicity (all-or-nothing), Consistency (schema invariants), Isolation (concurrent safety), and Durability (committed persistence).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts ACID breakdown and strict transactional guarantees."
+      },
+      {
+        "idea_id": "Q068_IDEA_2",
+        "semantic_statement": "BASE represents Basically Available, Soft state, and Eventual consistency, prioritizing continuous uptime over instantaneous global correctness.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts BASE breakdown, soft state, eventual synchronization."
+      },
+      {
+        "idea_id": "Q068_IDEA_3",
+        "semantic_statement": "Relational systems favor ACID for financial/inventory integrity, whereas highly distributed NoSQL systems embrace BASE to achieve horizontal scale and fault tolerance.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts strong consistency vs high availability horizontal scaling tradeoff."
+      }
+    ]
+  },
+  {
+    "question_id": "Q069",
+    "question_prompt": "Explain Database Indexing with B-Trees and compare them with Hash Indexes.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q069_IDEA_1",
+        "semantic_statement": "B-Trees (and B+ Trees) are balanced search trees where nodes store multiple keys and children, optimized for disk block reads with high fan-out.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts balanced multi-way tree, high fan-out, disk page alignment."
+      },
+      {
+        "idea_id": "Q069_IDEA_2",
+        "semantic_statement": "B+ Trees store actual data pointers exclusively in leaf nodes linked sequentially, enabling efficient range scans (e.g. BETWEEN or inequalities).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts range scan efficiency, leaf node linked list, O(log N) operations."
+      },
+      {
+        "idea_id": "Q069_IDEA_3",
+        "semantic_statement": "Hash indexes provide O(1) point lookups for exact matches ('=') but cannot serve range queries or partial prefix matches.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts exact match only, lack of range scan support, hash bucket lookup."
+      }
+    ]
+  },
+  {
+    "question_id": "Q070",
+    "question_prompt": "Describe the Circuit Breaker design pattern in distributed microservices.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q070_IDEA_1",
+        "semantic_statement": "Prevents cascading failures by detecting upstream service errors and failing fast rather than wasting system resources on doomed requests.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts stopping cascading failures, fail-fast protection, resilience pattern."
+      },
+      {
+        "idea_id": "Q070_IDEA_2",
+        "semantic_statement": "Maintains three states: Closed (normal operations), Open (tripped after error threshold exceeded, calls fail immediately or return fallback), and Half-Open.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts closed, open, and half-open state machine explanation."
+      },
+      {
+        "idea_id": "Q070_IDEA_3",
+        "semantic_statement": "Half-Open state allows a trial batch of requests to pass through to test if the dependent service has recovered before fully closing the circuit.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts trial requests, checking if service healed, resetting error counters."
+      }
+    ]
+  },
+  {
+    "question_id": "Q071",
+    "question_prompt": "Explain the Leader-Follower (Master-Slave) consensus pattern versus Leaderless replication (Dynamo-style).",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q071_IDEA_1",
+        "semantic_statement": "Leader-based systems designate a single node to sequence and process all write operations, streaming changes to follower replicas.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts single write master, follower replication, centralized sequencer."
+      },
+      {
+        "idea_id": "Q071_IDEA_2",
+        "semantic_statement": "Leaderless systems (like Cassandra/Dynamo) allow any node to accept writes, relying on client-side or coordinator fanout across replicas.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts any node accepts writes, peer-to-peer, decentralized."
+      },
+      {
+        "idea_id": "Q071_IDEA_3",
+        "semantic_statement": "Leaderless systems use quorum reads and writes (R + W > N) combined with read repair and anti-entropy to guarantee strong consistency.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts quorum condition R + W > N, sloppy quorums, hinted handoff, read repair."
+      }
+    ]
+  },
+  {
+    "question_id": "Q072",
+    "question_prompt": "What is Database Connection Pooling and why is it crucial for application performance?",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q072_IDEA_1",
+        "semantic_statement": "Maintains a pre-initialized cache of reusable physical database connections rather than opening and closing a TCP/auth handshake per query.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts pre-warmed connection pool, reusing open sockets."
+      },
+      {
+        "idea_id": "Q072_IDEA_2",
+        "semantic_statement": "Establishing database connections involves expensive TCP handshakes, TLS negotiation, authentication, and database process memory allocation.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts overhead of TCP setup, TLS handshake, database process fork cost."
+      },
+      {
+        "idea_id": "Q072_IDEA_3",
+        "semantic_statement": "Connection pooling limits concurrency to protect the database engine from context switching thrashing and out-of-memory crashes under load spikes.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts backpressure, capping concurrent DB sessions, preventing DB starvation."
+      }
+    ]
+  },
+  {
+    "question_id": "Q073",
+    "question_prompt": "Explain Event Sourcing and Command Query Responsibility Segregation (CQRS).",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q073_IDEA_1",
+        "semantic_statement": "Event Sourcing persists every change to application state as an immutable sequence of domain events rather than mutating current record values.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts append-only event stream, immutable event log, state reconstruction via event replay."
+      },
+      {
+        "idea_id": "Q073_IDEA_2",
+        "semantic_statement": "CQRS strictly separates the write model (handling commands and business validation) from read models (optimized for fast queries).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts separating command mutations from query reads, dedicated read projections."
+      },
+      {
+        "idea_id": "Q073_IDEA_3",
+        "semantic_statement": "Provides complete audit trails, time-travel debugging, and independent read/write scaling at the expense of eventual consistency and projection lag.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts audit log, temporal queries, eventual consistency between command and query sides."
+      }
+    ]
+  },
+  {
+    "question_id": "Q074",
+    "question_prompt": "Describe WebSockets versus Long Polling versus Server-Sent Events (SSE) for real-time communication.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q074_IDEA_1",
+        "semantic_statement": "WebSockets establishes a full-duplex, bidirectional persistent TCP connection over a single socket, ideal for high-frequency interactive apps.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts full-duplex, bidirectional socket, chat/gaming usage."
+      },
+      {
+        "idea_id": "Q074_IDEA_2",
+        "semantic_statement": "Server-Sent Events (SSE) provides a unidirectional streaming channel from server to client over standard HTTP, with automatic reconnection and lightweight framing.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts one-way server-to-client streaming, HTTP-based, LLM token streaming."
+      },
+      {
+        "idea_id": "Q074_IDEA_3",
+        "semantic_statement": "Long Polling simulates real-time by keeping an HTTP request open until the server has new data, incurring heavy HTTP header overhead and latency per round-trip.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts hanging HTTP requests, reconnecting after response, legacy polling fallback."
+      }
+    ]
+  },
+  {
+    "question_id": "Q075",
+    "question_prompt": "How do you design a URL Shortener service (like Bitly) to handle massive scale?",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q075_IDEA_1",
+        "semantic_statement": "Generates compact short URLs using Base62 encoding (a-z, A-Z, 0-9) derived from a distributed unique 64-bit ID generator (e.g. Snowflake or DB auto-increment).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts Base62 encoding, unique ID generation, 7-character hash."
+      },
+      {
+        "idea_id": "Q075_IDEA_2",
+        "semantic_statement": "Redirects clients via HTTP 301 (Permanent Redirect, aggressive browser cache) or 302/307 (Temporary Redirect, to track analytics per click).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 301 vs 302 redirect tradeoffs, analytics tracking."
+      },
+      {
+        "idea_id": "Q075_IDEA_3",
+        "semantic_statement": "Employs distributed in-memory caches (Redis/Memcached) for hot URL mappings and partitioned NoSQL/RDBMS storage with read replicas to handle massive read-to-write ratios.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts caching hot keys, 100:1 read-to-write ratio, horizontal sharding."
+      }
+    ]
+  },
+  {
+    "question_id": "Q076",
+    "question_prompt": "Explain the Two-Phase Commit (2PC) protocol for distributed transactions and its vulnerabilities.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q076_IDEA_1",
+        "semantic_statement": "Phase 1 (Prepare): Coordinator asks all participant nodes if they can commit; participants acquire locks and write to undo/redo logs, voting YES or NO.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts prepare phase, voting, locking resources."
+      },
+      {
+        "idea_id": "Q076_IDEA_2",
+        "semantic_statement": "Phase 2 (Commit/Abort): If all voted YES, coordinator sends COMMIT; if any voted NO or timed out, coordinator sends ROLLBACK.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts commit or rollback broadcast."
+      },
+      {
+        "idea_id": "Q076_IDEA_3",
+        "semantic_statement": "Vulnerable to blocking: if the coordinator crashes during the commit phase after participants vote YES, participants remain locked indefinitely waiting for resolution.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts blocking protocol, single point of failure coordinator, resource locking."
+      }
+    ]
+  },
+  {
+    "question_id": "Q077",
+    "question_prompt": "Describe Disaster Recovery strategies: RPO and RTO, and Active-Active versus Active-Passive deployments.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q077_IDEA_1",
+        "semantic_statement": "Recovery Point Objective (RPO) defines the maximum acceptable data loss measured in time between backup/sync and failure.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts maximum data loss window, time since last backup."
+      },
+      {
+        "idea_id": "Q077_IDEA_2",
+        "semantic_statement": "Recovery Time Objective (RTO) defines the maximum acceptable downtime to restore service operations after an incident.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts maximum downtime allowed, time to recover."
+      },
+      {
+        "idea_id": "Q077_IDEA_3",
+        "semantic_statement": "Active-Passive routes all traffic to a primary site while maintaining a standby site for failover; Active-Active serves live traffic simultaneously across multiple geographic regions with real-time replication.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts active-passive cold/warm standby vs active-active multi-region load balancing."
+      }
+    ]
+  },
+  {
+    "question_id": "Q078",
+    "question_prompt": "Explain Log-Structured Merge (LSM) Trees and compare their write performance with B-Trees.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q078_IDEA_1",
+        "semantic_statement": "Writes are appended sequentially to a Write-Ahead Log (WAL) and stored in an in-memory sorted structure (MemTable).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts sequential WAL append and in-memory MemTable (skip list or red-black tree)."
+      },
+      {
+        "idea_id": "Q078_IDEA_2",
+        "semantic_statement": "When full, MemTables are flushed to disk as immutable sorted string tables (SSTables); background compaction merges SSTables to reclaim space.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts flushing to SSTables, background compaction, merging sorted runs."
+      },
+      {
+        "idea_id": "Q078_IDEA_3",
+        "semantic_statement": "LSM Trees achieve superior write throughput by converting random disk writes into fast sequential writes, at the cost of read amplification resolved via Bloom filters.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts high write throughput, sequential I/O, Bloom filters for fast negative lookups."
+      }
+    ]
+  },
+  {
+    "question_id": "Q079",
+    "question_prompt": "What is Distributed Tracing and how do Trace IDs and Span IDs propagate across microservice boundaries?",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q079_IDEA_1",
+        "semantic_statement": "Tracks the end-to-end lifecycle of a client request across distributed service calls to diagnose performance bottlenecks and errors.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts tracking request path across services, OpenTelemetry, Jaeger."
+      },
+      {
+        "idea_id": "Q079_IDEA_2",
+        "semantic_statement": "A globally unique Trace ID identifies the entire workflow, while Span IDs represent individual units of work within specific services.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts Trace ID for whole transaction, Span ID for individual service hop."
+      },
+      {
+        "idea_id": "Q079_IDEA_3",
+        "semantic_statement": "Context is propagated across network boundaries by injecting trace headers (e.g. W3C traceparent) into HTTP/gRPC request headers.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts HTTP header injection, context propagation, parent-child span hierarchy."
+      }
+    ]
+  },
+  {
+    "question_id": "Q080",
+    "question_prompt": "Explain the Thundering Herd (Cache Stampede) problem and how to mitigate it.",
+    "domain": "System Design",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q080_IDEA_1",
+        "semantic_statement": "Occurs when a popular cached key expires and hundreds or thousands of concurrent requests simultaneously hit the backend database to regenerate the value.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts cache expiration leading to massive concurrent DB queries, overloading database."
+      },
+      {
+        "idea_id": "Q080_IDEA_2",
+        "semantic_statement": "Mitigated via distributed mutex locking (single-flight) where only the first request regenerates the cache while others wait.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts mutex lock, singleflight pattern, promise sharing."
+      },
+      {
+        "idea_id": "Q080_IDEA_3",
+        "semantic_statement": "Probabilistic early recomputation (XFetch) or background pre-warming refreshes the cache item before its actual TTL expiration.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts background pre-refresh, probabilistic early expiration, soft TTL."
+      }
+    ]
+  },
+  {
+    "question_id": "Q081",
+    "question_prompt": "Compare SQL (Relational) and NoSQL databases: data models, scaling approaches, and schema constraints.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q081_IDEA_1",
+        "semantic_statement": "SQL databases use structured tables with fixed schemas, enforcing relational integrity via primary and foreign keys.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts tabular structure, relational joins, strict schema definition."
+      },
+      {
+        "idea_id": "Q081_IDEA_2",
+        "semantic_statement": "NoSQL databases employ flexible semi-structured data models (document, key-value, column-family, graph) supporting schema-on-read.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts JSON document, key-value store, wide-column, dynamic schemas."
+      },
+      {
+        "idea_id": "Q081_IDEA_3",
+        "semantic_statement": "SQL typically scales vertically (compute/storage upgrades) and read-scales via replicas, whereas NoSQL is engineered for horizontal sharding across commodity clusters.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts vertical scaling vs horizontal distribution, scale-up vs scale-out."
+      }
+    ]
+  },
+  {
+    "question_id": "Q082",
+    "question_prompt": "Explain SQL Transaction Isolation Levels: Read Uncommitted, Read Committed, Repeatable Read, and Serializable.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q082_IDEA_1",
+        "semantic_statement": "Read Uncommitted permits dirty reads (reading uncommitted changes from concurrent transactions).",
+        "required": true,
+        "weight": 0.25,
+        "acceptable_paraphrase_guidance": "Accepts dirty reads permitted, lowest isolation level."
+      },
+      {
+        "idea_id": "Q082_IDEA_2",
+        "semantic_statement": "Read Committed prevents dirty reads, but allows non-repeatable reads (re-reading a row returns altered data if committed concurrently).",
+        "required": true,
+        "weight": 0.25,
+        "acceptable_paraphrase_guidance": "Accepts no dirty reads, non-repeatable read vulnerability."
+      },
+      {
+        "idea_id": "Q082_IDEA_3",
+        "semantic_statement": "Repeatable Read ensures rows read once return identical values within the transaction, though phantom rows (newly inserted matching rows) can appear unless MVCC/range locks prevent them.",
+        "required": true,
+        "weight": 0.25,
+        "acceptable_paraphrase_guidance": "Accepts consistent snapshot of rows read, phantom read vulnerability."
+      },
+      {
+        "idea_id": "Q082_IDEA_4",
+        "semantic_statement": "Serializable provides complete isolation as if transactions executed serially, preventing phantoms via strict two-phase locking (2PL) or Serializable Snapshot Isolation (SSI).",
+        "required": true,
+        "weight": 0.25,
+        "acceptable_paraphrase_guidance": "Accepts strict serial execution semantics, highest isolation, SSI or 2PL."
+      }
+    ]
+  },
+  {
+    "question_id": "Q083",
+    "question_prompt": "What are the four necessary conditions for Deadlock and how can systems prevent or recover from them?",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q083_IDEA_1",
+        "semantic_statement": "Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait (Coffman conditions).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts all 4 Coffman conditions named or accurately described."
+      },
+      {
+        "idea_id": "Q083_IDEA_2",
+        "semantic_statement": "Deadlock prevention eliminates at least one condition, such as imposing a global linear ordering on lock acquisitions to eliminate circular wait.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts acquiring locks in fixed order, pre-allocating all resources, or resource preemption."
+      },
+      {
+        "idea_id": "Q083_IDEA_3",
+        "semantic_statement": "Deadlock detection constructs resource-allocation wait-for graphs to detect cycles, recovering by terminating or rolling back a victim transaction.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts wait-for graph cycle detection, killing victim transaction, transaction abort."
+      }
+    ]
+  },
+  {
+    "question_id": "Q084",
+    "question_prompt": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q084_IDEA_1",
+        "semantic_statement": "A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts independent memory space, process isolation, heavy context switch."
+      },
+      {
+        "idea_id": "Q084_IDEA_2",
+        "semantic_statement": "Threads are lightweight execution units within a process sharing the same address space, code segment, and heap, but retaining independent stacks and registers.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts shared heap/memory, individual stack and registers, lightweight context switch."
+      },
+      {
+        "idea_id": "Q084_IDEA_3",
+        "semantic_statement": "IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts pipes, shared memory, sockets, message queues, signals."
+      }
+    ]
+  },
+  {
+    "question_id": "Q085",
+    "question_prompt": "Explain Virtual Memory, Paging, and Page Fault handling in modern operating systems.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q085_IDEA_1",
+        "semantic_statement": "Virtual memory abstracts physical RAM by providing each process with an expansive, contiguous, and protected virtual address space.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts memory abstraction, address space isolation, memory protection."
+      },
+      {
+        "idea_id": "Q085_IDEA_2",
+        "semantic_statement": "Divides memory into fixed-size chunks called pages, mapped to physical frames via page tables managed by the Memory Management Unit (MMU) and TLB.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts virtual pages, physical frames, page table, MMU, TLB lookup."
+      },
+      {
+        "idea_id": "Q085_IDEA_3",
+        "semantic_statement": "A page fault occurs when accessing an address not present in physical RAM; the OS kernel traps the interrupt, loads the required page from disk swap, updates the page table, and restarts the instruction.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts trap interrupt, fetching from swap disk, updating page table entry."
+      }
+    ]
+  },
+  {
+    "question_id": "Q086",
+    "question_prompt": "Compare Optimistic Concurrency Control (OCC) and Pessimistic Concurrency Control.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q086_IDEA_1",
+        "semantic_statement": "Pessimistic concurrency locks records immediately upon reading to prevent any concurrent modifications until transaction completion.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts SELECT FOR UPDATE, exclusive locks, blocking concurrent writers."
+      },
+      {
+        "idea_id": "Q086_IDEA_2",
+        "semantic_statement": "Optimistic concurrency assumes conflicts are rare, allowing transactions to read and modify data without locking, checking for conflicts at commit time.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts lock-free reads, version number checks, timestamp verification at commit."
+      },
+      {
+        "idea_id": "Q086_IDEA_3",
+        "semantic_statement": "Optimistic concurrency excels in read-heavy low-contention environments; pessimistic concurrency is superior in high-contention write environments where frequent rollback retries waste throughput.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts low contention vs high contention performance tradeoffs."
+      }
+    ]
+  },
+  {
+    "question_id": "Q087",
+    "question_prompt": "What is Write-Ahead Logging (WAL) and how does it guarantee durability and crash recovery?",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q087_IDEA_1",
+        "semantic_statement": "Requires all transaction modifications to be logged sequentially to non-volatile disk before the corresponding data pages are flushed from memory.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts write to log before modifying data pages, append-only disk log."
+      },
+      {
+        "idea_id": "Q087_IDEA_2",
+        "semantic_statement": "Ensures durability: if the system crashes, committed transactions present in the WAL can be redone (REDO phase) to recover state.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts REDO committed changes, replaying log after crash."
+      },
+      {
+        "idea_id": "Q087_IDEA_3",
+        "semantic_statement": "Uncommitted or partial transactions aborted during a crash can be undone (UNDO phase) by reading log records backwards to maintain atomicity.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts UNDO uncommitted operations, rollback via log, ARIES recovery algorithm."
+      }
+    ]
+  },
+  {
+    "question_id": "Q088",
+    "question_prompt": "Describe CPU Scheduling algorithms: Round Robin versus Shortest Job First versus Multi-Level Feedback Queues.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q088_IDEA_1",
+        "semantic_statement": "Round Robin assigns fixed time quantum slices to processes in a circular FIFO queue, providing fairness and fast response times.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts time quantum slices, preemptive circular scheduling, responsive interactive performance."
+      },
+      {
+        "idea_id": "Q088_IDEA_2",
+        "semantic_statement": "Shortest Job First (SJF) schedules the process with the smallest execution burst next, mathematically minimizing average waiting time but risking starvation of long jobs.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts optimal average wait time, burst time prediction, starvation of long processes."
+      },
+      {
+        "idea_id": "Q088_IDEA_3",
+        "semantic_statement": "Multi-Level Feedback Queues (MLFQ) prioritize interactive I/O-bound jobs in top high-priority queues while demoting CPU-heavy compute jobs to lower queues with larger time slices.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts multiple priority queues, aging, demoting CPU hogs, prioritizing interactive tasks."
+      }
+    ]
+  },
+  {
+    "question_id": "Q089",
+    "question_prompt": "Explain memory leaks, how to detect them in production, and how garbage collection strategies differ.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q089_IDEA_1",
+        "semantic_statement": "A memory leak occurs when an application retains references to allocated memory that is no longer needed, preventing reclamation.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts unreleased memory, orphaned references, monotonically increasing memory usage."
+      },
+      {
+        "idea_id": "Q089_IDEA_2",
+        "semantic_statement": "Detected via heap profiling, monitoring resident set size (RSS), tracking memory growth over time, and analyzing object allocation graphs.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts heap dumps, RSS monitoring, memory profilers, Valgrind."
+      },
+      {
+        "idea_id": "Q089_IDEA_3",
+        "semantic_statement": "Reference counting reclaims objects immediately when their reference counter hits zero (vulnerable to cyclic references), while tracing GC (mark-and-sweep) traverses reachable roots periodically.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts reference counting vs mark-and-sweep tracing, handling circular references."
+      }
+    ]
+  },
+  {
+    "question_id": "Q090",
+    "question_prompt": "Compare Docker Containers and Virtual Machines (VMs): architecture, isolation, and overhead.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q090_IDEA_1",
+        "semantic_statement": "Virtual Machines run full guest operating systems on top of a hypervisor (Type 1 or Type 2), virtualizing hardware.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts hypervisor, guest OS, hardware virtualization."
+      },
+      {
+        "idea_id": "Q090_IDEA_2",
+        "semantic_statement": "Containers share the host operating system kernel, packaging only user-space binaries, libraries, and application dependencies.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts shared host kernel, container engine, lightweight packaging."
+      },
+      {
+        "idea_id": "Q090_IDEA_3",
+        "semantic_statement": "VMs provide strong hardware-level security isolation at high memory/startup overhead; containers provide process-level isolation (via Linux namespaces and cgroups) with near-native performance and sub-second startup.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts namespaces and cgroups, fast boot time, isolation depth differences."
+      }
+    ]
+  },
+  {
+    "question_id": "Q091",
+    "question_prompt": "Explain Page Replacement Algorithms: FIFO versus Least Recently Used (LRU) versus Clock (Second Chance).",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q091_IDEA_1",
+        "semantic_statement": "Page replacement chooses which resident physical frame to evict to disk swap when memory is full and a page fault occurs.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts evicting pages on memory exhaustion or swap management."
+      },
+      {
+        "idea_id": "Q091_IDEA_2",
+        "semantic_statement": "FIFO evicts the oldest loaded page, vulnerable to Belady's Anomaly where allocating more physical frames can paradoxically increase page faults.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts Belady's anomaly, queue of page arrival times."
+      },
+      {
+        "idea_id": "Q091_IDEA_3",
+        "semantic_statement": "LRU evicts the page unaccessed for the longest duration, approximated efficiently in hardware via the Clock algorithm using reference/use bits.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts LRU optimal approximation, Clock second chance algorithm, reference bit check."
+      }
+    ]
+  },
+  {
+    "question_id": "Q092",
+    "question_prompt": "Describe Database Normalization up to Third Normal Form (3NF) and when denormalization is justified.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q092_IDEA_1",
+        "semantic_statement": "1NF requires atomic attribute values and no repeating groups; 2NF eliminates partial dependencies on composite primary keys.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 1NF atomic columns, 2NF full functional dependency on primary key."
+      },
+      {
+        "idea_id": "Q092_IDEA_2",
+        "semantic_statement": "3NF eliminates transitive dependencies where non-key attributes depend on other non-key attributes.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts no transitive dependencies, X -> Y where Y is non-prime."
+      },
+      {
+        "idea_id": "Q092_IDEA_3",
+        "semantic_statement": "Denormalization intentionally introduces controlled redundancy into tables to eliminate expensive multi-table JOINs and optimize read query performance in analytical or high-throughput read workloads.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts reducing joins, improving read latency, analytical data warehousing."
+      }
+    ]
+  },
+  {
+    "question_id": "Q093",
+    "question_prompt": "What is Multi-Version Concurrency Control (MVCC) in PostgreSQL and MySQL InnoDB?",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q093_IDEA_1",
+        "semantic_statement": "Enables readers to avoid blocking writers and writers to avoid blocking readers by maintaining multiple snapshot versions of data rows.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts readers don't block writers, writers don't block readers, row snapshot versions."
+      },
+      {
+        "idea_id": "Q093_IDEA_2",
+        "semantic_statement": "Each transaction sees a consistent snapshot of the database at its start timestamp based on transaction visibility IDs (xmin/xmax).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts transaction ID visibility, xmin/xmax, snapshot isolation."
+      },
+      {
+        "idea_id": "Q093_IDEA_3",
+        "semantic_statement": "Dead row versions created by updates and deletes must be periodically cleaned up via background VACUUM (PostgreSQL) or undo log purge threads (InnoDB).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts vacuuming dead tuples, undo log cleanup, bloat prevention."
+      }
+    ]
+  },
+  {
+    "question_id": "Q094",
+    "question_prompt": "Explain File System inodes, hard links, and symbolic (soft) links in UNIX/Linux.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q094_IDEA_1",
+        "semantic_statement": "An inode stores file metadata (permissions, owner, size, timestamps, data block disk pointers) excluding filename and file data.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts inode metadata storage, pointer to disk blocks, no filename inside inode."
+      },
+      {
+        "idea_id": "Q094_IDEA_2",
+        "semantic_statement": "A hard link is a directory entry associating a filename directly with an existing inode number; file data persists until the inode link count drops to zero.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts direct pointer to inode, reference link count, survives source deletion."
+      },
+      {
+        "idea_id": "Q094_IDEA_3",
+        "semantic_statement": "A symbolic link is a distinct file whose data payload contains the text string path to target file; becomes broken if the target file is renamed or removed.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts pointer to path, broken link if moved, independent inode."
+      }
+    ]
+  },
+  {
+    "question_id": "Q095",
+    "question_prompt": "What is the difference between Synchronous, Asynchronous, Blocking, and Non-blocking I/O?",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q095_IDEA_1",
+        "semantic_statement": "Blocking I/O suspends the calling thread until the requested data is completely transferred to user space.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts thread sleep during I/O, wait for completion."
+      },
+      {
+        "idea_id": "Q095_IDEA_2",
+        "semantic_statement": "Non-blocking I/O returns immediately with an error code (EWOULDBLOCK) if data is not ready, requiring polling.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts immediate return, polling readiness."
+      },
+      {
+        "idea_id": "Q095_IDEA_3",
+        "semantic_statement": "Asynchronous I/O (AIO / io_uring) delegates execution entirely to kernel/hardware and invokes a callback or completion queue notification when data transfer is finished without thread waiting.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts callback notification, completion event, zero thread blocking during transfer."
+      }
+    ]
+  },
+  {
+    "question_id": "Q096",
+    "question_prompt": "Explain Context Switching and the performance overhead associated with saving and restoring state.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q096_IDEA_1",
+        "semantic_statement": "The operating system saves the execution context (CPU registers, program counter, stack pointer) of a running process/thread and restores another's.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts saving/restoring register state, program counter, kernel trap."
+      },
+      {
+        "idea_id": "Q096_IDEA_2",
+        "semantic_statement": "Direct costs include kernel privilege transition time, executing the scheduler code, and saving register state.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts kernel mode switch, scheduler overhead, CPU cycle consumption."
+      },
+      {
+        "idea_id": "Q096_IDEA_3",
+        "semantic_statement": "Indirect costs include invalidating CPU instruction/data caches and Translation Lookaside Buffer (TLB) flushes during process context switches.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts cache coldness, TLB flush overhead, memory hierarchy penalty."
+      }
+    ]
+  },
+  {
+    "question_id": "Q097",
+    "question_prompt": "Describe Database Sharding strategies: Range-based versus Hash-based versus Directory-based.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q097_IDEA_1",
+        "semantic_statement": "Range-based sharding assigns contiguous ranges of shard keys to specific nodes (e.g., A-F, G-M), simple for range queries but prone to write hotspots on sequential keys.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts range partitioning, hotspot on sequential writes, efficient range scans."
+      },
+      {
+        "idea_id": "Q097_IDEA_2",
+        "semantic_statement": "Hash-based sharding applies a cryptographic or uniform hash function to the shard key to distribute rows evenly across nodes, eliminating hotspots at the expense of efficient range queries.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts uniform hash distribution, avoiding hotspots, scatter-gather range queries."
+      },
+      {
+        "idea_id": "Q097_IDEA_3",
+        "semantic_statement": "Directory-based sharding uses a dynamic lookup service or mapping table to route keys to shards, providing maximum rebalancing flexibility at the cost of a central query hop.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts lookup service, mapping table, routing tier overhead."
+      }
+    ]
+  },
+  {
+    "question_id": "Q098",
+    "question_prompt": "Explain CPU Caching: L1/L2/L3 cache hierarchies, cache lines, and false sharing.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q098_IDEA_1",
+        "semantic_statement": "CPUs employ multi-tiered caches (small ultra-fast L1, larger L2/L3) to bridge the massive speed gap between CPU clock cycles and main RAM latency.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts multi-level cache hierarchy, low latency SRAM near CPU cores."
+      },
+      {
+        "idea_id": "Q098_IDEA_2",
+        "semantic_statement": "Data is transferred between memory and cache in fixed-size blocks called cache lines (typically 64 bytes).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 64-byte cache line block size, spatial locality."
+      },
+      {
+        "idea_id": "Q098_IDEA_3",
+        "semantic_statement": "False sharing occurs in multi-threaded programs when threads on distinct cores modify independent variables that reside within the identical cache line, triggering expensive cache invalidation bus traffic.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts independent variables in same cache line, MESI protocol invalidation storm, core thrashing."
+      }
+    ]
+  },
+  {
+    "question_id": "Q099",
+    "question_prompt": "What are Linux cgroups and namespaces, and how do they enable containerization?",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q099_IDEA_1",
+        "semantic_statement": "Namespaces provide process isolation by virtualizing system resources (PID, Mount, Network, UTS, IPC, User).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts isolation of process view, network namespace, PID namespace."
+      },
+      {
+        "idea_id": "Q099_IDEA_2",
+        "semantic_statement": "Control Groups (cgroups) meter, limit, and prioritize physical hardware resource usage (CPU shares, memory caps, disk I/O, network bandwidth).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts resource limitation, CPU limits, memory quotas, OOM killer triggers."
+      },
+      {
+        "idea_id": "Q099_IDEA_3",
+        "semantic_statement": "Together they allow container runtimes to isolate a process's view of the operating system while strictly enforcing hardware consumption limits.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts container foundation, view isolation + resource quota control."
+      }
+    ]
+  },
+  {
+    "question_id": "Q100",
+    "question_prompt": "Explain Database Deadlocks and how database engines detect and resolve them.",
+    "domain": "Databases & OS",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q100_IDEA_1",
+        "semantic_statement": "Occur when two or more transactions hold exclusive locks that the other transactions need to proceed, forming a cyclical dependency.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts circular wait on locked rows, transaction deadlock condition."
+      },
+      {
+        "idea_id": "Q100_IDEA_2",
+        "semantic_statement": "Engine constructs a directed Wait-For Graph where nodes are transactions and edges represent lock dependencies, checking periodically for cycles.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts wait-for graph cycle detection or lock timeout detection."
+      },
+      {
+        "idea_id": "Q100_IDEA_3",
+        "semantic_statement": "Resolved by selecting and aborting a victim transaction (typically the one with least work or lowest priority), rolling back its changes and releasing its locks.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts choosing victim transaction, rollback, releasing locks to let other transaction succeed."
+      }
+    ]
+  },
+  {
+    "question_id": "Q101",
+    "question_prompt": "Explain the Python Global Interpreter Lock (GIL) and its implications for multithreading.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q101_IDEA_1",
+        "semantic_statement": "A mutex that protects access to Python object internals, preventing multiple native OS threads from executing Python bytecodes simultaneously within a single process.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts mutex protecting CPython memory, single thread executes bytecode at a time."
+      },
+      {
+        "idea_id": "Q101_IDEA_2",
+        "semantic_statement": "CPU-bound tasks in Python do not achieve speedups with standard multithreading due to GIL lock contention and serialization.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts no multi-core CPU speedup with threading, lock contention on compute."
+      },
+      {
+        "idea_id": "Q101_IDEA_3",
+        "semantic_statement": "Bypassed for CPU-intensive tasks using multiprocessing (separate address spaces), C/C++ extensions, or I/O-bound threading where the GIL is released during socket/file waits.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts multiprocessing, releasing GIL in C extensions, or I/O threading releasing GIL."
+      }
+    ]
+  },
+  {
+    "question_id": "Q102",
+    "question_prompt": "Compare Python Generators and Iterators: protocol implementation and memory efficiency.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q102_IDEA_1",
+        "semantic_statement": "An iterator is an object implementing the iterator protocol: __iter__() returning self and __next__() returning values or raising StopIteration.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts __iter__ and __next__ methods, StopIteration exception."
+      },
+      {
+        "idea_id": "Q102_IDEA_2",
+        "semantic_statement": "A generator is a function containing 'yield' statements that automatically generates iterator state machines, pausing execution and maintaining stack frame state between calls.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts yield keyword, lazy evaluation, maintaining local variables across calls."
+      },
+      {
+        "idea_id": "Q102_IDEA_3",
+        "semantic_statement": "Generators provide massive memory efficiency by streaming items lazily on demand (O(1) space) instead of materializing entire lists in RAM (O(N) space).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts streaming large datasets, O(1) memory, lazy generation vs eager lists."
+      }
+    ]
+  },
+  {
+    "question_id": "Q103",
+    "question_prompt": "Explain Python Decorators and Closures with an example of an execution timer decorator.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q103_IDEA_1",
+        "semantic_statement": "A closure is an inner function that retains lexical scope access to variables in its enclosing scope even after the outer function has finished executing.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts inner function capturing enclosing variables, lexical environment preservation."
+      },
+      {
+        "idea_id": "Q103_IDEA_2",
+        "semantic_statement": "A decorator is a callable that takes a function as input, wraps its execution with pre- or post-processing logic, and returns the modified callable.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts higher-order function, wrapping function behavior, @ syntax."
+      },
+      {
+        "idea_id": "Q103_IDEA_3",
+        "semantic_statement": "An execution timer records start time using time.perf_counter(), invokes the wrapped function via (*args, **kwargs), computes elapsed time, and returns the original result.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts functools.wraps, measuring elapsed time, preserving function metadata."
+      }
+    ]
+  },
+  {
+    "question_id": "Q104",
+    "question_prompt": "Describe Python Memory Management: memory allocator pools, arenas, and the cyclic garbage collector.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q104_IDEA_1",
+        "semantic_statement": "Small object memory (< 512 bytes) is managed by PyMalloc, allocating memory blocks inside pools that are organized into 256KB arenas to reduce OS allocation fragmentation.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts PyMalloc small object allocator, arenas and pools, reducing malloc overhead."
+      },
+      {
+        "idea_id": "Q104_IDEA_2",
+        "semantic_statement": "Standard object lifecycle relies on reference counting, freeing memory immediately when ob_refcnt drops to zero.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts reference counting as primary collection mechanism."
+      },
+      {
+        "idea_id": "Q104_IDEA_3",
+        "semantic_statement": "Cyclic garbage collector uses generational mark-and-sweep (Generations 0, 1, 2) to detect and reclaim isolated clusters of self-referencing objects.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts 3 generational GC, detecting circular references, heuristic threshold collections."
+      }
+    ]
+  },
+  {
+    "question_id": "Q105",
+    "question_prompt": "Compare REST, gRPC, and GraphQL: communication protocols, data formats, and performance characteristics.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q105_IDEA_1",
+        "semantic_statement": "REST uses standard HTTP methods (GET, POST, PUT, DELETE) transmitting text JSON/XML payloads, widely compatible and easily cached via HTTP proxies.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts HTTP verbs, JSON over HTTP 1.1/2, universal browser support."
+      },
+      {
+        "idea_id": "Q105_IDEA_2",
+        "semantic_statement": "gRPC runs over HTTP/2 using binary Protocol Buffers (protobuf), supporting strongly typed contracts, bidirectional streaming, and high throughput with minimal serialization overhead.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts Protobuf binary serialization, HTTP/2 multiplexing, microservice RPC performance."
+      },
+      {
+        "idea_id": "Q105_IDEA_3",
+        "semantic_statement": "GraphQL allows clients to request exact required fields via a single POST endpoint, eliminating over-fetching and under-fetching at the cost of complex server-side query execution and caching.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts client-defined query schema, solving over/under-fetching, single endpoint."
+      }
+    ]
+  },
+  {
+    "question_id": "Q106",
+    "question_prompt": "Explain the SOLID design principles in Object-Oriented Software Engineering.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q106_IDEA_1",
+        "semantic_statement": "Single Responsibility Principle (a class should have one reason to change) and Open/Closed Principle (open for extension, closed for modification).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts S and O principles accurately defined."
+      },
+      {
+        "idea_id": "Q106_IDEA_2",
+        "semantic_statement": "Liskov Substitution Principle (subtypes must be substitutable for their base types without altering correctness) and Interface Segregation Principle (clients should not be forced to depend on unused interfaces).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts L and I principles accurately defined."
+      },
+      {
+        "idea_id": "Q106_IDEA_3",
+        "semantic_statement": "Dependency Inversion Principle (high-level modules should depend on abstractions/interfaces rather than concrete low-level implementations).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts D principle accurately defined, dependency injection."
+      }
+    ]
+  },
+  {
+    "question_id": "Q107",
+    "question_prompt": "Compare Unit Testing, Integration Testing, and End-to-End (E2E) Testing in the testing pyramid.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q107_IDEA_1",
+        "semantic_statement": "Unit tests isolate individual functions or classes in memory, mocking external dependencies to execute quickly and deterministically.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts isolated testing of units, mocks/stubs, fast CI execution."
+      },
+      {
+        "idea_id": "Q107_IDEA_2",
+        "semantic_statement": "Integration tests verify that collaborating subsystems (e.g. database, message queue, external APIs) communicate correctly together.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts testing component interactions, database integration, boundary contracts."
+      },
+      {
+        "idea_id": "Q107_IDEA_3",
+        "semantic_statement": "E2E tests validate complete user journeys across the entire deployed system stack, providing highest fidelity but with higher latency and fragility.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts whole system validation, user flows, testing pyramid balance."
+      }
+    ]
+  },
+  {
+    "question_id": "Q108",
+    "question_prompt": "Explain Python's asyncio Event Loop and compare asynchronous programming with multithreading.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q108_IDEA_1",
+        "semantic_statement": "The event loop runs in a single thread, scheduling and executing non-blocking coroutines cooperatively using an internal readiness queue (epoll/kqueue).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts single-threaded event loop, cooperative multitasking, epoll selector."
+      },
+      {
+        "idea_id": "Q108_IDEA_2",
+        "semantic_statement": "Coroutines yield control back to the event loop upon encountering 'await' on an I/O future, allowing other ready coroutines to proceed.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts await keyword, yielding control during I/O, cooperative scheduling."
+      },
+      {
+        "idea_id": "Q108_IDEA_3",
+        "semantic_statement": "Asyncio eliminates OS thread context switching overhead and race-condition locks for I/O-bound concurrency, but blocking CPU code freezes the entire loop unless offloaded to an executor.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts lightweight tasks vs heavy OS threads, loop blocking risk from CPU tasks."
+      }
+    ]
+  },
+  {
+    "question_id": "Q109",
+    "question_prompt": "Compare Git branching strategies: Git Flow versus Trunk-Based Development.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q109_IDEA_1",
+        "semantic_statement": "Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts multiple long-lived branches, develop branch, scheduled release cycles."
+      },
+      {
+        "idea_id": "Q109_IDEA_2",
+        "semantic_statement": "Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts short-lived branches, continuous integration into main, small frequent commits."
+      },
+      {
+        "idea_id": "Q109_IDEA_3",
+        "semantic_statement": "Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts feature flags, automated CI/CD gating, fast feedback loops."
+      }
+    ]
+  },
+  {
+    "question_id": "Q110",
+    "question_prompt": "Explain the Factory Method versus Abstract Factory design patterns.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q110_IDEA_1",
+        "semantic_statement": "Factory Method defines an interface or method in a base class, deferring the instantiation of a single product object to derived subclasses.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts delegating object creation to subclass method, creating single product."
+      },
+      {
+        "idea_id": "Q110_IDEA_2",
+        "semantic_statement": "Abstract Factory provides an interface for creating families of related or dependent objects without specifying their concrete classes.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts creating suites/families of related objects, higher-level factory."
+      },
+      {
+        "idea_id": "Q110_IDEA_3",
+        "semantic_statement": "Both encapsulate object creation to decouple client code from concrete implementations, adhering to the Open/Closed Principle.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts decoupling creation from business logic, polymorphic instantiation."
+      }
+    ]
+  },
+  {
+    "question_id": "Q111",
+    "question_prompt": "What is the difference between *args and **kwargs in Python function definitions?",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q111_IDEA_1",
+        "semantic_statement": "*args captures variable positional arguments passed to a function into a tuple.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts arbitrary positional arguments, tuple packing."
+      },
+      {
+        "idea_id": "Q111_IDEA_2",
+        "semantic_statement": "**kwargs captures variable keyword arguments passed to a function into a dictionary.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts arbitrary keyword arguments, dictionary packing."
+      },
+      {
+        "idea_id": "Q111_IDEA_3",
+        "semantic_statement": "Allows flexible function forwarding and generic wrappers (such as decorators) to pass arguments through without hardcoding parameter signatures.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts argument unpacking, forwarding to wrapped callables."
+      }
+    ]
+  },
+  {
+    "question_id": "Q112",
+    "question_prompt": "Explain Method Resolution Order (MRO) and the C3 Linearization algorithm in Python multiple inheritance.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q112_IDEA_1",
+        "semantic_statement": "MRO determines the deterministic search order Python traverses to resolve methods and attributes in classes with multiple inheritance.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts attribute lookup order across multiple parent classes."
+      },
+      {
+        "idea_id": "Q112_IDEA_2",
+        "semantic_statement": "CPython employs the C3 Linearization algorithm, enforcing monotonicity and respecting local precedence order of base classes.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts C3 linearization algorithm, preserving parent class sequence."
+      },
+      {
+        "idea_id": "Q112_IDEA_3",
+        "semantic_statement": "Prevents ambiguities like the Diamond Problem where a method could be inherited from multiple intermediate parents; inspectable via Class.__mro__.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts diamond problem resolution, inspecting __mro__ attribute."
+      }
+    ]
+  },
+  {
+    "question_id": "Q113",
+    "question_prompt": "What are Python Context Managers and how does the with statement prevent resource leaks?",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q113_IDEA_1",
+        "semantic_statement": "Context managers govern runtime context allocation and cleanup via the __enter__() and __exit__() magic methods.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts __enter__ and __exit__ protocols."
+      },
+      {
+        "idea_id": "Q113_IDEA_2",
+        "semantic_statement": "The 'with' statement guarantees that __exit__() executes upon exiting the block, even if unhandled exceptions are raised inside.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts guaranteed cleanup, equivalent to try-finally block, exception suppression capability."
+      },
+      {
+        "idea_id": "Q113_IDEA_3",
+        "semantic_statement": "Commonly used to guarantee reliable closure of file descriptors, network sockets, database transactions, and lock releases.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts closing files, releasing locks, rolling back DB transactions."
+      }
+    ]
+  },
+  {
+    "question_id": "Q114",
+    "question_prompt": "Compare mutable and immutable data types in Python, and explain the default mutable argument pitfall.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q114_IDEA_1",
+        "semantic_statement": "Immutable types (int, float, str, tuple, frozenset) cannot be modified in-place after creation; modifications create new objects.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts cannot alter in-place, hashability for dictionary keys."
+      },
+      {
+        "idea_id": "Q114_IDEA_2",
+        "semantic_statement": "Mutable types (list, dict, set) allow in-place mutations without altering object identity (id()).",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts in-place modification, same memory address."
+      },
+      {
+        "idea_id": "Q114_IDEA_3",
+        "semantic_statement": "Default function arguments in Python are evaluated once at function definition time, so mutable defaults (e.g. def fn(arg=[])) share state across all subsequent calls.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts default evaluated at compile/definition time, shared list bug, using None as default."
+      }
+    ]
+  },
+  {
+    "question_id": "Q115",
+    "question_prompt": "Describe the Singleton pattern, its thread-safe implementation in Python, and criticisms against it.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q115_IDEA_1",
+        "semantic_statement": "Ensures a class has only a single instance throughout the application lifecycle and provides a global access point to it.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts single instance guarantee, global access."
+      },
+      {
+        "idea_id": "Q115_IDEA_2",
+        "semantic_statement": "Implemented via __new__() overriding with double-checked locking using a threading.Lock to prevent race conditions during initialization.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts thread-safe __new__, double-checked locking, module-level singleton."
+      },
+      {
+        "idea_id": "Q115_IDEA_3",
+        "semantic_statement": "Criticized as an anti-pattern because it introduces hidden global state, tight coupling, and impedes unit test isolation and parallel test execution.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts global state anti-pattern, hard to mock/test, tight coupling."
+      }
+    ]
+  },
+  {
+    "question_id": "Q116",
+    "question_prompt": "What is Database Migration tooling (e.g. Alembic / Flyway) and why is it essential in CI/CD?",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q116_IDEA_1",
+        "semantic_statement": "Tracks, versions, and applies incremental relational database schema alterations in source-controlled revision scripts.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts versioning database schema changes, revision files."
+      },
+      {
+        "idea_id": "Q116_IDEA_2",
+        "semantic_statement": "Provides forward migration ('upgrade') and backward rollback ('downgrade') methods to keep schema aligned with application code versions.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts upgrade and downgrade scripts, schema reproducibility across environments."
+      },
+      {
+        "idea_id": "Q116_IDEA_3",
+        "semantic_statement": "Automates database updates during CI/CD deployments without manual SQL execution, preventing runtime schema mismatches.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts zero manual DB tweaks, CI/CD automated deployment, environment parity."
+      }
+    ]
+  },
+  {
+    "question_id": "Q117",
+    "question_prompt": "Explain the Strategy Design Pattern and how it achieves Open/Closed compliance in Python.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q117_IDEA_1",
+        "semantic_statement": "Defines a family of interchangeable algorithms or behaviors, encapsulating each one in a separate class or callable.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts interchangeable algorithms, encapsulating behaviors."
+      },
+      {
+        "idea_id": "Q117_IDEA_2",
+        "semantic_statement": "Clients maintain a reference to a strategy interface and delegate the task execution to whichever concrete strategy is injected.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts runtime strategy switching, dependency injection of behavior."
+      },
+      {
+        "idea_id": "Q117_IDEA_3",
+        "semantic_statement": "Eliminates giant conditional if/elif ladders and enables adding new behaviors without modifying existing client code.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts replacing if/else trees, adhering to Open/Closed principle."
+      }
+    ]
+  },
+  {
+    "question_id": "Q118",
+    "question_prompt": "Compare Shallow Copy and Deep Copy in Python using the copy module.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q118_IDEA_1",
+        "semantic_statement": "Shallow copy (copy.copy) creates a new compound object but inserts references into it to the objects found in the original.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts new outer container but shared inner object references."
+      },
+      {
+        "idea_id": "Q118_IDEA_2",
+        "semantic_statement": "Deep copy (copy.deepcopy) recursively copies both the outer container and all nested objects, creating fully independent duplicates.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts recursive duplication of nested structures, independent memory."
+      },
+      {
+        "idea_id": "Q118_IDEA_3",
+        "semantic_statement": "Mutating a nested list in a shallow copy alters the original object, whereas deep copy isolates changes completely.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts nested mutation side effect in shallow copy."
+      }
+    ]
+  },
+  {
+    "question_id": "Q119",
+    "question_prompt": "Explain Semantic Versioning (SemVer) rules: MAJOR.MINOR.PATCH and breaking change management.",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q119_IDEA_1",
+        "semantic_statement": "PATCH version increments for backwards-compatible bug fixes and internal patches.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts bug fixes without API changes."
+      },
+      {
+        "idea_id": "Q119_IDEA_2",
+        "semantic_statement": "MINOR version increments for new backwards-compatible functionality or features.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts new features without breaking existing clients."
+      },
+      {
+        "idea_id": "Q119_IDEA_3",
+        "semantic_statement": "MAJOR version increments for incompatible API changes that break backward compatibility, requiring migration by consumers.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts breaking API changes, deprecation lifecycles."
+      }
+    ]
+  },
+  {
+    "question_id": "Q120",
+    "question_prompt": "What is Dependency Injection and how does it improve software modularity and testability?",
+    "domain": "Python & SE",
+    "target_score_scale": {
+      "min": 1,
+      "max": 5
+    },
+    "semantic_rubric_ideas": [
+      {
+        "idea_id": "Q120_IDEA_1",
+        "semantic_statement": "A design pattern where an object receives its dependencies from external callers rather than creating them internally.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts passing dependencies in constructor/parameters rather than hardcoding instantiations."
+      },
+      {
+        "idea_id": "Q120_IDEA_2",
+        "semantic_statement": "Decouples high-level business logic from specific concrete implementations and third-party libraries.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts loose coupling, depending on abstractions."
+      },
+      {
+        "idea_id": "Q120_IDEA_3",
+        "semantic_statement": "Drastically improves testability by allowing unit tests to inject lightweight mock or stub dependencies in place of live external services.",
+        "required": true,
+        "weight": 0.3333,
+        "acceptable_paraphrase_guidance": "Accepts enabling mock injection in tests, avoiding live DB/network calls in CI."
+      }
+    ]
+  }
+]

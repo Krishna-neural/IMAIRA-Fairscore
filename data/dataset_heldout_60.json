@@ -1,0 +1,2102 @@
+[
+  {
+    "example_id": "HELDOUT_001",
+    "question_id": "Q041",
+    "candidate_id": "CAND_HELDOUT_341",
+    "transcript": "Basically, speaking about Describe the Two-Pointer technique and state the conditions required for it to apply., first Maintains two index pointers that traverse an iterable in coordinated fashion (e.g., opposite ends moving inward or fast/slow pointers).. In addition to that, Requires monotonic properties, typically provided by a sorted array or structural linear sequence, to guarantee correct directionality decisions.. And to conclude, Reduces brute-force O(N^2) search spaces to O(N) linear time by eliminating redundant comparisons.. That is why this approach is standard in production systems.",
+    "accent_perturbed_transcript": "Basically, speaking about Describe de Two-Pointer technique and state de conditions required for it to apply., first Maintains two index pointers dat traverse an iterable in coordinated fashion (e.g., opposite ends moving inward or fast/slow pointers).. In addition to dat, Requires monotonic properties, typically provided by a sorted array or structural linear sequence, to guarantee correct directionality decisions.. And to conclude, Reduces brute-force O(N^2) search spaces to oh n linear time by eliminating redundant comparisons.. matlab That is why this approach is standard in production systems.",
+    "human_scores": {
+      "rater_1": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "rater_2": {
+        "content": 5.0,
+        "structure": 5.0,
+        "overall": 5.0
+      },
+      "rater_3": {
+        "content": 4.5,
+        "structure": 4.0,
+        "overall": 4.3
+      },
+      "consensus_score": {
+        "content": 4.83,
+        "structure": 4.5,
+        "overall": 4.7
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.5,
+      "structure": 1.0,
+      "overall": 0.5
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_002",
+    "question_id": "Q077",
+    "candidate_id": "CAND_HELDOUT_342",
+    "transcript": "Regarding Describe Disaster Recovery strategies: RPO and RTO, and Active-Active versus Active-Passive deployments., toh it does some processing on the inputs, but I cannot recall the exact mechanics.",
+    "accent_perturbed_transcript": "Regarding Describe Disaster Recowery strategies: RPO and RTO, and Active-Active versus Active-Passive deployments., toh it does some processing on de inputs, but I cannot recall de exact mechanics.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_2": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_3": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_003",
+    "question_id": "Q050",
+    "candidate_id": "CAND_HELDOUT_343",
+    "transcript": "In Explain the A* search algorithm and the admissibility condition of heuristics., Selects paths minimizing total estimated cost f(n) = g(n) + h(n), where g(n) is the exact cost from start and h(n) is estimated cost to goal.. That is the main part as far as I know.",
+    "accent_perturbed_transcript": "In Explain the A* search algorithm and the admissibility condition of heuristics., Selects paths minimizing total estimated cost f(n) = g(n) + h(n), where g(n) is the exact cost from start and h(n) is estimated cost to goal.. That is the main part as far as I know.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_004",
+    "question_id": "Q079",
+    "candidate_id": "CAND_HELDOUT_344",
+    "transcript": "Looking at What is Distributed Tracing and how do Trace IDs and Span IDs propagate across microservice boundaries?, basically Tracks the end-to-end lifecycle of a client request across distributed service calls to diagnose performance bottlenecks and errors. and A globally unique Trace ID identifies the entire workflow, while Span IDs represent individual units of work within specific services.. We usually see this in real world setups.",
+    "accent_perturbed_transcript": "Looking at What is Distributed Tracing and how do Trace IDs and Span IDs propagate across microservice boundaries?, basically ya Tracks de end-to-end lifecycle of a client request across distributed service calls to diagnose performance bottlenecks and errors. and A globally unique Trace ID identifies de entire workflow, while Span IDs represent individual units of work within specific services.. We usually see this in real world setups.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "rater_2": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "rater_3": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_005",
+    "question_id": "Q051",
+    "candidate_id": "CAND_HELDOUT_345",
+    "transcript": "In What is the Segment Tree data structure and what operations does it optimize?, A binary tree representing intervals or segments of an array where internal nodes store aggregate associative values (e.g., sum, min, max).. That is the main part as far as I know.",
+    "accent_perturbed_transcript": "In What is de Segment Tree data structure and what operations does it optimize?, A binary tree representing intervals or segments of an array where internal nodes store aggregate associative values (e.g., sum, min, max).. That is de main part as far as I know.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_006",
+    "question_id": "Q076",
+    "candidate_id": "CAND_HELDOUT_346",
+    "transcript": "Regarding Explain the Two-Phase Commit (2PC) protocol for distributed transactions and its vulnerabilities., toh it does some processing on the inputs, but I cannot recall the exact mechanics.",
+    "accent_perturbed_transcript": "Regarding Explain the Two-Phase Commit (2PC) protocol for distributed transactions and its vulnerabilities., toh it does some processing on the inputs, but I cannot recall the exact mechanics.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_2": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_3": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_007",
+    "question_id": "Q015",
+    "candidate_id": "CAND_HELDOUT_347",
+    "transcript": "In Describe Byte-Pair Encoding (BPE) and its advantages over word-level and character-level tokenization., Iteratively merges the most frequently occurring adjacent pair of bytes or character tokens into a new vocabulary token.. Also, Eliminates out-of-vocabulary (OOV) errors by falling back to base characters or raw bytes for unseen words.. While Balances vocabulary size and sequence length between verbose character representations and massive sparse word vocabularies., overall it ensures the main objective is achieved.",
+    "accent_perturbed_transcript": "In Describe Byte-Pair Encoding (BPE) and its advantages over word-level and character-level tokenization., Iteratively merges the most frequently occurring adjacent pair of bytes or character tokens into a new vocabulary token.. Also, Eliminates out-of-vocabulary (OOV) errors by falling back to base characters or raw bytes for unseen words.. While Balances vocabulary size and sequence length between verbose character representations and massive sparse word vocabularies., overall it ensures the main objective is achieved.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      },
+      "rater_2": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      },
+      "rater_3": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_008",
+    "question_id": "Q045",
+    "candidate_id": "CAND_HELDOUT_348",
+    "transcript": "In What is amortized time complexity and how does it apply to dynamic array resizings?, Amortized analysis averages the running time of operations over a sequence of actions, ensuring that occasional expensive operations do not dominate aggregate performance.. That is the main part as far as I know.",
+    "accent_perturbed_transcript": "In What is amortized time complexity and how does it apply to dynamic array resizings?, Amortized analysis averages de running time of operations over a sequence of actions, ensuring dat occasional expensive operations do not dominate aggregate performance.. That is de main part as far as I know.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_009",
+    "question_id": "Q046",
+    "candidate_id": "CAND_HELDOUT_349",
+    "transcript": "Basically, speaking about Compare Bellman-Ford and Floyd-Warshall algorithms for shortest path calculations., first Bellman-Ford computes single-source shortest paths in graphs with negative edge weights in O(V * E) time by relaxing all edges V-1 times.. In addition to that, Bellman-Ford detects negative cycles if an edge can still be relaxed on the V-th iteration.. And to conclude, Floyd-Warshall computes all-pairs shortest paths using dynamic programming over intermediate vertices in O(V^3) time and O(V^2) space.. That is why this approach is standard in production systems.",
+    "accent_perturbed_transcript": "Basically, speaking about Compare Bellman-Ford and Floyd-Warshall algorithms for shortest path calculations., first Bellman-Ford computes single-source shortest paths in toh graphs with negative edge weights in O(V * E) time by relaxing all edges V-1 times.. In addition to that, Bellman-Ford detects negative cycles if an edge can still be relaxed on the V-th iteration.. And to conclude, Floyd-Warshall computes all-pairs shortest paths using dynamic programming over intermediate vertices in O(V^3) time and O(V^2) space.. That is why this approach is standard in production systems.",
+    "human_scores": {
+      "rater_1": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "rater_2": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "rater_3": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "consensus_score": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_010",
+    "question_id": "Q109",
+    "candidate_id": "CAND_HELDOUT_350",
+    "transcript": "Looking at Compare Git branching strategies: Git Flow versus Trunk-Based Development., basically Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases. and Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.. We usually see this in real world setups.",
+    "accent_perturbed_transcript": "Looking at Compare Git branching strategies: Git Flow versus Trunk-Based Development., basically ya Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable basically for scheduled monolithic releases. and Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.. We usually see dis in real world setups.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_2": {
+        "content": 5.0,
+        "structure": 5.0,
+        "overall": 5.0
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 2.5,
+        "overall": 2.5
+      },
+      "consensus_score": {
+        "content": 3.83,
+        "structure": 3.83,
+        "overall": 3.83
+      }
+    },
+    "inter_rater_spread": {
+      "content": 2.5,
+      "structure": 2.5,
+      "overall": 2.5
+    },
+    "is_contested": true
+  },
+  {
+    "example_id": "HELDOUT_011",
+    "question_id": "Q059",
+    "candidate_id": "CAND_HELDOUT_351",
+    "transcript": "In Explain the difference between Monolithic and Microservices architectures, including operational tradeoffs., Monolith combines all domain capabilities, shared database models, and deployment artifacts into a single unified codebase.. Also, Microservices partition system functionality into independently deployable, loosely coupled services communicating via network APIs (HTTP/gRPC/events).. While Microservices improve autonomous team velocity and domain scalability, overall it ensures the main objective is achieved.",
+    "accent_perturbed_transcript": "In Explain de difference between Monolithic and Microservices architectures, including operational tradeoffs., Monolith combines all domain capabilities, shared database models, and deployment artifacts into a single unified codebase.. Also, Microservices partition system functionality into independently deployable, loosely coupled services communicating via network APIs (HTTP/gRPC/events).. While Microservices improve autonomous team velocity and domain scalability, overall it ensures de main objective is achieved.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      },
+      "rater_2": {
+        "content": 4.5,
+        "structure": 5.0,
+        "overall": 4.7
+      },
+      "rater_3": {
+        "content": 3.5,
+        "structure": 4.0,
+        "overall": 3.7
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_012",
+    "question_id": "Q080",
+    "candidate_id": "CAND_HELDOUT_352",
+    "transcript": "In Explain the Thundering Herd (Cache Stampede) problem and how to mitigate it., Occurs when a popular cached key expires and hundreds or thousands of concurrent requests simultaneously hit the backend database to regenerate the value.. That is the main part as far as I know.",
+    "accent_perturbed_transcript": "In Explain de Thundering Herd (Cache Stampede) problem and how to mitigate it., Occurs when a popular cached key expires and hundreds or thousands of concurrent requests simultaneously hit de backend database to regenerate de walue.. That is de main part as far as I know.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      },
+      "rater_2": {
+        "content": 3.5,
+        "structure": 4.0,
+        "overall": 3.7
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 3.0,
+        "overall": 2.7
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_013",
+    "question_id": "Q023",
+    "candidate_id": "CAND_HELDOUT_353",
+    "transcript": "Looking at Explain Principal Component Analysis (PCA) and its relationship to eigendecomposition., basically Projects high-dimensional data onto orthogonal axes that maximize variance and minimize reconstruction error. and Computes the covariance matrix of mean-centered data and calculates its eigenvectors and eigenvalues.. We usually see this in real world setups.",
+    "accent_perturbed_transcript": "Looking at Explain Principal Component Analysis (PCA) and its relationship to eigendecomposition., basically ya Projects high-dimensional data onto orthogonal axes dat maximize variance and matlab minimize reconstruction error. and Computes the covariance matrix of mean-centered data and calculates its iron wectors and iron walues.. We usually see dis in real world setups.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "rater_2": {
+        "content": 5.0,
+        "structure": 5.0,
+        "overall": 5.0
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 2.0,
+        "overall": 2.3
+      },
+      "consensus_score": {
+        "content": 3.83,
+        "structure": 3.5,
+        "overall": 3.7
+      }
+    },
+    "inter_rater_spread": {
+      "content": 2.5,
+      "structure": 3.0,
+      "overall": 2.5
+    },
+    "is_contested": true
+  },
+  {
+    "example_id": "HELDOUT_014",
+    "question_id": "Q105",
+    "candidate_id": "CAND_HELDOUT_354",
+    "transcript": "Looking at Compare REST, gRPC, and GraphQL: communication protocols, data formats, and performance characteristics., basically REST uses standard HTTP methods (GET, POST, PUT, DELETE) transmitting text JSON/XML payloads, widely compatible and easily cached via HTTP proxies. and gRPC runs over HTTP/2 using binary Protocol Buffers (protobuf), supporting strongly typed contracts, bidirectional streaming, and high throughput with minimal serialization overhead.. We usually see this in real world setups.",
+    "accent_perturbed_transcript": "Looking at Compare REST, gRPC, and GraphQL: communication protocols, data formats, and performance characteristics., basically ya REST uses standard HTTP methods (GET, POST, PUT, DELETE) transmitting text JSON/XML payloads, widely compatible and easily cashd via HTTP proxies. and gRPC runs over HTTP/2 using binary Protocol Buffers (protobuf), supporting strongly typed contracts, bidirectional streaming, and high throughput with minimal serialization overhead.. We usually see dis in real world setups.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_2": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_3": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_015",
+    "question_id": "Q087",
+    "candidate_id": "CAND_HELDOUT_355",
+    "transcript": "Looking at What is Write-Ahead Logging (WAL) and how does it guarantee durability and crash recovery?, basically Requires all transaction modifications to be logged sequentially to non-volatile disk before the corresponding data pages are flushed from memory. and Ensures durability: if the system crashes, committed transactions present in the WAL can be redone (REDO phase) to recover state.. We usually see this in real world setups.",
+    "accent_perturbed_transcript": "Looking at What is Write-Ahead Logging (WAL) and how does it guarantee durability and crash recowery?, basically ya Requires all transaction modifications to be logged sequentially toh to non-volatile disk before the corresponding data pages are flushed from memory. and Ensures durability: if the system crashes, committed transactions present in the WAL can be redone (REDO phase) to recover state.. We usually see dis in real world setups.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "rater_2": {
+        "content": 4.5,
+        "structure": 4.0,
+        "overall": 4.3
+      },
+      "rater_3": {
+        "content": 3.5,
+        "structure": 3.0,
+        "overall": 3.3
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_016",
+    "question_id": "Q091",
+    "candidate_id": "CAND_HELDOUT_356",
+    "transcript": "In Explain Page Replacement Algorithms: FIFO versus Least Recently Used (LRU) versus Clock (Second Chance)., Page replacement chooses which resident physical frame to evict to disk swap when memory is full and a page fault occurs.. Also, FIFO evicts the oldest loaded page, vulnerable to Belady's Anomaly where allocating more physical frames can paradoxically increase page faults.. While LRU evicts the page unaccessed for the longest duration, overall it ensures the main objective is achieved.",
+    "accent_perturbed_transcript": "In Explain Page Replacement Algorithms: FIFO versus Least Recently Used (LRU) versus Clock (Second Chance)., matlab Page replacement chooses which resident physical frame to evict to disk swap when memory is full and a page fault occurs.. Also, FIFO evicts de oldest loaded page, vulnerable to Belady's Anomaly where allocating more physical frames can paradoxically increase page faults.. While LRU evicts de page unaccessed for de longest duration, overall it ensures de main objective is achieved.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "rater_2": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "rater_3": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_017",
+    "question_id": "Q103",
+    "candidate_id": "CAND_HELDOUT_357",
+    "transcript": "In Explain Python Decorators and Closures with an example of an execution timer decorator., A closure is an inner function that retains lexical scope access to variables in its enclosing scope even after the outer function has finished executing.. That is the main part as far as I know.",
+    "accent_perturbed_transcript": "In Explain Python Decorators and Closures with an example of an execution timer decorator., A closure is an inner function dat retains lexical scope access to variables in its enclosing scope even after de outer function has finished executing.. That is de main part as far as I know.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.5,
+        "structure": 3.5,
+        "overall": 3.5
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 2.5,
+        "overall": 2.5
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_018",
+    "question_id": "Q039",
+    "candidate_id": "CAND_HELDOUT_358",
+    "transcript": "Uh, sorry sir, I have not prepared What is a Trie (Prefix Tree) and how does its lookup complexity compare to a Hash Map for prefix queries?. Can we skip to the next question?",
+    "accent_perturbed_transcript": "Uh, sorry sir, I have not prepared What is a Trie (Prefix Tree) and how does its lookup complexity compare to a Hash Map for prefix queries?. Can we skip to de next question?",
+    "human_scores": {
+      "rater_1": {
+        "content": 1.0,
+        "structure": 1.0,
+        "overall": 1.0
+      },
+      "rater_2": {
+        "content": 1.5,
+        "structure": 1.5,
+        "overall": 1.5
+      },
+      "rater_3": {
+        "content": 1.0,
+        "structure": 1.0,
+        "overall": 1.0
+      },
+      "consensus_score": {
+        "content": 1.17,
+        "structure": 1.17,
+        "overall": 1.17
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.5,
+      "structure": 0.5,
+      "overall": 0.5
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_019",
+    "question_id": "Q117",
+    "candidate_id": "CAND_HELDOUT_359",
+    "transcript": "Uh, for Explain the Strategy Design Pattern and how it achieves Open/Closed compliance in Python., I remember it has something to do with Defines a family of interchangeable algorithms or behaviors, but honestly I have not worked on this recently. Basically that is it.",
+    "accent_perturbed_transcript": "Uh, for Explain de Strategy Design Pattern and how it achieves Open/Closed compliance in Python., I remember it has something to do with Defines a family of interchangeable algorithms or behaviors, but honestly I have not worked on dis recently. Basically dat is it.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 2.5,
+        "overall": 2.2
+      },
+      "rater_2": {
+        "content": 2.5,
+        "structure": 3.0,
+        "overall": 2.7
+      },
+      "rater_3": {
+        "content": 1.5,
+        "structure": 2.0,
+        "overall": 1.7
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 2.5,
+        "overall": 2.2
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_020",
+    "question_id": "Q115",
+    "candidate_id": "CAND_HELDOUT_360",
+    "transcript": "For Describe the Singleton pattern, its thread-safe implementation in Python, and criticisms against it., I think Ensures a class has only a single instance throughout the application lifecycle and provides a global access point to it.. Regarding other aspects, matlab it relates to Implemented via __new__() overriding with double-checked locking using a threading.Lock to prevent race conditions during initialization., but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For Describe de Singleton pattern, its thread-safe implementation in Python, and criticisms against it., I tink Ensures a class has only a single instance troughout de application lifecycle and provides a global access point to it.. Regarding oder aspects, matlab it relates to Implemented via __new__() overriding with double-checked locking using a threading.Lock to prevent race conditions during initialization., but I am not completely sure about de fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "rater_2": {
+        "content": 4.5,
+        "structure": 4.0,
+        "overall": 4.3
+      },
+      "rater_3": {
+        "content": 1.5,
+        "structure": 1.0,
+        "overall": 1.3
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 3.0,
+      "structure": 3.0,
+      "overall": 3.0
+    },
+    "is_contested": true
+  },
+  {
+    "example_id": "HELDOUT_021",
+    "question_id": "Q011",
+    "candidate_id": "CAND_HELDOUT_361",
+    "transcript": "Uh, for What is Cross-Entropy Loss and why is it preferred over Mean Squared Error for classification?, I remember it has something to do with Cross-entropy measures the divergence between true one-hot probability distributions and predicted softmax probabilities., but honestly I have not worked on this recently. Basically that is it.",
+    "accent_perturbed_transcript": "Uh, for What is Cross-Entropy Loss and why is it preferred toh over Mean Squared Error for classification?, I remember it has something to do with Cross-entropy measures de divergence between true one-hot probability distributions and predicted softmax probabilities., but honestly I have not worked on dis recently. Basically that is it.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_2": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_3": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_022",
+    "question_id": "Q106",
+    "candidate_id": "CAND_HELDOUT_362",
+    "transcript": "In Explain the SOLID design principles in Object-Oriented Software Engineering., Single Responsibility Principle (a class should have one reason to change) and Open/Closed Principle (open for extension, closed for modification).. That is the main part as far as I know.",
+    "accent_perturbed_transcript": "In Explain the SOLID design principles in Object-Oriented Software Engineering., Single Responsibility Principle (a class should have one reason to change) and Open/Closed Principle (open for extension, closed for modification).. That is the main part as far as I know.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_023",
+    "question_id": "Q018",
+    "candidate_id": "CAND_HELDOUT_363",
+    "transcript": "For Compare post-training quantization techniques: INT8 vs FP16 vs NormalFloat4 (NF4)., I think Quantization maps high-precision floating point numbers to lower bit-width integers or specialized representations to shrink memory footprints.. Regarding other aspects, matlab it relates to INT8 uses uniform quantization with scale factors and zero points, but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For Compare post-training quantization techniques: INT8 vs FP16 vs NormalFloat4 (NF4)., I tink Quantization maps high-precision floating point numbers to lower bit-width integers or specialized representations to shrink memory footprints.. Regarding other aspects, matlab it relates to INT8 uses uniform quantization with scale factors and zero points, but I am not completely sure toh about the fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_024",
+    "question_id": "Q120",
+    "candidate_id": "CAND_HELDOUT_364",
+    "transcript": "For What is Dependency Injection and how does it improve software modularity and testability?, I think A design pattern where an object receives its dependencies from external callers rather than creating them internally.. Regarding other aspects, matlab it relates to Decouples high-level business logic from specific concrete implementations and third-party libraries., but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For What is Dependency Injection and how does it improve software modularity and testability?, I think A design pattern where an object receives its dependencies from external callers rader than creating dem internally.. Regarding oder aspects, matlab it relates to Decouples high-level business logic from specific concrete implementations and third-party libraries., but I am not completely sure about de fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.5,
+        "structure": 3.5,
+        "overall": 3.5
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 2.5,
+        "overall": 2.5
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_025",
+    "question_id": "Q016",
+    "candidate_id": "CAND_HELDOUT_365",
+    "transcript": "For What is Retrieval-Augmented Generation (RAG) and how does it reduce LLM hallucinations?, I think Queries an external vector database or search index to retrieve relevant document passages using dense embedding similarity.. Regarding other aspects, matlab it relates to Injects retrieved context passages directly into the LLM prompt to ground the generation process., but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For What is Retrieval-Augmented Generation (RAG) and matlab how does it reduce LLM hallucinations?, I think Queries an external vector database or search index to retrieve relevant document passages using dense embedding similarity.. Regarding other aspects, matlab it relates to Injects retrieved context passages directly into the LLM prompt to ground the generation process., but I am not completely sure about the fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_026",
+    "question_id": "Q031",
+    "candidate_id": "CAND_HELDOUT_366",
+    "transcript": "Basically, speaking about Compare QuickSort and MergeSort: time complexities, space complexities, and stability., first QuickSort has O(N log N) average time but O(N^2) worst-case time with O(log N) in-place auxiliary stack space, and is typically unstable.. In addition to that, MergeSort guarantees O(N log N) worst-case time but requires O(N) auxiliary memory for merging sub-arrays, and is stable.. And to conclude, QuickSort is generally preferred for arrays due to superior cache locality, whereas MergeSort excels on linked lists or external sorting.. That is why this approach is standard in production systems.",
+    "accent_perturbed_transcript": "Basically, speaking about Compare QuickSort and MergeSort: time complexities, space complexities, and stability., first QuickSort has O(N log N) average time but O(N^2) worst-case time with O(log N) in-place auxiliary stack space, and is typically unstable.. In addition to dat, MergeSort guarantees O(N log N) worst-case time but requires oh n auxiliary memory for merging sub-arrays, and is stable.. And to conclude, QuickSort is generally preferred for arrays due to superior cash locality, whereas MergeSort excels on linked lists or external sorting.. That is why dis approach is standard in production systems.",
+    "human_scores": {
+      "rater_1": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "rater_2": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "rater_3": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "consensus_score": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_027",
+    "question_id": "Q040",
+    "candidate_id": "CAND_HELDOUT_367",
+    "transcript": "Regarding Explain bitwise operations and show how to check if an integer is a power of two in O(1) time., toh it does some processing on the inputs, but I cannot recall the exact mechanics.",
+    "accent_perturbed_transcript": "Regarding Explain bitwise operations and show how to check if an integer is a power of two in oh one time., toh it does some processing on the inputs, but I cannot recall the exact mechanics.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      },
+      "rater_2": {
+        "content": 2.5,
+        "structure": 2.0,
+        "overall": 2.3
+      },
+      "rater_3": {
+        "content": 1.5,
+        "structure": 1.0,
+        "overall": 1.3
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_028",
+    "question_id": "Q114",
+    "candidate_id": "CAND_HELDOUT_368",
+    "transcript": "For Compare mutable and immutable data types in Python, and explain the default mutable argument pitfall., I think Immutable types (int, float, str, tuple, frozenset) cannot be modified in-place after creation; modifications create new objects.. Regarding other aspects, matlab it relates to Mutable types (list, but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For Compare mutable and immutable data types in Python, and explain de default mutable argument pitfall., I tink Immutable types (int, float, str, tuple, frozenset) cannot be modified in-place after creation; modifications create new objects.. Regarding oder aspects, matlab it relates to Mutable types (list, but I am not completely sure about de fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "rater_2": {
+        "content": 4.5,
+        "structure": 4.0,
+        "overall": 4.3
+      },
+      "rater_3": {
+        "content": 1.5,
+        "structure": 1.0,
+        "overall": 1.3
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 3.0,
+      "structure": 3.0,
+      "overall": 3.0
+    },
+    "is_contested": true
+  },
+  {
+    "example_id": "HELDOUT_029",
+    "question_id": "Q024",
+    "candidate_id": "CAND_HELDOUT_369",
+    "transcript": "Uh, sorry sir, I have not prepared What is Gradient Boosting and how does XGBoost optimize tree construction?. Can we skip to the next question?",
+    "accent_perturbed_transcript": "Uh, sorry sir, I have not prepared What is Gradient Boosting and how does XGBoost optimize tree construction?. Can we skip to de next question?",
+    "human_scores": {
+      "rater_1": {
+        "content": 1.0,
+        "structure": 1.0,
+        "overall": 1.0
+      },
+      "rater_2": {
+        "content": 1.0,
+        "structure": 1.0,
+        "overall": 1.0
+      },
+      "rater_3": {
+        "content": 1.0,
+        "structure": 1.0,
+        "overall": 1.0
+      },
+      "consensus_score": {
+        "content": 1.0,
+        "structure": 1.0,
+        "overall": 1.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_030",
+    "question_id": "Q048",
+    "candidate_id": "CAND_HELDOUT_370",
+    "transcript": "Uh, for Explain how to detect a cycle in a linked list using Floyd's Tortoise and Hare algorithm., I remember it has something to do with Initializes a slow pointer moving one node per step and a fast pointer moving two nodes per step., but honestly I have not worked on this recently. Basically that is it.",
+    "accent_perturbed_transcript": "Uh, for Explain how to detect a cycle in a linked list using Floyd's Tortoise and Hare algorithm., I remember it has something to do with Initializes a slow pointer moving one node per step and a fast pointer moving two nodes per step., but honestly I have not worked on this recently. Basically dat is it.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 2.5,
+        "overall": 2.2
+      },
+      "rater_2": {
+        "content": 2.5,
+        "structure": 3.0,
+        "overall": 2.7
+      },
+      "rater_3": {
+        "content": 1.5,
+        "structure": 2.0,
+        "overall": 1.7
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 2.5,
+        "overall": 2.2
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_031",
+    "question_id": "Q089",
+    "candidate_id": "CAND_HELDOUT_371",
+    "transcript": "Uh, for Explain memory leaks, how to detect them in production, and how garbage collection strategies differ., I remember it has something to do with A memory leak occurs when an application retains references to allocated memory that is no longer needed, but honestly I have not worked on this recently. Basically that is it.",
+    "accent_perturbed_transcript": "Uh, for Explain memory like you know leaks, how to detect them in production, and how garbage collection strategies differ., I remember it has something to do with A memory leak occurs when an application retains references to allocated memory that is no longer needed, but honestly I have not worked on this recently. Basically that is it.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_2": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_3": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_032",
+    "question_id": "Q019",
+    "candidate_id": "CAND_HELDOUT_372",
+    "transcript": "Uh, for What are convolution operations and pooling layers in Convolutional Neural Networks (CNNs)?, I remember it has something to do with Convolutional kernels slide across spatial dimensions computing dot products to extract translation-invariant local features like edges and textures., but honestly I have not worked on this recently. Basically that is it.",
+    "accent_perturbed_transcript": "Uh, for What are convolution operations and pooling layers in Convolutional Neural Networks (CNNs)?, I remember it has something to do with Convolutional kernels slide across spatial dimensions computing dot products to extract translation-invariant local features like edges and toh textures., but honestly I have not worked on dis recently. Basically dat is it.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_2": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_3": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_033",
+    "question_id": "Q066",
+    "candidate_id": "CAND_HELDOUT_373",
+    "transcript": "In Explain the Outbox Pattern for reliable event publishing in microservices., Addresses the dual-write problem where updating a database and publishing an event to a message broker cannot share a local transaction.. Also, Persists domain state changes and outgoing event records into an 'outbox' table within the identical local ACID database transaction.. While An asynchronous message relay (or CDC tool like Debezium) polls or tails the database transaction log to publish events to the broker with at-least-once guarantees., overall it ensures the main objective is achieved.",
+    "accent_perturbed_transcript": "In Explain de Outbox Pattern for reliable event publishing in microservices., Addresses de dual-write problem where updating a database and publishing an event to a message broker cannot share a local transaction.. Also, Persists domain state changes and outgoing event records into an 'outbox' table within de identical local ACID database transaction.. While An asynchronous message relay (or CDC tool like Debezium) polls or tails de database transaction log to publish events to de broker with at-least-once guarantees., overall it ensures de main objective is achieved.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "rater_2": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "rater_3": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_034",
+    "question_id": "Q118",
+    "candidate_id": "CAND_HELDOUT_374",
+    "transcript": "Regarding Compare Shallow Copy and Deep Copy in Python using the copy module., toh it does some processing on the inputs, but I cannot recall the exact mechanics.",
+    "accent_perturbed_transcript": "Regarding Compare Shallow Copy and Deep Copy in Python using de copy module., toh it does some processing on de inputs, but I cannot recall de exact mechanics.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      },
+      "rater_2": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      },
+      "rater_3": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_035",
+    "question_id": "Q054",
+    "candidate_id": "CAND_HELDOUT_375",
+    "transcript": "In What is a Monotonic Stack and what class of problems does it solve efficiently?, A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant.. That is the main part as far as I know.",
+    "accent_perturbed_transcript": "In What is a Monotonic Stack and what class of problems does it solve efficiently?, A stack whose elements are strictly maintained in increasing or decreasing order by popping elements dat violate de order invariant.. That is de main part as far as I know.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_036",
+    "question_id": "Q119",
+    "candidate_id": "CAND_HELDOUT_376",
+    "transcript": "For Explain Semantic Versioning (SemVer) rules: MAJOR.MINOR.PATCH and breaking change management., I think PATCH version increments for backwards-compatible bug fixes and internal patches.. Regarding other aspects, matlab it relates to MINOR version increments for new backwards-compatible functionality or features., but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For Explain Semantic Versioning (SemVer) rules: MAJOR.MINOR.PATCH and breaking change management., I think PATCH version increments for backwards-compatible bug fixes and internal patches.. Regarding oder aspects, matlab it relates to MINOR version increments for new backwards-compatible matlab functionality or features., but I am not completely sure about de fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 4.5,
+        "structure": 4.5,
+        "overall": 4.5
+      },
+      "rater_3": {
+        "content": 1.5,
+        "structure": 1.5,
+        "overall": 1.5
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 3.0,
+      "structure": 3.0,
+      "overall": 3.0
+    },
+    "is_contested": true
+  },
+  {
+    "example_id": "HELDOUT_037",
+    "question_id": "Q098",
+    "candidate_id": "CAND_HELDOUT_377",
+    "transcript": "In Explain CPU Caching: L1/L2/L3 cache hierarchies, cache lines, and false sharing., CPUs employ multi-tiered caches (small ultra-fast L1, larger L2/L3) to bridge the massive speed gap between CPU clock cycles and main RAM latency.. That is the main part as far as I know.",
+    "accent_perturbed_transcript": "In Explain CPU Caching: L1/L2/L3 cash hierarchies, cash lines, and false sharing., CPUs employ multi-tiered cashs (small ultra-fast L1, larger L2/L3) to bridge the massive speed gap between CPU clock cycles and matlab main RAM latency.. That is the main part as far as I know.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.5,
+        "structure": 3.5,
+        "overall": 3.5
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 2.5,
+        "overall": 2.5
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_038",
+    "question_id": "Q074",
+    "candidate_id": "CAND_HELDOUT_378",
+    "transcript": "In Describe WebSockets versus Long Polling versus Server-Sent Events (SSE) for real-time communication., WebSockets establishes a full-duplex, bidirectional persistent TCP connection over a single socket, ideal for high-frequency interactive apps.. Also, Server-Sent Events (SSE) provides a unidirectional streaming channel from server to client over standard HTTP, with automatic reconnection and lightweight framing.. While Long Polling simulates real-time by keeping an HTTP request open until the server has new data, overall it ensures the main objective is achieved.",
+    "accent_perturbed_transcript": "In Describe WebSockets versus Long Polling versus Server-Sent Events (SSE) for real-time communication., WebSockets establishes a full-duplex, bidirectional persistent TCP connection over a single socket, ideal for high-frequency interactive apps.. Also, Server-Sent Events (SSE) provides a unidirectional streaming channel from server to client over standard HTTP, with automatic reconnection and lightweight framing.. While Long Polling simulates real-time by keeping an HTTP request open until de server has new data, overall it ensures de main objective is achieved.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_2": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_3": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_039",
+    "question_id": "Q099",
+    "candidate_id": "CAND_HELDOUT_379",
+    "transcript": "In What are Linux cgroups and namespaces, and how do they enable containerization?, Namespaces provide process isolation by virtualizing system resources (PID, Mount, Network, UTS, IPC, User).. Also, Control Groups (cgroups) meter, limit, and prioritize physical hardware resource usage (CPU shares, memory caps, disk I/O, network bandwidth).. While Together they allow container runtimes to isolate a process's view of the operating system while strictly enforcing hardware consumption limits., overall it ensures the main objective is achieved.",
+    "accent_perturbed_transcript": "In What are Linux cgroups and namespaces, and how do dey enable containerization?, Namespaces provide process isolation by virtualizing system resources (PID, Mount, Network, UTS, IPC, User).. Also, Control Groups (cgroups) meter, limit, and prioritize physical hardware resource usage (CPU shares, memory caps, disk I/O, network bandwidth).. While Togeder dey allow container runtimes to isolate a process's view of de operating system while strictly enforcing hardware consumption limits., overall it ensures de main objective is achieved.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      },
+      "rater_2": {
+        "content": 4.5,
+        "structure": 4.0,
+        "overall": 4.3
+      },
+      "rater_3": {
+        "content": 3.5,
+        "structure": 3.0,
+        "overall": 3.3
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 3.5,
+        "overall": 3.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_040",
+    "question_id": "Q055",
+    "candidate_id": "CAND_HELDOUT_380",
+    "transcript": "For Explain the concept of Branch and Bound and how it differs from pure Backtracking., I think Systematically explores the solution space of combinatorial optimization problems by organizing them into a state-space tree.. Regarding other aspects, matlab it relates to Calculates upper or lower mathematical bounds on the objective function at each node., but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For Explain the concept of Branch and Bound and how it differs from pure Backtracking., I tink Systematically explores the solution space of combinatorial optimization problems by organizing them into a state-space tree.. Regarding other aspects, matlab it relates to Calculates upper or lower mathematical bounds on the objective function at each node., but I am not completely sure about the fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.5,
+        "overall": 3.2
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_041",
+    "question_id": "Q092",
+    "candidate_id": "CAND_HELDOUT_381",
+    "transcript": "Uh, for Describe Database Normalization up to Third Normal Form (3NF) and when denormalization is justified., I remember it has something to do with 1NF requires atomic attribute values and no repeating groups; 2NF eliminates partial dependencies on composite primary keys., but honestly I have not worked on this recently. Basically that is it.",
+    "accent_perturbed_transcript": "Uh, for Describe Database Normalization up to Third Normal Form (3NF) and when denormalization is justified., I remember it has matlab something to do with 1NF requires atomic attribute walues and no repeating groups; 2NF eliminates partial dependencies on composite primary keys., but honestly I have not worked on this recently. Basically that is it.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      },
+      "rater_2": {
+        "content": 2.5,
+        "structure": 2.0,
+        "overall": 2.3
+      },
+      "rater_3": {
+        "content": 1.5,
+        "structure": 1.0,
+        "overall": 1.3
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_042",
+    "question_id": "Q063",
+    "candidate_id": "CAND_HELDOUT_382",
+    "transcript": "Looking at How do you implement a distributed lock using Redis (Redlock) or ZooKeeper?, basically Requires atomic lock acquisition using an exclusive key creation with time-to-live expiration (e.g., SET resource_id random_val NX PX ttl). and Release must verify that the lock value matches the unique client identifier using a Lua script to avoid releasing another client's acquired lock.. We usually see this in real world setups.",
+    "accent_perturbed_transcript": "Looking at How do you implement a distributed lock using Redis (Redlock) or ZooKeeper?, basically ya Requires atomic lock acquisition using an exclusive key creation with time-to-live expiration (e.g., SET resource_id random_val NX PX ttl). and Release must verify dat matlab the lock walue matches the unique client identifier using a Lua script to avoid releasing another client's acquired lock.. We usually see dis in real world setups.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_2": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_3": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_043",
+    "question_id": "Q069",
+    "candidate_id": "CAND_HELDOUT_383",
+    "transcript": "Regarding Explain Database Indexing with B-Trees and compare them with Hash Indexes., toh it does some processing on the inputs, but I cannot recall the exact mechanics.",
+    "accent_perturbed_transcript": "Regarding Explain Database Indexing with B-Trees and compare them with Hash Indexes., toh it does some processing on the inputs, but I cannot recall the exact mechanics.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      },
+      "rater_2": {
+        "content": 2.5,
+        "structure": 2.5,
+        "overall": 2.5
+      },
+      "rater_3": {
+        "content": 1.5,
+        "structure": 1.5,
+        "overall": 1.5
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 2.0,
+        "overall": 2.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_044",
+    "question_id": "Q108",
+    "candidate_id": "CAND_HELDOUT_384",
+    "transcript": "In Explain Python's asyncio Event Loop and compare asynchronous programming with multithreading., The event loop runs in a single thread, scheduling and executing non-blocking coroutines cooperatively using an internal readiness queue (epoll/kqueue).. That is the main part as far as I know.",
+    "accent_perturbed_transcript": "In Explain Python's asyncio Event Loop and compare asynchronous toh programming with multithreading., The event loop runs in a single thread, scheduling and executing non-blocking coroutines cooperatively using an internal readiness queue (epoll/kqueue).. That is de main part as far as I know.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "rater_2": {
+        "content": 3.5,
+        "structure": 3.0,
+        "overall": 3.3
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 2.0,
+        "overall": 2.3
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_045",
+    "question_id": "Q072",
+    "candidate_id": "CAND_HELDOUT_385",
+    "transcript": "For What is Database Connection Pooling and why is it crucial for application performance?, I think Maintains a pre-initialized cache of reusable physical database connections rather than opening and closing a TCP/auth handshake per query.. Regarding other aspects, matlab it relates to Establishing database connections involves expensive TCP handshakes, but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For What is Database Connection Pooling and why is it crucial for application performance?, I think Maintains a pre-initialized matlab cash of reusable physical database connections rader than opening and closing a TCP/auth handshake per query.. Regarding oder aspects, matlab it relates to Establishing database connections involves expensive TCP handshakes, but I am not completely sure about de fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "rater_2": {
+        "content": 3.5,
+        "structure": 3.0,
+        "overall": 3.3
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 2.0,
+        "overall": 2.3
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_046",
+    "question_id": "Q022",
+    "candidate_id": "CAND_HELDOUT_386",
+    "transcript": "In Describe K-Means clustering and discuss how to select the optimal number of clusters K., Iteratively alternates between assigning points to the nearest centroid and recalculating centroids as cluster means.. Also, Elbow method evaluates within-cluster sum of squares (inertia) across K values to find the point of diminishing returns.. While Silhouette analysis measures how similar an object is to its own cluster compared to neighboring clusters., overall it ensures the main objective is achieved.",
+    "accent_perturbed_transcript": "In Describe K-Means clustering and discuss how to select the optimal number of clusters K., Iteratively alternates between assigning points to the nearest centroid and recalculating centroids as cluster means.. Also, Elbow method evaluates like you know within-cluster sum of squares (inertia) across K walues to find the point of diminishing returns.. While Silhouette analysis measures how similar an object is to its own cluster compared to neighboring clusters., overall it ensures the main objective is achieved.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_2": {
+        "content": 4.5,
+        "structure": 4.5,
+        "overall": 4.5
+      },
+      "rater_3": {
+        "content": 3.5,
+        "structure": 3.5,
+        "overall": 3.5
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_047",
+    "question_id": "Q102",
+    "candidate_id": "CAND_HELDOUT_387",
+    "transcript": "Uh, for Compare Python Generators and Iterators: protocol implementation and memory efficiency., I remember it has something to do with An iterator is an object implementing the iterator protocol: __iter__() returning self and __next__() returning values or raising StopIteration., but honestly I have not worked on this recently. Basically that is it.",
+    "accent_perturbed_transcript": "Uh, for Compare Python Generators and Iterators: protocol implementation and memory efficiency., I remember it has something to do with An iterator is an object implementing de iterator protocol: __iter__() returning self matlab and __next__() returning walues or raising StopIteration., but honestly I have not worked on dis recently. Basically that is it.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      },
+      "rater_2": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      },
+      "rater_3": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 1.5,
+        "overall": 1.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_048",
+    "question_id": "Q037",
+    "candidate_id": "CAND_HELDOUT_388",
+    "transcript": "In Describe the Min-Heap / Max-Heap data structure, its heap invariant, and heapify complexity., A complete binary tree stored as an array where every parent node satisfies the comparison invariant relative to its children (parent <= children for min-heap).. Also, Extract-min and Insert operations take O(log N) time by bubbling elements up or sifting down.. While Building a heap from an arbitrary array of N elements (heapify) runs in O(N) linear time, overall it ensures the main objective is achieved.",
+    "accent_perturbed_transcript": "In Describe de Min-Heap / Max-Heap data structure, its heap invariant, and heapify complexity., A complete binary tree stored as an array where every parent node satisfies de comparison invariant relative to its children (parent <= children for min-heap).. Also, Extract-min and Insert operations take O(log N) time by bubbling elements up or sifting down.. While Building a heap from an arbitrary array of N elements (heapify) runs in oh n linear time, overall it ensures de main objective is achieved.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      },
+      "rater_2": {
+        "content": 5.0,
+        "structure": 5.0,
+        "overall": 5.0
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 3.0,
+        "overall": 2.7
+      },
+      "consensus_score": {
+        "content": 3.83,
+        "structure": 4.17,
+        "overall": 3.97
+      }
+    },
+    "inter_rater_spread": {
+      "content": 2.5,
+      "structure": 2.0,
+      "overall": 2.5
+    },
+    "is_contested": true
+  },
+  {
+    "example_id": "HELDOUT_049",
+    "question_id": "Q084",
+    "candidate_id": "CAND_HELDOUT_389",
+    "transcript": "For Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms., I think A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.. Regarding other aspects, matlab it relates to Threads are lightweight execution units within a process sharing the same address space, but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms., I tink A process is an isolated execution instance with its own virtual address space, memory descriptors, file handles, and security context.. Regarding oder aspects, matlab it relates to Threads are lightweight execution units within a process sharing de same address space, but I am not completely sure about de fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_050",
+    "question_id": "Q111",
+    "candidate_id": "CAND_HELDOUT_390",
+    "transcript": "Basically, speaking about What is the difference between *args and **kwargs in Python function definitions?, first *args captures variable positional arguments passed to a function into a tuple.. In addition to that, **kwargs captures variable keyword arguments passed to a function into a dictionary.. And to conclude, Allows flexible function forwarding and generic wrappers (such as decorators) to pass arguments through without hardcoding parameter signatures.. That is why this approach is standard in production systems.",
+    "accent_perturbed_transcript": "Basically, speaking about What is de difference between *args and **kwargs in Python function definitions?, first *args captures variable positional arguments passed to a function into a tuple.. In addition to dat, **kwargs captures variable keyword arguments passed to a function into a dictionary.. And to conclude, Allows flexible function forwarding and generic basically wrappers (such as decorators) to pass arguments through without hardcoding parameter signatures.. That is why this approach is standard in production systems.",
+    "human_scores": {
+      "rater_1": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "rater_2": {
+        "content": 5.0,
+        "structure": 5.0,
+        "overall": 5.0
+      },
+      "rater_3": {
+        "content": 4.5,
+        "structure": 4.0,
+        "overall": 4.3
+      },
+      "consensus_score": {
+        "content": 4.83,
+        "structure": 4.5,
+        "overall": 4.7
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.5,
+      "structure": 1.0,
+      "overall": 0.5
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_051",
+    "question_id": "Q097",
+    "candidate_id": "CAND_HELDOUT_391",
+    "transcript": "Uh, for Describe Database Sharding strategies: Range-based versus Hash-based versus Directory-based., I remember it has something to do with Range-based sharding assigns contiguous ranges of shard keys to specific nodes (e.g., but honestly I have not worked on this recently. Basically that is it.",
+    "accent_perturbed_transcript": "Uh, for Describe Database Sharding strategies: Range-based versus Hash-based versus Directory-based., I matlab remember it has something to do with Range-based sharding assigns contiguous ranges of shard keys to specific nodes (e.g., but honestly I have not worked on this recently. Basically dat is it.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 2.5,
+        "overall": 2.2
+      },
+      "rater_2": {
+        "content": 2.0,
+        "structure": 2.5,
+        "overall": 2.2
+      },
+      "rater_3": {
+        "content": 2.0,
+        "structure": 2.5,
+        "overall": 2.2
+      },
+      "consensus_score": {
+        "content": 2.0,
+        "structure": 2.5,
+        "overall": 2.2
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_052",
+    "question_id": "Q058",
+    "candidate_id": "CAND_HELDOUT_392",
+    "transcript": "In Compare Database Sharding and Master-Replica Replication: goals and architectural complexities., Replication copies identical data across multiple nodes to increase read throughput and provide high availability/failover.. That is the main part as far as I know.",
+    "accent_perturbed_transcript": "In Compare Database Sharding and Master-Replica Replication: goals and architectural complexities., basically Replication copies identical data across multiple nodes to increase read troughput and provide high availability/failover.. That is de main part as far as I know.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_053",
+    "question_id": "Q007",
+    "candidate_id": "CAND_HELDOUT_393",
+    "transcript": "For Compare Batch Normalization and Layer Normalization, explaining where each is typically used., I think Batch Normalization computes mean and variance across the batch dimension for each feature channel, common in CNNs.. Regarding other aspects, matlab it relates to Layer Normalization computes mean and variance across all features/channels for an individual sample independently, but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For Compare Batch Normalization and Layer Normalization, explaining where each is typically used., I think Batch Normalization computes mean and variance across the batch dimension for each feature channel, common in CNNs.. Regarding other aspects, matlab it basically relates to Layer Normalization computes mean and variance across all features/channels for an individual sample independently, but I am not completely sure about the fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.5,
+        "structure": 3.5,
+        "overall": 3.5
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 2.5,
+        "overall": 2.5
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_054",
+    "question_id": "Q112",
+    "candidate_id": "CAND_HELDOUT_394",
+    "transcript": "For Explain Method Resolution Order (MRO) and the C3 Linearization algorithm in Python multiple inheritance., I think MRO determines the deterministic search order Python traverses to resolve methods and attributes in classes with multiple inheritance.. Regarding other aspects, matlab it relates to CPython employs the C3 Linearization algorithm, but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For Explain Method Resolution Order (MRO) and de C3 Linearization algorithm in Python multiple inheritance., I tink MRO determines de deterministic search order Python traverses to resolve methods and attributes in classes with multiple inheritance.. Regarding oder aspects, matlab it relates to CPython employs de C3 Linearization algorithm, but I am not completely sure like you know about de fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      },
+      "rater_2": {
+        "content": 3.5,
+        "structure": 3.0,
+        "overall": 3.3
+      },
+      "rater_3": {
+        "content": 2.5,
+        "structure": 2.0,
+        "overall": 2.3
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 2.5,
+        "overall": 2.8
+      }
+    },
+    "inter_rater_spread": {
+      "content": 1.0,
+      "structure": 1.0,
+      "overall": 1.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_055",
+    "question_id": "Q002",
+    "candidate_id": "CAND_HELDOUT_395",
+    "transcript": "For What is the bias-variance tradeoff and how does model complexity relate to it?, I think High bias stems from overly simplistic models underfitting training data and missing true relationships.. Regarding other aspects, matlab it relates to High variance occurs when complex models overfit training noise rather than generalizing to unseen data., but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For What is the bias-variance tradeoff and how does model complexity relate to it?, I tink High bias stems from overly simplistic models underfitting training data and missing true relationships.. Regarding other aspects, matlab it relates to High variance occurs when complex models overfit training noise rather than generalizing to unseen data., but I am not completely sure about the fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_056",
+    "question_id": "Q083",
+    "candidate_id": "CAND_HELDOUT_396",
+    "transcript": "In What are the four necessary conditions for Deadlock and how can systems prevent or recover from them?, Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait (Coffman conditions).. Also, Deadlock prevention eliminates at least one condition, such as imposing a global linear ordering on lock acquisitions to eliminate circular wait.. While Deadlock detection constructs resource-allocation wait-for graphs to detect cycles, overall it ensures the main objective is achieved.",
+    "accent_perturbed_transcript": "In What are de four necessary conditions for Deadlock and how can systems prevent or recover from dem?, Mutual Exclusion, Hold and Wait, No Preemption, and Circular Wait (Coffman conditions).. Also, Deadlock prevention eliminates at least one condition, such as imposing a global linear ordering on lock acquisitions to eliminate circular wait.. While Deadlock detection constructs resource-allocation wait-for graphs to detect cycles, overall it ensures de main objective is achieved.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_2": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_3": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_057",
+    "question_id": "Q101",
+    "candidate_id": "CAND_HELDOUT_397",
+    "transcript": "Regarding Explain the Python Global Interpreter Lock (GIL) and its implications for multithreading., toh it does some processing on the inputs, but I cannot recall the exact mechanics.",
+    "accent_perturbed_transcript": "Regarding Explain the Python Global Interpreter Lock (GIL) and its implications for multithreading., toh it does some processing on the inputs, but I cannot recall the exact mechanics.",
+    "human_scores": {
+      "rater_1": {
+        "content": 2.0,
+        "structure": 2.5,
+        "overall": 2.2
+      },
+      "rater_2": {
+        "content": 3.5,
+        "structure": 4.0,
+        "overall": 3.7
+      },
+      "rater_3": {
+        "content": 1.0,
+        "structure": 1.0,
+        "overall": 1.0
+      },
+      "consensus_score": {
+        "content": 2.17,
+        "structure": 2.5,
+        "overall": 2.3
+      }
+    },
+    "inter_rater_spread": {
+      "content": 2.5,
+      "structure": 3.0,
+      "overall": 2.5
+    },
+    "is_contested": true
+  },
+  {
+    "example_id": "HELDOUT_058",
+    "question_id": "Q013",
+    "candidate_id": "CAND_HELDOUT_398",
+    "transcript": "In Compare the Adam optimizer with standard Stochastic Gradient Descent (SGD) with momentum., SGD with momentum tracks an exponentially decaying moving average of past gradients to accelerate along consistent directions and dampen oscillations.. Also, Adam maintains both first moments (momentum) and second moments (uncentered variance of squared gradients) for adaptive per-parameter learning rates.. While Adam includes bias-correction terms to counter zero-initialization artifacts during initial training steps., overall it ensures the main objective is achieved.",
+    "accent_perturbed_transcript": "In Compare de Adam optimizer with standard Stochastic Gradient Descent (SGD) with momentum., SGD with momentum tracks an exponentially decaying moving average of past greatients to accelerate along consistent directions and dampen oscillations.. Also, Adam maintains both first moments (momentum) and second moments (uncentered variance of squared greatients) for adaptive per-parameter learning rates.. While Adam includes bias-correction terms to counter zero-initialization artifacts during initial training steps., overall it ensures de main objective is achieved.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_2": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "rater_3": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 4.0,
+        "overall": 4.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_059",
+    "question_id": "Q053",
+    "candidate_id": "CAND_HELDOUT_399",
+    "transcript": "For Describe QuickSelect and how it finds the k-th smallest element in an unordered list., I think Uses the partitioning logic of QuickSort around a chosen pivot element.. Regarding other aspects, matlab it relates to Recurses or iterates into only the one partition containing index k, but I am not completely sure about the fine details.",
+    "accent_perturbed_transcript": "For Describe QuickSelect and how it finds de k-th smallest element in an unordered list., I tink Uses de partitioning logic of QuickSort around a chosen pivot element.. Regarding oder aspects, matlab it matlab relates to Recurses or iterates into only de one partition containing index k, but I am not completely sure about de fine details.",
+    "human_scores": {
+      "rater_1": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_2": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "rater_3": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      },
+      "consensus_score": {
+        "content": 3.0,
+        "structure": 3.0,
+        "overall": 3.0
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  },
+  {
+    "example_id": "HELDOUT_060",
+    "question_id": "Q025",
+    "candidate_id": "CAND_HELDOUT_400",
+    "transcript": "Looking at Explain early stopping and how validation loss divergence signals the onset of overfitting., basically Monitors model performance on an independent validation set after each training epoch. and Training loss continuing to decrease while validation loss begins increasing indicates the model is memorizing training quirks rather than generalizing.. We usually see this in real world setups.",
+    "accent_perturbed_transcript": "Looking at Explain early toh stopping and how validation loss divergence signals the onset of overfitting., basically Monitors model performance on an independent validation set after each training epoch. and Training loss continuing to decrease while validation loss begins increasing indicates the model is memorizing training quirks rather than generalizing.. We usually see this in real world setups.",
+    "human_scores": {
+      "rater_1": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      },
+      "rater_2": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      },
+      "rater_3": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      },
+      "consensus_score": {
+        "content": 4.0,
+        "structure": 4.5,
+        "overall": 4.2
+      }
+    },
+    "inter_rater_spread": {
+      "content": 0.0,
+      "structure": 0.0,
+      "overall": 0.0
+    },
+    "is_contested": false
+  }
+]

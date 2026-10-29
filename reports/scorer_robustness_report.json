@@ -1,0 +1,178 @@
+{
+  "severity": "moderate_20pct_wer",
+  "num_questions": 120,
+  "dimensions": {
+    "content": {
+      "score_invariance_mae": {
+        "point": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "std_err": 0.0
+      },
+      "signed_score_bias": {
+        "point": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "std_err": 0.0
+      },
+      "clean_vs_perturbed_qwk": {
+        "point": 1.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "std_err": 0.0
+      },
+      "clean_vs_perturbed_pearson_r": {
+        "point": 1.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "std_err": 0.0
+      }
+    },
+    "structure": {
+      "score_invariance_mae": {
+        "point": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "std_err": 0.0
+      },
+      "signed_score_bias": {
+        "point": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "std_err": 0.0
+      },
+      "clean_vs_perturbed_qwk": {
+        "point": 1.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "std_err": 0.0
+      },
+      "clean_vs_perturbed_pearson_r": {
+        "point": 1.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "std_err": 0.0
+      }
+    },
+    "overall": {
+      "score_invariance_mae": {
+        "point": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "std_err": 0.0
+      },
+      "signed_score_bias": {
+        "point": 0.0,
+        "ci_lower": 0.0,
+        "ci_upper": 0.0,
+        "std_err": 0.0
+      },
+      "clean_vs_perturbed_qwk": {
+        "point": 1.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "std_err": 0.0
+      },
+      "clean_vs_perturbed_pearson_r": {
+        "point": 1.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "std_err": 0.0
+      }
+    }
+  },
+  "robustness_summary": {
+    "overall_drift_mae": 0.0,
+    "overall_signed_bias": 0.0,
+    "flip_rate_under_perturbation": 0.0,
+    "uncertainty_rate_clean": 0.0,
+    "uncertainty_rate_accent": 0.0
+  },
+  "sample_questions": [
+    {
+      "question_id": "Q001",
+      "domain": "Machine Learning",
+      "clean_scores": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "accent_scores": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "score_diff_overall": 0.0,
+      "clean_transcript_snippet": "To address Explain gradient descent and how the learning rate affects optimizati...",
+      "accent_transcript_snippet": "To address Explain greatient descent and how de learning rate affects optimizati..."
+    },
+    {
+      "question_id": "Q002",
+      "domain": "Machine Learning",
+      "clean_scores": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "accent_scores": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "score_diff_overall": 0.0,
+      "clean_transcript_snippet": "To address What is the bias-variance tradeoff and how does model complexity rela...",
+      "accent_transcript_snippet": "To address What is de bias-variance tradeoff and how does model complexity relat..."
+    },
+    {
+      "question_id": "Q003",
+      "domain": "Machine Learning",
+      "clean_scores": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "accent_scores": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "score_diff_overall": 0.0,
+      "clean_transcript_snippet": "To address Describe overfitting and explain three common techniques to prevent i...",
+      "accent_transcript_snippet": "To address Describe over fitting and explain three common techniques to prevent ..."
+    },
+    {
+      "question_id": "Q004",
+      "domain": "Machine Learning",
+      "clean_scores": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "accent_scores": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "score_diff_overall": 0.0,
+      "clean_transcript_snippet": "To address Explain how the backpropagation algorithm computes gradients in neura...",
+      "accent_transcript_snippet": "To address Explain how de backpropagation algorithm computes greatients in neura..."
+    },
+    {
+      "question_id": "Q005",
+      "domain": "Machine Learning",
+      "clean_scores": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "accent_scores": {
+        "content": 5.0,
+        "structure": 4.5,
+        "overall": 4.8
+      },
+      "score_diff_overall": 0.0,
+      "clean_transcript_snippet": "To address What is the difference between L1 (Lasso) and L2 (Ridge) regularizati...",
+      "accent_transcript_snippet": "To address What is de difference between L1 (Lasso) and L2 (Ridge) regularizatio..."
+    }
+  ]
+}
