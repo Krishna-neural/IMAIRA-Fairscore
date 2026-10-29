@@ -52,9 +52,20 @@ from contracts.transcript import WordTiming, RecoveryResult, RecoveryAuditEntry
 from asr.transcribe import TwoPassTranscriber, get_transcriber
 from asr.span_detector import SuspiciousSpanDetector
 from asr.recover import AudioRecoveryPipeline
-from score.rubrics import load_rubrics, QuestionRubric
-from score.calibrate import IsotonicScoreCalibrator, BaseCalibrator
+from score.rubrics import load_rubrics, QuestionRubric, SemanticRubricIdea
+from score.calibrate import (
+    IsotonicScoreCalibrator,
+    BaseCalibrator,
+    RidgeScoreCalibrator,
+    IdentityCalibrator
+)
 from score.llm_judge import LLMEvaluationEngine
+
+# Ensure unpickling works seamlessly across all modules and scripts
+import score.calibrate
+for attr in ["IsotonicScoreCalibrator", "BaseCalibrator", "RidgeScoreCalibrator", "IdentityCalibrator"]:
+    if hasattr(score.calibrate, attr):
+        setattr(sys.modules["__main__"], attr, getattr(score.calibrate, attr))
 
 
 class QuestionMatcher:
@@ -153,9 +164,51 @@ class InterviewEvaluator:
             detector=self.detector,
             compute_type=compute_type
         )
-        print("[INIT] Loading 120 Semantic Rubrics & Question Index...")
+        print("[INIT] Loading 120 Semantic Rubrics & 120 Q&A Ground-Truth Models...")
         self.rubrics = load_rubrics(REPO_ROOT / "data" / "rubrics_120.json")
-        self.matcher = QuestionMatcher(self.rubrics, REPO_ROOT / "data" / "QandA.json")
+        qanda_path = REPO_ROOT / "data" / "QandA.json"
+        if qanda_path.exists():
+            try:
+                with open(qanda_path, "r", encoding="utf-8") as f:
+                    qa_list = json.load(f)
+                for item in qa_list:
+                    qid = item.get("id")
+                    if qid and qid not in self.rubrics:
+                        ideas = []
+                        for idx, idea_data in enumerate(item.get("semantic_rubric_ideas", [])):
+                            statement = idea_data.get("semantic_statement", "").strip()
+                            if len(statement.split()) < 5:
+                                statement = f"Explains the core technical architecture and mechanisms of {item.get('question')}."
+                            ideas.append(
+                                SemanticRubricIdea(
+                                    idea_id=idea_data.get("idea_id", f"{qid}_IDEA_{idx+1}"),
+                                    semantic_statement=statement,
+                                    required=idea_data.get("required", True),
+                                    weight=float(idea_data.get("weight", 1.0)),
+                                    acceptable_paraphrase_guidance=idea_data.get("acceptable_paraphrase_guidance", "Accepts standard technical descriptions and valid engineering implementations.")
+                                )
+                            )
+                        if not ideas:
+                            ideas.append(
+                                SemanticRubricIdea(
+                                    idea_id=f"{qid}_IDEA_1",
+                                    semantic_statement=f"Explains {item.get('question')} accurately covering key concepts: {', '.join(item.get('key_concepts', []))}.",
+                                    required=True,
+                                    weight=1.0,
+                                    acceptable_paraphrase_guidance="Candidate explains core mechanisms and architectural principles."
+                                )
+                            )
+                        self.rubrics[qid] = QuestionRubric(
+                            question_id=qid,
+                            question_prompt=item.get("question", ""),
+                            domain=item.get("subcategory", item.get("category", "Software Engineering")),
+                            semantic_rubric_ideas=ideas
+                        )
+            except Exception as e:
+                print(f"[WARN] Error loading QandA into rubrics: {e}")
+
+        print(f"[INIT] Total Knowledge Bank: {len(self.rubrics)} questions indexed.")
+        self.matcher = QuestionMatcher(self.rubrics, qanda_path)
         
         print("[INIT] Loading Isotonic Score Calibrators...")
         with open(REPO_ROOT / "artifacts" / "calibrator_content.pkl", "rb") as f:
@@ -331,44 +384,82 @@ def main():
     parser.add_argument("--save-reports", action="store_true", default=True, help="Save evaluation reports to reports/")
     args = parser.parse_args()
 
+    AUDIO_EXTENSIONS = {".wav", ".m4a", ".mp3", ".ogg", ".flac", ".aac", ".webm", ".wma"}
+
     # Determine input directory or file
     if args.input_path:
         target = Path(args.input_path)
+        scan_source_name = f"user path: {target}"
     else:
-        # Check standard drop folders in order
-        drop_folder = REPO_ROOT / "data" / "recordings"
-        drop_folder.mkdir(parents=True, exist_ok=True)
-        files_in_drop = list(drop_folder.glob("*.wav")) + list(drop_folder.glob("*.mp3")) + list(drop_folder.glob("*.m4a"))
-        if files_in_drop:
-            target = drop_folder
+        # PRIORITY 1: Always scan the asr/ folder first where recordings are dumped
+        asr_folder = REPO_ROOT / "asr"
+        files_in_asr = [f for f in asr_folder.iterdir() if f.is_file() and f.suffix.lower() in AUDIO_EXTENSIONS] if asr_folder.exists() else []
+
+        if files_in_asr:
+            target = asr_folder
+            scan_source_name = f"primary ASR drop folder: {asr_folder}"
         else:
-            # Fall back to asr/ directory where audio files reside
-            target = REPO_ROOT / "asr"
+            # Fallback to data/recordings/
+            drop_folder = REPO_ROOT / "data" / "recordings"
+            drop_folder.mkdir(parents=True, exist_ok=True)
+            target = drop_folder
+            scan_source_name = f"fallback recordings folder: {drop_folder}"
 
     audio_files = []
     if target.is_file():
-        audio_files = [target]
+        if target.suffix.lower() in AUDIO_EXTENSIONS:
+            audio_files = [target]
     elif target.is_dir():
-        for ext in ["*.wav", "*.mp3", "*.m4a", "*.ogg"]:
-            audio_files.extend(list(target.glob(ext)))
-        audio_files = sorted(audio_files)
+        for f in target.iterdir():
+            if f.is_file() and f.suffix.lower() in AUDIO_EXTENSIONS:
+                audio_files.append(f)
+        audio_files = sorted(audio_files, key=lambda p: p.name.lower())
+
+    print("=" * 100)
+    print("IMAIRA FAIRSCORE — AUDIO RECORDING SCANNER")
+    print("=" * 100)
+    print(f"Target Directory: {target.resolve()}")
+    print(f"Source:           {scan_source_name}")
+    print(f"Total Found:      {len(audio_files)} recording(s)")
+    print("=" * 100)
 
     if not audio_files:
-        print(f"Error: No audio files found in '{target}'. Please dump your .wav files there.")
+        print(f"\n[ERROR] No supported audio files found in '{target}'. Please dump your recordings there.")
+        print(f"Supported formats: {', '.join(sorted(AUDIO_EXTENSIONS))}")
         sys.exit(1)
 
-    print(f"Found {len(audio_files)} audio file(s) to evaluate in '{target}':")
-    for a in audio_files:
-        print(f"  - {a.name}")
-    print()
+    for idx, a in enumerate(audio_files, start=1):
+        size_mb = a.stat().st_size / (1024 * 1024)
+        print(f"  [{idx:02d}/{len(audio_files):02d}] {a.name:<40} ({size_mb:.2f} MB)")
+    print("=" * 100 + "\n")
 
     evaluator = InterviewEvaluator(compute_type="float16")
     all_results = []
+    total_count = len(audio_files)
 
-    for a in audio_files:
-        res = evaluator.evaluate_file(a, forced_qid=args.qid)
-        format_terminal_output(res)
-        all_results.append(res)
+    for idx, a in enumerate(audio_files, start=1):
+        print("\n" + "#" * 100)
+        print(f"# >>> [RECORDING {idx}/{total_count}] Starting evaluation: {a.name}")
+        print("#" * 100 + "\n")
+        try:
+            res = evaluator.evaluate_file(a, forced_qid=args.qid)
+            format_terminal_output(res)
+            all_results.append(res)
+        except Exception as ex:
+            print(f"\n[ERROR] Failed to evaluate '{a.name}': {ex}")
+            import traceback
+            traceback.print_exc()
+            continue
+
+    print("\n" + "=" * 100)
+    print(f"BATCH EVALUATION COMPLETED: {len(all_results)} of {total_count} RECORDINGS SUCCESSFULLY EVALUATED")
+    print("=" * 100)
+    print(f"{'File':<35} | {'Question':<8} | {'Completeness':<12} | {'Correctness':<11} | {'Structure':<10} | {'Overall FairScore'}")
+    print("-" * 100)
+    for r in all_results:
+        s = r["scores"]
+        print(f"{r['filename']:<35} | {r['matched_question']['question_id']:<8} | {s['content_completeness']:<12.2f} | {s['content_correctness']:<11.2f} | {s['answer_structure']:<10.2f} | {s['overall_fairscore']:.2f} / 5.0")
+    print("=" * 100 + "\n")
 
     if args.save_reports:
         reports_dir = REPO_ROOT / "reports"

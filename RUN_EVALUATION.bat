@@ -15,7 +15,7 @@ if exist "..\torch-env\Scripts\python.exe" (
 )
 
 echo Using Python runtime: %PYTHON_EXE%
-echo Scanning for recordings in: data\recordings\ (fallback: asr\)
+echo Scanning for recordings in: asr\ (supported formats: .wav, .m4a, .mp3, .ogg, .flac)
 echo.
 
 "%PYTHON_EXE%" evaluate_interview.py %*
