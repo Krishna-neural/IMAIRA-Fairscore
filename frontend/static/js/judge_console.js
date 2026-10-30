@@ -1,5 +1,6 @@
 /**
  * Judge Technical Console Manager for IMAIRA FairScore.
+ * Enterprise Design System (Theme 6: Professional & Corporate).
  * Powers the interactive architecture diagram, live API runner,
  * automated testing lab (18 test categories), fairness audit dashboard,
  * and live performance telemetry.
@@ -24,31 +25,31 @@ class JudgeConsoleManager {
       this.systemData = data;
 
       containerEl.innerHTML = `
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
           <div class="card">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">FastAPI Core Server</div>
-            <div style="font-size: 1.25rem; font-weight: 700; color: var(--accent-cyan); margin: 0.25rem 0;">Port ${data.backend.port} • Online</div>
-            <div style="font-size: 0.85rem; color: var(--text-muted);">Uvicorn ASGI Engine • CORS Enabled • WebSocket Active</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">FastAPI ASGI Server</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--color-blue-corp); margin: 0.35rem 0;">Port ${data.backend.port} • Online</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">Asynchronous Engine • CORS Enabled • WebSocket Active</div>
           </div>
           <div class="card">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">ASR & Glossary Pipeline</div>
-            <div style="font-size: 1.25rem; font-weight: 700; color: var(--color-success); margin: 0.25rem 0;">${data.asr_pipeline.glossary_terms_loaded} Technical Terms</div>
-            <div style="font-size: 0.85rem; color: var(--text-muted);">${data.asr_pipeline.stage_1}</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">ASR & Glossary Pipeline</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--color-success-text); margin: 0.35rem 0;">${data.asr_pipeline.glossary_terms_loaded} Technical Terms</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">${data.asr_pipeline.stage_1}</div>
           </div>
           <div class="card">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Scoring & Calibrators</div>
-            <div style="font-size: 1.25rem; font-weight: 700; color: #a78bfa; margin: 0.25rem 0;">${data.scoring_engine.rubrics_database_size} Question Rubrics</div>
-            <div style="font-size: 0.85rem; color: var(--text-muted);">Isotonic Content & Structure Calibrators Active</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Scoring & Calibrators</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--color-navy-deep); margin: 0.35rem 0;">${data.scoring_engine.rubrics_database_size} Question Rubrics</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">Isotonic Content & Structure Calibrators Active</div>
           </div>
           <div class="card">
-            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">LLM Integration & Security</div>
-            <div style="font-size: 1.25rem; font-weight: 700; color: #38bdf8; margin: 0.25rem 0;">${data.llm_service.model}</div>
-            <div style="font-size: 0.85rem; color: var(--text-muted);">${data.security.prompt_injection_defense}</div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 700;">Security & Integrity</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: var(--color-blue-corp); margin: 0.35rem 0;">Server Enforced</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">${data.security.prompt_injection_defense}</div>
           </div>
         </div>
       `;
     } catch (err) {
-      containerEl.innerHTML = `<div class="card" style="border-color: var(--color-danger);"><strong style="color: var(--color-danger);">Error connecting to backend:</strong> ${err.message}</div>`;
+      containerEl.innerHTML = `<div class="card" style="border-color: var(--color-error);"><strong style="color: var(--color-error);">Error connecting to backend:</strong> ${err.message}</div>`;
     }
   }
 
@@ -67,7 +68,7 @@ class JudgeConsoleManager {
         html += `
           <div class="arch-node-card" onclick="window.judgeConsole.openNodeModal('${node.id}')">
             <div style="display:flex; align-items:center; gap: 1rem;">
-              <span class="badge badge-cyan" style="font-size:0.85rem; width:28px; height:28px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%;">0${idx + 1}</span>
+              <span class="badge badge-primary" style="font-size:0.8rem; width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%;">0${idx + 1}</span>
               <div class="arch-node-info">
                 <span class="arch-node-name">${node.name}</span>
                 <span class="arch-node-tech">${node.technology}</span>
@@ -75,7 +76,7 @@ class JudgeConsoleManager {
               </div>
             </div>
             <div style="display:flex; align-items:center; gap:0.5rem;">
-              <span class="badge badge-indigo">${node.category}</span>
+              <span class="badge badge-navy">${node.category}</span>
               <button class="btn btn-sm btn-secondary">Inspect 🔍</button>
             </div>
           </div>
@@ -84,7 +85,7 @@ class JudgeConsoleManager {
       html += `</div>`;
       containerEl.innerHTML = html;
     } catch (err) {
-      containerEl.innerHTML = `<div class="card" style="border-color: var(--color-danger);">${err.message}</div>`;
+      containerEl.innerHTML = `<div class="card" style="border-color: var(--color-error);">${err.message}</div>`;
     }
   }
 
@@ -98,42 +99,43 @@ class JudgeConsoleManager {
     const bodyEl = document.getElementById("nodeModalBody");
 
     if (titleEl) titleEl.textContent = `${node.name} — Architecture Specification`;
+
     if (bodyEl) {
       bodyEl.innerHTML = `
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           <div>
-            <strong style="color: var(--accent-cyan); text-transform: uppercase; font-size: 0.75rem;">Purpose & Functional Responsibility</strong>
-            <p style="margin-top: 0.25rem; font-size: 0.95rem;">${node.purpose}</p>
+            <strong style="color: var(--color-blue-corp); text-transform: uppercase; font-size: 0.75rem;">Purpose & Functional Responsibility</strong>
+            <p style="margin-top: 0.25rem; font-size: 0.95rem; color: var(--text-primary);">${node.purpose}</p>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-            <div class="card" style="padding: 1rem;">
-              <strong style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">Input Contract</strong>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 0.35rem; color: #cbd5e1;">${node.input}</div>
+            <div class="card" style="padding: 1rem; background-color: var(--bg-subtle);">
+              <strong style="color: var(--text-secondary); font-size: 0.75rem; text-transform: uppercase;">Input Contract</strong>
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 0.35rem; color: var(--color-navy-deep);">${node.input}</div>
             </div>
-            <div class="card" style="padding: 1rem;">
-              <strong style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">Output Contract</strong>
-              <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 0.35rem; color: #cbd5e1;">${node.output}</div>
+            <div class="card" style="padding: 1rem; background-color: var(--bg-subtle);">
+              <strong style="color: var(--text-secondary); font-size: 0.75rem; text-transform: uppercase;">Output Contract</strong>
+              <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 0.35rem; color: var(--color-navy-deep);">${node.output}</div>
             </div>
           </div>
           <div>
-            <strong style="color: var(--accent-cyan); text-transform: uppercase; font-size: 0.75rem;">Technology Stack</strong>
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; margin-top: 0.25rem;">${node.technology}</div>
+            <strong style="color: var(--color-blue-corp); text-transform: uppercase; font-size: 0.75rem;">Technology Stack</strong>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; margin-top: 0.25rem; color: var(--color-navy-deep);">${node.technology}</div>
           </div>
           <div>
-            <strong style="color: var(--accent-cyan); text-transform: uppercase; font-size: 0.75rem;">Implementation File & Location</strong>
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; margin-top: 0.25rem; color: #93c5fd;">${node.implementation_file}</div>
+            <strong style="color: var(--color-blue-corp); text-transform: uppercase; font-size: 0.75rem;">Implementation File</strong>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; margin-top: 0.25rem; color: var(--color-blue-corp); font-weight: 600;">${node.implementation_file}</div>
           </div>
           <div>
-            <strong style="color: var(--accent-cyan); text-transform: uppercase; font-size: 0.75rem;">Associated API Endpoint</strong>
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; margin-top: 0.25rem; color: #6ee7b7;">${node.api_endpoint}</div>
+            <strong style="color: var(--color-blue-corp); text-transform: uppercase; font-size: 0.75rem;">Associated API Endpoint</strong>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; margin-top: 0.25rem; color: var(--color-success-text); font-weight: 600;">${node.api_endpoint}</div>
           </div>
           <div>
-            <strong style="color: var(--accent-cyan); text-transform: uppercase; font-size: 0.75rem;">Test Verification Suite</strong>
-            <div style="font-family: var(--font-mono); font-size: 0.85rem; margin-top: 0.25rem; color: #fcd34d;">${node.test_coverage}</div>
+            <strong style="color: var(--color-blue-corp); text-transform: uppercase; font-size: 0.75rem;">Test Verification Suite</strong>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; margin-top: 0.25rem; color: var(--color-navy-deep);">${node.test_coverage}</div>
           </div>
-          <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: var(--radius-sm); padding: 0.85rem;">
-            <strong style="color: #fcd34d; font-size: 0.8rem; text-transform: uppercase;">Known Engineering Limitation</strong>
-            <p style="font-size: 0.85rem; margin-top: 0.25rem; color: #e2e8f0;">${node.limitations}</p>
+          <div style="background-color: var(--color-warning-bg); border: 1px solid var(--color-warning-border); border-radius: var(--radius-sm); padding: 0.85rem;">
+            <strong style="color: var(--color-warning-text); font-size: 0.8rem; text-transform: uppercase;">Known Engineering Limitation</strong>
+            <p style="font-size: 0.85rem; margin-top: 0.25rem; color: var(--text-primary);">${node.limitations}</p>
           </div>
         </div>
       `;
@@ -155,13 +157,13 @@ class JudgeConsoleManager {
       let html = `
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 1.5rem; flex-wrap:wrap; gap:1rem;">
           <div>
-            <h3 style="font-size: 1.25rem; font-weight:700;">Testing Lab Execution Results</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">All 18 comprehensive tests executed on live backend.</p>
+            <h3 style="font-size: 1.25rem; font-weight:700; color:var(--color-navy-deep);">Testing Lab Execution Results</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">All 18 comprehensive tests executed on live backend.</p>
           </div>
           <div style="display:flex; gap:0.5rem; align-items:center;">
             <span class="badge badge-success" style="font-size:0.85rem;">${data.passed} PASSED</span>
             <span class="badge badge-danger" style="font-size:0.85rem;">${data.failed} FAILED</span>
-            <button class="btn btn-sm btn-outline-cyan" onclick="window.judgeConsole.runTestingLab(document.getElementById('testingLabContent'))">🔄 Re-run All Tests</button>
+            <button class="btn btn-sm btn-outline-blue" onclick="window.judgeConsole.runTestingLab(document.getElementById('testingLabContent'))">🔄 Re-run All Tests</button>
           </div>
         </div>
         <div class="test-lab-grid">
@@ -177,16 +179,16 @@ class JudgeConsoleManager {
             <div>
               <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.5rem;">
                 <span class="badge ${badgeClass}">${statusText} (${t.latency_ms}ms)</span>
-                <span style="font-size:0.75rem; color:var(--text-subtle);">${t.category}</span>
+                <span style="font-size:0.75rem; color:var(--text-secondary); font-weight:600;">${t.category}</span>
               </div>
-              <strong style="font-size: 0.95rem; color: var(--text-main);">${t.test_name}</strong>
-              <div style="font-size: 0.8rem; color: var(--text-muted); margin: 0.4rem 0;">
+              <strong style="font-size: 0.95rem; color: var(--color-navy-deep);">${t.test_name}</strong>
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin: 0.4rem 0;">
                 <strong>Input:</strong> ${t.input}
               </div>
-              <div style="font-size: 0.8rem; color: #a5b4fc; margin-bottom: 0.4rem;">
+              <div style="font-size: 0.8rem; color: var(--color-blue-corp); margin-bottom: 0.4rem;">
                 <strong>Expected:</strong> ${t.expected}
               </div>
-              <div style="font-size: 0.8rem; color: #6ee7b7; margin-bottom: 0.5rem;">
+              <div style="font-size: 0.8rem; color: var(--color-success-text); margin-bottom: 0.5rem; font-weight:600;">
                 <strong>Actual:</strong> ${t.actual}
               </div>
             </div>
@@ -198,7 +200,7 @@ class JudgeConsoleManager {
       html += `</div>`;
       containerEl.innerHTML = html;
     } catch (err) {
-      containerEl.innerHTML = `<div class="card" style="border-color: var(--color-danger);">${err.message}</div>`;
+      containerEl.innerHTML = `<div class="card" style="border-color: var(--color-error);">${err.message}</div>`;
     }
   }
 
@@ -210,56 +212,56 @@ class JudgeConsoleManager {
       const data = await res.json();
 
       containerEl.innerHTML = `
-        <div class="card" style="border-top: 3px solid var(--accent-cyan); margin-bottom: 1.5rem;">
+        <div class="card" style="border-top: 4px solid var(--color-blue-corp); margin-bottom: 1.5rem;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
             <div>
-              <h3 style="font-size:1.25rem; font-weight:700;">Accent Invariance Benchmark Summary</h3>
-              <p style="color:var(--text-muted); font-size:0.9rem;">Dataset: 120 Questions • Perturbation: Moderate 20% WER Accent Shifts</p>
+              <h3 style="font-size:1.25rem; font-weight:700; color:var(--color-navy-deep);">Accent Invariance Benchmark Summary</h3>
+              <p style="color:var(--text-secondary); font-size:0.9rem;">Dataset: 120 Questions • Perturbation: Moderate 20% WER Synthetic Accent Shifts</p>
             </div>
             <span class="badge badge-success" style="font-size:0.9rem; padding:0.4rem 0.8rem;">INVARIANCE VERIFIED</span>
           </div>
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-top:1.5rem;">
-            <div class="card" style="text-align:center; padding:1rem;">
-              <div style="font-size:2rem; font-weight:800; color:var(--color-success);">0.00</div>
-              <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted);">Measured Content MAE</div>
-              <small style="color:var(--text-subtle);">Target: ≤ 5.0 pts</small>
+            <div class="card" style="text-align:center; padding:1.25rem; background-color:var(--bg-subtle);">
+              <div style="font-size:2.25rem; font-weight:800; color:var(--color-success); line-height:1;">0.00</div>
+              <div style="font-size:0.75rem; text-transform:uppercase; color:var(--color-navy-deep); font-weight:700; margin-top:0.35rem;">Content MAE</div>
+              <small style="color:var(--text-secondary);">Target: ≤ 5.0 pts</small>
             </div>
-            <div class="card" style="text-align:center; padding:1rem;">
-              <div style="font-size:2rem; font-weight:800; color:var(--accent-cyan);">0.00</div>
-              <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted);">Signed Bias</div>
-              <small style="color:var(--text-subtle);">Zero Accent Penalty</small>
+            <div class="card" style="text-align:center; padding:1.25rem; background-color:var(--bg-subtle);">
+              <div style="font-size:2.25rem; font-weight:800; color:var(--color-blue-corp); line-height:1;">0.00</div>
+              <div style="font-size:0.75rem; text-transform:uppercase; color:var(--color-navy-deep); font-weight:700; margin-top:0.35rem;">Signed Bias</div>
+              <small style="color:var(--text-secondary);">Zero Accent Penalty</small>
             </div>
-            <div class="card" style="text-align:center; padding:1rem;">
-              <div style="font-size:2rem; font-weight:800; color:#a78bfa;">1.00</div>
-              <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted);">QWK Agreement</div>
-              <small style="color:var(--text-subtle);">Perfect Invariance</small>
+            <div class="card" style="text-align:center; padding:1.25rem; background-color:var(--bg-subtle);">
+              <div style="font-size:2.25rem; font-weight:800; color:var(--color-navy-deep); line-height:1;">1.00</div>
+              <div style="font-size:0.75rem; text-transform:uppercase; color:var(--color-navy-deep); font-weight:700; margin-top:0.35rem;">QWK Agreement</div>
+              <small style="color:var(--text-secondary);">Perfect Invariance</small>
             </div>
-            <div class="card" style="text-align:center; padding:1rem;">
-              <div style="font-size:2rem; font-weight:800; color:#38bdf8;">0.0%</div>
-              <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted);">Flip Rate</div>
-              <small style="color:var(--text-subtle);">Pass/Fail Shifts</small>
+            <div class="card" style="text-align:center; padding:1.25rem; background-color:var(--bg-subtle);">
+              <div style="font-size:2.25rem; font-weight:800; color:var(--color-success); line-height:1;">0.0%</div>
+              <div style="font-size:0.75rem; text-transform:uppercase; color:var(--color-navy-deep); font-weight:700; margin-top:0.35rem;">Flip Rate</div>
+              <small style="color:var(--text-secondary);">Pass/Fail Shifts</small>
             </div>
           </div>
         </div>
 
-        <h4 style="margin: 1.5rem 0 0.75rem; font-size:1.05rem;">Accent Perturbation Samples & Invariance Demonstration</h4>
+        <h4 style="margin: 1.5rem 0 0.75rem; font-size:1.05rem; color:var(--color-navy-deep);">Accent Perturbation Samples & Invariance Demonstration</h4>
         <div style="display:flex; flex-direction:column; gap:1rem;">
           ${(data.sample_questions || []).map(q => `
             <div class="card">
-              <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
-                <strong>${q.question_id} — ${q.domain}</strong>
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem; align-items:center;">
+                <strong style="color:var(--color-navy-deep); font-size:0.95rem;">${q.question_id} — ${q.domain}</strong>
                 <span class="badge badge-success">Score Delta: ${q.score_diff_overall} pts</span>
               </div>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; font-size:0.85rem;">
-                <div style="background:rgba(0,0,0,0.3); padding:0.75rem; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
-                  <strong style="color:var(--text-muted); font-size:0.75rem; text-transform:uppercase;">Clean Transcript</strong>
-                  <p style="margin-top:0.25rem;">"${q.clean_transcript_snippet}"</p>
-                  <small style="color:var(--accent-cyan);">Score: ${q.clean_scores.content}/5.0</small>
+                <div style="background:var(--bg-subtle); padding:0.85rem 1rem; border-radius:var(--radius-sm); border:1px solid var(--border-light);">
+                  <strong style="color:var(--text-secondary); font-size:0.75rem; text-transform:uppercase;">Clean Transcript</strong>
+                  <p style="margin-top:0.35rem; color:var(--text-primary); line-height:1.4;">"${q.clean_transcript_snippet}"</p>
+                  <div style="margin-top:0.5rem; color:var(--color-blue-corp); font-weight:600;">Score: ${q.clean_scores.content}/5.0</div>
                 </div>
-                <div style="background:rgba(0,0,0,0.3); padding:0.75rem; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
-                  <strong style="color:#fcd34d; font-size:0.75rem; text-transform:uppercase;">Perturbed / Phonetic Accent Transcript</strong>
-                  <p style="margin-top:0.25rem;">"${q.accent_transcript_snippet}"</p>
-                  <small style="color:var(--color-success);">Score: ${q.accent_scores.content}/5.0 (Identical)</small>
+                <div style="background:var(--color-blue-light); padding:0.85rem 1rem; border-radius:var(--radius-sm); border:1px solid var(--color-blue-border);">
+                  <strong style="color:var(--color-blue-corp); font-size:0.75rem; text-transform:uppercase;">Perturbed / Accented Transcript</strong>
+                  <p style="margin-top:0.35rem; color:var(--color-navy-deep); line-height:1.4;">"${q.accent_transcript_snippet}"</p>
+                  <div style="margin-top:0.5rem; color:var(--color-success-text); font-weight:600;">Score: ${q.accent_scores.content}/5.0 (Identical)</div>
                 </div>
               </div>
             </div>
@@ -267,7 +269,7 @@ class JudgeConsoleManager {
         </div>
       `;
     } catch (err) {
-      containerEl.innerHTML = `<div class="card" style="border-color: var(--color-danger);">${err.message}</div>`;
+      containerEl.innerHTML = `<div class="card" style="border-color: var(--color-error);">${err.message}</div>`;
     }
   }
 
@@ -281,35 +283,34 @@ class JudgeConsoleManager {
       containerEl.innerHTML = `
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
           <div class="card">
-            <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted); font-weight:700;">First Partial Latency</div>
+            <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-secondary); font-weight:700;">First Partial Latency</div>
             <div style="font-size:2.25rem; font-weight:800; color:var(--color-success); margin:0.25rem 0;">${data.first_partial_transcript_latency_ms} ms</div>
-            <div style="font-size:0.85rem; color:var(--text-muted);">Target: &lt; 1,000 ms • Status: Satisfied</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">Target: &lt; 1,000 ms • Status: Satisfied</div>
           </div>
           <div class="card">
-            <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted); font-weight:700;">Provisional Update Latency</div>
+            <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-secondary); font-weight:700;">Provisional Update Latency</div>
             <div style="font-size:2.25rem; font-weight:800; color:var(--color-success); margin:0.25rem 0;">${data.provisional_update_latency_ms} ms</div>
-            <div style="font-size:0.85rem; color:var(--text-muted);">Target: 500 - 1,000 ms • Status: Satisfied</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">Target: 500 - 1,000 ms • Status: Satisfied</div>
           </div>
           <div class="card">
-            <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted); font-weight:700;">Stage 2 Glossary Verify</div>
-            <div style="font-size:2.25rem; font-weight:800; color:var(--accent-cyan); margin:0.25rem 0;">${data.stage2_glossary_verification_latency_ms} ms</div>
-            <div style="font-size:0.85rem; color:var(--text-muted);">2,000-Term RapidFuzz Scan & Phonetic Match</div>
+            <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-secondary); font-weight:700;">Stage 2 Glossary Verify</div>
+            <div style="font-size:2.25rem; font-weight:800; color:var(--color-blue-corp); margin:0.25rem 0;">${data.stage2_glossary_verification_latency_ms} ms</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">2,000-Term RapidFuzz Scan & Phonetic Match</div>
           </div>
           <div class="card">
-            <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-muted); font-weight:700;">Full Answer Evaluation</div>
-            <div style="font-size:2.25rem; font-weight:800; color:#a78bfa; margin:0.25rem 0;">${data.final_scoring_evaluation_latency_sec} s</div>
-            <div style="font-size:0.85rem; color:var(--text-muted);">Target: &lt; 20 s • Real-Time Factor (RTF): ${data.rtf}</div>
+            <div style="font-size:0.75rem; text-transform:uppercase; color:var(--text-secondary); font-weight:700;">Full Answer Evaluation</div>
+            <div style="font-size:2.25rem; font-weight:800; color:var(--color-navy-deep); margin:0.25rem 0;">${data.final_scoring_evaluation_latency_sec} s</div>
+            <div style="font-size:0.85rem; color:var(--text-secondary);">Target: &lt; 20 s • Real-Time Factor (RTF): ${data.rtf}</div>
           </div>
         </div>
       `;
     } catch (err) {
-      containerEl.innerHTML = `<div class="card" style="border-color: var(--color-danger);">${err.message}</div>`;
+      containerEl.innerHTML = `<div class="card" style="border-color: var(--color-error);">${err.message}</div>`;
     }
   }
 
   async sendApiTestRequest() {
     const endpointSelect = document.getElementById("apiEndpointSelect");
-    const methodEl = document.getElementById("apiMethodBadge");
     const payloadEl = document.getElementById("apiPayloadInput");
     const responseEl = document.getElementById("apiResponseOutput");
     const statusEl = document.getElementById("apiResponseStatus");
