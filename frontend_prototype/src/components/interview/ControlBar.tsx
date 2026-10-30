@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Mic, MicOff, Video, VideoOff, LogOut, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { Mic, MicOff, Video, VideoOff, LogOut } from 'lucide-react';
 
 interface ControlBarProps {
   isMicMuted: boolean;
@@ -16,66 +16,41 @@ export const ControlBar: React.FC<ControlBarProps> = ({
   onToggleCamera,
   onEndInterview,
 }) => {
-  const [showConfirmEnd, setShowConfirmEnd] = useState(false);
-
   return (
-    <div className="bg-white border border-slate-200 rounded-xl p-3 shadow-xs flex items-center justify-between font-sans flex-wrap gap-2">
+    <div className="bg-surface-container-low border border-outline-variant/30 rounded-xl p-3 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)] flex items-center justify-between">
       <div className="flex items-center gap-2">
         <button
           onClick={onToggleMic}
-          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold border transition-all ${
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition-all ${
             isMicMuted
-              ? 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100'
-              : 'bg-slate-50 text-slate-700 border-slate-300 hover:bg-slate-100'
+              ? 'bg-error-container/20 text-error border-error/30 hover:bg-error-container/40'
+              : 'bg-surface-container text-on-surface border-outline-variant/30 hover:bg-surface-container-high'
           }`}
         >
-          {isMicMuted ? <MicOff size={15} /> : <Mic size={15} />}
+          {isMicMuted ? <MicOff size={14} /> : <Mic size={14} />}
           <span>{isMicMuted ? 'Unmute Mic' : 'Mute Mic'}</span>
         </button>
 
         <button
           onClick={onToggleCamera}
-          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold border transition-all ${
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border transition-all ${
             !isCameraOn
-              ? 'bg-slate-100 text-slate-500 border-slate-300 hover:bg-slate-200'
-              : 'bg-emerald-50 text-emerald-800 border-emerald-300'
+              ? 'bg-error-container/20 text-error border-error/30 hover:bg-error-container/40'
+              : 'bg-surface-container text-on-surface border-outline-variant/30 hover:bg-surface-container-high'
           }`}
         >
-          {!isCameraOn ? <VideoOff size={15} /> : <Video size={15} />}
-          <span>{isCameraOn ? 'Camera On' : 'Camera Off'}</span>
+          {!isCameraOn ? <VideoOff size={14} /> : <Video size={14} />}
+          <span>{isCameraOn ? 'Camera Active' : 'Camera Off'}</span>
         </button>
       </div>
 
-      <div className="flex items-center gap-2">
-        {showConfirmEnd ? (
-          <div className="flex items-center gap-2 animate-fadeIn">
-            <span className="text-xs text-slate-600 font-semibold">Finish interview now?</span>
-            <button
-              onClick={() => {
-                setShowConfirmEnd(false);
-                onEndInterview();
-              }}
-              className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-bold shadow-xs transition-colors"
-            >
-              Yes, Generate Scorecard
-            </button>
-            <button
-              onClick={() => setShowConfirmEnd(false)}
-              className="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold transition-colors"
-            >
-              Cancel
-            </button>
-          </div>
-        ) : (
-          <button
-            onClick={() => setShowConfirmEnd(true)}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold bg-[#101C35] hover:bg-[#1b2b4d] text-white transition-all shadow-xs"
-          >
-            <LogOut size={14} />
-            <span>Finish & View Scorecard</span>
-          </button>
-        )}
-      </div>
+      <button
+        onClick={onEndInterview}
+        className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-error-container/20 hover:bg-error-container/40 border border-error/30 text-error transition-all duration-150 active:scale-[0.98]"
+      >
+        <LogOut size={14} />
+        <span>Conclude & Generate Scorecard</span>
+      </button>
     </div>
   );
 };

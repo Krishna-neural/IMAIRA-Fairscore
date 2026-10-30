@@ -1,22 +1,7 @@
 import React, { useState } from 'react';
 import { HumanAvatar } from '../components/avatar/HumanAvatar';
 import { speechService } from '../services/speechService';
-import {
-  Volume2,
-  ShieldCheck,
-  Award,
-  Sparkles,
-  Users,
-  GraduationCap,
-  Layers,
-  ArrowRight,
-  CheckCircle2,
-  AlertTriangle,
-  RotateCcw,
-  Zap,
-  Globe,
-  Lock,
-} from 'lucide-react';
+import { Volume2 } from 'lucide-react';
 
 interface LandingPageProps {
   onStartInterview: () => void;
@@ -28,11 +13,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   onExploreJudge,
 }) => {
   const [isPlayingDemo, setIsPlayingDemo] = useState(false);
-  const [activeAudienceTab, setActiveAudienceTab] = useState<'students' | 'placement'>('students');
-  const [simulatedMode, setSimulatedMode] = useState<'fairscore' | 'standard'>('fairscore');
+  const [activePerspective, setActivePerspective] = useState<'student' | 'officer'>('student');
 
-  const demoQuestionText =
-    "How do hash tables resolve collisions, and what is the asymptotic difference between separate chaining and open addressing?";
+  const demoText =
+    "Explain how Raft prevents split-brain scenarios during network partitions, and how randomized election timeouts guarantee term monotonicity.";
 
   const handleToggleDemo = () => {
     if (isPlayingDemo) {
@@ -41,461 +25,396 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       setTimeout(() => speechService.setMuted(false), 200);
     } else {
       setIsPlayingDemo(true);
-      speechService.speak(demoQuestionText, () => {
+      speechService.speak(demoText, () => {
         setIsPlayingDemo(false);
       });
     }
   };
 
   return (
-    <div className="space-y-16 py-6 font-sans">
-      {/* 1. Hero Section with Dual Action & Live Acoustic Simulator */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div className="lg:col-span-7 space-y-5">
-          {/* Track Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-blue-50 text-[#1A4482] border border-blue-200 rounded-full text-xs font-bold shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            Integraminds AI FRONTIER Track • "Hear the Answer, Not the Accent"
-          </div>
+    <div className="relative pt-6 pb-16 overflow-hidden space-y-16">
+      {/* Atmospheric Aura Background */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] glow-aura pointer-events-none -z-10"></div>
+      <div className="absolute top-96 left-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+      <div className="absolute top-72 right-1/4 w-96 h-96 bg-tertiary-container/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#101C35] tracking-tight leading-tight">
-            Mock interviews that hear the <span className="text-[#2457A6]">answer</span>, not the <span className="text-slate-400 line-through">accent</span>.
-          </h1>
-
-          <p className="text-base sm:text-lg font-medium text-slate-700 leading-relaxed">
-            Built for college students preparing for campus placements — especially first-generation graduates and students schooled in <strong>Tamil, Kannada, Telugu, or Hindi medium</strong>.
-          </p>
-
-          <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-xl">
-            Monolithic AI interviewers penalize Indian accents, mishear non-native pronunciations like <em>"has map"</em> for <em>"hash map"</em>, and dock qualified candidates for hesitation. IMAIRA FairScore decouples <strong>Content (60%)</strong> from <strong>Structure (40%)</strong> with a <strong>0% Fluency Penalty</strong>, ensuring your genuine technical ability always shines through.
-          </p>
-
-          {/* Key Value Badges */}
-          <div className="flex flex-wrap gap-2 pt-1 text-xs">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full font-semibold">
-              <ShieldCheck size={14} className="text-emerald-600" />
-              0% Accent & Pause Penalty
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-800 border border-blue-200 rounded-full font-semibold">
-              <Sparkles size={14} className="text-blue-600" />
-              2,000-Term Indian ASR Glossary
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-50 text-purple-800 border border-purple-200 rounded-full font-semibold">
-              <RotateCcw size={14} className="text-purple-600" />
-              Interactive Re-Answer Practice
-            </span>
-          </div>
-
-          {/* Primary Action Buttons */}
-          <div className="flex flex-wrap gap-3 pt-3">
-            <button
-              onClick={onStartInterview}
-              className="px-6 py-3.5 bg-[#2457A6] hover:bg-[#1A4482] text-white rounded-lg font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2 group"
-            >
-              <GraduationCap size={18} />
-              <span>Start Practice Interview</span>
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button
-              onClick={onExploreJudge}
-              className="px-5 py-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 rounded-lg font-semibold text-sm shadow-xs transition-all flex items-center gap-2"
-            >
-              <Users size={16} className="text-slate-500" />
-              <span>Placement Officer & Auditor Console</span>
-            </button>
-          </div>
+      {/* HERO SECTION */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-12 text-center lg:pt-8">
+        {/* Kernel Status Pill */}
+        <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/30 text-xs font-mono text-on-surface-variant mb-6 shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+          <span className="text-on-surface font-medium">IMAIRA KERNEL v4.2</span>
+          <span className="text-outline">/</span>
+          <span className="text-secondary font-medium">DECOUPLED FAIRNESS ENGINE</span>
+          <span className="text-outline">/</span>
+          <span className="text-tertiary">DETERMINISTIC LATENCY &lt; 320ms</span>
         </div>
 
-        {/* Right-Side Interactive Demo Card */}
-        <div className="lg:col-span-5 bg-white border border-slate-200 rounded-xl shadow-lg overflow-hidden">
-          <div className="bg-slate-900 text-white px-4 py-3 flex items-center justify-between text-xs">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-bold uppercase tracking-wider">Acoustic Fairness Comparison</span>
-            </div>
-            <span className="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">
-              Interactive Simulator
+        {/* Headline */}
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-on-surface max-w-5xl mx-auto tracking-tight mb-6 leading-tight">
+          Get judged on your intelligence. <br className="hidden sm:inline" />
+          <span className="bg-gradient-to-r from-secondary via-primary to-tertiary bg-clip-text text-transparent">
+            Not your accent.
+          </span>
+        </h1>
+
+        {/* Supporting Subtitle */}
+        <p className="text-base sm:text-lg text-on-surface-variant max-w-3xl mx-auto mb-8 leading-relaxed">
+          An AI-powered technical interview platform that understands what you know, verifies what you say, and evaluates your engineering decisions with deterministic, evidence-based rubrics.
+        </p>
+
+        {/* Primary CTAs */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+          <button
+            onClick={onStartInterview}
+            className="px-6 py-3 rounded-lg bg-primary-container text-on-primary-container text-sm font-semibold shadow-[0_0_30px_rgba(108,136,255,0.45)] hover:bg-primary-fixed-dim transition-all active:scale-[0.98] flex items-center space-x-2 border border-primary-fixed/20"
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>
+              rocket_launch
             </span>
+            <span>Start AI Interview</span>
+            <span className="bg-on-primary-container/20 text-on-primary-container text-[10px] font-mono px-2 py-0.5 rounded ml-1">
+              ⌘K
+            </span>
+          </button>
+          <button
+            onClick={onExploreJudge}
+            className="px-6 py-3 rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface text-sm font-semibold hover:bg-surface-container-high hover:border-outline-variant/60 transition-all flex items-center space-x-2"
+          >
+            <span className="material-symbols-outlined text-secondary" style={{ fontSize: '20px' }}>
+              architecture
+            </span>
+            <span>Explore Architecture</span>
+          </button>
+        </div>
+
+        {/* Micro Metric Indicators */}
+        <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-on-surface-variant">
+          <div className="flex items-center space-x-2 px-3 py-1.5 rounded-md bg-surface-container-low border border-outline-variant/20">
+            <span className="material-symbols-outlined text-secondary" style={{ fontSize: '16px' }}>
+              check_circle
+            </span>
+            <span>0.00% Accent Bias Variance (|Δ| = 0.00)</span>
           </div>
-
-          <div className="p-4 space-y-3.5 text-xs">
-            {/* Interactive Virtual Avatar Preview */}
-            <div className="flex justify-center">
-              <HumanAvatar
-                state={isPlayingDemo ? 'speaking' : 'idle'}
-                statusText={isPlayingDemo ? 'AI Interviewer Speaking...' : 'Virtual Technical Interviewer'}
-                currentSpeechText={demoQuestionText}
-              />
-            </div>
-
-            <div className="flex justify-center">
-              <button
-                type="button"
-                onClick={handleToggleDemo}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-[#2457A6] border border-blue-200 rounded text-xs font-bold transition-colors"
-              >
-                <Volume2 size={14} />
-                {isPlayingDemo ? 'Stop Audio Demo' : '🔊 Hear AI Interviewer Ask Technical Question'}
-              </button>
-            </div>
-
-            {/* Toggle Comparison Mode */}
-            <div className="flex bg-slate-100 p-1 rounded-lg border border-slate-200">
-              <button
-                onClick={() => setSimulatedMode('fairscore')}
-                className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-all ${
-                  simulatedMode === 'fairscore'
-                    ? 'bg-white text-[#2457A6] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                ✨ IMAIRA FairScore (Our Model)
-              </button>
-              <button
-                onClick={() => setSimulatedMode('standard')}
-                className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-all ${
-                  simulatedMode === 'standard'
-                    ? 'bg-white text-red-600 shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                ⚠️ Standard AI Interviewer
-              </button>
-            </div>
-
-            {/* Candidate Spoken Scenario */}
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg space-y-1.5">
-              <div className="flex items-center justify-between text-[11px]">
-                <span className="font-bold text-slate-700">Candidate's Indian Spoken English:</span>
-                <span className="text-[10px] text-slate-500 font-mono">Tamil/Hindi Native Speaker</span>
-              </div>
-              <p className="text-slate-900 font-mono text-[11px] bg-white p-2 rounded border border-slate-200">
-                "Sir, for collision in our project we use{' '}
-                <strong className={simulatedMode === 'fairscore' ? 'text-emerald-700 underline decoration-emerald-500' : 'text-red-600 underline decoration-red-500'}>
-                  has map
-                </strong>{' '}
-                with chaining, and for container deployment we use{' '}
-                <strong className={simulatedMode === 'fairscore' ? 'text-emerald-700 underline decoration-emerald-500' : 'text-red-600 underline decoration-red-500'}>
-                  Kuber-netes
-                </strong>
-                ... um, space complexity is O(N)."
-              </p>
-            </div>
-
-            {/* Comparison Result */}
-            {simulatedMode === 'fairscore' ? (
-              <div className="p-3 bg-emerald-50/80 border border-emerald-200 rounded-lg space-y-2 text-emerald-950">
-                <div className="flex items-center justify-between">
-                  <span className="font-bold flex items-center gap-1.5 text-xs text-emerald-900">
-                    <CheckCircle2 size={15} className="text-emerald-600" />
-                    Stage 2 Acoustic Recovery: Verified
-                  </span>
-                  <span className="text-[10px] bg-emerald-200 text-emerald-900 font-extrabold px-1.5 py-0.5 rounded">
-                    Score: 88% (Pass)
-                  </span>
-                </div>
-                <p className="text-[11px] text-emerald-800 leading-snug">
-                  Phonetic engine recovers <strong>"hash map"</strong> and <strong>"Kubernetes"</strong> against 2,000-term glossary. Hesitation <em>"um"</em> is classified under delivery diagnostics with <strong>0 marks deducted</strong>. Full marks awarded for collision mechanics.
-                </p>
-              </div>
-            ) : (
-              <div className="p-3 bg-red-50/80 border border-red-200 rounded-lg space-y-2 text-red-950">
-                <div className="flex items-center justify-between">
-                  <span className="font-bold flex items-center gap-1.5 text-xs text-red-900">
-                    <AlertTriangle size={15} className="text-red-600" />
-                    Conventional Monolithic ASR Failure
-                  </span>
-                  <span className="text-[10px] bg-red-200 text-red-900 font-extrabold px-1.5 py-0.5 rounded">
-                    Score: 35% (Fail)
-                  </span>
-                </div>
-                <p className="text-[11px] text-red-800 leading-snug">
-                  ASR mishears "has map" and drops "Kubernetes". Scorer docks <strong>-25 marks</strong> for missing data structure and <strong>-15 marks</strong> for speech pauses, unfairly rejecting a qualified candidate.
-                </p>
-              </div>
-            )}
-
-            {/* Accurate Decoupled Weights Grid */}
-            <div className="grid grid-cols-3 gap-2 text-center pt-1">
-              <div className="p-2 bg-blue-50/60 border border-blue-200 rounded">
-                <div className="text-base font-extrabold text-[#2457A6]">60%</div>
-                <div className="text-[10px] uppercase font-bold text-slate-600">Content Weight</div>
-              </div>
-              <div className="p-2 bg-slate-50 border border-slate-200 rounded">
-                <div className="text-base font-extrabold text-[#172846]">40%</div>
-                <div className="text-[10px] uppercase font-bold text-slate-600">Structure Weight</div>
-              </div>
-              <div className="p-2 bg-emerald-50 border border-emerald-200 rounded">
-                <div className="text-base font-extrabold text-emerald-700">0%</div>
-                <div className="text-[10px] uppercase font-bold text-emerald-800">Accent Penalty</div>
-              </div>
-            </div>
+          <div className="flex items-center space-x-2 px-3 py-1.5 rounded-md bg-surface-container-low border border-outline-variant/20">
+            <span className="material-symbols-outlined text-primary" style={{ fontSize: '16px' }}>
+              speed
+            </span>
+            <span>Sub-320ms ASR Latency</span>
           </div>
-
-          <div className="bg-slate-50 px-4 py-2.5 border-t border-slate-200 flex justify-between items-center text-[11px] text-slate-600 font-medium">
-            <span>🛡️ Benchmark Invariance: |Δ| ≤ 5.0 pts</span>
-            <span className="text-emerald-700 font-bold">Tested Across 5 Indian Accents</span>
+          <div className="flex items-center space-x-2 px-3 py-1.5 rounded-md bg-surface-container-low border border-outline-variant/20">
+            <span className="material-symbols-outlined text-tertiary" style={{ fontSize: '16px' }}>
+              verified_user
+            </span>
+            <span>2,000-Term Glossary Recovery</span>
           </div>
         </div>
       </section>
 
-      {/* 2. Dual Audience Tab Switcher: For Students vs For Placement Officers */}
-      <section className="bg-white border border-slate-200 rounded-xl p-6 shadow-xs space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-4 gap-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#2457A6]">
-              Who IMAIRA FairScore Serves
-            </span>
-            <h2 className="text-2xl font-extrabold text-[#101C35] mt-1">
-              Designed for Campus Hiring Realities
-            </h2>
+      {/* INTERACTIVE PRODUCT SIMULATION FRAME */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="relative rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-[0_24px_60px_rgba(0,0,0,0.85)] overflow-hidden">
+          {/* Window Chrome / Control Bar */}
+          <div className="flex items-center justify-between px-4 py-3 bg-surface-container-lowest border-b border-outline-variant/20">
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 rounded-full bg-error/70"></div>
+              <div className="w-3 h-3 rounded-full bg-secondary/50"></div>
+              <div className="w-3 h-3 rounded-full bg-tertiary/50"></div>
+              <span className="ml-2 font-mono text-xs text-on-surface-variant">
+                live_session_session_id_4492.kernel
+              </span>
+            </div>
+            <div className="flex items-center space-x-3 text-xs font-mono">
+              <span className="flex items-center text-secondary">
+                <span className="w-2 h-2 rounded-full bg-secondary animate-ping mr-1.5"></span>
+                BUFFER STREAMING
+              </span>
+              <span className="text-outline">|</span>
+              <span className="text-on-surface-variant">
+                LATENCY: <strong className="text-primary font-mono">142ms</strong>
+              </span>
+              <span className="text-outline">|</span>
+              <span className="text-on-surface-variant">
+                COHORT: <strong className="text-on-surface font-mono">SE-APAC-04</strong>
+              </span>
+            </div>
           </div>
-          <div className="flex bg-slate-100 p-1 rounded-lg border border-slate-200">
-            <button
-              onClick={() => setActiveAudienceTab('students')}
-              className={`px-4 py-2 rounded-md text-xs font-bold transition-all flex items-center gap-1.5 ${
-                activeAudienceTab === 'students'
-                  ? 'bg-white text-[#2457A6] shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <GraduationCap size={15} />
-              <span>For Students & Job Seekers</span>
-            </button>
-            <button
-              onClick={() => setActiveAudienceTab('placement')}
-              className={`px-4 py-2 rounded-md text-xs font-bold transition-all flex items-center gap-1.5 ${
-                activeAudienceTab === 'placement'
-                  ? 'bg-white text-[#2457A6] shadow-xs'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <Users size={15} />
-              <span>For Placement Officers & Evaluators</span>
-            </button>
+
+          {/* Product Cockpit Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-outline-variant/20">
+            {/* Left Console: Holographic Node & Question Context (5 Cols) */}
+            <div className="lg:col-span-5 p-6 flex flex-col justify-between bg-surface-container-lowest/60 space-y-6">
+              <div>
+                {/* AI Agent Avatar Box */}
+                <div className="relative rounded-xl p-6 bg-surface-container-low border border-outline-variant/20 flex flex-col items-center justify-center text-center overflow-hidden mb-6">
+                  {/* Grid background overlay */}
+                  <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                  
+                  {/* Holographic Pulsing Avatar Core */}
+                  <div className="relative w-28 h-28 mb-4 flex items-center justify-center">
+                    <div className="absolute inset-0 rounded-full border border-secondary/30 animate-spin" style={{ animationDuration: '10s' }}></div>
+                    <div className="absolute inset-2 rounded-full border border-primary/20 animate-spin" style={{ animationDuration: '6s', animationDirection: 'reverse' }}></div>
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-primary to-secondary p-0.5 shadow-[0_0_30px_rgba(87,230,255,0.4)]">
+                      <div className="w-full h-full bg-surface-container-lowest rounded-full flex items-center justify-center">
+                        <span className="material-symbols-outlined text-secondary" style={{ fontSize: '28px' }}>
+                          neurology
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-sm font-bold text-on-surface mb-0.5">IMAIRA Interview Node 01</div>
+                  <div className="text-[10px] font-mono text-secondary tracking-wider mb-4">SYNTHETIC EVALUATOR ACTIVE</div>
+
+                  {/* Live Waveform Frequency Visualizer */}
+                  <div className="flex items-center space-x-1.5 h-10 py-1 mb-3">
+                    <span className="w-1 bg-secondary rounded-full wave-bar"></span>
+                    <span className="w-1 bg-secondary rounded-full wave-bar"></span>
+                    <span className="w-1 bg-primary rounded-full wave-bar"></span>
+                    <span className="w-1 bg-primary rounded-full wave-bar"></span>
+                    <span className="w-1 bg-tertiary rounded-full wave-bar"></span>
+                    <span className="w-1 bg-secondary rounded-full wave-bar"></span>
+                    <span className="w-1 bg-primary rounded-full wave-bar"></span>
+                    <span className="w-1 bg-secondary rounded-full wave-bar"></span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleToggleDemo}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant/40 hover:border-secondary/60 text-secondary text-xs font-mono transition-colors"
+                  >
+                    <Volume2 size={13} />
+                    <span>{isPlayingDemo ? 'Stop Speaking' : '🔊 Hear AI Question'}</span>
+                  </button>
+                </div>
+
+                {/* Question Card */}
+                <div className="rounded-xl p-4 bg-surface-container border border-outline-variant/30 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono text-primary uppercase font-semibold tracking-wider">
+                      Active Evaluation Rubric #4
+                    </span>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-surface-container-high text-on-surface-variant">
+                      L6 Dist-Sys
+                    </span>
+                  </div>
+                  <h3 className="text-sm font-bold text-on-surface">Distributed Consensus: Partition Recovery</h3>
+                  <p className="text-xs text-on-surface-variant leading-relaxed">
+                    "Explain the Raft leader election mechanism when split-vote network partitions occur. Specifically address term index monotonicity and quorum re-establishment."
+                  </p>
+                </div>
+              </div>
+
+              {/* Dialect Invariant Check */}
+              <div className="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-xs font-mono">
+                <span className="text-on-surface-variant">Decoupled Phonetic Filter:</span>
+                <span className="inline-flex items-center text-secondary font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary mr-1"></span>
+                  PASSED (Zero Accent Penalty)
+                </span>
+              </div>
+            </div>
+
+            {/* Right Console: Transcript, Extraction & Semantic Telemetry (7 Cols) */}
+            <div className="lg:col-span-7 p-6 flex flex-col justify-between bg-surface-container-low/40 space-y-6">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-2">
+                    <span className="material-symbols-outlined text-secondary" style={{ fontSize: '18px' }}>
+                      subtitles
+                    </span>
+                    <span className="text-sm font-bold text-on-surface">Phoneme-Agnostic Audio Ingestion</span>
+                  </div>
+                  <span className="px-2 py-1 rounded bg-surface-container-high text-xs font-mono text-secondary border border-outline-variant/20">
+                    ASR Confidence: 99.4%
+                  </span>
+                </div>
+
+                {/* Candidate Transcript with Verified Term Badges */}
+                <div className="rounded-xl bg-surface-container-lowest p-4 border border-outline-variant/20 font-mono text-xs space-y-3 mb-6">
+                  <div className="text-on-surface-variant">
+                    <span className="text-outline">[00:14.2s] </span>
+                    "When network partition happens, nodes in minority partition cannot reach quorum. So if leader lease expires, nodes initiate election with randomized timeouts. The candidate increments its{' '}
+                    <span className="bg-secondary/15 text-secondary border border-secondary/30 px-1.5 py-0.5 rounded font-bold">
+                      monotonic term index
+                    </span>{' '}
+                    and requests votes..."
+                  </div>
+                  <div className="text-on-surface-variant">
+                    <span className="text-outline">[00:26.8s] </span>
+                    "Even if candidate pronounces 'hash map' as 'has map' or 'Dijkstra' as 'die extra', the Stage 2 acoustic recovery aligns it against our 2,000-term glossary with{' '}
+                    <span className="bg-primary/15 text-primary border border-primary/30 px-1.5 py-0.5 rounded font-bold">
+                      zero fluency penalty
+                    </span>
+                    ."
+                  </div>
+                </div>
+
+                {/* 3-Dimensional Decoupled Score Cards */}
+                <div className="grid grid-cols-3 gap-3 text-center">
+                  <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20">
+                    <div className="text-lg font-bold text-secondary">92.4%</div>
+                    <div className="text-[10px] font-mono text-outline uppercase">Content (60%)</div>
+                    <span className="text-[9px] text-secondary font-mono mt-1 block">Full Technical Credit</span>
+                  </div>
+                  <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20">
+                    <div className="text-lg font-bold text-primary">88.5%</div>
+                    <div className="text-[10px] font-mono text-outline uppercase">Structure (40%)</div>
+                    <span className="text-[9px] text-primary font-mono mt-1 block">Framing & Closure</span>
+                  </div>
+                  <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20">
+                    <div className="text-lg font-bold text-tertiary">91.0%</div>
+                    <div className="text-[10px] font-mono text-outline uppercase">Delivery Diagnostics</div>
+                    <span className="text-[9px] text-tertiary font-mono mt-1 block">0% Score Deduction</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Acoustic Telemetry Bar */}
+              <div className="pt-4 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+                <span className="text-on-surface-variant flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-secondary text-sm">shield</span>
+                  Acoustic Slice Recovery: Active (2,000 Terms)
+                </span>
+                <span className="text-secondary font-semibold">
+                  Overall FairScore: 90.8% (Exemplary)
+                </span>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        {activeAudienceTab === 'students' ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-5 bg-blue-50/50 border border-blue-200 rounded-lg space-y-2.5">
-              <div className="w-8 h-8 rounded bg-blue-100 text-[#2457A6] flex items-center justify-center font-bold">
-                01
-              </div>
-              <h3 className="text-sm font-bold text-[#101C35]">Speak Freely in Your Natural Voice</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                You do not need to fake an American or British accent. Whether you speak Indian English with Tamil, Telugu, Kannada, or Hindi cadence, our acoustic slice verification maps your pronunciation accurately.
-              </p>
+      {/* DUAL PERSPECTIVE TABS: STUDENT COACHING VS PLACEMENT OFFICER */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 space-y-6">
+        <div className="text-center space-y-2">
+          <span className="text-xs font-mono text-secondary uppercase tracking-wider font-semibold">
+            Purpose-Built For Real Stakeholders
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-on-surface">
+            Who Benefits From IMAIRA FairScore?
+          </h2>
+          <p className="text-xs sm:text-sm text-on-surface-variant max-w-xl mx-auto">
+            Switch views to explore how our evaluation architecture directly empowers candidates and campus placement leaders.
+          </p>
+        </div>
+
+        <div className="flex justify-center gap-2">
+          <button
+            type="button"
+            onClick={() => setActivePerspective('student')}
+            className={`px-4 py-2 rounded-lg text-xs font-mono font-semibold transition-all ${
+              activePerspective === 'student'
+                ? 'bg-primary-container text-on-primary-container shadow-sm'
+                : 'bg-surface-container text-on-surface-variant hover:text-on-surface border border-outline-variant/30'
+            }`}
+          >
+            🎓 For Students & Candidates
+          </button>
+          <button
+            type="button"
+            onClick={() => setActivePerspective('officer')}
+            className={`px-4 py-2 rounded-lg text-xs font-mono font-semibold transition-all ${
+              activePerspective === 'officer'
+                ? 'bg-secondary text-[#00363e] shadow-sm'
+                : 'bg-surface-container text-on-surface-variant hover:text-on-surface border border-outline-variant/30'
+            }`}
+          >
+            🏢 For Placement Officers & Colleges
+          </button>
+        </div>
+
+        {activePerspective === 'student' ? (
+          <div className="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-4">
+            <div className="flex items-center gap-2 text-primary font-bold text-sm">
+              <span className="material-symbols-outlined">school</span>
+              <span>Speak Naturally in Your Accent. Build Real Interview Confidence.</span>
             </div>
-            <div className="p-5 bg-emerald-50/50 border border-emerald-200 rounded-lg space-y-2.5">
-              <div className="w-8 h-8 rounded bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-                02
+            <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              If you went to school in a Tamil, Kannada, Telugu, or Hindi medium, standard interview platforms mark your technical knowledge down just because you don't sound like a Silicon Valley native. IMAIRA FairScore guarantees that your content score depends 100% on what you explain, not how fluent you sound.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20 space-y-1">
+                <span className="font-bold text-xs text-on-surface block">Zero Accent Penalties</span>
+                <span className="text-[11px] text-on-surface-variant block">Pronunciation recoveries are diagnostic coaching points with 0.0 marks deducted.</span>
               </div>
-              <h3 className="text-sm font-bold text-[#101C35]">Zero Hesitation Penalties</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Take your time to structure your thoughts. Extended pauses or conversational filler words ("um", "like") are provided as gentle delivery feedback and will <strong>never decrease your technical score</strong>.
-              </p>
-            </div>
-            <div className="p-5 bg-purple-50/50 border border-purple-200 rounded-lg space-y-2.5">
-              <div className="w-8 h-8 rounded bg-purple-100 text-purple-800 flex items-center justify-center font-bold">
-                03
+              <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20 space-y-1">
+                <span className="font-bold text-xs text-on-surface block">Timestamped Model Fixes</span>
+                <span className="text-[11px] text-on-surface-variant block">Point directly to what concept was missing with actionable ≤30 word model fixes.</span>
               </div>
-              <h3 className="text-sm font-bold text-[#101C35]">Interactive Re-Answer Practice</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Receive model sentence fixes (≤30 words) with exact timestamps. Hit <strong>"Practice Re-Answer"</strong> to re-speak the missing concept and instantly recover lost marks on your scorecard.
-              </p>
+              <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20 space-y-1">
+                <span className="font-bold text-xs text-on-surface block">Instant Re-Answer Loop</span>
+                <span className="text-[11px] text-on-surface-variant block">Practice re-explaining the concept right inside the evaluation to recover marks on the spot.</span>
+              </div>
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-5 bg-slate-50 border border-slate-200 rounded-lg space-y-2.5">
-              <div className="w-8 h-8 rounded bg-slate-200 text-slate-800 flex items-center justify-center font-bold">
-                01
-              </div>
-              <h3 className="text-sm font-bold text-[#101C35]">Distinguish Skill Gaps from Tool Bias</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Placement officers cannot tell whether a low cohort average is about skill or about the tool. IMAIRA FairScore proves with mathematical certainty that low scores reflect missing technical concepts, not pronunciation.
-              </p>
+          <div className="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-4">
+            <div className="flex items-center gap-2 text-secondary font-bold text-sm">
+              <span className="material-symbols-outlined">analytics</span>
+              <span>Differentiate True Technical Skill from Acoustic Tool Bias</span>
             </div>
-            <div className="p-5 bg-blue-50/50 border border-blue-200 rounded-lg space-y-2.5">
-              <div className="w-8 h-8 rounded bg-blue-100 text-[#2457A6] flex items-center justify-center font-bold">
-                02
+            <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              When student cohort averages drop on standard automated mock platforms, placement officers cannot tell if their students lack engineering knowledge or if the speech recognition tool failed on their accent. IMAIRA's Placement Officer Audit Tool provides mathematical evidence of fairness.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20 space-y-1">
+                <span className="font-bold text-xs text-on-surface block">Tool vs. Skill Diagnostic</span>
+                <span className="text-[11px] text-on-surface-variant block">Separates acoustic recovery rate from actual rubric mastery across student batches.</span>
               </div>
-              <h3 className="text-sm font-bold text-[#101C35]">Cross-Accent Benchmark Audit</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Verified compliance with Integraminds Round 2 requirements: the same answer spoken by speakers with different regional accents varies by <strong>no more than 5.0 points out of 100</strong>.
-              </p>
-            </div>
-            <div className="p-5 bg-emerald-50/50 border border-emerald-200 rounded-lg space-y-2.5">
-              <div className="w-8 h-8 rounded bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-                03
+              <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20 space-y-1">
+                <span className="font-bold text-xs text-on-surface block">Fairness Audit Log</span>
+                <span className="text-[11px] text-on-surface-variant block">Live mathematical verification: |Δ| ≤ 5.0 pts across regional speaking styles.</span>
               </div>
-              <h3 className="text-sm font-bold text-[#101C35]">Auditable Terminology Logs</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Inspect millisecond-level acoustic slices for every technical keyword (RapidFuzz + Double Metaphone phonetic recovery). Download comprehensive cohort reports for college placement drives.
-              </p>
+              <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20 space-y-1">
+                <span className="font-bold text-xs text-on-surface block">Exportable Audit Dossier</span>
+                <span className="text-[11px] text-on-surface-variant block">Download full compliance and cohort analytics for campus placement records.</span>
+              </div>
             </div>
           </div>
         )}
       </section>
 
-      {/* 3. Three Independent Evaluation Dimensions (Accurate Decoupled Weights) */}
-      <section className="space-y-6">
+      {/* SYSTEM PIPELINE SECTION */}
+      <section id="howItWorksSection" className="max-w-7xl mx-auto px-4 sm:px-6 space-y-6">
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2457A6]">
-            Transparent Scoring Architecture
+          <span className="text-xs font-mono uppercase tracking-wider text-secondary">
+            System Pipeline
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#101C35]">
-            Three Strictly Decoupled Evaluation Dimensions
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-on-surface">
+            An Evaluation Pipeline Built Around Fairness.
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500">
-            Unlike standard AI bots that blend vocabulary and grammar into a single biased number, IMAIRA FairScore measures each dimension independently.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Dimension 1: Content (60%) */}
-          <div className="p-6 bg-white border border-slate-200 border-t-4 border-t-[#2457A6] rounded-xl shadow-xs space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase text-[#2457A6]">Dimension 1</span>
-              <span className="px-2 py-0.5 bg-blue-100 text-[#1A4482] rounded text-[11px] font-extrabold">
-                60% Total Weight
-              </span>
-            </div>
-            <h3 className="text-lg font-bold text-[#101C35]">Content Mastery</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Evaluates factual engineering accuracy, algorithmic mechanisms, and architectural tradeoffs against semantic rubric propositions (≥5 words).
-            </p>
-            <div className="p-2.5 bg-blue-50/60 border border-blue-200 rounded text-xs text-blue-950 font-medium">
-              🛡️ Invariant to regional accents, speaking pauses, and minor grammar variations.
-            </div>
-          </div>
-
-          {/* Dimension 2: Structure (40%) */}
-          <div className="p-6 bg-white border border-slate-200 border-t-4 border-t-[#172846] rounded-xl shadow-xs space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase text-[#172846]">Dimension 2</span>
-              <span className="px-2 py-0.5 bg-slate-200 text-slate-800 rounded text-[11px] font-extrabold">
-                40% Total Weight
-              </span>
-            </div>
-            <h3 className="text-lg font-bold text-[#101C35]">Structure & Coherence</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Measures logical argument progression: Framing (35% direct opening), Coherence (40% causal progression), and Closure (25% architectural synthesis).
-            </p>
-            <div className="p-2.5 bg-slate-50 border border-slate-200 rounded text-xs text-slate-700 font-medium">
-              🛡️ Decoupled from native pronunciation cadence, speech rate, and acoustic pitch.
-            </div>
-          </div>
-
-          {/* Dimension 3: Delivery Diagnostics (0% Penalty) */}
-          <div className="p-6 bg-white border border-slate-200 border-t-4 border-t-emerald-600 rounded-xl shadow-xs space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase text-emerald-700">Dimension 3</span>
-              <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded text-[11px] font-extrabold">
-                0% Score Penalty
-              </span>
-            </div>
-            <h3 className="text-lg font-bold text-[#101C35]">Delivery & Articulation Diagnostics</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Analyzes speaking pace (optimal 110–170 WPM), hesitation duration, and filler word frequency solely as actionable coaching tips.
-            </p>
-            <div className="p-2.5 bg-emerald-50 border border-emerald-200 rounded text-xs text-emerald-900 font-semibold">
-              ✓ 0.0 marks deducted. First-generation graduates are never penalized for delivery style.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. 5-Stage System Pipeline Section */}
-      <section id="howItWorksSection" className="space-y-6">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#2457A6]">
-            Engineering Pipeline
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#101C35]">
-            How IMAIRA FairScore Evaluates Technical Answers
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-500">
+          <p className="text-xs sm:text-sm text-on-surface-variant">
             Five coordinated stages ensure objective, repeatable technical evaluations independent of acoustic surface variations.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {[
-            {
-              step: '01',
-              title: 'Continuous Capture',
-              desc: 'Continuous Web Audio API recording with client-side decibel levels. No word or duration cutoff.',
-            },
-            {
-              step: '02',
-              title: 'Sub-Second Stream',
-              desc: 'Streaming speech recognition emitting real-time provisional candidate hypotheses.',
-            },
-            {
-              step: '03',
-              title: 'Acoustic Verification',
-              desc: 'Stage 2 glossary alignment with RapidFuzz and Metaphone phonetic matching with conservative abstention.',
-            },
-            {
-              step: '04',
-              title: 'Decoupled Scoring',
-              desc: 'Separate scoring for Content (60%) and Structure (40%) with Isotonic Calibration to human rubrics.',
-            },
-            {
-              step: '05',
-              title: 'Re-Answer Coaching',
-              desc: 'Time-linked actionable fixes (≤30 words) with interactive instant re-answer rescoring loop.',
-            },
+            { step: '01', title: 'Capture', desc: 'Continuous audio streaming via Web Audio API with client-side volume analysis.' },
+            { step: '02', title: 'Transcribe', desc: 'Sub-second streaming recognition emitting provisional candidate hypotheses.' },
+            { step: '03', title: 'Verify', desc: 'Stage 2 glossary alignment with 2,000 engineering terms and acoustic check.' },
+            { step: '04', title: 'Evaluate', desc: 'Decoupled scoring for Content (60%), Structure (40%), and Delivery (0% penalty).' },
+            { step: '05', title: 'Report', desc: 'Isotonic calibration, Dual Diagnosis, and instant Practice Re-Answer loop.' },
           ].map((item, idx) => (
             <div
               key={idx}
-              className="p-4 bg-white border border-slate-200 rounded-lg shadow-xs space-y-2 hover:border-[#2457A6] hover:shadow-md transition-all group"
+              className="p-4 bg-surface-container-low border border-outline-variant/20 rounded-xl space-y-2 hover:border-primary/50 transition-all shadow-sm"
             >
-              <span className="w-8 h-8 rounded-lg bg-blue-50 text-[#2457A6] font-extrabold text-xs flex items-center justify-center group-hover:bg-[#2457A6] group-hover:text-white transition-colors">
+              <span className="w-7 h-7 rounded bg-surface-container-high text-primary font-mono font-bold text-xs flex items-center justify-center border border-outline-variant/30">
                 {item.step}
               </span>
-              <h4 className="text-sm font-bold text-[#101C35]">{item.title}</h4>
-              <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+              <h4 className="text-sm font-bold text-on-surface">{item.title}</h4>
+              <p className="text-xs text-on-surface-variant leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 5. Student Reassurance Banner */}
-      <section className="bg-gradient-to-r from-blue-900 to-[#101C35] text-white rounded-xl p-8 shadow-md">
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-800/60 border border-blue-700 rounded-full text-xs font-semibold text-blue-200">
-            <Lock size={13} />
-            Student Privacy & Anti-Bias Commitment
-          </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Ready to practice your placement interview without fear?
-          </h3>
-          <p className="text-xs sm:text-sm text-blue-200 leading-relaxed">
-            Your audio is processed purely for technical keyword verification and is automatically deleted upon session conclusion. Zero facial emotion scoring, zero accent deductions, and 100% focus on engineering concepts.
-          </p>
-          <div className="pt-2">
-            <button
-              onClick={onStartInterview}
-              className="px-6 py-3 bg-white hover:bg-slate-100 text-[#101C35] rounded-lg font-bold text-sm shadow-sm transition-all"
-            >
-              Launch Practice Interview Session →
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Corporate Footer */}
-      <footer className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
-        <div>© 2026 IMAIRA FairScore • Integraminds AI FRONTIER Track</div>
-        <div className="flex items-center gap-4">
-          <span>Targeted for Tamil, Kannada, Telugu & Hindi Medium Engineers</span>
-          <button onClick={onExploreJudge} className="text-[#2457A6] font-semibold hover:underline">
-            Audit Documentation ↗
-          </button>
-        </div>
+      {/* FOOTER */}
+      <footer className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 border-t border-outline-variant/20 flex flex-col sm:flex-row justify-between items-center text-xs font-mono text-outline gap-4">
+        <div>© 2026 IMAIRA FairScore • "Get Judged on Intelligence. Not Your Accent."</div>
+        <div>Integraminds AI FRONTIER Software Track • Candidate Platform v4.2</div>
       </footer>
     </div>
   );

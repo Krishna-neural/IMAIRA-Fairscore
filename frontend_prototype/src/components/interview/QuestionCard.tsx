@@ -1,5 +1,5 @@
 import React from 'react';
-import { Volume2, BookOpen, Sparkles, HelpCircle } from 'lucide-react';
+import { Volume2, BookOpen } from 'lucide-react';
 import { Question } from '../../types/interview';
 
 interface QuestionCardProps {
@@ -16,54 +16,53 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
   onReplay,
 }) => {
   return (
-    <div className="bg-white border border-slate-200 border-l-4 border-l-[#2457A6] rounded-xl p-5 shadow-xs font-sans space-y-3">
-      <div className="flex items-center justify-between gap-3 flex-wrap">
+    <div className="w-full rounded-2xl bg-surface-container/70 border border-outline-variant/30 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.65)] p-5 relative overflow-hidden">
+      {/* Top light refraction gradient line */}
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+
+      <div className="flex items-center justify-between gap-2 mb-3">
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="px-2.5 py-1 rounded-full text-[11px] font-extrabold uppercase bg-blue-50 text-[#1A4482] border border-blue-200">
-            {question?.category || 'Technical Interview Question'}
+          <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-primary/10 text-primary border border-primary/25">
+            {question?.category || 'Engineering Question'}
           </span>
-          <span className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase bg-slate-100 text-slate-700 border border-slate-200">
+          <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-surface-container-high text-on-surface-variant border border-outline-variant/30">
             {question?.difficulty || 'Intermediate'}
           </span>
-          {question?.key_concepts?.map((c, i) => (
-            <span
-              key={i}
-              className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200"
-            >
-              #{c}
-            </span>
-          ))}
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="text-xs font-black text-slate-600 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200">
-            Question {questionNumber} of {totalQuestions}
+          <span className="text-xs font-mono text-outline">
+            Question <span className="text-primary font-bold">{questionNumber}</span> of {totalQuestions}
           </span>
           {onReplay && (
             <button
               onClick={onReplay}
-              className="flex items-center gap-1 px-2.5 py-1 text-xs font-bold text-[#2457A6] bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg transition-colors"
-              title="Hear the interviewer repeat the question"
+              className="p-1 rounded bg-surface-container text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-colors"
+              title="Replay Spoken Question"
             >
-              <Volume2 size={14} />
-              <span>Replay Question</span>
+              <Volume2 size={15} />
             </button>
           )}
         </div>
       </div>
 
-      <div className="pt-1">
-        <h3 className="text-base sm:text-lg font-extrabold text-[#101C35] leading-relaxed">
-          {question?.question || 'Preparing your technical question...'}
-        </h3>
-      </div>
+      <p className="text-base sm:text-lg font-medium text-on-surface leading-snug">
+        “{question?.question || 'Preparing your technical question...'}”
+      </p>
 
-      <div className="text-[11px] text-slate-500 flex items-center gap-1.5 pt-1 border-t border-slate-100">
-        <Sparkles size={12} className="text-blue-500" />
-        <span>
-          Take your time to organize your thoughts. Structure your answer: start with the definition, explain the mechanism, and mention tradeoffs.
-        </span>
-      </div>
+      {question?.key_concepts && question.key_concepts.length > 0 && (
+        <div className="mt-3.5 flex flex-wrap items-center gap-2 text-xs font-mono">
+          <span className="text-outline text-[11px]">Technical Focus:</span>
+          {question.key_concepts.map((c, i) => (
+            <span
+              key={i}
+              className="px-2.5 py-0.5 rounded bg-surface-container-high text-secondary border border-secondary/20 text-[11px]"
+            >
+              {c}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

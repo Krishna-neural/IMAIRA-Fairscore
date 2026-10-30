@@ -26,66 +26,75 @@ export const TestingLabRunner: React.FC = () => {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-white border border-slate-200 rounded-lg">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-5 bg-surface-container-low border border-outline-variant/30 rounded-xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)]">
         <div>
-          <h3 className="text-base font-bold text-[#101C35]">
-            Automated Testing Lab (18 Categories)
+          <h3 className="text-sm font-bold text-on-surface">
+            Automated Testing Lab (18 Verification Categories)
           </h3>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-outline font-mono mt-0.5">
             Executes real unit and integration test assertions directly against the active FastAPI backend:
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
-          <span className="px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 text-xs font-bold border border-emerald-300">
+        <div className="flex items-center gap-2 font-mono text-xs">
+          <span className="px-3 py-1 rounded-lg bg-secondary/15 text-secondary font-bold border border-secondary/30">
             {stats.passed} PASSED
           </span>
-          <span className="px-2.5 py-1 rounded bg-red-100 text-red-800 text-xs font-bold border border-red-300">
-            {stats.failed} FAILED
-          </span>
+          {stats.failed > 0 && (
+            <span className="px-3 py-1 rounded-lg bg-error-container/40 text-error font-bold border border-error/50">
+              {stats.failed} FAILED
+            </span>
+          )}
           <button
             onClick={runTests}
             disabled={loading}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-[#2457A6] hover:bg-[#1A4482] text-white rounded text-xs font-semibold shadow-xs disabled:opacity-50 transition-colors"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container rounded-lg text-xs font-bold shadow-sm disabled:opacity-50 transition-all"
           >
             <RotateCcw size={12} className={loading ? 'animate-spin' : ''} />
-            <span>{loading ? 'Running 18 Tests...' : 'Re-run Tests'}</span>
+            <span>{loading ? 'Executing Suite...' : 'Re-run Tests'}</span>
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
         {results.map((t, idx) => (
           <div
             key={idx}
-            className={`p-3.5 bg-white border rounded-lg shadow-xs flex flex-col justify-between ${
-              t.passed ? 'border-l-4 border-l-emerald-600 border-slate-200' : 'border-l-4 border-l-red-600 border-slate-200'
+            className={`p-4 bg-surface-container-low border rounded-xl shadow-sm flex flex-col justify-between font-mono text-xs transition-colors ${
+              t.passed ? 'border-l-4 border-l-secondary border-outline-variant/25' : 'border-l-4 border-l-error border-outline-variant/25'
             }`}
           >
             <div>
-              <div className="flex items-center justify-between mb-1.5">
+              <div className="flex items-center justify-between mb-2">
                 <span
-                  className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold ${
-                    t.passed ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'
+                  className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[10px] font-bold border ${
+                    t.passed ? 'bg-secondary/15 text-secondary border-secondary/30' : 'bg-error-container/40 text-error border-error/50'
                   }`}
                 >
                   {t.passed ? <CheckCircle2 size={12} /> : <XCircle size={12} />}
                   {t.passed ? 'PASSED' : 'FAILED'} ({t.latency_ms}ms)
                 </span>
-                <span className="text-[11px] font-semibold text-slate-500">{t.category}</span>
+                <span className="text-[11px] text-outline">{t.category}</span>
               </div>
 
-              <h4 className="text-xs font-bold text-[#101C35] mb-1">{t.test_name}</h4>
+              <h4 className="text-xs font-bold text-on-surface mb-1 font-sans">{t.test_name}</h4>
 
-              <div className="text-[11px] text-slate-600 space-y-0.5">
-                <div><span className="font-semibold text-slate-700">Input:</span> {t.input}</div>
-                <div><span className="font-semibold text-blue-700">Expected:</span> {t.expected}</div>
-                <div><span className="font-semibold text-emerald-700">Actual:</span> {t.actual}</div>
+              <div className="text-[11px] text-on-surface-variant space-y-1 pt-1">
+                <div className="text-outline">
+                  <strong>Input: </strong>"{t.input_description}"
+                </div>
+                <div className="text-secondary">
+                  <strong>Expected: </strong>{t.expected_behavior}
+                </div>
+                <div className="text-on-surface">
+                  <strong>Observed: </strong>{t.observed_result}
+                </div>
               </div>
             </div>
 
-            <div className="mt-2 p-1.5 bg-slate-50 border border-slate-200 rounded text-[10px] font-mono text-slate-800 truncate">
-              {t.evidence}
+            <div className="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between text-[10px] text-outline">
+              <span>Assertion: {t.assertion}</span>
+              <span className="text-primary">{t.test_id}</span>
             </div>
           </div>
         ))}

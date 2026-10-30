@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,6 +8,47 @@ export default {
   theme: {
     extend: {
       colors: {
+        "surface": "#10131c",
+        "surface-dim": "#10131c",
+        "surface-bright": "#363943",
+        "surface-container-lowest": "#0b0e17",
+        "surface-container-low": "#181b25",
+        "surface-container": "#1c1f29",
+        "surface-container-high": "#272a34",
+        "surface-container-highest": "#32343f",
+        "surface-variant": "#32343f",
+        "on-surface": "#e0e2ef",
+        "on-surface-variant": "#c4c5d7",
+        "inverse-surface": "#e0e2ef",
+        "inverse-on-surface": "#2d303a",
+        "outline": "#8e90a0",
+        "outline-variant": "#444654",
+        "surface-tint": "#b8c4ff",
+        "primary": "#b8c4ff",
+        "on-primary": "#002486",
+        "primary-container": "#6c88ff",
+        "on-primary-container": "#001f76",
+        "primary-fixed": "#dde1ff",
+        "primary-fixed-dim": "#b8c4ff",
+        "inverse-primary": "#2950d9",
+        "secondary": "#57e6ff",
+        "on-secondary": "#00363e",
+        "secondary-container": "#00cbe4",
+        "on-secondary-container": "#00515c",
+        "secondary-fixed": "#a0efff",
+        "secondary-fixed-dim": "#2bd9f3",
+        "tertiary": "#cebdff",
+        "on-tertiary": "#390094",
+        "tertiary-container": "#9c7aff",
+        "on-tertiary-container": "#310082",
+        "tertiary-fixed": "#e8ddff",
+        "tertiary-fixed-dim": "#cebdff",
+        "error": "#ffb4ab",
+        "on-error": "#690005",
+        "error-container": "#93000a",
+        "on-error-container": "#ffdad6",
+        "background": "#10131c",
+        "on-background": "#e0e2ef",
         navy: {
           deep: '#101C35',
           dark: '#172846',
@@ -16,9 +58,18 @@ export default {
           hover: '#1A4482',
         },
       },
+      fontFamily: {
+        sans: ['Geist', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+        display: ['Geist', 'sans-serif'],
+      },
       animation: {
         'subtle-sway': 'subtleSway 2s ease-in-out infinite',
         'fadeIn': 'fadeIn 150ms ease-in-out',
+        'spin-slow': 'spin 12s linear infinite',
+        'spin-rev': 'spinRev 8s linear infinite',
+        'aura': 'auraPulse 4s ease-in-out infinite',
+        'wave-bar': 'pulse-waveform 1.2s ease-in-out infinite',
       },
       keyframes: {
         subtleSway: {
@@ -28,6 +79,14 @@ export default {
         fadeIn: {
           'from': { opacity: '0', transform: 'scale(0.98)' },
           'to': { opacity: '1', transform: 'scale(1)' },
+        },
+        spinRev: {
+          'from': { transform: 'rotate(360deg)' },
+          'to': { transform: 'rotate(0deg)' },
+        },
+        auraPulse: {
+          '0%, 100%': { opacity: '0.6', transform: 'scale(0.98)' },
+          '50%': { opacity: '1', transform: 'scale(1.04)' },
         },
       },
     },

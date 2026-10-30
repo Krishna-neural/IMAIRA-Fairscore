@@ -20,38 +20,38 @@ export const ArchitectureViewer: React.FC = () => {
 
   return (
     <div className="space-y-4">
-      <div className="p-4 bg-white border border-slate-200 rounded-lg">
-        <h3 className="text-base font-bold text-[#101C35]">
+      <div className="p-5 bg-surface-container-low border border-outline-variant/30 rounded-xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)]">
+        <h3 className="text-sm font-bold text-on-surface">
           10-Node Interactive System Architecture Pipeline
         </h3>
-        <p className="text-xs text-slate-500 mt-0.5">
+        <p className="text-xs text-outline font-mono mt-0.5">
           Click on any architectural pipeline node to inspect input/output schemas, module implementation paths, and unit test coverage:
         </p>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-2.5">
         {components.map((node, idx) => (
           <div
             key={node.id}
             onClick={() => setSelectedNode(node)}
-            className="p-3.5 bg-white border border-slate-200 rounded-lg shadow-xs hover:border-[#2457A6] hover:shadow-sm cursor-pointer transition-all flex items-center justify-between"
+            className="p-4 bg-surface-container-low border border-outline-variant/30 rounded-xl shadow-sm hover:border-secondary/60 hover:bg-surface-container cursor-pointer transition-all flex items-center justify-between font-mono"
           >
             <div className="flex items-center gap-3">
-              <span className="w-7 h-7 rounded-full bg-blue-50 text-blue-800 text-xs font-bold border border-blue-200 flex items-center justify-center">
+              <span className="w-8 h-8 rounded-lg bg-surface-container-high text-secondary text-xs font-bold border border-outline-variant/30 flex items-center justify-center shrink-0">
                 0{idx + 1}
               </span>
               <div>
-                <h4 className="text-sm font-bold text-[#101C35]">{node.name}</h4>
-                <div className="text-[11px] font-mono text-blue-700">{node.technology}</div>
-                <p className="text-xs text-slate-500">{node.purpose}</p>
+                <h4 className="text-sm font-bold text-on-surface font-sans">{node.name}</h4>
+                <div className="text-[11px] text-secondary font-mono">{node.technology}</div>
+                <p className="text-xs text-outline font-sans">{node.purpose}</p>
               </div>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-100 text-slate-700">
+              <span className="px-2.5 py-0.5 rounded text-[10px] font-mono bg-surface-container text-on-surface-variant border border-outline-variant/30">
                 {node.category}
               </span>
-              <button className="px-2.5 py-1 text-xs font-semibold bg-slate-50 hover:bg-slate-100 border border-slate-300 rounded text-slate-700">
+              <button className="px-3 py-1 text-xs font-mono font-semibold bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant/40 rounded-lg text-primary transition-colors">
                 Inspect 🔍
               </button>
             </div>
@@ -59,81 +59,69 @@ export const ArchitectureViewer: React.FC = () => {
         ))}
       </div>
 
-      {/* Node Detail Inspection Modal */}
+      {/* Detail Modal */}
       {selectedNode && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs">
-          <div className="w-full max-w-xl bg-white rounded-lg shadow-xl border border-slate-300 overflow-hidden">
-            <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-              <h3 className="font-bold text-sm text-[#101C35]">
-                {selectedNode.name} — Architecture Specification
-              </h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-container-lowest/80 backdrop-blur-md animate-fadeIn">
+          <div className="w-full max-w-2xl bg-surface-container-low border border-outline-variant/30 rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.85)] p-6 space-y-4 font-mono text-xs">
+            <div className="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+              <div className="flex items-center gap-2 text-secondary">
+                <Layers size={18} />
+                <h3 className="text-base font-bold text-on-surface font-sans">{selectedNode.name}</h3>
+              </div>
               <button
                 onClick={() => setSelectedNode(null)}
-                className="p-1 text-slate-400 hover:text-slate-700 rounded"
+                className="p-1 text-outline hover:text-on-surface"
               >
-                <X size={16} />
+                <X size={18} />
               </button>
             </div>
 
-            <div className="p-5 space-y-3.5 text-xs text-slate-700 max-h-[75vh] overflow-y-auto">
+            <div className="space-y-3">
               <div>
-                <span className="font-bold text-blue-900 uppercase tracking-wide block mb-0.5">
-                  Functional Purpose
-                </span>
-                <p className="text-sm text-slate-800">{selectedNode.purpose}</p>
+                <span className="text-outline uppercase text-[10px] font-bold block">Purpose</span>
+                <p className="text-on-surface font-sans leading-relaxed text-xs mt-0.5">{selectedNode.purpose}</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-2">
-                <div className="p-2.5 bg-slate-50 border border-slate-200 rounded font-mono">
-                  <span className="font-bold text-slate-500 uppercase block text-[10px]">Input Schema</span>
-                  <div className="text-slate-800 mt-1">{selectedNode.input}</div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20">
+                  <span className="text-outline uppercase text-[10px] font-bold block">Input Schema</span>
+                  <span className="text-primary text-[11px] block mt-0.5">{selectedNode.input}</span>
                 </div>
-                <div className="p-2.5 bg-slate-50 border border-slate-200 rounded font-mono">
-                  <span className="font-bold text-slate-500 uppercase block text-[10px]">Output Schema</span>
-                  <div className="text-slate-800 mt-1">{selectedNode.output}</div>
+                <div className="p-3 bg-surface-container rounded-lg border border-outline-variant/20">
+                  <span className="text-outline uppercase text-[10px] font-bold block">Output Schema</span>
+                  <span className="text-secondary text-[11px] block mt-0.5">{selectedNode.output}</span>
                 </div>
               </div>
 
               <div>
-                <span className="font-bold text-blue-900 uppercase tracking-wide block mb-0.5">
-                  Technology Stack
-                </span>
-                <div className="font-mono text-slate-800">{selectedNode.technology}</div>
+                <span className="text-outline uppercase text-[10px] font-bold block">Implementation File</span>
+                <span className="text-secondary text-[11px]">{selectedNode.implementation_file}</span>
               </div>
 
               <div>
-                <span className="font-bold text-blue-900 uppercase tracking-wide block mb-0.5">
-                  Implementation Path
-                </span>
-                <div className="font-mono text-blue-700 font-bold">{selectedNode.implementation_file}</div>
+                <span className="text-outline uppercase text-[10px] font-bold block">API Endpoint</span>
+                <span className="text-primary text-[11px]">{selectedNode.api_endpoint}</span>
               </div>
 
               <div>
-                <span className="font-bold text-blue-900 uppercase tracking-wide block mb-0.5">
-                  Associated API Endpoint
-                </span>
-                <div className="font-mono text-emerald-700 font-bold">{selectedNode.api_endpoint}</div>
+                <span className="text-outline uppercase text-[10px] font-bold block">Test Verification</span>
+                <span className="text-tertiary text-[11px]">{selectedNode.test_coverage}</span>
               </div>
 
-              <div>
-                <span className="font-bold text-blue-900 uppercase tracking-wide block mb-0.5">
-                  Test Verification
-                </span>
-                <div className="font-mono text-amber-800">{selectedNode.test_coverage}</div>
-              </div>
-
-              <div className="p-2.5 bg-amber-50 border border-amber-200 rounded text-amber-900">
-                <span className="font-bold uppercase text-[10px] block mb-0.5">Known Limitation</span>
-                <p>{selectedNode.limitations}</p>
-              </div>
+              {selectedNode.limitations && (
+                <div className="p-3 bg-surface-container border border-amber-500/30 rounded-lg text-amber-300">
+                  <span className="uppercase text-[10px] font-bold block">Operational Limitations</span>
+                  <p className="text-[11px] mt-0.5 leading-relaxed font-sans">{selectedNode.limitations}</p>
+                </div>
+              )}
             </div>
 
-            <div className="p-3 bg-slate-50 border-t border-slate-200 flex justify-end">
+            <div className="pt-2 flex justify-end">
               <button
                 onClick={() => setSelectedNode(null)}
-                className="px-3.5 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-semibold rounded"
+                className="px-4 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-xs font-mono font-semibold"
               >
-                Close
+                Close Inspector
               </button>
             </div>
           </div>

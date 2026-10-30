@@ -25,46 +25,46 @@ export const AuditLogTable: React.FC<AuditLogTableProps> = ({ auditLog }) => {
   ];
 
   return (
-    <div className="bg-white border border-slate-200 rounded-lg p-5 shadow-xs mb-6">
-      <div className="flex items-center gap-2 mb-1">
-        <ShieldCheck className="text-emerald-700" size={18} />
-        <h3 className="text-base font-bold text-[#101C35]">
+    <div className="bg-surface-container-low border border-outline-variant/30 rounded-xl p-5 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)] mb-6 space-y-3">
+      <div className="flex items-center gap-2">
+        <ShieldCheck className="text-secondary" size={18} />
+        <h3 className="text-sm font-bold text-on-surface">
           Acoustic Verification & Terminology Audit Log
         </h3>
       </div>
-      <p className="text-xs text-slate-500 mb-3">
+      <p className="text-xs text-outline font-mono">
         Transparent audit trail of Stage 2 technical terminology recovery and conservative abstention:
       </p>
 
-      <div className="border border-slate-200 rounded overflow-hidden">
-        <table className="w-full text-left text-xs border-collapse">
-          <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 font-bold uppercase text-[10px]">
+      <div className="border border-outline-variant/20 rounded-lg overflow-hidden">
+        <table className="w-full text-left text-xs font-mono border-collapse">
+          <thead className="bg-surface-container border-b border-outline-variant/20 text-outline font-bold uppercase text-[10px]">
             <tr>
-              <th className="p-2.5">Timestamp</th>
-              <th className="p-2.5">Raw ASR Token</th>
-              <th className="p-2.5">Verified Technical Term</th>
-              <th className="p-2.5">Decision</th>
-              <th className="p-2.5">Acoustic Verification Rationale</th>
+              <th className="p-3">Timestamp</th>
+              <th className="p-3">Raw Spoken Token</th>
+              <th className="p-3">Verified Entity</th>
+              <th className="p-3">Decision</th>
+              <th className="p-3">Acoustic Verification Rationale</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100">
+          <tbody className="divide-y divide-outline-variant/20">
             {items.map((row, idx) => (
-              <tr key={idx} className="hover:bg-slate-50">
-                <td className="p-2.5 font-mono text-slate-500">{row.timestamp_range}</td>
-                <td className="p-2.5 font-mono text-slate-700 bg-slate-50">"{row.raw_token}"</td>
-                <td className="p-2.5 font-bold text-slate-900">{row.verified_token}</td>
-                <td className="p-2.5">
+              <tr key={idx} className="hover:bg-surface-container/60 transition-colors">
+                <td className="p-3 text-outline">{row.timestamp_range}</td>
+                <td className="p-3 text-on-surface-variant bg-surface-container-lowest/50">"{row.raw_token}"</td>
+                <td className="p-3 font-bold text-secondary">{row.verified_token}</td>
+                <td className="p-3">
                   <span
-                    className={`inline-block px-2 py-0.5 rounded text-[10px] font-extrabold ${
+                    className={`inline-block px-2.5 py-0.5 rounded text-[10px] font-bold border ${
                       row.status === 'CORRECTED'
-                        ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
-                        : 'bg-amber-100 text-amber-800 border border-amber-200'
+                        ? 'bg-secondary/15 text-secondary border-secondary/30'
+                        : 'bg-surface-container-high text-outline border-outline-variant/30'
                     }`}
                   >
                     {row.status}
                   </span>
                 </td>
-                <td className="p-2.5 text-slate-600">{row.reason}</td>
+                <td className="p-3 text-on-surface-variant">{row.reason}</td>
               </tr>
             ))}
           </tbody>

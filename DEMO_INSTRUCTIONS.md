@@ -86,7 +86,7 @@ Open your browser and navigate to:
 1. Complete the questions or click **`🚪 Conclude & Evaluate`**.
 2. Inspect the **Verified Evaluation Scorecard**:
    - **Overall FairScore:** $60\%$ Calibrated Content $+ 40\%$ Calibrated Structure (0–100% and 0.0–5.0 scales).
-   - **Measured Fairness Status:** Banner certifying that full technical credit was awarded independently of regional pronunciation.
+   - **Accent Invariance Guarantee Active:** Banner certifying that full credit was awarded for acoustically verified terms.
 3. Inspect the **Dual Diagnosis Panel**:
    - **Technical Knowledge Gaps:** Conceptual omissions, marks lost, and recommended model response.
    - **Pronunciation & Articulation Improvements:** Recovered terms, phonetic coaching tips, and an explicit **0.0 marks deducted** guarantee.

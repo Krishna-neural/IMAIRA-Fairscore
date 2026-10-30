@@ -34,14 +34,14 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] text-slate-800 font-sans flex flex-col">
+    <div className="min-h-screen bg-[#10131c] text-[#e0e2ef] font-sans flex flex-col selection:bg-primary-container selection:text-on-primary-container">
       <Navbar
         currentView={currentView}
         onNavigate={(view) => setCurrentView(view as any)}
         isRestricted={restriction.isRestricted}
       />
 
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-[1440px]">
         {currentView === 'home' && (
           <LandingPage
             onStartInterview={() => setCurrentView('setup')}

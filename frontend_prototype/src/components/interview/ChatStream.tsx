@@ -13,24 +13,27 @@ export const ChatStream: React.FC<ChatStreamProps> = ({ turns }) => {
   }, [turns]);
 
   return (
-    <div className="bg-white border border-slate-200 rounded-lg p-4 h-64 overflow-y-auto space-y-3 shadow-xs">
+    <div className="bg-surface-container-low border border-outline-variant/30 rounded-xl p-4 h-64 overflow-y-auto space-y-3 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)]">
       {turns.map((turn) => {
         const isAi = turn.speaker === 'ai';
         return (
           <div
             key={turn.id}
-            className={`flex flex-col max-w-[85%] rounded-lg p-3 text-sm leading-relaxed ${
+            className={`flex flex-col max-w-[85%] rounded-xl p-3.5 text-xs leading-relaxed ${
               isAi
-                ? 'self-start bg-[#EDF3FA] text-[#101C35] border border-[#D0E1F9]'
-                : 'self-end bg-white text-slate-800 border border-slate-300 shadow-xs ml-auto'
+                ? 'self-start bg-surface-container text-on-surface border border-outline-variant/30'
+                : 'self-end bg-surface-container-high text-on-surface border border-primary/40 shadow-sm ml-auto'
             }`}
           >
-            <div className="flex items-center justify-between text-[11px] font-bold uppercase mb-1">
-              <span className={isAi ? 'text-blue-800' : 'text-slate-600'}>
-                {isAi ? '🎙️ Virtual Human Interviewer' : '👤 Candidate'}
+            <div className="flex items-center justify-between text-[11px] font-mono font-bold uppercase mb-1.5">
+              <span className={isAi ? 'text-primary flex items-center gap-1' : 'text-secondary flex items-center gap-1'}>
+                <span className="material-symbols-outlined" style={{ fontSize: '13px' }}>
+                  {isAi ? 'smart_toy' : 'person'}
+                </span>
+                <span>{isAi ? 'Virtual Human Interviewer' : 'Candidate'}</span>
               </span>
-              <span className="text-slate-400 font-mono font-normal">
-                {new Date(turn.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              <span className="text-outline font-mono text-[10px]">
+                {new Date(turn.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
               </span>
             </div>
 
@@ -38,15 +41,17 @@ export const ChatStream: React.FC<ChatStreamProps> = ({ turns }) => {
 
             {/* Stage 2 Verified Terminology Badges */}
             {turn.auditLog && turn.auditLog.length > 0 && (
-              <div className="mt-2 pt-2 border-t border-slate-200 text-xs text-emerald-800 space-y-0.5">
-                <span className="font-semibold block">🛡️ Verified Technical Entities:</span>
+              <div className="mt-2.5 pt-2 border-t border-outline-variant/20 text-xs font-mono text-secondary space-y-1">
+                <span className="font-semibold block text-[10px] text-outline uppercase tracking-wider">
+                  🛡️ Acoustically Verified Entities:
+                </span>
                 <div className="flex flex-wrap gap-1">
                   {turn.auditLog.map((item, idx) => (
                     <span
                       key={idx}
-                      className="inline-block px-1.5 py-0.5 bg-emerald-50 border border-emerald-300 rounded font-semibold text-[11px]"
+                      className="inline-block px-2 py-0.5 bg-surface-container-lowest border border-secondary/30 rounded font-semibold text-[11px] text-secondary"
                     >
-                      {item.verified_text} <span className="text-slate-400 font-normal">(was '{item.original_text}')</span>
+                      {item.verified_text} <span className="text-outline font-normal">(was '{item.original_text}')</span>
                     </span>
                   ))}
                 </div>

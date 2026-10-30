@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { apiService } from '../../services/apiService';
 import { HealthResponse } from '../../types/api';
-import { GraduationCap, ShieldCheck, Scale, Globe } from 'lucide-react';
 
 interface NavbarProps {
   currentView: string;
@@ -27,110 +26,120 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate, isRestr
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs px-4 sm:px-6 py-3 flex items-center justify-between font-sans">
-      {/* Brand */}
-      <div
-        className="flex items-center gap-3 cursor-pointer select-none"
-        onClick={() => onNavigate('home')}
-      >
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#101C35] to-[#2457A6] flex items-center justify-center text-white font-black text-sm shadow-xs border border-blue-900">
-          IF
-        </div>
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="text-base font-black text-[#101C35] tracking-tight leading-tight">
-              IMAIRA FairScore
-            </span>
-            <span className="hidden sm:inline-block px-2 py-0.2 rounded-full text-[10px] font-extrabold bg-blue-50 text-[#1A4482] border border-blue-200">
-              AI FRONTIER
+    <header className="sticky top-0 z-50 w-full px-6 py-3 flex items-center justify-between border-b border-outline-variant/30 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)]">
+      {/* Brand Cluster */}
+      <div className="flex items-center space-x-6">
+        <div
+          className="flex items-center space-x-3 group cursor-pointer"
+          onClick={() => onNavigate('home')}
+        >
+          <div className="h-8 w-8 rounded-lg bg-surface-container border border-outline-variant/40 flex items-center justify-center relative overflow-hidden group-hover:border-primary transition-colors">
+            <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <span className="material-symbols-outlined text-secondary" style={{ fontSize: '18px' }}>
+              terminal
             </span>
           </div>
-          <span className="text-[11px] text-slate-500 font-medium block leading-tight">
-            Hear the answer, not the accent.
-          </span>
+          <div className="flex items-center space-x-2">
+            <span className="font-semibold tracking-tight text-on-surface text-base">
+              IMAIRA FairScore
+            </span>
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono bg-surface-container-high border border-outline-variant/30 text-secondary">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary mr-1 animate-pulse"></span>
+              KERNEL v4.2
+            </span>
+          </div>
         </div>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center space-x-6 pl-4 border-l border-outline-variant/30 text-xs font-mono">
+          <button
+            onClick={() => onNavigate('home')}
+            className={`transition-colors flex items-center gap-1.5 ${
+              currentView === 'home'
+                ? 'text-primary border-b-2 border-primary pb-0.5'
+                : 'text-on-surface-variant hover:text-on-surface'
+            }`}
+          >
+            Overview
+          </button>
+          <button
+            onClick={() => onNavigate('setup')}
+            className={`transition-colors flex items-center gap-1.5 ${
+              currentView === 'setup' || currentView === 'interview'
+                ? 'text-primary border-b-2 border-primary pb-0.5'
+                : 'text-on-surface-variant hover:text-on-surface'
+            }`}
+          >
+            <span>Live Room</span>
+            {currentView === 'interview' && (
+              <span className="px-1.5 py-0.2 bg-secondary/10 text-secondary text-[9px] rounded font-mono">
+                Active
+              </span>
+            )}
+          </button>
+          <button
+            onClick={() => onNavigate('evaluation')}
+            className={`transition-colors flex items-center gap-1.5 ${
+              currentView === 'evaluation'
+                ? 'text-primary border-b-2 border-primary pb-0.5'
+                : 'text-on-surface-variant hover:text-on-surface'
+            }`}
+          >
+            <span>Evaluations</span>
+            {currentView === 'evaluation' && (
+              <span className="px-1.5 py-0.2 bg-primary/10 text-primary text-[9px] rounded font-mono">
+                Dossier
+              </span>
+            )}
+          </button>
+          <button
+            onClick={() => onNavigate('judge')}
+            className={`transition-colors flex items-center gap-1.5 ${
+              currentView === 'judge'
+                ? 'text-primary border-b-2 border-primary pb-0.5'
+                : 'text-on-surface-variant hover:text-on-surface'
+            }`}
+          >
+            <span>⚖️ Judge Console</span>
+          </button>
+          <a
+            href="https://github.com/Krishna-neural/IMAIRA-Fairscore.git"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1"
+          >
+            <span>GitHub</span>
+            <span className="text-[10px]">↗</span>
+          </a>
+        </nav>
       </div>
 
-      {/* Nav Links */}
-      <nav className="hidden md:flex items-center gap-1 text-xs font-bold">
-        <button
-          onClick={() => onNavigate('home')}
-          className={`px-3 py-1.5 rounded-lg transition-all ${
-            currentView === 'home'
-              ? 'text-[#2457A6] bg-blue-50/80 shadow-xs font-black'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-          }`}
-        >
-          Overview
-        </button>
-        <button
-          onClick={() => {
-            onNavigate('home');
-            setTimeout(() => {
-              document.getElementById('howItWorksSection')?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-          }}
-          className="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-all"
-        >
-          How It Works
-        </button>
-        <button
-          onClick={() => onNavigate('setup')}
-          className={`px-3 py-1.5 rounded-lg transition-all ${
-            currentView === 'setup' || currentView === 'interview'
-              ? 'text-[#2457A6] bg-blue-50/80 shadow-xs font-black'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-          }`}
-        >
-          Practice Interview
-        </button>
-        <button
-          onClick={() => onNavigate('evaluation')}
-          className={`px-3 py-1.5 rounded-lg transition-all ${
-            currentView === 'evaluation'
-              ? 'text-[#2457A6] bg-blue-50/80 shadow-xs font-black'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-          }`}
-        >
-          Scorecard & Coaching
-        </button>
-        <button
-          onClick={() => onNavigate('judge')}
-          className={`px-3.5 py-1.5 rounded-lg transition-all flex items-center gap-1 ${
-            currentView === 'judge'
-              ? 'text-[#2457A6] bg-blue-50/80 shadow-xs font-black'
-              : 'text-slate-700 bg-slate-100 hover:bg-slate-200'
-          }`}
-        >
-          <Scale size={13} className="text-[#2457A6]" />
-          <span>Placement & Judge Console</span>
-        </button>
-      </nav>
-
-      {/* Right Actions */}
-      <div className="flex items-center gap-2.5">
-        {/* Backend & Glossary Status Pill */}
-        <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-600">
+      {/* Right Controls */}
+      <div className="flex items-center space-x-3">
+        {/* Backend Online Telemetry Badge */}
+        <div className="hidden lg:flex items-center space-x-2 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/20 text-xs font-mono text-on-surface-variant">
           <span
             className={`w-2 h-2 rounded-full ${
-              health ? 'bg-emerald-500 animate-pulse' : 'bg-red-500'
+              health ? 'bg-secondary animate-pulse' : 'bg-error'
             }`}
           />
-          <span className="font-medium text-[11px]">
+          <span>
             {health
-              ? `Port ${health.port || 8002} • ${health.glossary_terms_loaded} Terms Active`
+              ? `Port ${health.port || 8002} Online • ${health.glossary_terms_loaded} Terms`
               : 'Connecting...'}
           </span>
         </div>
 
-        {/* CTA Button */}
+        {/* Start Interview CTA */}
         <button
           onClick={() => onNavigate('setup')}
           disabled={isRestricted}
-          className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-[#2457A6] hover:bg-[#1A4482] text-white rounded-lg text-xs font-bold shadow-xs hover:shadow transition-all disabled:opacity-50"
+          className="relative inline-flex items-center px-4 py-1.5 rounded-lg bg-primary-container text-on-primary-container text-xs font-medium shadow-[0_0_20px_rgba(108,136,255,0.4)] hover:bg-primary-fixed-dim transition-all active:scale-[0.98] disabled:opacity-50"
         >
-          <GraduationCap size={15} />
-          <span>{isRestricted ? 'Restricted' : 'Start Practice'}</span>
+          <span className="material-symbols-outlined mr-1.5 text-on-primary-container" style={{ fontSize: '16px' }}>
+            play_arrow
+          </span>
+          <span>{isRestricted ? 'Restricted' : 'Start Interview'}</span>
         </button>
       </div>
     </header>

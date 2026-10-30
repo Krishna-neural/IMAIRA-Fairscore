@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Radio, Send, RotateCcw, Mic, MicOff, ShieldCheck, Edit3, Check, Globe, Sparkles } from 'lucide-react';
+import { Radio, Send, RotateCcw, Mic, MicOff, ShieldCheck, Edit3, Check, Globe } from 'lucide-react';
 import { speechService } from '../../services/speechService';
 import { phoneticRecovery } from '../../services/phoneticRecovery';
 
@@ -72,60 +72,59 @@ export const LiveCaptions: React.FC<LiveCaptionsProps> = ({
   };
 
   return (
-    <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xs space-y-3 font-sans">
-      {/* Header Bar */}
-      <div className="flex items-center justify-between text-xs flex-wrap gap-2 pb-1 border-b border-slate-100">
+    <div className="bg-surface-container-low border border-outline-variant/30 rounded-xl p-4 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)] space-y-3">
+      <div className="flex items-center justify-between text-xs flex-wrap gap-2">
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider">
+          <div className="flex items-center gap-1.5 font-mono font-bold uppercase text-secondary tracking-wider">
             <Radio
-              size={15}
-              className={isListening ? 'text-emerald-600 animate-pulse' : 'text-slate-400'}
+              size={14}
+              className={isListening ? 'text-secondary animate-pulse' : 'text-outline'}
             />
-            <span className={isListening ? 'text-emerald-800 font-extrabold' : 'text-slate-500'}>
+            <span>
               {isListening
-                ? 'Listening Continuously (No Word or Time Limit)'
-                : 'Microphone Paused'}
+                ? 'Continuous Recording Active (No Word Limit)'
+                : 'Microphone Standby'}
             </span>
           </div>
           {isListening && (
-            <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-bold rounded-full animate-fadeIn">
+            <span className="px-2 py-0.5 bg-secondary/15 text-secondary border border-secondary/30 text-[10px] font-mono font-bold rounded-full">
               Live Speech Input
             </span>
           )}
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Accent Model Selector */}
-          <div className="flex items-center gap-1 bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-[11px] text-slate-700">
-            <Globe size={12} className="text-[#2457A6]" />
-            <span className="font-semibold text-slate-500 mr-0.5">Model:</span>
+          {/* Acoustic Profile / Accent Selector */}
+          <div className="flex items-center gap-1 bg-surface-container border border-outline-variant/30 rounded-lg px-2.5 py-1 text-[11px] text-on-surface">
+            <Globe size={12} className="text-secondary" />
+            <span className="font-mono text-outline mr-0.5">Model:</span>
             <select
               value={language}
               onChange={(e) => handleLanguageChange(e.target.value)}
-              className="bg-transparent font-bold text-slate-800 text-[11px] focus:outline-none cursor-pointer"
+              className="bg-transparent font-mono font-bold text-on-surface text-[11px] focus:outline-none cursor-pointer"
             >
-              <option value="en-IN">🇮🇳 English (India)</option>
-              <option value="en-US">🇺🇸 English (US)</option>
-              <option value="en-GB">🇬🇧 English (UK)</option>
+              <option value="en-IN" className="bg-surface text-on-surface">🇮🇳 English (India)</option>
+              <option value="en-US" className="bg-surface text-on-surface">🇺🇸 English (US)</option>
+              <option value="en-GB" className="bg-surface text-on-surface">🇬🇧 English (UK)</option>
             </select>
           </div>
 
-          <span className="text-[11px] font-bold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
+          <span className="text-[11px] font-mono text-on-surface-variant bg-surface-container px-2 py-1 rounded border border-outline-variant/30">
             {wordCount} words
           </span>
 
           <button
             type="button"
             onClick={handleToggleEdit}
-            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all border ${
+            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors border ${
               isEditing
-                ? 'bg-emerald-50 text-emerald-800 border-emerald-300 shadow-xs'
-                : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'
+                ? 'bg-secondary/15 text-secondary border-secondary/40'
+                : 'bg-surface-container hover:bg-surface-container-high text-on-surface-variant border-outline-variant/30'
             }`}
-            title={isEditing ? 'Save manual edits' : 'Edit speech transcript manually'}
+            title={isEditing ? 'Save edits to transcript' : 'Click to directly edit/adjust speech transcript'}
           >
             {isEditing ? <Check size={12} /> : <Edit3 size={12} />}
-            <span>{isEditing ? 'Done Editing' : 'Edit Text'}</span>
+            <span>{isEditing ? 'Save Edit' : 'Edit Transcript'}</span>
           </button>
 
           {onToggleMic && (
@@ -134,8 +133,8 @@ export const LiveCaptions: React.FC<LiveCaptionsProps> = ({
               onClick={onToggleMic}
               className={`p-1.5 rounded-lg text-xs transition-colors border ${
                 isListening
-                  ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
-                  : 'bg-blue-50 hover:bg-blue-100 text-[#2457A6] border-blue-200'
+                  ? 'bg-surface-container hover:bg-surface-container-high text-on-surface-variant border-outline-variant/30'
+                  : 'bg-secondary/15 text-secondary border-secondary/40'
               }`}
               title={isListening ? 'Pause Microphone' : 'Resume Microphone'}
             >
@@ -145,58 +144,55 @@ export const LiveCaptions: React.FC<LiveCaptionsProps> = ({
         </div>
       </div>
 
-      {/* Streaming Text Output or Manual Edit Mode */}
+      {/* Streaming Text Output or Direct Editable Textarea */}
       {isEditing ? (
-        <div className="space-y-1.5">
+        <div className="space-y-1">
           <textarea
             value={manualText}
             onChange={(e) => setManualText(e.target.value)}
             rows={3}
             placeholder="Edit or refine your technical answer text directly here..."
-            className="w-full p-3 text-xs text-slate-800 border-2 border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/20 bg-white leading-relaxed font-sans"
+            className="w-full p-3 text-xs text-on-surface border border-primary/50 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary bg-surface-container leading-relaxed font-mono"
           />
-          <span className="text-[11px] text-slate-500 italic block">
-            Directly adjust any words before submitting. Stage 2 acoustic recovery will remain active.
+          <span className="text-[10px] text-outline font-mono italic block">
+            Directly adjust any words before submitting. Real-time acoustic recovery remains active.
           </span>
         </div>
       ) : (
-        <div className="relative min-h-[72px] max-h-48 overflow-y-auto p-3.5 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-800 leading-relaxed font-sans select-text">
-          <span className="font-semibold text-[#101C35]">{finalizedText}</span>{' '}
-          <span className="text-slate-500 italic">{provisionalText}</span>
+        <div className="relative min-h-[64px] max-h-40 overflow-y-auto p-3.5 bg-surface-container-lowest border border-outline-variant/20 rounded-lg text-sm text-on-surface leading-relaxed font-mono select-text">
+          <span className="font-semibold text-on-surface">{finalizedText}</span>{' '}
+          <span className="text-secondary/80 italic">{provisionalText}</span>
           {!finalizedText && !provisionalText && !typedFallback && (
-            <div className="text-slate-400 italic flex items-center gap-2 py-2">
-              <Sparkles size={16} className="text-blue-500 shrink-0" />
-              <span>
-                {isListening
-                  ? 'Listening continuously... Speak your technical explanation clearly. Take your time to think.'
-                  : 'Microphone paused. Click Unmute to continue speaking.'}
-              </span>
-            </div>
+            <span className="text-outline italic text-xs">
+              {isListening
+                ? 'Listening continuously... Speak your full technical answer clearly into the microphone. There is no word or time limit.'
+                : 'Waiting for prompt...'}
+            </span>
           )}
         </div>
       )}
 
-      {/* Live Acoustic Terminology Recovery Chips (Proves 0.0 Marks Deducted) */}
+      {/* Live Acoustic Recovery Chips (Proves 0.0 Marks Deducted in Real Time) */}
       {recovery.auditItems.length > 0 && (
-        <div className="flex items-center gap-2 flex-wrap p-2.5 text-xs text-emerald-900 bg-emerald-50/90 rounded-lg border border-emerald-200">
-          <div className="flex items-center gap-1.5 font-bold text-emerald-800 shrink-0">
-            <ShieldCheck size={16} className="text-emerald-600" />
-            <span>Acoustically Recovered:</span>
+        <div className="flex items-center gap-1.5 flex-wrap p-2 text-xs font-mono text-secondary bg-surface-container rounded-lg border border-secondary/30">
+          <div className="flex items-center gap-1 font-bold">
+            <ShieldCheck size={14} className="text-secondary" />
+            <span>Acoustic Recovery Active:</span>
           </div>
-          {recovery.auditItems.slice(0, 4).map((item, idx) => (
-            <span key={idx} className="font-semibold bg-white px-2 py-0.5 rounded border border-emerald-300 text-[11px] text-emerald-950">
-              "{item.original}" → <strong className="text-emerald-700">{item.recovered}</strong>
+          {recovery.auditItems.slice(0, 3).map((item, idx) => (
+            <span key={idx} className="bg-surface-container-high px-2 py-0.5 rounded border border-outline-variant/30 text-[10px]">
+              "{item.original}" → <strong className="text-secondary">{item.recovered}</strong>
             </span>
           ))}
-          <span className="text-[11px] text-emerald-700 font-bold ml-auto shrink-0 bg-emerald-100 px-2 py-0.5 rounded">
-            ✓ 0.0 Marks Deducted
+          <span className="text-[10px] text-secondary font-mono italic ml-auto font-bold">
+            0.0 Marks Deducted
           </span>
         </div>
       )}
 
-      {/* Input Area + Submit Button */}
+      {/* Multi-line Input Drawer, Override Toggle, Clear & Submit Button */}
       <form onSubmit={handleSubmit} className="space-y-2">
-        <div className="flex items-start gap-2.5">
+        <div className="flex items-start gap-2">
           <textarea
             rows={2}
             value={typedFallback}
@@ -210,17 +206,17 @@ export const LiveCaptions: React.FC<LiveCaptionsProps> = ({
                 }
               }
             }}
-            placeholder="Type technical formulas, code, or additional notes here (Press Ctrl + Enter to submit)..."
-            className="flex-1 px-3 py-2.5 text-xs border border-slate-300 rounded-lg text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#2457A6] bg-white resize-y font-sans leading-relaxed"
+            placeholder="Type technical answer, formulas, or code here (Ctrl+Enter to submit, no word limit)..."
+            className="flex-1 px-3 py-2 text-xs border border-outline-variant/30 rounded-lg text-on-surface focus:outline-none focus:ring-1 focus:ring-primary bg-surface-container resize-y font-mono leading-relaxed"
           />
 
-          <div className="flex flex-col gap-1.5 shrink-0">
+          <div className="flex flex-col gap-1.5">
             <button
               type="submit"
               disabled={isProcessing || wordCount === 0}
-              className="flex items-center justify-center gap-2 px-5 py-2.5 bg-[#2457A6] hover:bg-[#1A4482] text-white rounded-lg text-xs font-bold shadow-sm hover:shadow transition-all disabled:opacity-40"
+              className="flex items-center justify-center gap-1.5 px-4 py-2 bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-mono font-bold rounded-lg text-xs shadow-[0_0_20px_rgba(108,136,255,0.4)] disabled:opacity-50 transition-all shrink-0"
             >
-              <Send size={13} />
+              <Send size={12} />
               <span>{isProcessing ? 'Evaluating...' : `Submit Answer (${wordCount} words)`}</span>
             </button>
 
@@ -229,29 +225,30 @@ export const LiveCaptions: React.FC<LiveCaptionsProps> = ({
                 type="button"
                 onClick={handleClearAnswer}
                 disabled={isProcessing}
-                className="flex items-center justify-center gap-1 px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-[11px] font-semibold border border-slate-300 transition-colors"
+                title="Clear and re-speak answer"
+                className="flex items-center justify-center gap-1 px-2.5 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface-variant rounded-lg text-xs font-mono border border-outline-variant/30 transition-colors"
               >
-                <RotateCcw size={11} />
-                <span>Clear All</span>
+                <RotateCcw size={12} />
+                <span>Clear</span>
               </button>
             )}
           </div>
         </div>
 
         {typedFallback.trim() && spokenText && (
-          <div className="flex items-center gap-2 text-[11px] text-slate-600 pt-0.5">
+          <div className="flex items-center gap-2 text-[11px] font-mono text-outline pt-0.5">
             <label className="flex items-center gap-1.5 cursor-pointer">
               <input
                 type="checkbox"
                 checked={overrideWithTyped}
                 onChange={(e) => setOverrideWithTyped(e.target.checked)}
-                className="rounded text-blue-600 focus:ring-0 cursor-pointer"
+                className="rounded text-primary focus:ring-0 cursor-pointer"
               />
-              <span>Use typed text only (ignore voice audio)</span>
+              <span>Replace microphone audio with typed text only</span>
             </label>
-            <span className="text-slate-400">•</span>
-            <span className="text-slate-500 italic">
-              {overrideWithTyped ? 'Voice overridden' : 'Combining spoken audio + typed text'}
+            <span className="text-outline-variant">•</span>
+            <span className="italic">
+              {overrideWithTyped ? 'Using typed text' : 'Combining speech + typed text'}
             </span>
           </div>
         )}
