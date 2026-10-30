@@ -69,13 +69,20 @@ def generate_top_missed_feedback(
             else:
                 fix = _generate_with_gemini(criterion_id, marks_lost, quote, max_words)
 
+        t_start = float(item.get("t_start", item.get("timestamp_start", 0.0)))
+        t_end = float(item.get("t_end", item.get("timestamp_end", 0.0)))
+        issue_text = str(item.get("issue") or item.get("issue_explanation") or f"Conceptual gap in {criterion_id}")
+
         result.append({
             "point_id": rank,
             "criterion_id": criterion_id,
             "marks_lost": marks_lost,
-            "timestamp_start": float(item.get("timestamp_start", 0.0)),
-            "timestamp_end": float(item.get("timestamp_end", 0.0)),
+            "t_start": t_start,
+            "t_end": t_end,
+            "timestamp_start": t_start,
+            "timestamp_end": t_end,
             "quote": quote,
+            "issue": issue_text,
             "fix_sentence": enforce_word_limit(fix, max_words=max_words)
         })
     return result
@@ -96,12 +103,17 @@ def generate_feedback_from_criteria(
         seg = default_transcript[idx % len(default_transcript)] if default_transcript else {}
         feedback_note = str(c.get("feedback", ""))
         fix = f"Refine {c.get('name', c.get('criterion_id'))}: {feedback_note}" if feedback_note else ""
+        t_s = float(seg.get("start", 0.0))
+        t_e = float(seg.get("end", 0.0))
         missed_candidates.append({
             "criterion_id": c.get("criterion_id", f"crit_{idx+1}"),
             "marks_lost": marks_lost,
-            "timestamp_start": float(seg.get("start", 0.0)),
-            "timestamp_end": float(seg.get("end", 0.0)),
+            "t_start": t_s,
+            "t_end": t_e,
+            "timestamp_start": t_s,
+            "timestamp_end": t_e,
             "quote": str(seg.get("text", "")),
+            "issue": f"Requirement omitted for {c.get('name', c.get('criterion_id'))}",
             "fix_sentence": fix
         })
 

@@ -80,7 +80,6 @@ def get_calibrators():
 def get_cached_rubrics() -> Dict[str, QuestionRubric]:
     global _RUBRICS_CACHE
     if _RUBRICS_CACHE is None:
-        # Load from QandA.json if available, fallback to rubrics_120.json
         qanda_path = REPO_ROOT / "data" / "QandA.json"
         if qanda_path.exists():
             try:
@@ -114,6 +113,10 @@ def run_fairscore_pipeline(
 
     # 1. Resolve QuestionRubric
     q_rubric = rubrics.get(question_id)
+    if q_rubric is None and question_id.startswith("Q") and question_id[1:].isdigit():
+        q_rubric = rubrics.get(f"ENG{int(question_id[1:]):03d}")
+    if q_rubric is None and question_id.startswith("ENG") and question_id[3:].isdigit():
+        q_rubric = rubrics.get(f"Q{int(question_id[3:]):03d}")
     if q_rubric is None:
         # Try matching by question text substring
         for rid, rub in rubrics.items():
@@ -227,7 +230,7 @@ def run_fairscore_pipeline(
     comm_score = int(comm_res["score"])
 
     # 6. Overall Weighted Score (50% Content, 30% Structure, 20% Communication)
-    overall_score = round(0.50 * content_pct + 0.30 * structure_pct + 0.20 * comm_score, 1)
+    overall_score = round(0.60 * content_pct + 0.40 * structure_pct, 1)
 
     # 7. Actionable Top-3 Feedback Generation
     if struct_res.get("components", {}).get("closure", {}).get("score", 5.0) < 3.0:
