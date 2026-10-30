@@ -1,6 +1,9 @@
 .env
 config.local.yaml
 data/
+!data/QandA.json
+!data/rubrics_120.json
+!data/evidence_question_bank.json
 .cache/
 .pytest_cache/
 *.sqlite

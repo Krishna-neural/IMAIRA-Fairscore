@@ -60,6 +60,13 @@ from score.calibrate import (
     IdentityCalibrator
 )
 from score.llm_judge import LLMEvaluationEngine
+from score.evidence_models import (
+    load_evidence_question_bank,
+    question_rubric_to_evidence_question,
+    EvidenceScorecard,
+    MisconceptionItem
+)
+from score.evidence_scorer import DeterministicEvidenceScorer
 
 # Ensure unpickling works seamlessly across all modules and scripts
 import score.calibrate
@@ -142,6 +149,10 @@ class QuestionMatcher:
                 score += 0.50
             elif "hash map" in norm_t and item["question_id"] == "Q032":
                 score += 0.50
+            elif "encrypt" in norm_t and item["question_id"] == "ENG121":
+                score += 0.60
+            elif "symmetric" in norm_t and item["question_id"] == "ENG121":
+                score += 0.60
 
             if score > best_score:
                 best_score = score
@@ -207,6 +218,30 @@ class InterviewEvaluator:
             except Exception as e:
                 print(f"[WARN] Error loading QandA into rubrics: {e}")
 
+        # Load evidence question bank for structured rubrics
+        try:
+            ev_bank = load_evidence_question_bank()
+            for qid, qdef in ev_bank.items():
+                if qid not in self.rubrics:
+                    ideas = [
+                        SemanticRubricIdea(
+                            idea_id=c.criterion_id,
+                            semantic_statement=c.description,
+                            required=True,
+                            weight=c.max_points,
+                            acceptable_paraphrase_guidance=", ".join(c.acceptable_alternatives or ["Standard technical terminology"])
+                        )
+                        for c in qdef.rubric
+                    ]
+                    self.rubrics[qid] = QuestionRubric(
+                        question_id=qid,
+                        question_prompt=qdef.question,
+                        domain=qdef.domain,
+                        semantic_rubric_ideas=ideas
+                    )
+        except Exception as e:
+            print(f"[WARN] Error loading evidence question bank: {e}")
+
         print(f"[INIT] Total Knowledge Bank: {len(self.rubrics)} questions indexed.")
         self.matcher = QuestionMatcher(self.rubrics, qanda_path)
         
@@ -218,6 +253,7 @@ class InterviewEvaluator:
 
         print("[INIT] Initializing Evidence-Grounded Gemini LLM Reasoning Engine...")
         self.llm_engine = LLMEvaluationEngine()
+        self.evidence_scorer = DeterministicEvidenceScorer()
         print("[INIT] All systems ready.\n")
 
     def evaluate_file(self, audio_path: Path, forced_qid: Optional[str] = None) -> Dict[str, Any]:
@@ -249,12 +285,54 @@ class InterviewEvaluator:
         content_correctness = float(llm_res["content_correctness"])
         raw_structure = float(llm_res["structure_score"])
 
-        # Step 4: Isotonic Calibration
-        cal_content = float(self.calibrator_content.predict(np.array([content_completeness]))[0])
-        cal_structure = float(self.calibrator_structure.predict(np.array([raw_structure]))[0])
+        # Enforce structure score scaling bounds (1.0 to 5.0)
+        if 0.0 < raw_structure <= 1.0:
+            raw_structure = 1.0 + 4.0 * raw_structure
+        elif raw_structure <= 0.0:
+            raw_structure = 1.0
+        raw_structure = max(1.0, min(5.0, raw_structure))
 
-        # Step 5: Overall Calibrated FairScore
-        overall_fairscore = round(0.6 * cal_content + 0.4 * cal_structure, 2)
+        # Build QuestionDefinition and EvidenceScorecard
+        q_def = question_rubric_to_evidence_question(question)
+        raw_evals = []
+        for idea_res in llm_res.get("rubric_idea_breakdown", []):
+            v = idea_res["verdict"].lower()
+            if v == "covered":
+                st = "satisfied"
+            elif v == "partial":
+                st = "partially_satisfied"
+            else:
+                st = "missing"
+            raw_evals.append({
+                "criterion_id": idea_res["idea_id"],
+                "status": st,
+                "evidence": [{"text": idea_res.get("evidence_quote", ""), "source_start": 0, "source_end": len(idea_res.get("evidence_quote", ""))}] if idea_res.get("evidence_quote") else [],
+                "reason": idea_res.get("reasoning", "")
+            })
+
+        misc_items = [
+            MisconceptionItem(
+                concept=m.get("concept", "Concept"),
+                severity=m.get("severity", "MODERATE"),
+                error_explanation=m.get("error", ""),
+                candidate_quote=m.get("candidate_quote")
+            )
+            for m in llm_res.get("where_got_wrong", [])
+        ]
+
+        scorecard = self.evidence_scorer.calculate_scorecard(
+            question=q_def,
+            raw_evidence_evaluations=raw_evals,
+            misconceptions=misc_items,
+            transcript_text=corrected_transcript,
+            raw_structure_scores=llm_res.get("structure_subcomponents", {}),
+            calibrator_content=self.calibrator_content,
+            calibrator_structure=self.calibrator_structure
+        )
+
+        cal_content = scorecard.calibrated_content_5pt
+        cal_structure = scorecard.calibrated_structure_5pt
+        overall_fairscore = scorecard.overall_fairscore_5pt
 
         # Step 6: Build Timestamped Diagnostics
         corrections_applied = []
@@ -297,7 +375,8 @@ class InterviewEvaluator:
             "where_got_wrong": llm_res["where_got_wrong"],
             "rubric_idea_breakdown": llm_res["rubric_idea_breakdown"],
             "actionable_feedback": llm_res.get("actionable_feedback", []),
-            "corrections_made": corrections_applied
+            "corrections_made": corrections_applied,
+            "evidence_scorecard": scorecard.model_dump()
         }
 
 

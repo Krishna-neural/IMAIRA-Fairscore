@@ -82,7 +82,7 @@ Do not mark an answer missing simply because it uses different wording, grammar,
 
 ### B. structure
 Evaluate only the answer's organisation and reasoning, using the supplied structural rubric.
-Assess relevant dimensions such as logical order, explanation, reasoning, examples, and conclusion only when required by the rubric.
+Assess relevant dimensions (framing, coherence, closure) on a strict 1.0 to 5.0 scale (1.0 = poor/missing, 3.0 = adequate/competent, 5.0 = exemplary).
 Do not re-evaluate technical correctness or duplicate the content score. Do not penalise an answer for its accent, grammar, speaking speed, or use of a different language.
 
 ### C. feedback
@@ -142,9 +142,9 @@ Return strictly valid JSON matching this schema with no markdown fences, no comm
     }
   },
   "structure_evaluation": {
-    "framing": {"score": float, "feedback": "string", "evidence_quote": "string"},
-    "coherence": {"score": float, "feedback": "string", "evidence_quote": "string"},
-    "closure": {"score": float, "feedback": "string", "evidence_quote": "string"}
+    "framing": {"score": float, "feedback": "string", "evidence_quote": "string (1.0 to 5.0 scale)"},
+    "coherence": {"score": float, "feedback": "string", "evidence_quote": "string (1.0 to 5.0 scale)"},
+    "closure": {"score": float, "feedback": "string", "evidence_quote": "string (1.0 to 5.0 scale)"}
   },
   "actionable_feedback": [
     {
@@ -421,10 +421,26 @@ class LLMEvaluationEngine:
 
         content_correctness = round(max(1.0, min(5.0, 5.0 - penalty)), 2)
 
-        # 3. Structure scores
-        framing_s = float(struct_eval.get("framing", {}).get("score", 3.0))
-        coherence_s = float(struct_eval.get("coherence", {}).get("score", 3.0))
-        closure_s = float(struct_eval.get("closure", {}).get("score", 3.0))
+        # 3. Structure scores (Scale normalization: convert 0.0-1.0 ratios to 1.0-5.0 scale)
+        def _get_val(obj, default=3.0):
+            if isinstance(obj, dict):
+                return obj.get("score", default)
+            return obj if obj is not None else default
+
+        def _scale_s(val):
+            try:
+                v = float(val)
+                if 0.0 < v <= 1.0:
+                    return round(1.0 + 4.0 * v, 2)
+                elif v <= 0.0:
+                    return 1.0
+                return round(min(5.0, max(1.0, v)), 2)
+            except Exception:
+                return 3.0
+
+        framing_s = _scale_s(_get_val(struct_eval.get("framing"), 3.0))
+        coherence_s = _scale_s(_get_val(struct_eval.get("coherence"), 3.0))
+        closure_s = _scale_s(_get_val(struct_eval.get("closure"), 3.0))
         raw_structure = round(0.35 * framing_s + 0.40 * coherence_s + 0.25 * closure_s, 2)
 
         # 4. Actionable Feedback alignment
