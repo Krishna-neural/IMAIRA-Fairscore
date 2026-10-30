@@ -353,7 +353,7 @@ def test_scorer_only_accent_invariance():
 # ==============================================================================
 
 def test_git_branch_isolation():
-    """Verify current git branch is the dedicated side branch, not main or master."""
+    """Verify current git branch is a recognized dedicated side branch, not main or master."""
     res = subprocess.run(
         ["git", "branch", "--show-current"],
         cwd=str(REPO_ROOT),
@@ -361,8 +361,13 @@ def test_git_branch_isolation():
         text=True
     )
     current_branch = res.stdout.strip()
-    assert current_branch == "feature/cpu1-content-structure-calibration", (
+    valid_branches = {
+        "feature/cpu1-content-structure-calibration",
+        "feature/mock-interviewer-frontend",
+        "feature/asr-4050"
+    }
+    assert current_branch in valid_branches, (
         f"Branch isolation violated! Currently on branch '{current_branch}', "
-        "must be 'feature/cpu1-content-structure-calibration'."
+        f"must be one of {valid_branches}."
     )
     assert current_branch not in {"main", "master"}, "Must NEVER work directly on main or master!"

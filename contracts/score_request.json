@@ -1,0 +1,44 @@
+{
+  "session_id": "sess_1001",
+  "candidate_id": "cand_2001",
+  "rubric": [
+    {
+      "criterion_id": "crit_1",
+      "name": "Technical Accuracy",
+      "max_marks": 40.0,
+      "description": "Correctness and depth of technical concepts"
+    },
+    {
+      "criterion_id": "crit_2",
+      "name": "Communication & Structure",
+      "max_marks": 30.0,
+      "description": "Clarity, logical structure, and articulation"
+    },
+    {
+      "criterion_id": "crit_3",
+      "name": "Problem Solving & Trade-offs",
+      "max_marks": 30.0,
+      "description": "Handling constraints and justifying decisions"
+    }
+  ],
+  "transcript": [
+    {
+      "start": 0.0,
+      "end": 12.5,
+      "speaker": "interviewer",
+      "text": "Can you explain how indexing works in PostgreSQL?"
+    },
+    {
+      "start": 13.0,
+      "end": 35.0,
+      "speaker": "candidate",
+      "text": "Indexes speed up queries by keeping sorted pointers, but I am not completely sure about write overhead."
+    },
+    {
+      "start": 36.0,
+      "end": 60.0,
+      "speaker": "candidate",
+      "text": "For locks, we never need to worry about concurrency in relational databases."
+    }
+  ]
+}

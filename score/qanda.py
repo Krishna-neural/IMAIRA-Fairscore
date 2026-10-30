@@ -86,7 +86,11 @@ def load_qanda(path: Union[str, Path] = "data/QandA.json") -> List[QnARecord]:
     """
     file_path = Path(path)
     if not file_path.exists():
-        raise QnAFileNotFoundError(
+        alt_path = Path(__file__).resolve().parent.parent / path
+        if alt_path.exists():
+            file_path = alt_path
+        else:
+            raise QnAFileNotFoundError(
             f"QandA dataset file not found at '{file_path}'. "
             f"Please verify the file exists or update configuration."
         )

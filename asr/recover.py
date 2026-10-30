@@ -30,8 +30,14 @@ from typing import List, Optional, Dict, Any, Tuple
 from pathlib import Path
 
 from rapidfuzz import fuzz
-from faster_whisper import WhisperModel
-from faster_whisper.audio import decode_audio
+try:
+    from faster_whisper import WhisperModel
+    from faster_whisper.audio import decode_audio
+    HAS_FASTER_WHISPER = True
+except ImportError:
+    WhisperModel = None
+    decode_audio = None
+    HAS_FASTER_WHISPER = False
 
 from contracts.transcript import (
     WordTiming,

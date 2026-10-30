@@ -1,0 +1,39 @@
+{
+  "transcript": [
+    {
+      "word": "hash",
+      "start": 18.2,
+      "end": 18.5,
+      "conf": 0.91,
+      "corrected_from": null
+    }
+  ],
+  "scores": {
+    "content": 74,
+    "structure": 68,
+    "communication": 81
+  },
+  "flags": {
+    "p1": "covered",
+    "p2": "missing",
+    "p3": "partial"
+  },
+  "feedback": [
+    {
+      "t_start": 18.2,
+      "t_end": 27.0,
+      "quote": "Indexes speed up queries by keeping sorted pointers, but I am not completely sure about write overhead.",
+      "issue": "Failed to explain write amplification penalty on inserts and updates.",
+      "marks_lost": 8,
+      "fix_sentence": "State clearly that secondary indexes incur write amplification during inserts and updates."
+    },
+    {
+      "t_start": 36.0,
+      "t_end": 60.0,
+      "quote": "For locks, we never need to worry about concurrency in relational databases.",
+      "issue": "Incorrect assertion regarding database locking and concurrency hazards.",
+      "marks_lost": 6,
+      "fix_sentence": "Acknowledge row-level and table-level locks, explaining how MVCC handles isolation to prevent deadlocks."
+    }
+  ]
+}
