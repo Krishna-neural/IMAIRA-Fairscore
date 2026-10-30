@@ -308,7 +308,6 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
           communication,
         },
         calibratedScores: {
-        calibratedScores: {
           content: scorecard?.calibrated_scores?.content
             ? Number(scorecard.calibrated_scores.content)
             : Number((1.0 + (content / 100.0) * 4.0).toFixed(2)),
@@ -322,11 +321,6 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
         feedback: scorecard?.cumulative_dual_diagnosis?.technical_knowledge_gaps?.map((g: any) => ({
           dimension: g.dimension || config.domain || 'Technical Knowledge Mastery',
           marks_lost: typeof g.marks_lost === 'number' ? g.marks_lost : 10,
-          quote: g.quote || '',
-          fix_sentence: g.fix_sentence || g.model_sentence_fix || `Articulate core algorithmic mechanics, asymptotic space-time bounds, and failure modes for ${g.concept || config.domain}.`,
-          question_id: g.question_id || 'ENG001',
-        })) || [],
-        flags: finalFlags,
           quote: g.quote || '',
           fix_sentence: g.fix_sentence || g.model_sentence_fix || `Articulate core algorithmic mechanics, asymptotic space-time bounds, and failure modes for ${g.concept || config.domain}.`,
           question_id: g.question_id || 'ENG001',
