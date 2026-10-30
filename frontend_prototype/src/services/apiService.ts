@@ -74,6 +74,25 @@ class ApiService {
     return res.json();
   }
 
+  async rescoreSegment(payload: {
+    session_id?: string;
+    question_id: string;
+    criterion_id: string;
+    previous_marks_lost: number;
+    new_transcript: string;
+  }): Promise<any> {
+    const res = await fetch(`${this.baseUrl}/rescore_segment`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Failed to rescore segment: ${err || res.statusText}`);
+    }
+    return res.json();
+  }
+
   async getSession(sessionId: string): Promise<any> {
     const res = await fetch(`${this.baseUrl}/interview/session/${sessionId}`);
     if (!res.ok) {

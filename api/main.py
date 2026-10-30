@@ -168,6 +168,15 @@ class ConcludeInterviewRequest(BaseModel):
     final_scorecard: Optional[Dict[str, Any]] = None
 
 
+class RescoreSegmentRequest(BaseModel):
+    session_id: Optional[str] = "sess_practice"
+    question_id: str
+    criterion_id: str
+    previous_marks_lost: float = 10.0
+    new_transcript: str
+    audio_base64: Optional[str] = None
+
+
 # --- FastAPI App Definition ---
 
 app = FastAPI(
@@ -468,6 +477,57 @@ def score_endpoint(payload: ScoreRequest):
         structure_diagnostics=pipeline_result.get("structure_diagnostics"),
         communication_diagnostics=pipeline_result.get("communication_diagnostics")
     )
+
+
+@app.post("/rescore_segment", status_code=status.HTTP_200_OK)
+def rescore_segment_endpoint(req: RescoreSegmentRequest):
+    """Re-evaluate a single flagged rubric segment in the candidate Re-Answer Loop (X-Factor #3)."""
+    # 1. Acoustic Slice Recovery on re-answer
+    verify_res = asr_bridge.finalize_and_verify(
+        raw_transcript=req.new_transcript,
+        word_timings=None
+    )
+    verified_text = verify_res.get("verified_transcript", req.new_transcript)
+    audit_log = verify_res.get("audit_log", [])
+
+    # 2. Re-score the segment using FairScore pipeline
+    q_rubric = get_cached_rubrics().get(req.question_id)
+    if not q_rubric and req.question_id.startswith("Q") and req.question_id[1:].isdigit():
+        q_rubric = get_cached_rubrics().get(f"ENG{int(req.question_id[1:]):03d}")
+    if not q_rubric and req.question_id.startswith("ENG") and req.question_id[3:].isdigit():
+        q_rubric = get_cached_rubrics().get(f"Q{int(req.question_id[3:]):03d}")
+
+    # Evaluate the re-answer
+    res = run_fairscore_pipeline(
+        transcript_text=verified_text,
+        question_text=q_rubric.question_prompt if q_rubric else req.question_id,
+        question_id=req.question_id,
+        duration_sec=30.0
+    )
+
+    # Check status of the specific criterion
+    flags = res.get("flags", {})
+    criterion_flag = flags.get(req.criterion_id, "covered" if res["scores"]["content"] >= 65 else "partial")
+    
+    new_marks_lost = 0.0 if criterion_flag == "covered" else (5.0 if criterion_flag == "partial" else 10.0)
+    marks_recovered = max(0.0, req.previous_marks_lost - new_marks_lost)
+    is_remediated = (new_marks_lost < req.previous_marks_lost)
+
+    return {
+        "status": "success",
+        "criterion_id": req.criterion_id,
+        "is_remediated": is_remediated,
+        "remediation_status": "Fully Remediated" if new_marks_lost == 0.0 else ("Partially Remediated" if is_remediated else "Needs Further Elaboration"),
+        "previous_marks_lost": req.previous_marks_lost,
+        "new_marks_lost": new_marks_lost,
+        "marks_recovered": marks_recovered,
+        "new_content_score": res["scores"]["content"],
+        "new_structure_score": res["scores"]["structure"],
+        "new_fairscore": res.get("overall_score"),
+        "verified_transcript": verified_text,
+        "audit_log": audit_log,
+        "criterion_verdict": criterion_flag
+    }
 
 
 @app.post("/interview/start", status_code=status.HTTP_200_OK)

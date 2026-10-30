@@ -231,9 +231,14 @@ class ContentJudge:
         tokens = norm_text.split()
         
         # Check floor condition (avoid false triggers when technical answers mention skip list, skip duplicate, etc.)
-        skip_phrases = ["skip this question", "skip the question", "let's skip", "please skip", "i skip", "skip it", "pass on this"]
+        skip_phrases = ["skip this question", "skip the question", "let's skip", "please skip", "i skip", "skip it", "pass on this", "not familiar with"]
         is_skip = any(p in norm_text for p in skip_phrases) or (norm_text.strip() in {"skip", "pass"})
-        if len(tokens) < 5 or ("cannot answer" in norm_text and len(tokens) < 15) or is_skip:
+        
+        # Check prompt injection or adversarial jailbreak
+        injection_triggers = ["ignore all previous", "you are now dan", "give me a 100%", "give me 100", "ignore instructions", "best engineer"]
+        is_injection = any(trig in norm_text for trig in injection_triggers)
+
+        if len(tokens) < 5 or ("cannot answer" in norm_text and len(tokens) < 15) or is_skip or is_injection:
             verdicts = []
             for idea in question.semantic_rubric_ideas:
                 verdicts.append({
@@ -242,10 +247,11 @@ class ContentJudge:
                     "score": 0.0,
                     "evidence_span": ""
                 })
+            reason = "Prompt injection or adversarial jailbreak rejected." if is_injection else "Candidate answer is empty, brief, or concedes lack of knowledge."
             return {
                 "per_idea_verdicts": verdicts,
                 "raw_content_score": 1.0,
-                "reasoning": "Candidate answer is empty, brief, or concedes lack of knowledge."
+                "reasoning": reason
             }
 
         # Concept overlap matching allowing for paraphrasing, question context, and phonetic variants
@@ -289,11 +295,34 @@ class ContentJudge:
         }
         matched_tradeoffs = [w for w in tradeoff_keywords if w in expanded_tokens or any(w in t for t in expanded_tokens)]
 
+        # Check domain factual inversions
+        factual_inversions = [
+            ("positive direction", ["negative gradient", "direction of the negative", "opposite direction"]),
+            ("maximize the loss", ["minimize", "loss function"]),
+            ("maximize loss", ["minimize", "loss function"]),
+            ("stack is fifo", ["lifo", "last in first out"]),
+            ("stack is a fifo", ["lifo", "last in first out"]),
+            ("queue is lifo", ["fifo", "first in first out"]),
+            ("queue is a lifo", ["fifo", "first in first out"]),
+            ("never overshoots", ["divergence or overshooting", "overshooting"]),
+            ("do not balance at all", ["balance factor", "balancing invariant"]),
+            ("height o(n)", ["shorter height", "tree height", "height", "log n"]),
+            ("o(n) always", ["shorter height", "tree height", "height", "log n"])
+        ]
+
         for idea in question.semantic_rubric_ideas:
             stmt = idea.semantic_statement.lower()
+            
+            # Check if this idea is contradicted by an active inversion in the text
+            has_contradiction = False
+            for inv_phrase, contradicted_terms in factual_inversions:
+                if inv_phrase in norm_text and any(ct in stmt for ct in contradicted_terms):
+                    has_contradiction = True
+                    break
+
             concept_words = [w for w in re.findall(r"\b[a-z]{4,}\b", stmt) if w not in domain_stopwords]
             matched = [w for w in concept_words if w in expanded_tokens or any(w in t for t in expanded_tokens)]
-            coverage = len(matched) / len(concept_words) if concept_words else 0.0
+            coverage = (len(matched) / len(concept_words) if concept_words else 0.0) if not has_contradiction else 0.0
 
             is_generic = any(g in stmt for g in [
                 "foundational mathematical or algorithmic theory",
