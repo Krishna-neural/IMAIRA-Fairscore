@@ -130,10 +130,14 @@ class FairnessAuditLab:
                 rec.corrected_transcript = res.get("transcripts", {}).get("corrected")
                 rec.audio_duration_sec = res.get("audio_duration_sec")
                 
-                # Use Calibrated Overall FairScore mapped to 0-100 scale
+                # Condition 2: Content score varies by <= 5.0 points on 0-100 scale across accents
                 scores_obj = res.get("scores", {})
                 fairscore_5pt = float(scores_obj.get("overall_fairscore", 3.0))
-                score_100 = round((fairscore_5pt - 1.0) / 4.0 * 100.0, 1)
+                cal_content = scores_obj.get("calibrated_content")
+                if cal_content is not None:
+                    score_100 = round((float(cal_content) - 1.0) / 4.0 * 100.0, 1)
+                else:
+                    score_100 = round((fairscore_5pt - 1.0) / 4.0 * 100.0, 1)
                 
                 rec.fairscore_5pt = fairscore_5pt
                 rec.content_score_100 = score_100

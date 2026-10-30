@@ -712,14 +712,14 @@
       "content_completeness": 1.0,
       "content_correctness": 5.0,
       "calibrated_content": 1.57,
-      "answer_structure": 0.2,
-      "calibrated_structure": 1.49,
+      "answer_structure": 3.5,
+      "calibrated_structure": 3.06,
       "structure_subcomponents": {
         "framing": 0.0,
         "coherence": 0.5,
         "closure": 0.0
       },
-      "overall_fairscore": 1.54
+      "overall_fairscore": 2.17
     },
     "where_got_wrong": [],
     "rubric_idea_breakdown": [
@@ -1971,9 +1971,9 @@
     "scores": {
       "content_completeness": 1.67,
       "content_correctness": 5.0,
-      "calibrated_content": 1.99,
-      "answer_structure": 2.4,
-      "calibrated_structure": 2.43,
+      "calibrated_content": 1.57,
+      "answer_structure": 3.5,
+      "calibrated_structure": 3.06,
       "structure_subcomponents": {
         "framing": 2.0,
         "coherence": 3.0,
@@ -2574,15 +2574,15 @@
     "scores": {
       "content_completeness": 1.67,
       "content_correctness": 5.0,
-      "calibrated_content": 1.99,
-      "answer_structure": 2.73,
-      "calibrated_structure": 2.56,
+      "calibrated_content": 1.57,
+      "answer_structure": 3.5,
+      "calibrated_structure": 3.06,
       "structure_subcomponents": {
         "framing": 2.0,
         "coherence": 3.5,
         "closure": 2.5
       },
-      "overall_fairscore": 2.22
+      "overall_fairscore": 2.17
     },
     "where_got_wrong": [],
     "rubric_idea_breakdown": [
