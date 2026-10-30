@@ -5,7 +5,7 @@ class WordTiming(BaseModel):
     word: str
     start: float
     end: float
-    conf: float
+    conf: Optional[float] = None
     corrected_from: Optional[str] = None
 
     def model_dump(self, **kwargs) -> Dict[str, Any]:
@@ -13,7 +13,7 @@ class WordTiming(BaseModel):
             "word": self.word,
             "start": round(self.start, 2),
             "end": round(self.end, 2),
-            "conf": round(self.conf, 4),
+            "conf": round(self.conf, 4) if self.conf is not None else None,
             "corrected_from": self.corrected_from
         }
 

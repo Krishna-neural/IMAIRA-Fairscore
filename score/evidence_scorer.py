@@ -161,13 +161,16 @@ class DeterministicEvidenceScorer:
         transcript_text: str,
         raw_structure_scores: Dict[str, Any],
         calibrator_content=None,
-        calibrator_structure=None
+        calibrator_structure=None,
+        uncertainty_records=None,
+        uncertainty_engine=None
     ) -> EvidenceScorecard:
         """
         Orchestrates complete deterministic scorecard calculation:
         - Evaluates criteria with evidence traceability.
         - Scales structure subcomponents to 1.0 - 5.0.
         - Applies calibration and overall FairScore weighting.
+        - Integrates confidence-aware provisional scoring policy if uncertainty records exist.
         """
         criteria_evals, awarded_marks, max_marks = self.score_criteria(
             question=question,
@@ -246,7 +249,7 @@ class DeterministicEvidenceScorer:
         else:
             verdict = "Incomplete or Incorrect"
 
-        return EvidenceScorecard(
+        scorecard = EvidenceScorecard(
             question_id=question.question_id,
             question=question.question,
             domain=question.domain,
@@ -269,3 +272,11 @@ class DeterministicEvidenceScorer:
             },
             summary_verdict=verdict
         )
+
+        if uncertainty_engine is not None and uncertainty_records is not None:
+            scorecard = uncertainty_engine.apply_provisional_scoring_policy(
+                scorecard=scorecard,
+                uncertainty_records=uncertainty_records
+            )
+
+        return scorecard

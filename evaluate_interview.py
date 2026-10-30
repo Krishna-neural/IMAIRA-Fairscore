@@ -67,6 +67,8 @@ from score.evidence_models import (
     MisconceptionItem
 )
 from score.evidence_scorer import DeterministicEvidenceScorer
+from score.uncertainty_models import UncertaintyRecord, UncertaintyPolicy
+from score.uncertainty_engine import UncertaintyEngine
 
 # Ensure unpickling works seamlessly across all modules and scripts
 import score.calibrate
@@ -254,6 +256,7 @@ class InterviewEvaluator:
         print("[INIT] Initializing Evidence-Grounded Gemini LLM Reasoning Engine...")
         self.llm_engine = LLMEvaluationEngine()
         self.evidence_scorer = DeterministicEvidenceScorer()
+        self.uncertainty_engine = UncertaintyEngine()
         print("[INIT] All systems ready.\n")
 
     def evaluate_file(self, audio_path: Path, forced_qid: Optional[str] = None) -> Dict[str, Any]:
@@ -292,8 +295,42 @@ class InterviewEvaluator:
             raw_structure = 1.0
         raw_structure = max(1.0, min(5.0, raw_structure))
 
-        # Build QuestionDefinition and EvidenceScorecard
+        # Build QuestionDefinition and detect suspicious segments (Confidence-Aware Engine)
         q_def = question_rubric_to_evidence_question(question)
+        uncertainty_records = self.uncertainty_engine.detect_suspicious_segments(
+            word_timings=word_timings,
+            question=q_def,
+            candidate_terms=getattr(recovery_res, "candidate_terms", None)
+        )
+
+        # Cross-reference with ASR recovery audit log
+        for e in recovery_res.audit_log:
+            existing = next((r for r in uncertainty_records if abs(r.start - e.t_start) < 0.5), None)
+            if existing:
+                existing.recognition_status = "verified" if e.decision == "CORRECTED" else "uncertain"
+                existing.correction_status = "audio_verified" if e.decision == "CORRECTED" else "no_correction"
+                existing.corrected_text = e.applied_correction or e.candidate_term
+                existing.verification_reason = e.reason
+            else:
+                uncertainty_records.append(
+                    UncertaintyRecord(
+                        segment_id=f"S{len(uncertainty_records)+1:03d}",
+                        question_id=question.question_id,
+                        original_text=e.original_text,
+                        corrected_text=e.applied_correction or e.candidate_term,
+                        start=e.t_start,
+                        end=e.t_end,
+                        asr_confidence=e.original_conf,
+                        recognition_status="verified" if e.decision == "CORRECTED" else "uncertain",
+                        rubric_status="pending_verification",
+                        correction_status="audio_verified" if e.decision == "CORRECTED" else "no_correction",
+                        uncertainty_level="low" if e.decision == "CORRECTED" else "medium",
+                        verification_method="audio_recheck",
+                        linked_criterion_ids=[c.criterion_id for c in q_def.rubric if (e.applied_correction or e.candidate_term).lower() in c.description.lower()],
+                        verification_reason=e.reason
+                    )
+                )
+
         raw_evals = []
         for idea_res in llm_res.get("rubric_idea_breakdown", []):
             v = idea_res["verdict"].lower()
@@ -327,7 +364,9 @@ class InterviewEvaluator:
             transcript_text=corrected_transcript,
             raw_structure_scores=llm_res.get("structure_subcomponents", {}),
             calibrator_content=self.calibrator_content,
-            calibrator_structure=self.calibrator_structure
+            calibrator_structure=self.calibrator_structure,
+            uncertainty_records=uncertainty_records,
+            uncertainty_engine=self.uncertainty_engine
         )
 
         cal_content = scorecard.calibrated_content_5pt
@@ -376,7 +415,9 @@ class InterviewEvaluator:
             "rubric_idea_breakdown": llm_res["rubric_idea_breakdown"],
             "actionable_feedback": llm_res.get("actionable_feedback", []),
             "corrections_made": corrections_applied,
-            "evidence_scorecard": scorecard.model_dump()
+            "evidence_scorecard": scorecard.model_dump(),
+            "uncertainty_records": [r.model_dump() for r in uncertainty_records],
+            "evaluation_state": scorecard.evaluation_state
         }
 
 

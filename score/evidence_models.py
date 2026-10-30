@@ -7,6 +7,12 @@ deterministic criterion scoring, and explainable candidate feedback.
 
 from typing import List, Optional, Literal, Dict, Any
 from pydantic import BaseModel, Field, field_validator
+from score.uncertainty_models import (
+    UncertaintyRecord,
+    RecognitionStatus,
+    RubricStatus,
+    EvaluationState
+)
 
 
 class RubricCriterion(BaseModel):
@@ -57,6 +63,13 @@ class CriterionEvaluation(BaseModel):
     what_was_right: Optional[str] = Field(default=None, description="Actual quote and why it earned marks")
     what_was_missing: Optional[str] = Field(default=None, description="Missing concept that candidate omitted")
     how_to_improve: Optional[str] = Field(default=None, description="Concise actionable advice <= 30 words")
+    
+    # Implementation 2: Confidence-Aware Evaluation extensions
+    evaluation_state: EvaluationState = Field(default="final_verified")
+    provisional_marks: float = Field(default=0.0)
+    recognition_status: RecognitionStatus = Field(default="verified")
+    uncertainty_record_ids: List[str] = Field(default_factory=list)
+    uncertainty_notice: Optional[str] = Field(default=None)
 
 
 class MisconceptionItem(BaseModel):
@@ -87,6 +100,13 @@ class EvidenceScorecard(BaseModel):
     misconceptions: List[MisconceptionItem] = Field(default_factory=list)
     structure_breakdown: Dict[str, float] = Field(default_factory=dict)
     summary_verdict: str = Field(default="Completed")
+    
+    # Implementation 2: Confidence-Aware Evaluation extensions
+    evaluation_state: EvaluationState = Field(default="final_verified")
+    provisional_marks_total: float = Field(default=0.0)
+    provisional_score_active: bool = Field(default=False)
+    manual_review_pending: bool = Field(default=False)
+    uncertainty_records: List[UncertaintyRecord] = Field(default_factory=list)
 
 
 def load_evidence_question_bank(path=None) -> Dict[str, QuestionDefinition]:
