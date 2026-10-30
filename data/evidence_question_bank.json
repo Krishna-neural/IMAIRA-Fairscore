@@ -1,0 +1,243 @@
+[
+  {
+    "question_id": "DS_001",
+    "question": "What is a hash map and how does it handle collisions?",
+    "domain": "Data Structures",
+    "difficulty": "Intermediate",
+    "total_marks": 10.0,
+    "expected_concepts": ["Key-Value Mapping", "Hash Function", "Collision Handling", "Chaining", "Open Addressing"],
+    "rubric": [
+      {
+        "criterion_id": "R1",
+        "description": "Defines a hash map as an associative data structure mapping keys to values using a hash function.",
+        "max_points": 2.5,
+        "scoring_guidelines": "Full credit if key-value mapping and hash computation are stated; partial if only key-value is mentioned.",
+        "acceptable_alternatives": ["hash table", "dictionary", "associative array"]
+      },
+      {
+        "criterion_id": "R2",
+        "description": "Explains collision concept: two distinct keys produce the same hash bucket index.",
+        "max_points": 2.5,
+        "scoring_guidelines": "Full credit for explaining bucket collision due to finite array size.",
+        "acceptable_alternatives": ["hash clash", "index conflict", "same bucket"]
+      },
+      {
+        "criterion_id": "R3",
+        "description": "Explains Separate Chaining using linked lists or balanced trees per bucket.",
+        "max_points": 2.5,
+        "scoring_guidelines": "Full credit for explaining chained nodes/lists in each bucket.",
+        "acceptable_alternatives": ["chaining", "linked list in bucket", "bucket chaining"]
+      },
+      {
+        "criterion_id": "R4",
+        "description": "Explains Open Addressing (e.g. Linear Probing, Quadratic Probing, or Double Hashing).",
+        "max_points": 2.5,
+        "scoring_guidelines": "Full credit for mentioning searching adjacent/next available slots in the table.",
+        "acceptable_alternatives": ["closed hashing", "linear probing", "probing"]
+      }
+    ]
+  },
+  {
+    "question_id": "Q032",
+    "question": "What is a hash map and how does it handle collisions?",
+    "domain": "Data Structures",
+    "difficulty": "Intermediate",
+    "total_marks": 10.0,
+    "expected_concepts": ["Key-Value Mapping", "Hash Function", "Collision Resolution", "Chaining", "Open Addressing"],
+    "rubric": [
+      {
+        "criterion_id": "R1",
+        "description": "Defines hash map and indexing via hash function.",
+        "max_points": 3.0,
+        "scoring_guidelines": "Full credit for key-value pair mapping through a hash function.",
+        "acceptable_alternatives": ["hash table", "dictionary"]
+      },
+      {
+        "criterion_id": "R2",
+        "description": "Explains collisions and separate chaining.",
+        "max_points": 3.5,
+        "scoring_guidelines": "Full credit for explaining multiple keys hashing to same index and using linked lists.",
+        "acceptable_alternatives": ["chaining", "linked lists at bucket"]
+      },
+      {
+        "criterion_id": "R3",
+        "description": "Explains open addressing techniques such as linear probing.",
+        "max_points": 3.5,
+        "scoring_guidelines": "Full credit for probing next empty slots in array.",
+        "acceptable_alternatives": ["linear probing", "probing", "open addressing"]
+      }
+    ]
+  },
+  {
+    "question_id": "Q035",
+    "question": "Explain stack and queue data structures and their primary differences.",
+    "domain": "Data Structures",
+    "difficulty": "Beginner",
+    "total_marks": 10.0,
+    "expected_concepts": ["LIFO", "FIFO", "Push/Pop", "Enqueue/Dequeue"],
+    "rubric": [
+      {
+        "criterion_id": "R1",
+        "description": "Defines stack as Last-In First-Out (LIFO) with push and pop.",
+        "max_points": 5.0,
+        "scoring_guidelines": "Full credit for LIFO principle and push/pop operations.",
+        "acceptable_alternatives": ["LIFO", "last in first out"]
+      },
+      {
+        "criterion_id": "R2",
+        "description": "Defines queue as First-In First-Out (FIFO) with enqueue and dequeue.",
+        "max_points": 5.0,
+        "scoring_guidelines": "Full credit for FIFO principle and enqueue/dequeue operations.",
+        "acceptable_alternatives": ["FIFO", "first in first out"]
+      }
+    ]
+  },
+  {
+    "question_id": "Q054",
+    "question": "Implement and explain stack operations using arrays or linked lists.",
+    "domain": "Data Structures",
+    "difficulty": "Intermediate",
+    "total_marks": 10.0,
+    "expected_concepts": ["Top Pointer", "Push", "Pop", "Overflow/Underflow"],
+    "rubric": [
+      {
+        "criterion_id": "R1",
+        "description": "Explains top pointer management during push and pop.",
+        "max_points": 5.0,
+        "scoring_guidelines": "Full credit for incrementing/decrementing top index or updating head node.",
+        "acceptable_alternatives": ["top index", "head pointer", "stack pointer"]
+      },
+      {
+        "criterion_id": "R2",
+        "description": "Explains boundary conditions: stack overflow and underflow.",
+        "max_points": 5.0,
+        "scoring_guidelines": "Full credit for checking full capacity on push and empty on pop.",
+        "acceptable_alternatives": ["overflow", "underflow", "empty check", "capacity check"]
+      }
+    ]
+  },
+  {
+    "question_id": "Q084",
+    "question": "What is the difference between a process and a thread?",
+    "domain": "Operating Systems",
+    "difficulty": "Intermediate",
+    "total_marks": 10.0,
+    "expected_concepts": ["Address Space", "Context Switching Overhead", "Communication / IPC", "Thread Scheduling"],
+    "rubric": [
+      {
+        "criterion_id": "R1",
+        "description": "Explains address space: processes have independent memory spaces, threads share parent process memory.",
+        "max_points": 4.0,
+        "scoring_guidelines": "Full credit for contrasting separate virtual memory with shared heap/text memory.",
+        "acceptable_alternatives": ["isolated memory", "shared memory", "separate address space"]
+      },
+      {
+        "criterion_id": "R2",
+        "description": "Explains resource overhead and context switching: threads are lightweight and faster to switch.",
+        "max_points": 3.0,
+        "scoring_guidelines": "Full credit for explaining lower context switch cost for threads.",
+        "acceptable_alternatives": ["lightweight", "faster context switch", "lower overhead"]
+      },
+      {
+        "criterion_id": "R3",
+        "description": "Explains communication: threads communicate via shared memory; processes require IPC (pipes, sockets, message queues).",
+        "max_points": 3.0,
+        "scoring_guidelines": "Full credit for identifying IPC requirement for inter-process communication.",
+        "acceptable_alternatives": ["IPC", "inter-process communication", "message passing"]
+      }
+    ]
+  },
+  {
+    "question_id": "Q109",
+    "question": "What is Continuous Integration and Continuous Deployment (CI/CD) and why is it important?",
+    "domain": "DevOps & Software Engineering",
+    "difficulty": "Intermediate",
+    "total_marks": 10.0,
+    "expected_concepts": ["Automated Testing", "Code Integration", "Automated Deployment", "Fast Feedback Loops"],
+    "rubric": [
+      {
+        "criterion_id": "R1",
+        "description": "Defines CI as frequently merging code changes into a shared repository with automated builds and unit tests.",
+        "max_points": 4.0,
+        "scoring_guidelines": "Full credit for automated build and automated test verification on commit.",
+        "acceptable_alternatives": ["continuous integration", "automated testing", "automated builds"]
+      },
+      {
+        "criterion_id": "R2",
+        "description": "Defines CD as automatically delivering or deploying validated changes to staging or production environments.",
+        "max_points": 3.5,
+        "scoring_guidelines": "Full credit for automatic delivery/deployment pipeline to environments.",
+        "acceptable_alternatives": ["continuous delivery", "continuous deployment", "release automation"]
+      },
+      {
+        "criterion_id": "R3",
+        "description": "Articulates key benefits: early defect detection, shorter release cycles, and reduced manual deployment errors.",
+        "max_points": 2.5,
+        "scoring_guidelines": "Full credit for citing faster delivery, early bug discovery, or confidence in releases.",
+        "acceptable_alternatives": ["faster release", "early bug detection", "reduced risk"]
+      }
+    ]
+  },
+  {
+    "question_id": "Q120",
+    "question": "What is Dependency Injection and how does it promote loose coupling?",
+    "domain": "Software Architecture",
+    "difficulty": "Intermediate",
+    "total_marks": 10.0,
+    "expected_concepts": ["Inversion of Control", "Decoupling", "Constructor/Setter Injection", "Testability / Mocking"],
+    "rubric": [
+      {
+        "criterion_id": "R1",
+        "description": "Defines Dependency Injection as a design pattern implementing Inversion of Control where dependencies are supplied from outside rather than instantiated internally.",
+        "max_points": 3.5,
+        "scoring_guidelines": "Full credit for explaining providing dependencies externally instead of using 'new'.",
+        "acceptable_alternatives": ["IoC", "inversion of control", "passing dependencies", "external injection"]
+      },
+      {
+        "criterion_id": "R2",
+        "description": "Explains how DI achieves loose coupling by depending on abstractions (interfaces) rather than concrete implementations.",
+        "max_points": 3.5,
+        "scoring_guidelines": "Full credit for mentioning decoupling from concrete classes via interfaces.",
+        "acceptable_alternatives": ["decoupling", "coding to interfaces", "loose coupling"]
+      },
+      {
+        "criterion_id": "R3",
+        "description": "Highlights benefits for testability, allowing easy substitution with mock or stub objects in unit testing.",
+        "max_points": 3.0,
+        "scoring_guidelines": "Full credit for explaining unit test mockability and swappable components.",
+        "acceptable_alternatives": ["mocking", "unit testing", "testability", "substituting mocks"]
+      }
+    ]
+  },
+  {
+    "question_id": "ENG121",
+    "question": "What is the difference between symmetric and asymmetric encryption, and when should each be used?",
+    "domain": "Cybersecurity & Cryptography",
+    "difficulty": "Intermediate",
+    "total_marks": 10.0,
+    "expected_concepts": ["Shared Secret Key", "Public/Private Key Pair", "Computational Speed", "Key Exchange (Hybrid Cryptography)"],
+    "rubric": [
+      {
+        "criterion_id": "R1",
+        "description": "Defines symmetric encryption: uses a single shared secret key for both encryption and decryption (e.g. AES).",
+        "max_points": 3.5,
+        "scoring_guidelines": "Full credit for single shared key explanation.",
+        "acceptable_alternatives": ["single key", "shared secret", "secret key", "AES"]
+      },
+      {
+        "criterion_id": "R2",
+        "description": "Defines asymmetric encryption: uses mathematically linked public/private key pairs (e.g. RSA, ECC).",
+        "max_points": 3.5,
+        "scoring_guidelines": "Full credit for public and private key pair explanation.",
+        "acceptable_alternatives": ["public key cryptography", "public-private pair", "RSA", "asymmetric key"]
+      },
+      {
+        "criterion_id": "R3",
+        "description": "Contrasts performance and use cases: symmetric is computationally fast for bulk data; asymmetric solves key exchange (hybrid encryption like TLS/HTTPS).",
+        "max_points": 3.0,
+        "scoring_guidelines": "Full credit for contrasting speed/overhead and explaining key distribution.",
+        "acceptable_alternatives": ["faster bulk encryption", "TLS key exchange", "hybrid cryptosystem"]
+      }
+    ]
+  }
+]

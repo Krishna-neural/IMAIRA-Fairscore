@@ -1,0 +1,105 @@
+{
+  "feedback_id": "FB_REP_ENG127_20261030_045848",
+  "interview_id": "Prem_ws10.m4a",
+  "question_id": "ENG127",
+  "question_text": "Explain why REST is stateless and how it differs from stateful session-based web architectures.",
+  "total_marks": 2.0,
+  "total_awarded_marks": 0.0,
+  "total_marks_lost": 2.0,
+  "opportunities": [
+    {
+      "opportunity_id": "FB_001",
+      "criterion_id": "ENG127_IDEA_1",
+      "title": "Improve explanation of Explains that REST is strictly stateless",
+      "marks_lost": 1.0,
+      "max_points": 1.0,
+      "awarded_points": 0.0,
+      "evidence": null,
+      "issue": "You omitted key discussion of Explains that REST is strictly stateless, requiring every client request to carry complete contextual information and credentials.. No supporting evidence was found in your explanation.",
+      "why_it_matters": "Understanding Explains that REST is strictly stateless, requiring every client request to carry complete contextual information and credentials. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+      "action": "Study Explains that REST is strictly stat. Practice articulating its core mechanisms using concrete examples.",
+      "suggested_answer": "In technical architecture, Explains that REST is strictly stateless, requiring every client request to carry complete contextual information and credentials.. This ensures reliable execution and clear component boundaries.",
+      "feedback_status": "validated",
+      "uncertainty_notice": null,
+      "priority_rank": 1
+    },
+    {
+      "opportunity_id": "FB_002",
+      "criterion_id": "ENG127_IDEA_2",
+      "title": "Improve explanation of Contrasts statelessness with stateful se",
+      "marks_lost": 1.0,
+      "max_points": 1.0,
+      "awarded_points": 0.0,
+      "evidence": null,
+      "issue": "You omitted key discussion of Contrasts statelessness with stateful server sessions, explaining benefits for horizontal scaling and reliability.. No supporting evidence was found in your explanation.",
+      "why_it_matters": "Understanding Contrasts statelessness with stateful server sessions, explaining benefits for horizontal scaling and reliability. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+      "action": "Study Contrasts statelessness with statef. Practice articulating its core mechanisms using concrete examples.",
+      "suggested_answer": "In technical architecture, Contrasts statelessness with stateful server sessions, explaining benefits for horizontal scaling and reliability.. This ensures reliable execution and clear component boundaries.",
+      "feedback_status": "validated",
+      "uncertainty_notice": null,
+      "priority_rank": 2
+    }
+  ],
+  "improvement_plan": {
+    "interview_id": "Prem_ws10.m4a",
+    "question_id": "ENG127",
+    "question_text": "Explain why REST is stateless and how it differs from stateful session-based web architectures.",
+    "total_marks_lost": 2.0,
+    "plan_items": [
+      {
+        "plan_id": "PLAN_001",
+        "criterion_id": "ENG127_IDEA_1",
+        "concept_to_revise": "Explains that REST is strictly stateless",
+        "why_needed": "You omitted key discussion of Explains that REST is strictly stateless, requiring every client request to carry complete contextual information and credentials.. No supporting evidence was found in your explanation.",
+        "learning_objectives": [
+          "Master core principles and operational mechanisms of Explains that REST is strictly",
+          "Explain how Explains that REST is strictly integrates into broader technical architectures",
+          "Articulate trade-offs, edge cases, and real-world failure modes"
+        ],
+        "practice_task": "Explain Explains that REST is strictly stateless as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+        "expected_answer_components": [
+          "Precise technical definition of Explains that REST is strictly",
+          "Step-by-step mechanism or data flow",
+          "Practical engineering application and trade-off comparison"
+        ],
+        "self_assessment_criteria": [
+          "Did I explicitly mention the mechanism of Explains that REST is str?",
+          "Did I use correct terminology rather than generic paraphrases?",
+          "Did I explain why alternative approaches are inferior or when this pattern applies?"
+        ],
+        "marks_lost": 1.0
+      },
+      {
+        "plan_id": "PLAN_002",
+        "criterion_id": "ENG127_IDEA_2",
+        "concept_to_revise": "Contrasts statelessness with stateful se",
+        "why_needed": "You omitted key discussion of Contrasts statelessness with stateful server sessions, explaining benefits for horizontal scaling and reliability.. No supporting evidence was found in your explanation.",
+        "learning_objectives": [
+          "Master core principles and operational mechanisms of Contrasts statelessness with s",
+          "Explain how Contrasts statelessness with s integrates into broader technical architectures",
+          "Articulate trade-offs, edge cases, and real-world failure modes"
+        ],
+        "practice_task": "Explain Contrasts statelessness with stateful se as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+        "expected_answer_components": [
+          "Precise technical definition of Contrasts statelessness with s",
+          "Step-by-step mechanism or data flow",
+          "Practical engineering application and trade-off comparison"
+        ],
+        "self_assessment_criteria": [
+          "Did I explicitly mention the mechanism of Contrasts statelessness w?",
+          "Did I use correct terminology rather than generic paraphrases?",
+          "Did I explain why alternative approaches are inferior or when this pattern applies?"
+        ],
+        "marks_lost": 1.0
+      }
+    ]
+  },
+  "validation_summary": {
+    "passed": 2,
+    "failed": 0,
+    "retried": 0,
+    "errors": []
+  },
+  "model_used": "deterministic_evidence_fallback",
+  "created_at": "2026-10-30T04:58:48.374781"
+}

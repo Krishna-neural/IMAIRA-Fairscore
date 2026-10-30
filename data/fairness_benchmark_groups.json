@@ -1,0 +1,199 @@
+[
+  {
+    "group_id": "FAIR_001",
+    "question_id": "Q084",
+    "question_text": "What is the difference between a process and a thread?",
+    "domain": "Operating Systems",
+    "rubric_version": "1.0",
+    "expected_answer_reference": "REF_Q084_CORRECT",
+    "substantive_concept_summary": "Explains separate memory address space for processes vs shared memory for threads, context switching overhead differences, and IPC requirements.",
+    "human_reference": {
+      "reference_transcript": "A process has its own isolated memory address space, whereas threads share the memory space of their parent process. Context switching between threads is faster and more lightweight. Threads communicate via shared memory while processes require Inter-Process Communication (IPC).",
+      "expected_concepts": ["isolated address space", "shared memory", "context switching overhead", "IPC"],
+      "reference_content_score_100": 95.0,
+      "criterion_reference_marks": {"R1": 4.0, "R2": 3.0, "R3": 3.0},
+      "evaluator_notes": "Benchmark gold standard for process vs thread comparison."
+    },
+    "recordings": [
+      {
+        "recording_id": "FAIR_001_REC_A",
+        "speaker_id": "SPK_RUPESH",
+        "audio_reference": "asr/Rupesh_script1.m4a",
+        "experimental_conditions": {
+          "recording_environment": "indoor",
+          "microphone_type": "headset",
+          "speech_style": "natural",
+          "speaker_label": "Speaker 1 (Standard Indian Accent)",
+          "accent_description": "Clear diction, mild North Indian cadence",
+          "language_mixing": false
+        }
+      },
+      {
+        "recording_id": "FAIR_001_REC_B",
+        "speaker_id": "SPK_SUKHPREET_1",
+        "audio_reference": "asr/Sukhpreet_script1.m4a",
+        "experimental_conditions": {
+          "recording_environment": "indoor",
+          "microphone_type": "headset",
+          "speech_style": "natural",
+          "speaker_label": "Speaker 2 (Punjabi Cadence)",
+          "accent_description": "Punjabi intonation with strong consonants",
+          "language_mixing": false
+        }
+      },
+      {
+        "recording_id": "FAIR_001_REC_C",
+        "speaker_id": "SPK_SUKHPREET_2",
+        "audio_reference": "asr/Sukhpreet_script1 (1).m4a",
+        "experimental_conditions": {
+          "recording_environment": "indoor",
+          "microphone_type": "headset",
+          "speech_style": "natural",
+          "speaker_label": "Speaker 2 (Repeat Recording)",
+          "accent_description": "Repeat session under identical conditions",
+          "language_mixing": false
+        }
+      },
+      {
+        "recording_id": "FAIR_001_REC_D",
+        "speaker_id": "SPK_SYNTH_3",
+        "audio_reference": "asr/test_voice_v3.wav",
+        "experimental_conditions": {
+          "recording_environment": "studio",
+          "microphone_type": "studio_condenser",
+          "speech_style": "formal",
+          "speaker_label": "Speaker 3 (Control Reference)",
+          "accent_description": "Clean acoustic studio recording",
+          "language_mixing": false
+        }
+      }
+    ]
+  },
+  {
+    "group_id": "FAIR_002",
+    "question_id": "Q120",
+    "question_text": "What is Dependency Injection and how does it promote loose coupling?",
+    "domain": "Software Architecture",
+    "rubric_version": "1.0",
+    "expected_answer_reference": "REF_Q120_CORRECT",
+    "substantive_concept_summary": "Explains Inversion of Control, passing dependencies externally, coding to interfaces rather than concrete classes, and testability/mocking.",
+    "human_reference": {
+      "reference_transcript": "Dependency injection is a design pattern that implements Inversion of Control where dependencies are passed in from the outside rather than created internally with the new operator. It promotes loose coupling by depending on interfaces and allows easy mocking during unit tests.",
+      "expected_concepts": ["Inversion of Control", "External injection", "Interface decoupling", "Unit testing and mocking"],
+      "reference_content_score_100": 98.0,
+      "criterion_reference_marks": {"R1": 3.5, "R2": 3.5, "R3": 3.0},
+      "evaluator_notes": "Exemplary answer demonstrating full IoC architectural understanding."
+    },
+    "recordings": [
+      {
+        "recording_id": "FAIR_002_REC_A",
+        "speaker_id": "SPK_RUPESH",
+        "audio_reference": "asr/Rupesh_script2.m4a",
+        "experimental_conditions": {
+          "recording_environment": "indoor",
+          "microphone_type": "headset",
+          "speech_style": "natural",
+          "speaker_label": "Speaker 1 (Standard Indian Accent)",
+          "accent_description": "Clear technical pace",
+          "language_mixing": false
+        }
+      },
+      {
+        "recording_id": "FAIR_002_REC_B",
+        "speaker_id": "SPK_SUKHPREET_1",
+        "audio_reference": "asr/Sukhpreet_script2.m4a",
+        "experimental_conditions": {
+          "recording_environment": "indoor",
+          "microphone_type": "headset",
+          "speech_style": "natural",
+          "speaker_label": "Speaker 2 (Punjabi Cadence)",
+          "accent_description": "Northern regional prosody",
+          "language_mixing": false
+        }
+      },
+      {
+        "recording_id": "FAIR_002_REC_C",
+        "speaker_id": "SPK_SUKHPREET_2",
+        "audio_reference": "asr/Sukhpreet_script2 (1).m4a",
+        "experimental_conditions": {
+          "recording_environment": "indoor",
+          "microphone_type": "headset",
+          "speech_style": "natural",
+          "speaker_label": "Speaker 2 (Repeat Recording)",
+          "accent_description": "Repeat recording under identical conditions",
+          "language_mixing": false
+        }
+      },
+      {
+        "recording_id": "FAIR_002_REC_D",
+        "speaker_id": "SPK_SYNTH_2",
+        "audio_reference": "asr/test_voice_v2.wav",
+        "experimental_conditions": {
+          "recording_environment": "studio",
+          "microphone_type": "studio_condenser",
+          "speech_style": "formal",
+          "speaker_label": "Speaker 3 (Control Reference)",
+          "accent_description": "Neutral studio acoustic baseline",
+          "language_mixing": false
+        }
+      }
+    ]
+  },
+  {
+    "group_id": "FAIR_003",
+    "question_id": "Q109",
+    "question_text": "What is Continuous Integration and Continuous Deployment (CI/CD) and why is it important?",
+    "domain": "DevOps & Software Engineering",
+    "rubric_version": "1.0",
+    "expected_answer_reference": "REF_Q109_CORRECT",
+    "substantive_concept_summary": "Defines CI with frequent integration and automated tests, CD with automated delivery/deployment to environments, and benefits of early defect discovery.",
+    "human_reference": {
+      "reference_transcript": "Continuous Integration is frequently merging code changes into a shared repository verified by automated builds and tests. Continuous Deployment automatically deploys passing builds into production. It helps teams detect defects early and deliver features with high velocity.",
+      "expected_concepts": ["automated builds and tests", "frequent code merges", "automated production deployment", "early defect detection"],
+      "reference_content_score_100": 92.0,
+      "criterion_reference_marks": {"R1": 4.0, "R2": 3.5, "R3": 2.5},
+      "evaluator_notes": "Covers both CI and CD mechanisms and primary business value."
+    },
+    "recordings": [
+      {
+        "recording_id": "FAIR_003_REC_A",
+        "speaker_id": "SPK_RUPESH",
+        "audio_reference": "asr/Rupesh_script3.m4a",
+        "experimental_conditions": {
+          "recording_environment": "indoor",
+          "microphone_type": "headset",
+          "speech_style": "natural",
+          "speaker_label": "Speaker 1 (Standard Indian Accent)",
+          "accent_description": "Natural conversational cadence",
+          "language_mixing": false
+        }
+      },
+      {
+        "recording_id": "FAIR_003_REC_B",
+        "speaker_id": "SPK_SUKHPREET",
+        "audio_reference": "asr/Sukhpreet_script3.m4a",
+        "experimental_conditions": {
+          "recording_environment": "indoor",
+          "microphone_type": "headset",
+          "speech_style": "natural",
+          "speaker_label": "Speaker 2 (Punjabi Cadence)",
+          "accent_description": "Punjabi intonation with rapid delivery",
+          "language_mixing": false
+        }
+      },
+      {
+        "recording_id": "FAIR_003_REC_C",
+        "speaker_id": "SPK_SYNTH_1",
+        "audio_reference": "asr/test_voice_v1.wav",
+        "experimental_conditions": {
+          "recording_environment": "studio",
+          "microphone_type": "studio_condenser",
+          "speech_style": "formal",
+          "speaker_label": "Speaker 3 (Control Reference)",
+          "accent_description": "Clean acoustic baseline",
+          "language_mixing": false
+        }
+      }
+    ]
+  }
+]
