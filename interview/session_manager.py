@@ -268,7 +268,9 @@ class SessionManager:
         slice_recovery_log: Optional[List[Dict[str, Any]]] = None,
         evaluation: Optional[Dict[str, Any]] = None,
         injection_detected: bool = False,
-        audio_path: Optional[str] = None
+        audio_path: Optional[str] = None,
+        current_q_index: Optional[int] = None,
+        follow_up_active: Optional[bool] = None
     ) -> Optional[TurnRecord]:
         session = self.get_session(session_id)
         if not session:
@@ -295,6 +297,15 @@ class SessionManager:
             timestamp=time.time()
         )
         session.turns.append(turn)
+        if stage:
+            try:
+                session.stage = InterviewStage(stage)
+            except Exception:
+                pass
+        if current_q_index is not None:
+            session.current_q_index = current_q_index
+        if follow_up_active is not None:
+            session.follow_up_active = follow_up_active
         self.save_session(session)
         return turn
 

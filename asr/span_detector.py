@@ -44,6 +44,12 @@ DEFAULT_ALIASES: Dict[str, str] = {
     "kubernets": "Kubernetes",
     "dockers": "Docker",
     "resursion": "recursion",
+    "semfor": "semaphore",
+    "semafor": "semaphore",
+    "cubernetes": "Kubernetes",
+    "reddis": "Redis",
+    "asinc": "async",
+    "polymorfism": "polymorphism",
     "im aira": "IMAIRA",
     "imaira": "IMAIRA",
     "fair score": "FairScore",
@@ -135,6 +141,21 @@ class SuspiciousSpanDetector:
                 deduped.append(t)
         self.terms = deduped
         self.terms_lower = [t.lower() for t in self.terms]
+        self.terms_set = set(self.terms_lower)
+
+    def _is_known_term(self, word: str) -> bool:
+        """Check if word or common inflection is already in technical glossary."""
+        w = clean_text(word)
+        if not w:
+            return True
+        if hasattr(self, 'terms_set') and w in self.terms_set:
+            return True
+        for suffix in ['s', 'es', 'ed', 'ing', 'ly', 'ize', 'ise', 'tion', 'able', 'ive']:
+            if w.endswith(suffix):
+                stem = w[:-len(suffix)]
+                if hasattr(self, 'terms_set') and (stem in self.terms_set or (stem + 'e') in self.terms_set):
+                    return True
+        return False
 
     def _is_stop_span(self, words: List[WordTiming]) -> bool:
         """Return True if all words in span are stopwords or single non-alpha characters."""
@@ -260,6 +281,8 @@ class SuspiciousSpanDetector:
                 # A. Direct alias dictionary match
                 if span_clean in self.aliases:
                     target = self.aliases[span_clean]
+                    if target.lower() == span_clean.lower():
+                        continue
                     fuzz_sc, comb_sc, p_match = self.score_candidate(span_text, target)
                     candidates.append(SuspiciousSpan(
                         span_id=f"span_{i}_{i+n}",
@@ -280,7 +303,7 @@ class SuspiciousSpanDetector:
 
                 # B. Low confidence trigger
                 if min_c < self.conf_threshold:
-                    if not self.terms:
+                    if not self.terms or self._is_known_term(span_clean):
                         continue
 
                     # Search closest candidate in glossary via RapidFuzz
