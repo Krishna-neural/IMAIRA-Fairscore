@@ -4,41 +4,41 @@
     "dataset_version": "1.0",
     "tolerance_threshold": 5.0,
     "asr_model": "faster-whisper/large-v3",
-    "gemini_model": "gemini-3.8-flash",
+    "gemini_model": "gemini-3.5-flash",
     "scoring_version": "2.0-evidence-first",
-    "created_at": "2026-10-30T05:59:53.833631"
+    "created_at": "2026-10-30T06:43:52.655093"
   },
   "total_groups": 3,
   "valid_groups": 3,
-  "passed_groups": 3,
-  "failed_groups": 0,
-  "fairness_pass_rate_pct": 100.0,
-  "average_score_range": 0.0,
-  "max_observed_score_range": 0.0,
+  "passed_groups": 2,
+  "failed_groups": 1,
+  "fairness_pass_rate_pct": 66.7,
+  "average_score_range": 3.33,
+  "max_observed_score_range": 10.0,
   "group_metrics": [
     {
       "group_id": "FAIR_001",
       "question_id": "Q084",
       "total_recordings": 4,
       "valid_recordings": 2,
-      "highest_score": 14.3,
-      "lowest_score": 14.3,
+      "highest_score": 68.4,
+      "lowest_score": 68.4,
       "score_range": 0.0,
-      "mean_score": 14.3,
-      "median_score": 14.3,
+      "mean_score": 68.4,
+      "median_score": 68.4,
       "std_dev": 0.0,
       "percentiles": {
-        "p25": 14.3,
-        "p50": 14.3,
-        "p75": 14.3,
-        "p90": 14.3
+        "p25": 68.4,
+        "p50": 68.4,
+        "p75": 68.4,
+        "p90": 68.4
       },
       "passed_tolerance": true,
       "tolerance_threshold": 5.0,
       "criterion_score_ranges": {
-        "Q084_IDEA_1": 0.5,
+        "Q084_IDEA_1": 0.0,
         "Q084_IDEA_2": 0.0,
-        "Q084_IDEA_3": 0.5
+        "Q084_IDEA_3": 0.0
       },
       "technical_term_recall": 0.125,
       "false_correction_rate": 0.0,
@@ -46,27 +46,27 @@
       "diagnostic_attribution": {
         "primary_driver": "consistent_scoring",
         "asr_error_detected": true,
-        "max_criterion_drift": 0.5,
+        "max_criterion_drift": 0.0,
         "provisional_safeguard_triggered": true
       },
-      "human_agreement_mae": 80.7
+      "human_agreement_mae": 26.6
     },
     {
       "group_id": "FAIR_002",
       "question_id": "Q120",
       "total_recordings": 4,
       "valid_recordings": 2,
-      "highest_score": 14.3,
-      "lowest_score": 14.3,
+      "highest_score": 83.8,
+      "lowest_score": 83.8,
       "score_range": 0.0,
-      "mean_score": 14.3,
-      "median_score": 14.3,
+      "mean_score": 83.8,
+      "median_score": 83.8,
       "std_dev": 0.0,
       "percentiles": {
-        "p25": 14.3,
-        "p50": 14.3,
-        "p75": 14.3,
-        "p90": 14.3
+        "p25": 83.8,
+        "p50": 83.8,
+        "p75": 83.8,
+        "p90": 83.8
       },
       "passed_tolerance": true,
       "tolerance_threshold": 5.0,
@@ -77,50 +77,50 @@
       },
       "technical_term_recall": 0.25,
       "false_correction_rate": 0.0,
-      "provisional_evaluations_count": 2,
+      "provisional_evaluations_count": 0,
       "diagnostic_attribution": {
         "primary_driver": "consistent_scoring",
-        "asr_error_detected": true,
+        "asr_error_detected": false,
         "max_criterion_drift": 0.0,
-        "provisional_safeguard_triggered": true
+        "provisional_safeguard_triggered": false
       },
-      "human_agreement_mae": 83.7
+      "human_agreement_mae": 14.2
     },
     {
       "group_id": "FAIR_003",
       "question_id": "Q109",
       "total_recordings": 3,
       "valid_recordings": 2,
-      "highest_score": 14.3,
-      "lowest_score": 14.3,
-      "score_range": 0.0,
-      "mean_score": 14.3,
-      "median_score": 14.3,
-      "std_dev": 0.0,
+      "highest_score": 68.4,
+      "lowest_score": 58.4,
+      "score_range": 10.0,
+      "mean_score": 63.4,
+      "median_score": 63.4,
+      "std_dev": 5.0,
       "percentiles": {
-        "p25": 14.3,
-        "p50": 14.3,
-        "p75": 14.3,
-        "p90": 14.3
+        "p25": 60.9,
+        "p50": 63.4,
+        "p75": 65.9,
+        "p90": 68.4
       },
-      "passed_tolerance": true,
+      "passed_tolerance": false,
       "tolerance_threshold": 5.0,
       "criterion_score_ranges": {
-        "Q109_IDEA_1": 0.5,
+        "Q109_IDEA_1": 0.0,
         "Q109_IDEA_2": 0.0,
-        "Q109_IDEA_3": 0.0
+        "Q109_IDEA_3": 0.5
       },
       "technical_term_recall": 0.0,
       "false_correction_rate": 0.0,
       "provisional_evaluations_count": 2,
       "diagnostic_attribution": {
-        "primary_driver": "consistent_scoring",
+        "primary_driver": "speech_recognition_disparity",
         "asr_error_detected": true,
         "max_criterion_drift": 0.5,
         "provisional_safeguard_triggered": true
       },
-      "human_agreement_mae": 77.7
+      "human_agreement_mae": 28.6
     }
   ],
-  "overall_recommendation": "COMPLIANT"
+  "overall_recommendation": "NON_COMPLIANT_INVESTIGATION_REQUIRED"
 }

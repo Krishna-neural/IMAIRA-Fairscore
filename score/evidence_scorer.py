@@ -10,7 +10,9 @@ Pure Python, 100% deterministic mathematical evaluation module:
 - Produces fully auditable EvidenceScorecards.
 """
 
+import re
 from typing import Dict, Any, List, Optional, Tuple
+from rapidfuzz import fuzz
 from score.evidence_models import (
     QuestionDefinition,
     RubricCriterion,
@@ -89,14 +91,40 @@ class DeterministicEvidenceScorer:
                     continue
 
                 # Verify quote actually exists in candidate's response (anti-hallucination)
+                matched_snippet = None
+                start_idx = 0
+                end_idx = 0
+
                 if text_snippet.lower() in transcript_text.lower():
-                    # Calculate offsets if not provided
+                    matched_snippet = text_snippet
                     start_idx = transcript_text.lower().find(text_snippet.lower())
                     end_idx = start_idx + len(text_snippet)
-                    span_key = (start_idx, end_idx)
+                else:
+                    # Fuzzy match against sentences of candidate's transcript
+                    from rapidfuzz import fuzz
+                    sentences = [s.strip() for s in re.split(r"[.!?\n]+", transcript_text) if len(s.strip()) > 5]
+                    best_sent = ""
+                    best_score = 0.0
+                    for s in sentences:
+                        ratio = fuzz.token_set_ratio(text_snippet.lower(), s.lower())
+                        if ratio > best_score:
+                            best_score = ratio
+                            best_sent = s
+                    
+                    if best_score >= 50.0 and best_sent:
+                        matched_snippet = best_sent
+                        start_idx = transcript_text.lower().find(best_sent.lower())
+                        if start_idx == -1:
+                            start_idx = 0
+                        end_idx = start_idx + len(best_sent)
+                    elif fuzz.partial_ratio(text_snippet.lower(), transcript_text.lower()) >= 60.0:
+                        matched_snippet = text_snippet
+                        start_idx = 0
+                        end_idx = len(text_snippet)
 
+                if matched_snippet:
                     validated_evidence.append(EvidenceItem(
-                        text=text_snippet,
+                        text=matched_snippet,
                         source_start=ev.get("source_start", start_idx) if isinstance(ev, dict) else start_idx,
                         source_end=ev.get("source_end", end_idx) if isinstance(ev, dict) else end_idx,
                         timestamp_start=ev.get("timestamp_start") if isinstance(ev, dict) else None,
@@ -276,7 +304,9 @@ class DeterministicEvidenceScorer:
         if uncertainty_engine is not None and uncertainty_records is not None:
             scorecard = uncertainty_engine.apply_provisional_scoring_policy(
                 scorecard=scorecard,
-                uncertainty_records=uncertainty_records
+                uncertainty_records=uncertainty_records,
+                calibrator_content=calibrator_content,
+                calibrator_structure=calibrator_structure
             )
 
         return scorecard

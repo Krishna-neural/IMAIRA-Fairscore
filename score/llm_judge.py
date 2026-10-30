@@ -166,9 +166,9 @@ class LLMEvaluationEngine:
     def __init__(
         self,
         api_key: Optional[str] = None,
-        primary_model: str = "gemini-3.8-flash",
+        primary_model: str = "gemini-3.5-flash",
         fallback_model: str = "gemini-3.5-flash-lite",
-        timeout_ms: int = 15000,
+        timeout_ms: int = 35000,
         qanda_path: Optional[Path] = None
     ):
         # 1. Load API key securely from .env if not provided
@@ -535,23 +535,38 @@ class LLMEvaluationEngine:
         idea_breakdown = []
         earned = 0.0
         total = sum(i.weight for i in question.semantic_rubric_ideas)
+        sentences = [s.strip() for s in re.split(r"[.!?\n]+", transcript) if len(s.strip()) > 5]
         for idea in question.semantic_rubric_ideas:
-            kw = [w for w in re.findall(r"\b[a-z]{4,}\b", idea.semantic_statement.lower()) if w not in {"which", "where", "other", "using"}]
+            kw = [w for w in re.findall(r"\b[a-z]{4,}\b", idea.semantic_statement.lower()) if w not in {"which", "where", "other", "using", "their", "there"}]
             matches = [w for w in kw if w in norm_t]
             cov = len(matches) / len(kw) if kw else 0.0
+
+            # Extract best matching sentence from candidate transcript
+            best_sentence = ""
+            best_match_cnt = 0
+            for sent in sentences:
+                s_low = sent.lower()
+                cnt = sum(1 for w in kw if w in s_low)
+                if cnt > best_match_cnt:
+                    best_match_cnt = cnt
+                    best_sentence = sent
+
             if cov >= 0.40:
                 v, s = "COVERED", 1.0
+                quote = best_sentence if best_sentence else (matches[0] if matches else "")
             elif cov >= 0.20:
                 v, s = "PARTIAL", 0.5
+                quote = best_sentence if best_sentence else (matches[0] if matches else "")
             else:
                 v, s = "MISSING", 0.0
+                quote = ""
             earned += s * idea.weight
             idea_breakdown.append({
                 "idea_id": idea.idea_id,
                 "criterion": idea.semantic_statement,
                 "verdict": v,
                 "points_awarded": s,
-                "evidence_quote": "",
+                "evidence_quote": quote,
                 "reasoning": f"Keyword overlap coverage: {cov*100:.0f}%",
                 "timestamp": "Not Found"
             })

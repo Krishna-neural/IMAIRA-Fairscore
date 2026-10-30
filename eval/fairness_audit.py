@@ -135,9 +135,9 @@ class FairnessAuditLab:
                 fairscore_5pt = float(scores_obj.get("overall_fairscore", 3.0))
                 cal_content = scores_obj.get("calibrated_content")
                 if cal_content is not None:
-                    score_100 = round((float(cal_content) - 1.0) / 4.0 * 100.0, 1)
+                    score_100 = round(float(cal_content) * 20.0, 1)
                 else:
-                    score_100 = round((fairscore_5pt - 1.0) / 4.0 * 100.0, 1)
+                    score_100 = round(fairscore_5pt * 20.0, 1)
                 
                 rec.fairscore_5pt = fairscore_5pt
                 rec.content_score_100 = score_100

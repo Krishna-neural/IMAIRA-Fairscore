@@ -400,7 +400,7 @@ class InterviewEvaluator:
             "filename": audio_path.name,
             "audio_duration_sec": round(recovery_res.audio_duration_sec, 2),
             "total_latency_sec": total_latency,
-            "model_used": llm_res.get("model_used", "gemini-3.8-flash"),
+            "model_used": llm_res.get("model_used", "gemini-3.5-flash"),
             "matched_question": {
                 "question_id": question.question_id,
                 "prompt": question.question_prompt,
@@ -412,13 +412,13 @@ class InterviewEvaluator:
                 "corrected": corrected_transcript
             },
             "scores": {
-                "content_completeness": content_completeness,
-                "content_correctness": content_correctness,
-                "calibrated_content": round(cal_content, 2),
-                "answer_structure": raw_structure,
-                "calibrated_structure": round(cal_structure, 2),
+                "content_completeness": scorecard.content_completeness_5pt,
+                "content_correctness": scorecard.content_correctness_5pt,
+                "calibrated_content": round(scorecard.calibrated_content_5pt, 2),
+                "answer_structure": scorecard.answer_structure_5pt,
+                "calibrated_structure": round(scorecard.calibrated_structure_5pt, 2),
                 "structure_subcomponents": llm_res["structure_subcomponents"],
-                "overall_fairscore": overall_fairscore
+                "overall_fairscore": scorecard.overall_fairscore_5pt
             },
             "where_got_wrong": llm_res["where_got_wrong"],
             "rubric_idea_breakdown": llm_res["rubric_idea_breakdown"],
@@ -435,7 +435,7 @@ def format_terminal_output(res: Dict[str, Any]):
     """Print an executive, human-readable terminal report featuring all 5 IMAIRA implementations."""
     print("=" * 100)
     print(f"EVALUATION RESULT: {res['filename']} (Duration: {res['audio_duration_sec']}s | Evaluated in {res['total_latency_sec']}s)")
-    print(f"REASONING ENGINE: Gemini LLM [{res.get('model_used', 'gemini-3.8-flash')}] grounded in QandA.json")
+    print(f"REASONING ENGINE: Gemini LLM [{res.get('model_used', 'gemini-3.5-flash')}] grounded in QandA.json")
     print("=" * 100)
     
     q = res["matched_question"]
@@ -674,7 +674,8 @@ def main():
             fairness_lab = FairnessAuditLab()
             fairness_rep = fairness_lab.run_full_audit()
             fairness_lab.export_audit_reports(fairness_rep)
-            print(f"  * Fairness Audit Passed: {fairness_rep.overall_fairness_passed} (Max Variance: {fairness_rep.summary_metrics.max_cross_speaker_variance_100:.2f} pts <= 5.0 pts)")
+            fairness_passed = (fairness_rep.failed_groups == 0 and fairness_rep.passed_groups > 0)
+            print(f"  * Fairness Audit Status: {fairness_rep.overall_recommendation} (Passed: {fairness_passed}, Pass Rate: {fairness_rep.fairness_pass_rate_pct:.1f}%, Max Variance: {fairness_rep.max_observed_score_range:.2f} pts <= 5.0 pts)")
         except Exception as e:
             print(f"  [WARN] Fairness Audit note: {e}")
 
@@ -729,7 +730,7 @@ def main():
                 f.write(f"- **Domain:** {q['domain']} (Match Confidence: {q['match_confidence']*100:.0f}%)\n")
                 f.write(f"- **Audio Duration:** {r['audio_duration_sec']}s | **Evaluation Latency:** {r['total_latency_sec']}s\n")
                 f.write(f"- **Evaluation Audit State:** `[{eval_st}]`\n")
-                f.write(f"- **Reasoning Engine:** Gemini LLM (`{r.get('model_used', 'gemini-3.8-flash')}`) grounded in `QandA.json`\n")
+                f.write(f"- **Reasoning Engine:** Gemini LLM (`{r.get('model_used', 'gemini-3.5-flash')}`) grounded in `QandA.json`\n")
                 f.write(f"- **Spoken Transcript:** *\"{r['transcripts']['corrected']}\"*\n\n")
 
                 f.write("### 1. Official Scores & Metric Summary\n\n")

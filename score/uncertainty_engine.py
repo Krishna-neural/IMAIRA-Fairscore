@@ -40,6 +40,14 @@ from score.evidence_models import (
 )
 
 
+COMMON_STOPWORDS = {
+    "the", "a", "an", "is", "are", "was", "were", "and", "or", "in", "on", "at", 
+    "to", "for", "with", "by", "from", "up", "about", "into", "over", "after", 
+    "it", "this", "that", "so", "we", "they", "i", "you", "he", "she", "as", "be",
+    "have", "has", "had", "do", "does", "did", "but", "not", "also", "like"
+}
+
+
 class UncertaintyEngine:
     """
     Core engine managing uncertainty detection, audio-based verification,
@@ -95,13 +103,15 @@ class UncertaintyEngine:
                     break
 
             if matched_candidate or is_low_conf or has_correction:
-                # Find linked criteria
+                # Find linked criteria (filter common stopwords and require exact word boundary)
                 target_term = matched_candidate or current_phrase
-                for c in question.rubric:
-                    desc_low = c.description.lower()
-                    alts_low = [a.lower() for a in (c.acceptable_alternatives or [])]
-                    if target_term in desc_low or any(target_term in a for a in alts_low):
-                        linked_criteria.append(c.criterion_id)
+                if target_term and target_term.lower() not in COMMON_STOPWORDS and len(target_term) >= 3:
+                    pattern = r"\b" + re.escape(target_term.lower()) + r"\b"
+                    for c in question.rubric:
+                        desc_low = c.description.lower()
+                        alts_low = [a.lower() for a in (c.acceptable_alternatives or [])]
+                        if re.search(pattern, desc_low) or any(re.search(pattern, a) for a in alts_low):
+                            linked_criteria.append(c.criterion_id)
 
                 orig_text = w.corrected_from if w.corrected_from else w.word
                 corr_text = w.word if w.corrected_from else matched_candidate
@@ -203,7 +213,9 @@ class UncertaintyEngine:
     def apply_provisional_scoring_policy(
         self,
         scorecard: EvidenceScorecard,
-        uncertainty_records: List[UncertaintyRecord]
+        uncertainty_records: List[UncertaintyRecord],
+        calibrator_content=None,
+        calibrator_structure=None
     ) -> EvidenceScorecard:
         """
         Applies the provisional scoring policy to decouple speech recognition failures from technical evaluation:
@@ -298,7 +310,27 @@ class UncertaintyEngine:
         if scorecard.total_max_marks > 0:
             scorecard.percentage_score = round((scorecard.total_awarded_marks / scorecard.total_max_marks) * 100.0, 1)
             scorecard.content_completeness_5pt = round(1.0 + 4.0 * (scorecard.total_awarded_marks / scorecard.total_max_marks), 2)
-            # Overall score recalculation
+            
+            # Recalibrate content score based on updated content_completeness_5pt
+            if calibrator_content is not None:
+                try:
+                    import numpy as np
+                    scorecard.calibrated_content_5pt = round(float(calibrator_content.predict(np.array([scorecard.content_completeness_5pt]))[0]), 2)
+                except Exception:
+                    scorecard.calibrated_content_5pt = scorecard.content_completeness_5pt
+            else:
+                scorecard.calibrated_content_5pt = scorecard.content_completeness_5pt
+
+            if calibrator_structure is not None:
+                try:
+                    import numpy as np
+                    scorecard.calibrated_structure_5pt = round(float(calibrator_structure.predict(np.array([scorecard.answer_structure_5pt]))[0]), 2)
+                except Exception:
+                    scorecard.calibrated_structure_5pt = scorecard.answer_structure_5pt
+            else:
+                scorecard.calibrated_structure_5pt = scorecard.answer_structure_5pt
+
+            # Overall score recalculation: 60% Content + 40% Structure
             scorecard.overall_fairscore_5pt = round(
                 0.60 * scorecard.calibrated_content_5pt + 0.40 * scorecard.calibrated_structure_5pt, 2
             )
