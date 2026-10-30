@@ -121,6 +121,14 @@ class TurnEvaluator:
         canonical_answer = curr_q.answer if curr_q else ""
         key_concepts = curr_q.key_concepts if curr_q else []
 
+        t_start = 0.0
+        t_end = 0.0
+        if word_timings:
+            first_w = word_timings[0]
+            last_w = word_timings[-1]
+            t_start = float(first_w.get("start", 0.0) if isinstance(first_w, dict) else getattr(first_w, "start", 0.0))
+            t_end = float(last_w.get("end", 0.0) if isinstance(last_w, dict) else getattr(last_w, "end", 0.0))
+
         for idx, item in enumerate(rubric_breakdown):
             if item["marks_lost"] > 0:
                 stmt = item["concept_statement"]
@@ -139,6 +147,9 @@ class TurnEvaluator:
                     "concept": stmt,
                     "status": "partial" if item["verdict"] == "partially_demonstrated" else "missing",
                     "marks_lost": item["marks_lost"],
+                    "t_start": t_start,
+                    "t_end": t_end,
+                    "evidence_timestamp": f"[{t_start:.1f}s - {t_end:.1f}s]",
                     "missing_concepts": [c for c in key_concepts if c.lower() not in raw_text.lower()],
                     "quote": raw_text[:85] + ("..." if len(raw_text) > 85 else "") if raw_text else "",
                     "issue_explanation": f"The candidate's response lacked comprehensive coverage of: '{stmt}'.",

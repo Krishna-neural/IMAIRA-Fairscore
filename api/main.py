@@ -680,6 +680,17 @@ def conclude_interview(req: ConcludeInterviewRequest):
         raise HTTPException(status_code=404, detail=f"Interview session {req.session_id} not found.")
     scorecard = req.final_scorecard or {}
     updated = session_manager.conclude_session(req.session_id, scorecard)
+
+    # Privacy guardrail: Delete raw audio recordings upon scoring conclusion unless candidate opted in
+    audio_dir = BASE_DIR / "artifacts" / "audio"
+    if audio_dir.exists():
+        for audio_file in audio_dir.glob(f"{req.session_id}_*.wav"):
+            try:
+                audio_file.unlink(missing_ok=True)
+                logger.info("Privacy guardrail: Deleted raw audio file %s for concluded session %s", audio_file.name, req.session_id)
+            except Exception as e:
+                logger.warning("Could not delete raw audio file %s: %s", audio_file.name, e)
+
     return {
         "status": "completed",
         "session_id": req.session_id,

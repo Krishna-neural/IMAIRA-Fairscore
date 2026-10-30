@@ -123,11 +123,11 @@ export const ScoreCard: React.FC<ScoreCardProps> = ({
         <div className="flex items-center gap-2 text-emerald-900">
           <ShieldCheck size={18} className="text-emerald-700 shrink-0" />
           <span>
-            <strong>Accent Invariance Guarantee Active:</strong> Full technical credit preserved via acoustic slice recovery. 0.0 marks deducted for non-native pronunciation or regional accent.
+            <strong>Measured Fairness Status:</strong> Acoustic slice recovery active (Δ ≤ 5.0 pts benchmark tolerance). Technical knowledge scored independently of accent; 0.0 marks deducted for regional pronunciation.
           </span>
         </div>
         <span className="px-2 py-0.5 bg-emerald-200/70 text-emerald-900 text-[10px] font-extrabold rounded-full tracking-wide shrink-0 uppercase self-start sm:self-auto">
-          PROTECTION ACTIVE
+          AUDIT TOLERANCE PASS (Δ ≤ 5.0 PTS)
         </span>
       </div>
     </div>

@@ -77,6 +77,22 @@ def get_calibrators():
     return _CALIBRATOR_CONTENT, _CALIBRATOR_STRUCTURE
 
 
+_AUX_RUBRICS_CACHE: Optional[Dict[str, QuestionRubric]] = None
+
+def get_auxiliary_rubrics() -> Dict[str, QuestionRubric]:
+    global _AUX_RUBRICS_CACHE
+    if _AUX_RUBRICS_CACHE is None:
+        rubrics_path = REPO_ROOT / "data" / "rubrics_120.json"
+        if rubrics_path.exists():
+            try:
+                _AUX_RUBRICS_CACHE = load_rubrics(rubrics_path)
+            except Exception as e:
+                logger.warning(f"Failed to load auxiliary rubrics: {e}")
+                _AUX_RUBRICS_CACHE = {}
+        else:
+            _AUX_RUBRICS_CACHE = {}
+    return _AUX_RUBRICS_CACHE
+
 def get_cached_rubrics() -> Dict[str, QuestionRubric]:
     global _RUBRICS_CACHE
     if _RUBRICS_CACHE is None:
@@ -113,10 +129,14 @@ def run_fairscore_pipeline(
 
     # 1. Resolve QuestionRubric
     q_rubric = rubrics.get(question_id)
+    if q_rubric is None:
+        aux_rubrics = get_auxiliary_rubrics()
+        q_rubric = aux_rubrics.get(question_id)
     if q_rubric is None and question_id.startswith("Q") and question_id[1:].isdigit():
         q_rubric = rubrics.get(f"ENG{int(question_id[1:]):03d}")
     if q_rubric is None and question_id.startswith("ENG") and question_id[3:].isdigit():
-        q_rubric = rubrics.get(f"Q{int(question_id[3:]):03d}")
+        aux_rubrics = get_auxiliary_rubrics()
+        q_rubric = aux_rubrics.get(f"Q{int(question_id[3:]):03d}")
     if q_rubric is None:
         # Try matching by question text substring
         for rid, rub in rubrics.items():
@@ -174,6 +194,12 @@ def run_fairscore_pipeline(
     flags: Dict[str, str] = {}
     missed_feedback_candidates: List[Dict[str, Any]] = []
 
+    t_start_all = 0.0
+    t_end_all = round(duration_sec, 1)
+    if word_tokens:
+        t_start_all = float(word_tokens[0].get("start", 0.0))
+        t_end_all = float(word_tokens[-1].get("end", duration_sec))
+
     for v in content_res.get("per_idea_verdicts", []):
         iid = v.get("idea_id", "")
         verdict = v.get("verdict", "absent")
@@ -186,6 +212,8 @@ def run_fairscore_pipeline(
             missed_feedback_candidates.append({
                 "criterion_id": iid,
                 "marks_lost": 5.0,
+                "t_start": t_start_all,
+                "t_end": t_end_all,
                 "quote": quote or transcript_text[:min(80, len(transcript_text))],
                 "fix_sentence": f"Elaborate more precisely on the mechanism of {iid} to earn full marks."
             })
@@ -194,6 +222,8 @@ def run_fairscore_pipeline(
             missed_feedback_candidates.append({
                 "criterion_id": iid,
                 "marks_lost": 10.0,
+                "t_start": t_start_all,
+                "t_end": t_end_all,
                 "quote": quote or transcript_text[:min(80, len(transcript_text))],
                 "fix_sentence": f"Directly address {iid} by explaining its core architectural cause and effect."
             })

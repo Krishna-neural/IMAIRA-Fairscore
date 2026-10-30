@@ -389,6 +389,17 @@ class ContentJudge:
         # Map ratio to 1.0 - 5.0
         raw_score = round(1.0 + 4.0 * ratio, 1)
 
+        # Multiple adversarial factual contradictions strictly clamp content score to minimum floor
+        active_inversions = sum(1 for inv_phrase, _ in factual_inversions if inv_phrase in norm_text)
+        if active_inversions >= 2:
+            raw_score = 1.0
+            verdicts = [{
+                "idea_id": idea.idea_id,
+                "verdict": "absent",
+                "score": 0.0,
+                "evidence_span": ""
+            } for idea in question.semantic_rubric_ideas]
+
         return {
             "per_idea_verdicts": verdicts,
             "raw_content_score": raw_score,
