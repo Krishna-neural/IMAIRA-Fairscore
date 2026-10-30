@@ -402,9 +402,19 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
           <LiveCaptions
             provisionalText={provisionalText}
             finalizedText={finalizedText}
-            isListening={isListening}
+            isListening={isListening && !isMicMuted}
             onSubmitAnswer={handleCandidateSubmit}
             isProcessing={isProcessing}
+            onToggleMic={() => {
+              const next = !isMicMuted;
+              setIsMicMuted(next);
+              if (next) {
+                speechService.stopListening();
+                setIsListening(false);
+              } else {
+                startCandidateListening();
+              }
+            }}
           />
 
           <ControlBar

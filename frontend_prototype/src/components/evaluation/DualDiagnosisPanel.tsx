@@ -74,15 +74,15 @@ export const DualDiagnosisPanel: React.FC<DualDiagnosisPanelProps> = ({
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-[#2457A6] text-[11px]">
                       {gap.question_id ? `Question ${gap.question_id}` : `Criterion #${idx + 1}`}
-                      {gap.dimension ? ` • ${gap.dimension}` : ''}
-                      {(gap as any).concept ? ` • ${(gap as any).concept}` : ''}
+                      {` • ${gap.dimension || (gap as any).concept || 'Technical Knowledge Mastery'}`}
+                      {(gap as any).concept && (gap as any).concept !== gap.dimension ? ` (${(gap as any).concept})` : ''}
                     </span>
                     <span className="px-2 py-0.5 bg-red-50 text-red-700 border border-red-200 rounded text-[10px] font-bold">
                       -{gap.marks_lost || 5} marks
                     </span>
                   </div>
 
-                  {gap.missing_concepts && gap.missing_concepts.length > 0 && (
+                  {gap.missing_concepts && gap.missing_concepts.length > 0 ? (
                     <div className="space-y-1">
                       <span className="text-[10px] uppercase font-bold text-slate-400">
                         Missing Required Concepts:
@@ -98,6 +98,15 @@ export const DualDiagnosisPanel: React.FC<DualDiagnosisPanelProps> = ({
                         ))}
                       </div>
                     </div>
+                  ) : (
+                    <div className="space-y-1">
+                      <span className="text-[10px] uppercase font-bold text-slate-400">
+                        Key Architectural Focus:
+                      </span>
+                      <span className="px-2 py-0.5 bg-white border border-slate-300 rounded text-[11px] text-slate-700 font-medium inline-block">
+                        {(gap as any).concept || gap.dimension || "Technical Accuracy & Complexity"}
+                      </span>
+                    </div>
                   )}
 
                   {gap.quote && (
@@ -110,10 +119,18 @@ export const DualDiagnosisPanel: React.FC<DualDiagnosisPanelProps> = ({
                     <span className="text-[10px] uppercase font-bold text-emerald-800 block">
                       Recommended Model Answer / Fix:
                     </span>
-                    <div className="p-2.5 bg-emerald-50/70 border border-emerald-200 rounded text-[#101C35] font-semibold flex items-start gap-1.5 text-xs">
-                      <ArrowRight size={14} className="text-emerald-700 shrink-0 mt-0.5" />
-                      <span>{gap.fix_sentence || (gap as any).model_sentence_fix || (gap as any).concept || "Articulate required algorithmic mechanisms, tradeoffs, and failure modes."}</span>
-                    </div>
+                    {(() => {
+                      const fix = (gap.fix_sentence || (gap as any).model_sentence_fix || (gap as any).concept || '').trim();
+                      const displayFix = fix && fix.length > 3
+                        ? fix
+                        : 'Explain core algorithmic mechanics, asymptotic space-time bounds, and practical implementation tradeoffs.';
+                      return (
+                        <div className="p-2.5 bg-emerald-50/70 border border-emerald-200 rounded text-[#101C35] font-semibold flex items-start gap-1.5 text-xs">
+                          <ArrowRight size={14} className="text-emerald-700 shrink-0 mt-0.5" />
+                          <span>{displayFix}</span>
+                        </div>
+                      );
+                    })()}
                   </div>
                 </div>
               ))

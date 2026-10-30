@@ -34,7 +34,10 @@ export const CoachingFeedback: React.FC<CoachingFeedbackProps> = ({ feedback }) 
               )}
               <div className="text-[#101C35] font-semibold flex items-start gap-1 pt-0.5">
                 <ArrowRight size={14} className="text-[#2457A6] shrink-0 mt-0.5" />
-                <span>{item.fix_sentence}</span>
+                <span>
+                  {((item.fix_sentence || (item as any).model_sentence_fix || '').trim()) ||
+                    'Address core algorithm invariants, time/space complexity bounds, and practical edge cases.'}
+                </span>
               </div>
             </div>
           ))

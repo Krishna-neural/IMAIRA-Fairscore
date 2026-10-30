@@ -1,7 +1,7 @@
 /**
  * Audio Engine for IMAIRA FairScore.
  * Handles microphone capture, Web Audio API AnalyserNode visualizer,
- * Voice Activity Detection (VAD), and real-time streaming speech recognition.
+ * Voice Activity Detection (VAD), and resilient continuous streaming speech recognition (zero word limit).
  */
 
 class AudioEngine {
@@ -15,8 +15,8 @@ class AudioEngine {
     this.isRecording = false;
     this.isSpeaking = false;
     this.volume = 0;
-    this.silenceTimer = null;
-    this.silenceThresholdMs = 2500; // 2.5s pause before auto-submitting answer
+    this.restartTimer = null;
+    this.watchdogTimer = null;
 
     this.provisionalText = "";
     this.finalizedText = "";
@@ -32,51 +32,126 @@ class AudioEngine {
   initSpeechRecognition() {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SpeechRecognition) {
-      this.recognition = new SpeechRecognition();
-      this.recognition.continuous = true;
-      this.recognition.interimResults = true;
-      this.recognition.lang = "en-US";
+      try {
+        this.recognition = new SpeechRecognition();
+        this.recognition.continuous = true;
+        this.recognition.interimResults = true;
+        this.recognition.maxAlternatives = 1;
+        this.recognition.lang = "en-US";
 
-      this.recognition.onstart = () => {
-        console.log("[AudioEngine] SpeechRecognition active");
-      };
+        this.recognition.onstart = () => {
+          console.log("[AudioEngine] Continuous SpeechRecognition stream active");
+        };
 
-      this.recognition.onresult = (event) => {
-        let interim = "";
-        for (let i = event.resultIndex; i < event.results.length; ++i) {
-          const transcriptPiece = event.results[i][0].transcript;
-          if (event.results[i].isFinal) {
-            this.finalizedText += (this.finalizedText ? " " : "") + transcriptPiece.trim();
-          } else {
-            interim += transcriptPiece;
+        this.recognition.onresult = (event) => {
+          let interim = "";
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            const piece = event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+              const clean = piece.trim();
+              if (clean) {
+                this.finalizedText += (this.finalizedText ? " " : "") + clean;
+              }
+            } else {
+              interim += piece;
+            }
           }
-        }
-        this.provisionalText = interim;
+          this.provisionalText = interim;
 
-        // Reset silence detection timer
-        this.handleUserVoiceActivity();
+          if (this.onInterimCallback) {
+            this.onInterimCallback({
+              provisional: this.provisionalText,
+              finalized: this.finalizedText,
+              combined: (this.finalizedText + " " + this.provisionalText).trim()
+            });
+          }
+        };
 
-        if (this.onInterimCallback) {
-          this.onInterimCallback({
-            provisional: this.provisionalText,
-            finalized: this.finalizedText,
-            combined: (this.finalizedText + " " + this.provisionalText).trim()
-          });
-        }
-      };
+        this.recognition.onerror = (event) => {
+          const err = event.error;
+          // 'no-speech' is a normal thinking pause; restart instantly without cutoff
+          if (err === "no-speech" || err === "aborted") {
+            if (this.isRecording) {
+              this.scheduleRestart(80);
+            }
+            return;
+          }
+          if (err === "network") {
+            if (this.isRecording) {
+              this.scheduleRestart(400);
+            }
+            return;
+          }
+          console.warn("[AudioEngine] SpeechRecognition warning:", err);
+        };
 
-      this.recognition.onerror = (event) => {
-        console.warn("[AudioEngine] SpeechRecognition error:", event.error);
-      };
+        this.recognition.onend = () => {
+          // Commit any pending provisional text so words right before a pause are never dropped
+          if (this.provisionalText && this.provisionalText.trim()) {
+            this.finalizedText += (this.finalizedText ? " " : "") + this.provisionalText.trim();
+            this.provisionalText = "";
+            if (this.onInterimCallback) {
+              this.onInterimCallback({
+                provisional: "",
+                finalized: this.finalizedText,
+                combined: this.finalizedText
+              });
+            }
+          }
 
-      this.recognition.onend = () => {
-        if (this.isRecording) {
-          // Restart if still in recording state
-          try { this.recognition.start(); } catch (e) {}
-        }
-      };
+          // Safe debounced restart for seamless, infinite continuous listening
+          if (this.isRecording) {
+            this.scheduleRestart(80);
+          }
+        };
+      } catch (e) {
+        console.error("[AudioEngine] Failed to initialize SpeechRecognition:", e);
+      }
     } else {
       console.warn("[AudioEngine] Native SpeechRecognition API not supported. Falling back to typing / chunk mode.");
+    }
+  }
+
+  scheduleRestart(delayMs = 80) {
+    if (this.restartTimer) {
+      clearTimeout(this.restartTimer);
+    }
+    this.restartTimer = setTimeout(() => {
+      if (!this.isRecording || !this.recognition) return;
+      try {
+        this.recognition.start();
+      } catch (err) {
+        if (err.name === "InvalidStateError") {
+          this.restartTimer = setTimeout(() => {
+            if (this.isRecording && this.recognition) {
+              try { this.recognition.start(); } catch (_) {
+                this.rebuildRecognition();
+              }
+            }
+          }, 200);
+        } else {
+          this.rebuildRecognition();
+        }
+      }
+    }, delayMs);
+  }
+
+  rebuildRecognition() {
+    if (this.recognition) {
+      try {
+        this.recognition.onresult = null;
+        this.recognition.onerror = null;
+        this.recognition.onend = null;
+        this.recognition.abort();
+      } catch (_) {}
+    }
+    this.initSpeechRecognition();
+    if (this.isRecording && this.recognition) {
+      setTimeout(() => {
+        if (this.isRecording && this.recognition) {
+          try { this.recognition.start(); } catch (_) {}
+        }
+      }, 150);
     }
   }
 
@@ -140,31 +215,9 @@ class AudioEngine {
         this.onVolumeCallback(this.volume);
       }
 
-      // Voice Activity threshold
-      if (this.volume > 15 && this.isRecording) {
-        this.handleUserVoiceActivity();
-      }
-
       requestAnimationFrame(checkVolume);
     };
     checkVolume();
-  }
-
-  handleUserVoiceActivity() {
-    if (!this.isSpeaking) {
-      this.isSpeaking = true;
-      if (this.onSpeechStartCallback) this.onSpeechStartCallback();
-    }
-
-    if (this.silenceTimer) {
-      clearTimeout(this.silenceTimer);
-    }
-
-    // Set timer for pause detection
-    this.silenceTimer = setTimeout(() => {
-      this.isSpeaking = false;
-      if (this.onSpeechEndCallback) this.onSpeechEndCallback();
-    }, this.silenceThresholdMs);
   }
 
   startRecording() {
@@ -172,21 +225,41 @@ class AudioEngine {
     this.provisionalText = "";
     this.finalizedText = "";
 
+    if (!this.recognition) {
+      this.initSpeechRecognition();
+    }
+
     if (this.recognition) {
       try {
         this.recognition.start();
       } catch (e) {
-        // Already active
+        if (e.name === "InvalidStateError") {
+          this.scheduleRestart(100);
+        }
       }
     }
+
+    // Keep-alive watchdog timer
+    if (this.watchdogTimer) clearInterval(this.watchdogTimer);
+    this.watchdogTimer = setInterval(() => {
+      if (this.isRecording && this.recognition) {
+        try {
+          this.recognition.start();
+        } catch (_) {}
+      }
+    }, 3000);
   }
 
   stopRecording() {
     this.isRecording = false;
     this.isSpeaking = false;
-    if (this.silenceTimer) {
-      clearTimeout(this.silenceTimer);
-      this.silenceTimer = null;
+    if (this.restartTimer) {
+      clearTimeout(this.restartTimer);
+      this.restartTimer = null;
+    }
+    if (this.watchdogTimer) {
+      clearInterval(this.watchdogTimer);
+      this.watchdogTimer = null;
     }
 
     if (this.recognition) {
@@ -216,7 +289,7 @@ class AudioEngine {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.lineWidth = 2;
-      ctx.strokeStyle = this.isSpeaking ? "#38bdf8" : "#475569";
+      ctx.strokeStyle = this.isRecording ? "#38bdf8" : "#475569";
       ctx.beginPath();
 
       const sliceWidth = canvas.width / bufferLength;
