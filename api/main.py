@@ -565,6 +565,23 @@ def process_interview_turn(req: InterviewTurnRequest):
     } if curr_q else None
 
     # 4. Attach real-time slice recovery telemetry to response
+    turn_result["status"] = "success"
+    turn_result["session_id"] = req.session_id
+    turn_result["is_concluded"] = (
+        state.stage == InterviewStage.CONCLUSION
+        or (hasattr(state.stage, "value") and state.stage.value == "CONCLUSION")
+    )
+    turn_result["verified_candidate_utterance"] = recovered_utterance
+    formatted_audit = []
+    for item in audit_log:
+        formatted_audit.append({
+            "original_text": item.get("raw_span") or item.get("raw_token") or item.get("original_text", ""),
+            "verified_text": item.get("replacement") or item.get("verified_token") or item.get("verified_text", ""),
+            "reason": item.get("reason") or item.get("rationale", ""),
+            "status": item.get("status", "CORRECTED"),
+            "confidence": item.get("confidence", 1.0)
+        })
+    turn_result["audit_log"] = formatted_audit
     turn_result["raw_utterance"] = req.candidate_utterance
     turn_result["recovered_utterance"] = recovered_utterance
     turn_result["corrections_applied"] = corrections_applied
@@ -603,7 +620,8 @@ def conclude_interview(req: ConcludeInterviewRequest):
         "session_id": req.session_id,
         "stage": "COMPLETED",
         "turns_count": len(updated.turns) if updated else 0,
-        "final_scorecard": updated.final_scorecard if updated else None
+        "final_scorecard": updated.final_scorecard if updated else None,
+        "cumulative_dual_diagnosis": updated.final_scorecard.get("cumulative_dual_diagnosis") if updated and updated.final_scorecard else None
     }
 
 

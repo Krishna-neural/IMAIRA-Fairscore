@@ -29,6 +29,13 @@ export interface StartInterviewResponse {
 export interface InterviewTurnRequest {
   session_id: string;
   candidate_utterance: string;
+  word_timings?: Array<{
+    word: string;
+    start: number;
+    end: number;
+    conf: number;
+  }>;
+  audio_base64?: string;
 }
 
 export interface InterviewTurnResponse {
@@ -38,12 +45,34 @@ export interface InterviewTurnResponse {
   ai_response: string;
   is_concluded: boolean;
   current_question?: Question;
+  current_question_detail?: any;
   verified_candidate_utterance: string;
+  raw_utterance?: string;
+  recovered_utterance?: string;
+  corrections_applied?: number;
+  slice_recovery_log?: any[];
   audit_log: Array<{
     original_text: string;
     verified_text: string;
     reason: string;
+    status?: string;
+    confidence?: number;
   }>;
+  evaluation?: any;
+}
+
+export interface ConcludeInterviewRequest {
+  session_id: string;
+  final_scorecard?: any;
+}
+
+export interface ConcludeInterviewResponse {
+  status: string;
+  session_id: string;
+  stage: string;
+  turns_count: number;
+  final_scorecard: any;
+  cumulative_dual_diagnosis?: any;
 }
 
 export interface ScoreRequest {

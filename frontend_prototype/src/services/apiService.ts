@@ -4,6 +4,7 @@ import {
   StartInterviewResponse,
   InterviewTurnRequest,
   InterviewTurnResponse,
+  ConcludeInterviewResponse,
   ScoreRequest,
   ScoreResponse,
 } from '../types/api';
@@ -57,6 +58,39 @@ class ApiService {
     return res.json();
   }
 
+  async concludeInterview(sessionId: string, scorecard?: any): Promise<ConcludeInterviewResponse> {
+    const res = await fetch(`${this.baseUrl}/interview/conclude`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        session_id: sessionId,
+        final_scorecard: scorecard || null,
+      }),
+    });
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Failed to conclude interview: ${err || res.statusText}`);
+    }
+    return res.json();
+  }
+
+  async getSession(sessionId: string): Promise<any> {
+    const res = await fetch(`${this.baseUrl}/interview/session/${sessionId}`);
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Failed to fetch session: ${err || res.statusText}`);
+    }
+    return res.json();
+  }
+
+  async listSessions(limit: number = 50): Promise<any> {
+    const res = await fetch(`${this.baseUrl}/interview/sessions?limit=${limit}`);
+    if (!res.ok) {
+      throw new Error(`Failed to list sessions: ${res.statusText}`);
+    }
+    return res.json();
+  }
+
   async calculateScore(req: ScoreRequest): Promise<ScoreResponse> {
     const res = await fetch(`${this.baseUrl}/score`, {
       method: 'POST',
@@ -90,6 +124,14 @@ class ApiService {
     const res = await fetch(`${this.baseUrl}/architecture`);
     if (!res.ok) {
       throw new Error(`Failed to fetch architecture: ${res.statusText}`);
+    }
+    return res.json();
+  }
+
+  async fetchLatencyMetrics(): Promise<any> {
+    const res = await fetch(`${this.baseUrl}/metrics/latency`);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch latency metrics: ${res.statusText}`);
     }
     return res.json();
   }

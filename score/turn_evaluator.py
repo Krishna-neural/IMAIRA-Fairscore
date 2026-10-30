@@ -167,22 +167,30 @@ class TurnEvaluator:
                 pronunciation_improvements.append({
                     "spoken_slice": orig,
                     "canonical_term": cand,
+                    "raw_token": orig,
+                    "recovered_token": cand,
                     "time_range": time_rng,
                     "status": "RECOVERED",
                     "phonetic_match": p_match,
                     "score_deduction": 0.0,
-                    "coaching_tip": tip
+                    "marks_deducted": 0.0,
+                    "coaching_tip": tip,
+                    "coaching": tip
                 })
             elif status == "ABSTAINED":
                 tip = f"The acoustic slice '{orig}' was phonetically ambiguous and was protected under provisional credit so your technical score was not penalized."
                 pronunciation_improvements.append({
                     "spoken_slice": orig,
                     "canonical_term": cand,
+                    "raw_token": orig,
+                    "recovered_token": cand,
                     "time_range": time_rng,
                     "status": "PROVISIONAL_ABSTAINED",
                     "phonetic_match": p_match,
                     "score_deduction": 0.0,
-                    "coaching_tip": tip
+                    "marks_deducted": 0.0,
+                    "coaching_tip": tip,
+                    "coaching": tip
                 })
 
         # 6. Confidence-Aware Uncertainty Protection
