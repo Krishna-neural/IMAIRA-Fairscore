@@ -365,7 +365,8 @@ def test_git_branch_isolation():
         "feature/cpu1-content-structure-calibration",
         "feature/mock-interviewer-frontend",
         "feature/asr-4050",
-        "frontend_prototype"
+        "frontend_prototype",
+        "frontend-new"
     }
     assert current_branch in valid_branches, (
         f"Branch isolation violated! Currently on branch '{current_branch}', "
