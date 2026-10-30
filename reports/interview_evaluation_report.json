@@ -90,7 +90,26 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_ENG129_20261030_045820",
+      "interview_id": "Prem_script14.m4a",
+      "question_id": "ENG129",
+      "question_text": "Explain the core architecture and fundamental components of Kubernetes: Pods, Deployments, Services, Ingress, Self-Healing, and Horizontal Pod Autoscaler (HPA).",
+      "total_marks": 3.0,
+      "total_awarded_marks": 3.0,
+      "total_marks_lost": 0.0,
+      "opportunities": [],
+      "improvement_plan": null,
+      "validation_summary": {
+        "passed": 0,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.390553"
+    }
   },
   {
     "filename": "Prem_script15.m4a",
@@ -161,7 +180,26 @@
         "example_sentence": "During the TLS handshake, the server uses its private key to authenticate itself and securely establish the shared session key."
       }
     ],
-    "corrections_made": []
+    "corrections_made": [],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_ENG121_20261030_045820",
+      "interview_id": "Prem_script15.m4a",
+      "question_id": "ENG121",
+      "question_text": "Compare Symmetric and Asymmetric Encryption: key management, performance, and real-world usage in TLS/HTTPS.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 3.0,
+      "total_marks_lost": 0.0,
+      "opportunities": [],
+      "improvement_plan": null,
+      "validation_summary": {
+        "passed": 0,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.393084"
+    }
   },
   {
     "filename": "Prem_script16.m4a",
@@ -237,7 +275,26 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_ENG122_20261030_045820",
+      "interview_id": "Prem_script16.m4a",
+      "question_id": "ENG122",
+      "question_text": "Explain the p-value, the null hypothesis, and the significance level in hypothesis testing.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 3.0,
+      "total_marks_lost": 0.0,
+      "opportunities": [],
+      "improvement_plan": null,
+      "validation_summary": {
+        "passed": 0,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.393084"
+    }
   },
   {
     "filename": "Prem_ws10.m4a",
@@ -315,7 +372,112 @@
         "example_sentence": "Unlike stateful architectures that store sessions in server memory, REST allows any server in a cluster to handle requests seamlessly."
       }
     ],
-    "corrections_made": []
+    "corrections_made": [],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_ENG127_20261030_045820",
+      "interview_id": "Prem_ws10.m4a",
+      "question_id": "ENG127",
+      "question_text": "Explain why REST is stateless and how it differs from stateful session-based web architectures.",
+      "total_marks": 2.0,
+      "total_awarded_marks": 0.0,
+      "total_marks_lost": 2.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "ENG127_IDEA_1",
+          "title": "Improve explanation of Explains that REST is strictly stateless",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Explains that REST is strictly stateless, requiring every client request to carry complete contextual information and credentials.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Explains that REST is strictly stateless, requiring every client request to carry complete contextual information and credentials. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Explains that REST is strictly stat. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Explains that REST is strictly stateless, requiring every client request to carry complete contextual information and credentials.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "ENG127_IDEA_2",
+          "title": "Improve explanation of Contrasts statelessness with stateful se",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Contrasts statelessness with stateful server sessions, explaining benefits for horizontal scaling and reliability.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Contrasts statelessness with stateful server sessions, explaining benefits for horizontal scaling and reliability. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Contrasts statelessness with statef. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Contrasts statelessness with stateful server sessions, explaining benefits for horizontal scaling and reliability.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Prem_ws10.m4a",
+        "question_id": "ENG127",
+        "question_text": "Explain why REST is stateless and how it differs from stateful session-based web architectures.",
+        "total_marks_lost": 2.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "ENG127_IDEA_1",
+            "concept_to_revise": "Explains that REST is strictly stateless",
+            "why_needed": "You omitted key discussion of Explains that REST is strictly stateless, requiring every client request to carry complete contextual information and credentials.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Explains that REST is strictly",
+              "Explain how Explains that REST is strictly integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Explains that REST is strictly stateless as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Explains that REST is strictly",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Explains that REST is str?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "ENG127_IDEA_2",
+            "concept_to_revise": "Contrasts statelessness with stateful se",
+            "why_needed": "You omitted key discussion of Contrasts statelessness with stateful server sessions, explaining benefits for horizontal scaling and reliability.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Contrasts statelessness with s",
+              "Explain how Contrasts statelessness with s integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Contrasts statelessness with stateful se as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Contrasts statelessness with s",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Contrasts statelessness w?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 2,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.393635"
+    }
   },
   {
     "filename": "Prem_ws8.m4a",
@@ -410,7 +572,73 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_ENG128_20261030_045820",
+      "interview_id": "Prem_ws8.m4a",
+      "question_id": "ENG128",
+      "question_text": "Define Precision and Recall in machine learning classification, and explain their formulas and tradeoffs.",
+      "total_marks": 2.0,
+      "total_awarded_marks": 1.0,
+      "total_marks_lost": 1.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "ENG128_IDEA_1",
+          "title": "Improve explanation of Defines Precision as True Positives divi",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Defines Precision as True Positives divided by True Positives plus False Positives [TP / (TP + FP)].. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Defines Precision as True Positives divided by True Positives plus False Positives [TP / (TP + FP)]. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Defines Precision as True Positives. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Defines Precision as True Positives divided by True Positives plus False Positives [TP / (TP + FP)].. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Prem_ws8.m4a",
+        "question_id": "ENG128",
+        "question_text": "Define Precision and Recall in machine learning classification, and explain their formulas and tradeoffs.",
+        "total_marks_lost": 1.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "ENG128_IDEA_1",
+            "concept_to_revise": "Defines Precision as True Positives divi",
+            "why_needed": "You omitted key discussion of Defines Precision as True Positives divided by True Positives plus False Positives [TP / (TP + FP)].. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Defines Precision as True Posi",
+              "Explain how Defines Precision as True Posi integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Defines Precision as True Positives divi as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Defines Precision as True Posi",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Defines Precision as True?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 1,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.393635"
+    }
   },
   {
     "filename": "Prem_ws9.m4a",
@@ -503,7 +731,117 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_ENG123_20261030_045820",
+      "interview_id": "Prem_ws9.m4a",
+      "question_id": "ENG123",
+      "question_text": "Explain Ohm's Law and Kirchhoff's Current Law (KCL) in electrical circuit analysis.",
+      "total_marks": 2.0,
+      "total_awarded_marks": 0.5,
+      "total_marks_lost": 1.5,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "ENG123_IDEA_2",
+          "title": "Improve explanation of Explains Kirchhoff's Current Law (KCL) b",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Explains Kirchhoff's Current Law (KCL) based on conservation of charge, where the algebraic sum of currents entering and leaving a node equals zero.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Explains Kirchhoff's Current Law (KCL) based on conservation of charge, where the algebraic sum of currents entering and leaving a node equals zero. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Explains Kirchhoff's Current Law (K. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Explains Kirchhoff's Current Law (KCL) based on conservation of charge, where the algebraic sum of currents entering and leaving a node equals zero.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "ENG123_IDEA_1",
+          "title": "Improve explanation of States Ohm's Law governing the proportio",
+          "marks_lost": 0.5,
+          "max_points": 1.0,
+          "awarded_points": 0.5,
+          "evidence": {
+            "quote": "Ohm's law says voltage equals current divided by resistance.",
+            "start": null,
+            "end": null,
+            "verification_status": "verified"
+          },
+          "issue": "You partially covered States Ohm's Law governing the proportional relationship between voltage, current, and electrical resistance (V = I * R)., but omitted essential architectural details and formal mechanisms.",
+          "why_it_matters": "Understanding States Ohm's Law governing the proportional relationship between voltage, current, and electrical resistance (V = I * R). is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study States Ohm's Law governing the prop. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, States Ohm's Law governing the proportional relationship between voltage, current, and electrical resistance (V = I * R).. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Prem_ws9.m4a",
+        "question_id": "ENG123",
+        "question_text": "Explain Ohm's Law and Kirchhoff's Current Law (KCL) in electrical circuit analysis.",
+        "total_marks_lost": 1.5,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "ENG123_IDEA_2",
+            "concept_to_revise": "Explains Kirchhoff's Current Law (KCL) b",
+            "why_needed": "You omitted key discussion of Explains Kirchhoff's Current Law (KCL) based on conservation of charge, where the algebraic sum of currents entering and leaving a node equals zero.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Explains Kirchhoff's Current L",
+              "Explain how Explains Kirchhoff's Current L integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Explains Kirchhoff's Current Law (KCL) b as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Explains Kirchhoff's Current L",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Explains Kirchhoff's Curr?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "ENG123_IDEA_1",
+            "concept_to_revise": "States Ohm's Law governing the proportio",
+            "why_needed": "You partially covered States Ohm's Law governing the proportional relationship between voltage, current, and electrical resistance (V = I * R)., but omitted essential architectural details and formal mechanisms.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of States Ohm's Law governing the",
+              "Explain how States Ohm's Law governing the integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain States Ohm's Law governing the proportio as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of States Ohm's Law governing the",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of States Ohm's Law governin?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 0.5
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 2,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.393635"
+    }
   },
   {
     "filename": "Rupesh_script1.m4a",
@@ -605,7 +943,73 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q084_20261030_045820",
+      "interview_id": "Rupesh_script1.m4a",
+      "question_id": "Q084",
+      "question_text": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 2.0,
+      "total_marks_lost": 1.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q084_IDEA_3",
+          "title": "Improve explanation of IPC mechanisms enable processes to excha",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study IPC mechanisms enable processes to . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Rupesh_script1.m4a",
+        "question_id": "Q084",
+        "question_text": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+        "total_marks_lost": 1.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q084_IDEA_3",
+            "concept_to_revise": "IPC mechanisms enable processes to excha",
+            "why_needed": "You omitted key discussion of IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of IPC mechanisms enable processe",
+              "Explain how IPC mechanisms enable processe integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain IPC mechanisms enable processes to excha as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of IPC mechanisms enable processe",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of IPC mechanisms enable pro?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 1,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Rupesh_script2.m4a",
@@ -691,7 +1095,26 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q120_20261030_045820",
+      "interview_id": "Rupesh_script2.m4a",
+      "question_id": "Q120",
+      "question_text": "What is Dependency Injection and how does it improve software modularity and testability?",
+      "total_marks": 3.0,
+      "total_awarded_marks": 3.0,
+      "total_marks_lost": 0.0,
+      "opportunities": [],
+      "improvement_plan": null,
+      "validation_summary": {
+        "passed": 0,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Rupesh_script3.m4a",
@@ -830,7 +1253,151 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q109_20261030_045820",
+      "interview_id": "Rupesh_script3.m4a",
+      "question_id": "Q109",
+      "question_text": "Compare Git branching strategies: Git Flow versus Trunk-Based Development.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.0,
+      "total_marks_lost": 3.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q109_IDEA_1",
+          "title": "Improve explanation of Git Flow defines rigid long-lived branch",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Git Flow defines rigid long-lived b. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q109_IDEA_2",
+          "title": "Improve explanation of Trunk-Based Development has developers m",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Trunk-Based Development has develop. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q109_IDEA_3",
+          "title": "Improve explanation of Trunk-based development relies on automa",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Trunk-based development relies on a. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Rupesh_script3.m4a",
+        "question_id": "Q109",
+        "question_text": "Compare Git branching strategies: Git Flow versus Trunk-Based Development.",
+        "total_marks_lost": 3.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q109_IDEA_1",
+            "concept_to_revise": "Git Flow defines rigid long-lived branch",
+            "why_needed": "You omitted key discussion of Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Git Flow defines rigid long-li",
+              "Explain how Git Flow defines rigid long-li integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Git Flow defines rigid long-lived branch as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Git Flow defines rigid long-li",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Git Flow defines rigid lo?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q109_IDEA_2",
+            "concept_to_revise": "Trunk-Based Development has developers m",
+            "why_needed": "You omitted key discussion of Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Trunk-Based Development has de",
+              "Explain how Trunk-Based Development has de integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Trunk-Based Development has developers m as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Trunk-Based Development has de",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Trunk-Based Development h?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q109_IDEA_3",
+            "concept_to_revise": "Trunk-based development relies on automa",
+            "why_needed": "You omitted key discussion of Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Trunk-based development relies",
+              "Explain how Trunk-based development relies integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Trunk-based development relies on automa as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Trunk-based development relies",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Trunk-based development r?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Rupesh_script4.m4a",
@@ -909,7 +1476,26 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q032_20261030_045820",
+      "interview_id": "Rupesh_script4.m4a",
+      "question_id": "Q032",
+      "question_text": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 3.0,
+      "total_marks_lost": 0.0,
+      "opportunities": [],
+      "improvement_plan": null,
+      "validation_summary": {
+        "passed": 0,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Rupesh_script5.m4a",
@@ -1013,7 +1599,161 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q035_20261030_045820",
+      "interview_id": "Rupesh_script5.m4a",
+      "question_id": "Q035",
+      "question_text": "Compare Breadth-First Search (BFS) and Depth-First Search (DFS): traversal order, data structures, and optimal use cases.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 1.0,
+      "total_marks_lost": 2.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q035_IDEA_3",
+          "title": "Improve explanation of BFS memory grows with the graph frontier",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study BFS memory grows with the graph fro. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q035_IDEA_1",
+          "title": "Improve explanation of BFS explores nodes level-by-level using",
+          "marks_lost": 0.5,
+          "max_points": 1.0,
+          "awarded_points": 0.5,
+          "evidence": {
+            "quote": "Queues are used for task scheduling, message queue, and breadth -first search.",
+            "start": null,
+            "end": null,
+            "verification_status": "verified"
+          },
+          "issue": "You partially covered BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs., but omitted essential architectural details and formal mechanisms.",
+          "why_it_matters": "Understanding BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study BFS explores nodes level-by-level u. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q035_IDEA_2",
+          "title": "Improve explanation of DFS explores as deeply as possible along",
+          "marks_lost": 0.5,
+          "max_points": 1.0,
+          "awarded_points": 0.5,
+          "evidence": {
+            "quote": "Stacks are used for the function call stack, undo operations, and depth -first search.",
+            "start": null,
+            "end": null,
+            "verification_status": "verified"
+          },
+          "issue": "You partially covered DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion., but omitted essential architectural details and formal mechanisms.",
+          "why_it_matters": "Understanding DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study DFS explores as deeply as possible . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Rupesh_script5.m4a",
+        "question_id": "Q035",
+        "question_text": "Compare Breadth-First Search (BFS) and Depth-First Search (DFS): traversal order, data structures, and optimal use cases.",
+        "total_marks_lost": 2.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q035_IDEA_3",
+            "concept_to_revise": "BFS memory grows with the graph frontier",
+            "why_needed": "You omitted key discussion of BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of BFS memory grows with the grap",
+              "Explain how BFS memory grows with the grap integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain BFS memory grows with the graph frontier as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of BFS memory grows with the grap",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of BFS memory grows with the?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q035_IDEA_1",
+            "concept_to_revise": "BFS explores nodes level-by-level using",
+            "why_needed": "You partially covered BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs., but omitted essential architectural details and formal mechanisms.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of BFS explores nodes level-by-le",
+              "Explain how BFS explores nodes level-by-le integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain BFS explores nodes level-by-level using as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of BFS explores nodes level-by-le",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of BFS explores nodes level-?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 0.5
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q035_IDEA_2",
+            "concept_to_revise": "DFS explores as deeply as possible along",
+            "why_needed": "You partially covered DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion., but omitted essential architectural details and formal mechanisms.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of DFS explores as deeply as poss",
+              "Explain how DFS explores as deeply as poss integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain DFS explores as deeply as possible along as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of DFS explores as deeply as poss",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of DFS explores as deeply as?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 0.5
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Rupesh_ws1.m4a",
@@ -1109,7 +1849,151 @@
         "example_sentence": "It efficiently solves problems like the Next Greater Element in amortized O(N) time."
       }
     ],
-    "corrections_made": []
+    "corrections_made": [],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q054_20261030_045820",
+      "interview_id": "Rupesh_ws1.m4a",
+      "question_id": "Q054",
+      "question_text": "What is a Monotonic Stack and what class of problems does it solve efficiently?",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.0,
+      "total_marks_lost": 3.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q054_IDEA_1",
+          "title": "Improve explanation of A stack whose elements are strictly main",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study A stack whose elements are strictly. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q054_IDEA_2",
+          "title": "Improve explanation of Used to solve Next Greater Element, Dail",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Used to solve Next Greater Element,. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q054_IDEA_3",
+          "title": "Improve explanation of Every element is pushed and popped at mo",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Every element is pushed and popped at most once, guaranteeing linear amortized complexity.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Every element is pushed and popped at most once, guaranteeing linear amortized complexity. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Every element is pushed and popped . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Every element is pushed and popped at most once, guaranteeing linear amortized complexity.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Rupesh_ws1.m4a",
+        "question_id": "Q054",
+        "question_text": "What is a Monotonic Stack and what class of problems does it solve efficiently?",
+        "total_marks_lost": 3.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q054_IDEA_1",
+            "concept_to_revise": "A stack whose elements are strictly main",
+            "why_needed": "You omitted key discussion of A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of A stack whose elements are str",
+              "Explain how A stack whose elements are str integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain A stack whose elements are strictly main as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of A stack whose elements are str",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of A stack whose elements ar?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q054_IDEA_2",
+            "concept_to_revise": "Used to solve Next Greater Element, Dail",
+            "why_needed": "You omitted key discussion of Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Used to solve Next Greater Ele",
+              "Explain how Used to solve Next Greater Ele integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Used to solve Next Greater Element, Dail as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Used to solve Next Greater Ele",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Used to solve Next Greate?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q054_IDEA_3",
+            "concept_to_revise": "Every element is pushed and popped at mo",
+            "why_needed": "You omitted key discussion of Every element is pushed and popped at most once, guaranteeing linear amortized complexity.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Every element is pushed and po",
+              "Explain how Every element is pushed and po integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Every element is pushed and popped at mo as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Every element is pushed and po",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Every element is pushed a?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Rupesh_ws2.m4a",
@@ -1213,7 +2097,151 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q032_20261030_045820",
+      "interview_id": "Rupesh_ws2.m4a",
+      "question_id": "Q032",
+      "question_text": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.0,
+      "total_marks_lost": 3.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q032_IDEA_1",
+          "title": "Improve explanation of Hash collisions occur when distinct keys",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing). is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Hash collisions occur when distinct. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q032_IDEA_2",
+          "title": "Improve explanation of Load factor is the ratio of stored eleme",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Load factor is the ratio of stored . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q032_IDEA_3",
+          "title": "Improve explanation of Exceeding the maximum load factor trigge",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Exceeding the maximum load factor t. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Rupesh_ws2.m4a",
+        "question_id": "Q032",
+        "question_text": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+        "total_marks_lost": 3.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q032_IDEA_1",
+            "concept_to_revise": "Hash collisions occur when distinct keys",
+            "why_needed": "You omitted key discussion of Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Hash collisions occur when dis",
+              "Explain how Hash collisions occur when dis integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Hash collisions occur when distinct keys as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Hash collisions occur when dis",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Hash collisions occur whe?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q032_IDEA_2",
+            "concept_to_revise": "Load factor is the ratio of stored eleme",
+            "why_needed": "You omitted key discussion of Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Load factor is the ratio of st",
+              "Explain how Load factor is the ratio of st integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Load factor is the ratio of stored eleme as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Load factor is the ratio of st",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Load factor is the ratio ?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q032_IDEA_3",
+            "concept_to_revise": "Exceeding the maximum load factor trigge",
+            "why_needed": "You omitted key discussion of Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Exceeding the maximum load fac",
+              "Explain how Exceeding the maximum load fac integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Exceeding the maximum load factor trigge as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Exceeding the maximum load fac",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Exceeding the maximum loa?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Saksham_script18.m4a",
@@ -1283,7 +2311,26 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_ENG123_20261030_045820",
+      "interview_id": "Saksham_script18.m4a",
+      "question_id": "ENG123",
+      "question_text": "Explain Ohm's Law and Kirchhoff's Current Law (KCL) in electrical circuit analysis.",
+      "total_marks": 2.0,
+      "total_awarded_marks": 2.0,
+      "total_marks_lost": 0.0,
+      "opportunities": [],
+      "improvement_plan": null,
+      "validation_summary": {
+        "passed": 0,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Saksham_script19.m4a",
@@ -1367,7 +2414,26 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_ENG124_20261030_045820",
+      "interview_id": "Saksham_script19.m4a",
+      "question_id": "ENG124",
+      "question_text": "Explain Stress, Strain, Hooke's Law, and Young's Modulus in material science.",
+      "total_marks": 2.0,
+      "total_awarded_marks": 2.0,
+      "total_marks_lost": 0.0,
+      "opportunities": [],
+      "improvement_plan": null,
+      "validation_summary": {
+        "passed": 0,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Saksham_ws5.m4a",
@@ -1471,7 +2537,151 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q090_20261030_045820",
+      "interview_id": "Saksham_ws5.m4a",
+      "question_id": "Q090",
+      "question_text": "Compare Docker Containers and Virtual Machines (VMs): architecture, isolation, and overhead.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.0,
+      "total_marks_lost": 3.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q090_IDEA_1",
+          "title": "Improve explanation of Virtual Machines run full guest operatin",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Virtual Machines run full guest operating systems on top of a hypervisor (Type 1 or Type 2), virtualizing hardware.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Virtual Machines run full guest operating systems on top of a hypervisor (Type 1 or Type 2), virtualizing hardware. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Virtual Machines run full guest ope. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Virtual Machines run full guest operating systems on top of a hypervisor (Type 1 or Type 2), virtualizing hardware.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q090_IDEA_2",
+          "title": "Improve explanation of Containers share the host operating syst",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Containers share the host operating system kernel, packaging only user-space binaries, libraries, and application dependencies.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Containers share the host operating system kernel, packaging only user-space binaries, libraries, and application dependencies. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Containers share the host operating. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Containers share the host operating system kernel, packaging only user-space binaries, libraries, and application dependencies.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q090_IDEA_3",
+          "title": "Improve explanation of VMs provide strong hardware-level securi",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of VMs provide strong hardware-level security isolation at high memory/startup overhead; containers provide process-level isolation (via Linux namespaces and cgroups) with near-native performance and sub-second startup.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding VMs provide strong hardware-level security isolation at high memory/startup overhead; containers provide process-level isolation (via Linux namespaces and cgroups) with near-native performance and sub-second startup. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study VMs provide strong hardware-level s. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, VMs provide strong hardware-level security isolation at high memory/startup overhead; containers provide process-level isolation (via Linux namespaces and cgroups) with near-native performance and sub-second startup.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Saksham_ws5.m4a",
+        "question_id": "Q090",
+        "question_text": "Compare Docker Containers and Virtual Machines (VMs): architecture, isolation, and overhead.",
+        "total_marks_lost": 3.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q090_IDEA_1",
+            "concept_to_revise": "Virtual Machines run full guest operatin",
+            "why_needed": "You omitted key discussion of Virtual Machines run full guest operating systems on top of a hypervisor (Type 1 or Type 2), virtualizing hardware.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Virtual Machines run full gues",
+              "Explain how Virtual Machines run full gues integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Virtual Machines run full guest operatin as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Virtual Machines run full gues",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Virtual Machines run full?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q090_IDEA_2",
+            "concept_to_revise": "Containers share the host operating syst",
+            "why_needed": "You omitted key discussion of Containers share the host operating system kernel, packaging only user-space binaries, libraries, and application dependencies.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Containers share the host oper",
+              "Explain how Containers share the host oper integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Containers share the host operating syst as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Containers share the host oper",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Containers share the host?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q090_IDEA_3",
+            "concept_to_revise": "VMs provide strong hardware-level securi",
+            "why_needed": "You omitted key discussion of VMs provide strong hardware-level security isolation at high memory/startup overhead; containers provide process-level isolation (via Linux namespaces and cgroups) with near-native performance and sub-second startup.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of VMs provide strong hardware-le",
+              "Explain how VMs provide strong hardware-le integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain VMs provide strong hardware-level securi as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of VMs provide strong hardware-le",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of VMs provide strong hardwa?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Saksham_ws6.m4a",
@@ -1575,7 +2785,151 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_ENG122_20261030_045820",
+      "interview_id": "Saksham_ws6.m4a",
+      "question_id": "ENG122",
+      "question_text": "Explain the p-value, the null hypothesis, and the significance level in hypothesis testing.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.0,
+      "total_marks_lost": 3.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "ENG122_IDEA_1",
+          "title": "Improve explanation of Defines the p-value as the probability o",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Defines the p-value as the probability of observing data at least as extreme as the sample data under the assumption that the null hypothesis is true.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Defines the p-value as the probability of observing data at least as extreme as the sample data under the assumption that the null hypothesis is true. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Defines the p-value as the probabil. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Defines the p-value as the probability of observing data at least as extreme as the sample data under the assumption that the null hypothesis is true.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "ENG122_IDEA_2",
+          "title": "Improve explanation of Explains the decision rule where a p-val",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Explains the decision rule where a p-value below the significance level (alpha, typically 0.05) leads to rejecting the null hypothesis.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Explains the decision rule where a p-value below the significance level (alpha, typically 0.05) leads to rejecting the null hypothesis. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Explains the decision rule where a . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Explains the decision rule where a p-value below the significance level (alpha, typically 0.05) leads to rejecting the null hypothesis.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "ENG122_IDEA_3",
+          "title": "Improve explanation of Clarifies that p-values do not represent",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Clarifies that p-values do not represent the probability that the null hypothesis is true, nor effect magnitude, necessitating effect size and confidence intervals.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Clarifies that p-values do not represent the probability that the null hypothesis is true, nor effect magnitude, necessitating effect size and confidence intervals. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Clarifies that p-values do not repr. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Clarifies that p-values do not represent the probability that the null hypothesis is true, nor effect magnitude, necessitating effect size and confidence intervals.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Saksham_ws6.m4a",
+        "question_id": "ENG122",
+        "question_text": "Explain the p-value, the null hypothesis, and the significance level in hypothesis testing.",
+        "total_marks_lost": 3.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "ENG122_IDEA_1",
+            "concept_to_revise": "Defines the p-value as the probability o",
+            "why_needed": "You omitted key discussion of Defines the p-value as the probability of observing data at least as extreme as the sample data under the assumption that the null hypothesis is true.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Defines the p-value as the pro",
+              "Explain how Defines the p-value as the pro integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Defines the p-value as the probability o as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Defines the p-value as the pro",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Defines the p-value as th?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "ENG122_IDEA_2",
+            "concept_to_revise": "Explains the decision rule where a p-val",
+            "why_needed": "You omitted key discussion of Explains the decision rule where a p-value below the significance level (alpha, typically 0.05) leads to rejecting the null hypothesis.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Explains the decision rule whe",
+              "Explain how Explains the decision rule whe integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Explains the decision rule where a p-val as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Explains the decision rule whe",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Explains the decision rul?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "ENG122_IDEA_3",
+            "concept_to_revise": "Clarifies that p-values do not represent",
+            "why_needed": "You omitted key discussion of Clarifies that p-values do not represent the probability that the null hypothesis is true, nor effect magnitude, necessitating effect size and confidence intervals.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Clarifies that p-values do not",
+              "Explain how Clarifies that p-values do not integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Clarifies that p-values do not represent as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Clarifies that p-values do not",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Clarifies that p-values d?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.394436"
+    }
   },
   {
     "filename": "Sukhpreet_script1 (1).m4a",
@@ -1661,7 +3015,73 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q084_20261030_045820",
+      "interview_id": "Sukhpreet_script1 (1).m4a",
+      "question_id": "Q084",
+      "question_text": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 2.0,
+      "total_marks_lost": 1.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q084_IDEA_3",
+          "title": "Improve explanation of IPC mechanisms enable processes to excha",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study IPC mechanisms enable processes to . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Sukhpreet_script1 (1).m4a",
+        "question_id": "Q084",
+        "question_text": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+        "total_marks_lost": 1.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q084_IDEA_3",
+            "concept_to_revise": "IPC mechanisms enable processes to excha",
+            "why_needed": "You omitted key discussion of IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of IPC mechanisms enable processe",
+              "Explain how IPC mechanisms enable processe integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain IPC mechanisms enable processes to excha as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of IPC mechanisms enable processe",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of IPC mechanisms enable pro?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 1,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.396450"
+    }
   },
   {
     "filename": "Sukhpreet_script1.m4a",
@@ -1756,7 +3176,73 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q084_20261030_045820",
+      "interview_id": "Sukhpreet_script1.m4a",
+      "question_id": "Q084",
+      "question_text": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 2.0,
+      "total_marks_lost": 1.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q084_IDEA_3",
+          "title": "Improve explanation of IPC mechanisms enable processes to excha",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study IPC mechanisms enable processes to . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Sukhpreet_script1.m4a",
+        "question_id": "Q084",
+        "question_text": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+        "total_marks_lost": 1.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q084_IDEA_3",
+            "concept_to_revise": "IPC mechanisms enable processes to excha",
+            "why_needed": "You omitted key discussion of IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of IPC mechanisms enable processe",
+              "Explain how IPC mechanisms enable processe integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain IPC mechanisms enable processes to excha as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of IPC mechanisms enable processe",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of IPC mechanisms enable pro?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 1,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.396450"
+    }
   },
   {
     "filename": "Sukhpreet_script2 (1).m4a",
@@ -1858,7 +3344,26 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q120_20261030_045820",
+      "interview_id": "Sukhpreet_script2 (1).m4a",
+      "question_id": "Q120",
+      "question_text": "What is Dependency Injection and how does it improve software modularity and testability?",
+      "total_marks": 3.0,
+      "total_awarded_marks": 3.0,
+      "total_marks_lost": 0.0,
+      "opportunities": [],
+      "improvement_plan": null,
+      "validation_summary": {
+        "passed": 0,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.396450"
+    }
   },
   {
     "filename": "Sukhpreet_script2.m4a",
@@ -1951,7 +3456,26 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q120_20261030_045820",
+      "interview_id": "Sukhpreet_script2.m4a",
+      "question_id": "Q120",
+      "question_text": "What is Dependency Injection and how does it improve software modularity and testability?",
+      "total_marks": 3.0,
+      "total_awarded_marks": 3.0,
+      "total_marks_lost": 0.0,
+      "opportunities": [],
+      "improvement_plan": null,
+      "validation_summary": {
+        "passed": 0,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.396450"
+    }
   },
   {
     "filename": "Sukhpreet_script3.m4a",
@@ -2060,7 +3584,156 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q109_20261030_045820",
+      "interview_id": "Sukhpreet_script3.m4a",
+      "question_id": "Q109",
+      "question_text": "Compare Git branching strategies: Git Flow versus Trunk-Based Development.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.5,
+      "total_marks_lost": 2.5,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q109_IDEA_1",
+          "title": "Improve explanation of Git Flow defines rigid long-lived branch",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Git Flow defines rigid long-lived b. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q109_IDEA_3",
+          "title": "Improve explanation of Trunk-based development relies on automa",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Trunk-based development relies on a. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q109_IDEA_2",
+          "title": "Improve explanation of Trunk-Based Development has developers m",
+          "marks_lost": 0.5,
+          "max_points": 1.0,
+          "awarded_points": 0.5,
+          "evidence": {
+            "quote": "continuous integration means developers marry their code into a shared branch frequently and every changes triggers and automated build and unit test",
+            "start": null,
+            "end": null,
+            "verification_status": "verified"
+          },
+          "issue": "You partially covered Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day., but omitted essential architectural details and formal mechanisms.",
+          "why_it_matters": "Understanding Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Trunk-Based Development has develop. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Sukhpreet_script3.m4a",
+        "question_id": "Q109",
+        "question_text": "Compare Git branching strategies: Git Flow versus Trunk-Based Development.",
+        "total_marks_lost": 2.5,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q109_IDEA_1",
+            "concept_to_revise": "Git Flow defines rigid long-lived branch",
+            "why_needed": "You omitted key discussion of Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Git Flow defines rigid long-li",
+              "Explain how Git Flow defines rigid long-li integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Git Flow defines rigid long-lived branch as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Git Flow defines rigid long-li",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Git Flow defines rigid lo?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q109_IDEA_3",
+            "concept_to_revise": "Trunk-based development relies on automa",
+            "why_needed": "You omitted key discussion of Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Trunk-based development relies",
+              "Explain how Trunk-based development relies integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Trunk-based development relies on automa as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Trunk-based development relies",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Trunk-based development r?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q109_IDEA_2",
+            "concept_to_revise": "Trunk-Based Development has developers m",
+            "why_needed": "You partially covered Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day., but omitted essential architectural details and formal mechanisms.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Trunk-Based Development has de",
+              "Explain how Trunk-Based Development has de integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Trunk-Based Development has developers m as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Trunk-Based Development has de",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Trunk-Based Development h?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 0.5
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.396450"
+    }
   },
   {
     "filename": "Sukhpreet_ws1.m4a",
@@ -2164,7 +3837,151 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q054_20261030_045820",
+      "interview_id": "Sukhpreet_ws1.m4a",
+      "question_id": "Q054",
+      "question_text": "What is a Monotonic Stack and what class of problems does it solve efficiently?",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.0,
+      "total_marks_lost": 3.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q054_IDEA_1",
+          "title": "Improve explanation of A stack whose elements are strictly main",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study A stack whose elements are strictly. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q054_IDEA_2",
+          "title": "Improve explanation of Used to solve Next Greater Element, Dail",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Used to solve Next Greater Element,. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q054_IDEA_3",
+          "title": "Improve explanation of Every element is pushed and popped at mo",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Every element is pushed and popped at most once, guaranteeing linear amortized complexity.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Every element is pushed and popped at most once, guaranteeing linear amortized complexity. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Every element is pushed and popped . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Every element is pushed and popped at most once, guaranteeing linear amortized complexity.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Sukhpreet_ws1.m4a",
+        "question_id": "Q054",
+        "question_text": "What is a Monotonic Stack and what class of problems does it solve efficiently?",
+        "total_marks_lost": 3.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q054_IDEA_1",
+            "concept_to_revise": "A stack whose elements are strictly main",
+            "why_needed": "You omitted key discussion of A stack whose elements are strictly maintained in increasing or decreasing order by popping elements that violate the order invariant.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of A stack whose elements are str",
+              "Explain how A stack whose elements are str integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain A stack whose elements are strictly main as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of A stack whose elements are str",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of A stack whose elements ar?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q054_IDEA_2",
+            "concept_to_revise": "Used to solve Next Greater Element, Dail",
+            "why_needed": "You omitted key discussion of Used to solve Next Greater Element, Daily Temperatures, or Largest Rectangle in Histogram in O(N) linear time.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Used to solve Next Greater Ele",
+              "Explain how Used to solve Next Greater Ele integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Used to solve Next Greater Element, Dail as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Used to solve Next Greater Ele",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Used to solve Next Greate?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q054_IDEA_3",
+            "concept_to_revise": "Every element is pushed and popped at mo",
+            "why_needed": "You omitted key discussion of Every element is pushed and popped at most once, guaranteeing linear amortized complexity.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Every element is pushed and po",
+              "Explain how Every element is pushed and po integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Every element is pushed and popped at mo as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Every element is pushed and po",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Every element is pushed a?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.396450"
+    }
   },
   {
     "filename": "Sukhpreet_ws2.m4a",
@@ -2260,7 +4077,151 @@
         "example_sentence": "When the load factor exceeds the threshold, the table is resized to double its capacity and all entries are rehashed."
       }
     ],
-    "corrections_made": []
+    "corrections_made": [],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q032_20261030_045820",
+      "interview_id": "Sukhpreet_ws2.m4a",
+      "question_id": "Q032",
+      "question_text": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.0,
+      "total_marks_lost": 3.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q032_IDEA_1",
+          "title": "Improve explanation of Hash collisions occur when distinct keys",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing). is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Hash collisions occur when distinct. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q032_IDEA_2",
+          "title": "Improve explanation of Load factor is the ratio of stored eleme",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Load factor is the ratio of stored . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q032_IDEA_3",
+          "title": "Improve explanation of Exceeding the maximum load factor trigge",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Exceeding the maximum load factor t. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "Sukhpreet_ws2.m4a",
+        "question_id": "Q032",
+        "question_text": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+        "total_marks_lost": 3.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q032_IDEA_1",
+            "concept_to_revise": "Hash collisions occur when distinct keys",
+            "why_needed": "You omitted key discussion of Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Hash collisions occur when dis",
+              "Explain how Hash collisions occur when dis integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Hash collisions occur when distinct keys as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Hash collisions occur when dis",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Hash collisions occur whe?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q032_IDEA_2",
+            "concept_to_revise": "Load factor is the ratio of stored eleme",
+            "why_needed": "You omitted key discussion of Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Load factor is the ratio of st",
+              "Explain how Load factor is the ratio of st integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Load factor is the ratio of stored eleme as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Load factor is the ratio of st",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Load factor is the ratio ?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q032_IDEA_3",
+            "concept_to_revise": "Exceeding the maximum load factor trigge",
+            "why_needed": "You omitted key discussion of Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Exceeding the maximum load fac",
+              "Explain how Exceeding the maximum load fac integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Exceeding the maximum load factor trigge as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Exceeding the maximum load fac",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Exceeding the maximum loa?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.396450"
+    }
   },
   {
     "filename": "test.wav",
@@ -2346,7 +4307,112 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_ENG006_20261030_045820",
+      "interview_id": "test.wav",
+      "question_id": "ENG006",
+      "question_text": "What is the difference between Property-Based Testing and Example-Based Unit Testing, and how does Mutation Testing assess test suite quality?",
+      "total_marks": 2.0,
+      "total_awarded_marks": 0.0,
+      "total_marks_lost": 2.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "ENG006_IDEA_1",
+          "title": "Improve explanation of Contrasts developer-chosen input example",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Contrasts developer-chosen input examples with property-based testing verifying invariant rules across generated inputs with shrinking.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Contrasts developer-chosen input examples with property-based testing verifying invariant rules across generated inputs with shrinking. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Contrasts developer-chosen input ex. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "Example-based unit testing verifies code against specific, hardcoded input-output pairs chosen by the developer, which often misses edge cases. Property-based testing (using frameworks like Hypothesis) tests universal invariant mathematical properties (e.g., sort(reverse(sort(x))) == sort(x)) across hundreds of randomly generated inputs, automatically shrinking failing cases to minimal counterexamples. Mutation testing evaluates the quality of the test suite itself by introducing intentional artificial faults (mutants, like changing '>' to '<=' or flipping booleans) into source code; if the test suite fails to detect a mutant, it indicates a gap in test coverage.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "ENG006_IDEA_2",
+          "title": "Improve explanation of Explains that mutation testing injects c",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Explains that mutation testing injects code defects to measure whether the test suite detects them, quantifying test suite effectiveness.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Explains that mutation testing injects code defects to measure whether the test suite detects them, quantifying test suite effectiveness. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Explains that mutation testing inje. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "Example-based unit testing verifies code against specific, hardcoded input-output pairs chosen by the developer, which often misses edge cases. Property-based testing (using frameworks like Hypothesis) tests universal invariant mathematical properties (e.g., sort(reverse(sort(x))) == sort(x)) across hundreds of randomly generated inputs, automatically shrinking failing cases to minimal counterexamples. Mutation testing evaluates the quality of the test suite itself by introducing intentional artificial faults (mutants, like changing '>' to '<=' or flipping booleans) into source code; if the test suite fails to detect a mutant, it indicates a gap in test coverage.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "test.wav",
+        "question_id": "ENG006",
+        "question_text": "What is the difference between Property-Based Testing and Example-Based Unit Testing, and how does Mutation Testing assess test suite quality?",
+        "total_marks_lost": 2.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "ENG006_IDEA_1",
+            "concept_to_revise": "Contrasts developer-chosen input example",
+            "why_needed": "You omitted key discussion of Contrasts developer-chosen input examples with property-based testing verifying invariant rules across generated inputs with shrinking.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Contrasts developer-chosen inp",
+              "Explain how Contrasts developer-chosen inp integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Contrasts developer-chosen input example as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Contrasts developer-chosen inp",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Contrasts developer-chose?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "ENG006_IDEA_2",
+            "concept_to_revise": "Explains that mutation testing injects c",
+            "why_needed": "You omitted key discussion of Explains that mutation testing injects code defects to measure whether the test suite detects them, quantifying test suite effectiveness.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Explains that mutation testing",
+              "Explain how Explains that mutation testing integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Explains that mutation testing injects c as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Explains that mutation testing",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Explains that mutation te?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 2,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.396450"
+    }
   },
   {
     "filename": "test_voice (wrong v1).wav",
@@ -2450,7 +4516,156 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q035_20261030_045820",
+      "interview_id": "test_voice (wrong v1).wav",
+      "question_id": "Q035",
+      "question_text": "Compare Breadth-First Search (BFS) and Depth-First Search (DFS): traversal order, data structures, and optimal use cases.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.5,
+      "total_marks_lost": 2.5,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q035_IDEA_1",
+          "title": "Improve explanation of BFS explores nodes level-by-level using",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study BFS explores nodes level-by-level u. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q035_IDEA_3",
+          "title": "Improve explanation of BFS memory grows with the graph frontier",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study BFS memory grows with the graph fro. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q035_IDEA_2",
+          "title": "Improve explanation of DFS explores as deeply as possible along",
+          "marks_lost": 0.5,
+          "max_points": 1.0,
+          "awarded_points": 0.5,
+          "evidence": {
+            "quote": "stack is first in first out, so the first item you push in the first item you pop",
+            "start": null,
+            "end": null,
+            "verification_status": "verified"
+          },
+          "issue": "You partially covered DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion., but omitted essential architectural details and formal mechanisms.",
+          "why_it_matters": "Understanding DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study DFS explores as deeply as possible . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "test_voice (wrong v1).wav",
+        "question_id": "Q035",
+        "question_text": "Compare Breadth-First Search (BFS) and Depth-First Search (DFS): traversal order, data structures, and optimal use cases.",
+        "total_marks_lost": 2.5,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q035_IDEA_1",
+            "concept_to_revise": "BFS explores nodes level-by-level using",
+            "why_needed": "You omitted key discussion of BFS explores nodes level-by-level using a FIFO Queue, guaranteeing the shortest path in unweighted graphs.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of BFS explores nodes level-by-le",
+              "Explain how BFS explores nodes level-by-le integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain BFS explores nodes level-by-level using as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of BFS explores nodes level-by-le",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of BFS explores nodes level-?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q035_IDEA_3",
+            "concept_to_revise": "BFS memory grows with the graph frontier",
+            "why_needed": "You omitted key discussion of BFS memory grows with the graph frontier width O(V), while DFS memory is bounded by tree depth O(H), making DFS ideal for topological sort or cycle detection.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of BFS memory grows with the grap",
+              "Explain how BFS memory grows with the grap integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain BFS memory grows with the graph frontier as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of BFS memory grows with the grap",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of BFS memory grows with the?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q035_IDEA_2",
+            "concept_to_revise": "DFS explores as deeply as possible along",
+            "why_needed": "You partially covered DFS explores as deeply as possible along each branch before backtracking, utilizing a LIFO Stack or recursion., but omitted essential architectural details and formal mechanisms.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of DFS explores as deeply as poss",
+              "Explain how DFS explores as deeply as poss integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain DFS explores as deeply as possible along as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of DFS explores as deeply as poss",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of DFS explores as deeply as?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 0.5
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.396450"
+    }
   },
   {
     "filename": "test_voice (wrong v2).wav",
@@ -2554,7 +4769,151 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q032_20261030_045820",
+      "interview_id": "test_voice (wrong v2).wav",
+      "question_id": "Q032",
+      "question_text": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.0,
+      "total_marks_lost": 3.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q032_IDEA_1",
+          "title": "Improve explanation of Hash collisions occur when distinct keys",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing). is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Hash collisions occur when distinct. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q032_IDEA_2",
+          "title": "Improve explanation of Load factor is the ratio of stored eleme",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Load factor is the ratio of stored . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q032_IDEA_3",
+          "title": "Improve explanation of Exceeding the maximum load factor trigge",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Exceeding the maximum load factor t. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "test_voice (wrong v2).wav",
+        "question_id": "Q032",
+        "question_text": "Explain how a Hash Map handles collisions and the significance of the load factor.",
+        "total_marks_lost": 3.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q032_IDEA_1",
+            "concept_to_revise": "Hash collisions occur when distinct keys",
+            "why_needed": "You omitted key discussion of Hash collisions occur when distinct keys produce identical hash indices, resolved via separate chaining (linked lists/trees) or open addressing (probing).. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Hash collisions occur when dis",
+              "Explain how Hash collisions occur when dis integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Hash collisions occur when distinct keys as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Hash collisions occur when dis",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Hash collisions occur whe?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q032_IDEA_2",
+            "concept_to_revise": "Load factor is the ratio of stored eleme",
+            "why_needed": "You omitted key discussion of Load factor is the ratio of stored elements to total bucket capacity (N / C), indicating table density.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Load factor is the ratio of st",
+              "Explain how Load factor is the ratio of st integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Load factor is the ratio of stored eleme as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Load factor is the ratio of st",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Load factor is the ratio ?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q032_IDEA_3",
+            "concept_to_revise": "Exceeding the maximum load factor trigge",
+            "why_needed": "You omitted key discussion of Exceeding the maximum load factor triggers resizing and rehashing of all entries into a larger array (usually 2x) to maintain amortized O(1) lookups.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Exceeding the maximum load fac",
+              "Explain how Exceeding the maximum load fac integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Exceeding the maximum load factor trigge as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Exceeding the maximum load fac",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Exceeding the maximum loa?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.396450"
+    }
   },
   {
     "filename": "test_voice_v1.wav",
@@ -2672,7 +5031,156 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q109_20261030_045820",
+      "interview_id": "test_voice_v1.wav",
+      "question_id": "Q109",
+      "question_text": "Compare Git branching strategies: Git Flow versus Trunk-Based Development.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 0.5,
+      "total_marks_lost": 2.5,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q109_IDEA_1",
+          "title": "Improve explanation of Git Flow defines rigid long-lived branch",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Git Flow defines rigid long-lived b. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        },
+        {
+          "opportunity_id": "FB_002",
+          "criterion_id": "Q109_IDEA_3",
+          "title": "Improve explanation of Trunk-based development relies on automa",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Trunk-based development relies on a. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 2
+        },
+        {
+          "opportunity_id": "FB_003",
+          "criterion_id": "Q109_IDEA_2",
+          "title": "Improve explanation of Trunk-Based Development has developers m",
+          "marks_lost": 0.5,
+          "max_points": 1.0,
+          "awarded_points": 0.5,
+          "evidence": {
+            "quote": "continuous integration developers merge their codes into a shared branch frequently",
+            "start": null,
+            "end": null,
+            "verification_status": "verified"
+          },
+          "issue": "You partially covered Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day., but omitted essential architectural details and formal mechanisms.",
+          "why_it_matters": "Understanding Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study Trunk-Based Development has develop. Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 3
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "test_voice_v1.wav",
+        "question_id": "Q109",
+        "question_text": "Compare Git branching strategies: Git Flow versus Trunk-Based Development.",
+        "total_marks_lost": 2.5,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q109_IDEA_1",
+            "concept_to_revise": "Git Flow defines rigid long-lived branch",
+            "why_needed": "You omitted key discussion of Git Flow defines rigid long-lived branches (master, develop, feature, release, hotfix) with formal merge gates, suitable for scheduled monolithic releases.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Git Flow defines rigid long-li",
+              "Explain how Git Flow defines rigid long-li integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Git Flow defines rigid long-lived branch as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Git Flow defines rigid long-li",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Git Flow defines rigid lo?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_002",
+            "criterion_id": "Q109_IDEA_3",
+            "concept_to_revise": "Trunk-based development relies on automa",
+            "why_needed": "You omitted key discussion of Trunk-based development relies on automated CI testing and Feature Flags to deploy code to production continuously without exposing unready features to users.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Trunk-based development relies",
+              "Explain how Trunk-based development relies integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Trunk-based development relies on automa as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Trunk-based development relies",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Trunk-based development r?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          },
+          {
+            "plan_id": "PLAN_003",
+            "criterion_id": "Q109_IDEA_2",
+            "concept_to_revise": "Trunk-Based Development has developers m",
+            "why_needed": "You partially covered Trunk-Based Development has developers merge short-lived feature branches frequently into a single central branch ('trunk' or 'main') multiple times per day., but omitted essential architectural details and formal mechanisms.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of Trunk-Based Development has de",
+              "Explain how Trunk-Based Development has de integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain Trunk-Based Development has developers m as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of Trunk-Based Development has de",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of Trunk-Based Development h?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 0.5
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 3,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.398454"
+    }
   },
   {
     "filename": "test_voice_v2.wav",
@@ -2765,7 +5273,26 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q120_20261030_045820",
+      "interview_id": "test_voice_v2.wav",
+      "question_id": "Q120",
+      "question_text": "What is Dependency Injection and how does it improve software modularity and testability?",
+      "total_marks": 3.0,
+      "total_awarded_marks": 3.0,
+      "total_marks_lost": 0.0,
+      "opportunities": [],
+      "improvement_plan": null,
+      "validation_summary": {
+        "passed": 0,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.398454"
+    }
   },
   {
     "filename": "test_voice_v3.wav",
@@ -2858,6 +5385,72 @@
         "recheck_conf": 0.92,
         "reason": "audio_supported"
       }
-    ]
+    ],
+    "compiled_feedback": {
+      "feedback_id": "FB_REP_Q084_20261030_045820",
+      "interview_id": "test_voice_v3.wav",
+      "question_id": "Q084",
+      "question_text": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+      "total_marks": 3.0,
+      "total_awarded_marks": 2.0,
+      "total_marks_lost": 1.0,
+      "opportunities": [
+        {
+          "opportunity_id": "FB_001",
+          "criterion_id": "Q084_IDEA_3",
+          "title": "Improve explanation of IPC mechanisms enable processes to excha",
+          "marks_lost": 1.0,
+          "max_points": 1.0,
+          "awarded_points": 0.0,
+          "evidence": null,
+          "issue": "You omitted key discussion of IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. No supporting evidence was found in your explanation.",
+          "why_it_matters": "Understanding IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets. is vital for production engineering decisions, system performance, and avoiding common architectural pitfalls.",
+          "action": "Study IPC mechanisms enable processes to . Practice articulating its core mechanisms using concrete examples.",
+          "suggested_answer": "In technical architecture, IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. This ensures reliable execution and clear component boundaries.",
+          "feedback_status": "validated",
+          "uncertainty_notice": null,
+          "priority_rank": 1
+        }
+      ],
+      "improvement_plan": {
+        "interview_id": "test_voice_v3.wav",
+        "question_id": "Q084",
+        "question_text": "Compare a Process and a Thread, and explain common Inter-Process Communication (IPC) mechanisms.",
+        "total_marks_lost": 1.0,
+        "plan_items": [
+          {
+            "plan_id": "PLAN_001",
+            "criterion_id": "Q084_IDEA_3",
+            "concept_to_revise": "IPC mechanisms enable processes to excha",
+            "why_needed": "You omitted key discussion of IPC mechanisms enable processes to exchange data across isolated address spaces via pipes, shared memory, message queues, signals, and UNIX domain sockets.. No supporting evidence was found in your explanation.",
+            "learning_objectives": [
+              "Master core principles and operational mechanisms of IPC mechanisms enable processe",
+              "Explain how IPC mechanisms enable processe integrates into broader technical architectures",
+              "Articulate trade-offs, edge cases, and real-world failure modes"
+            ],
+            "practice_task": "Explain IPC mechanisms enable processes to excha as if teaching a junior developer: describe the mechanism, provide a concrete example, and highlight why it is necessary.",
+            "expected_answer_components": [
+              "Precise technical definition of IPC mechanisms enable processe",
+              "Step-by-step mechanism or data flow",
+              "Practical engineering application and trade-off comparison"
+            ],
+            "self_assessment_criteria": [
+              "Did I explicitly mention the mechanism of IPC mechanisms enable pro?",
+              "Did I use correct terminology rather than generic paraphrases?",
+              "Did I explain why alternative approaches are inferior or when this pattern applies?"
+            ],
+            "marks_lost": 1.0
+          }
+        ]
+      },
+      "validation_summary": {
+        "passed": 1,
+        "failed": 0,
+        "retried": 0,
+        "errors": []
+      },
+      "model_used": "deterministic_evidence_fallback",
+      "created_at": "2026-10-30T04:58:20.398454"
+    }
   }
 ]

@@ -34,6 +34,7 @@ from score.uncertainty_models import (
 )
 from score.uncertainty_engine import UncertaintyEngine
 from eval.fairness_audit import FairnessAuditLab
+from score.feedback_compiler import FeedbackCompiler
 
 # Page Configuration
 st.set_page_config(
@@ -377,6 +378,69 @@ elif mode == "Inspect Batch Results" and evaluation_data:
                     st.write(f"- **Verification Method:** `{rec.get('verification_method')}`")
                     st.write(f"- **Verification Reason:** {rec.get('verification_reason')}")
                     st.write(f"- **Linked Criteria:** {', '.join(rec.get('linked_criterion_ids', []))}")
+
+        # -----------------------------------------------------------------------------------------
+        # Level 3: Actionable Improvement Opportunities & Personalized Learning Plan (Implementation 4)
+        # -----------------------------------------------------------------------------------------
+        st.markdown("---")
+        st.subheader("🎯 Top Actionable Improvement Opportunities")
+        st.caption("Derived deterministically from rubric gaps and verified acoustic evidence. No evidence, no marks.")
+
+        compiled_fb = record.get("compiled_feedback")
+        if not compiled_fb:
+            compiler = FeedbackCompiler()
+            compiled_fb = compiler.compile(record).model_dump()
+
+        opps = compiled_fb.get("opportunities", [])
+        if not opps:
+            st.success("🎉 **Outstanding Response!** No major technical weaknesses detected. The candidate satisfied all core rubric requirements.")
+        else:
+            for opp in opps:
+                if opp.get("feedback_status") == "provisional":
+                    badge = '<span class="badge-partial">🛡️ PROVISIONAL (ASR UNCERTAIN)</span>'
+                else:
+                    badge = '<span class="badge-satisfied">✅ VALIDATED EVIDENCE</span>'
+
+                with st.expander(f"Priority {opp.get('priority_rank')}: {opp.get('title')} — {opp.get('marks_lost')} marks lost", expanded=True):
+                    st.markdown(f"**Target Criterion:** `{opp.get('criterion_id')}` &nbsp;|&nbsp; **Status:** {badge} &nbsp;|&nbsp; **Marks Lost:** `{opp.get('marks_lost')} / {opp.get('max_points')}`", unsafe_allow_html=True)
+                    
+                    ev = opp.get("evidence")
+                    if ev and ev.get("quote"):
+                        ts_str = f" [at {ev.get('start'):.2f}s - {ev.get('end'):.2f}s]" if ev.get("start") is not None else ""
+                        st.markdown(f"🎙️ **Spoken Quote{ts_str}:**")
+                        st.markdown(f'<div class="quote-box">"{ev.get("quote")}"</div>', unsafe_allow_html=True)
+
+                    st.markdown(f"⚠️ **Identified Gap:** {opp.get('issue')}")
+                    st.markdown(f"💡 **Why It Matters:** {opp.get('why_it_matters')}")
+                    st.markdown(f"🚀 **Actionable Step:** {opp.get('action')}")
+                    
+                    st.markdown("📋 **Model Suggested Answer (Full Marks):**")
+                    st.info(opp.get("suggested_answer"))
+
+        # Personalized Learning Plan
+        plan = compiled_fb.get("improvement_plan")
+        if plan and plan.get("plan_items"):
+            st.markdown("---")
+            st.subheader("📚 Personalized Learning Curriculum & Practice Tasks")
+            st.caption("Targeted revision milestones and self-assessment criteria compiled specifically for this candidate.")
+            for item in plan.get("plan_items", []):
+                with st.expander(f"📖 Module: Revise {item.get('concept_to_revise')} ({item.get('marks_lost')} marks at risk)"):
+                    st.write(f"**Why Needed:** {item.get('why_needed')}")
+                    st.markdown("**Learning Objectives:**")
+                    for obj in item.get("learning_objectives", []):
+                        st.markdown(f"- {obj}")
+                    st.markdown(f"**Practice Task:**\n> {item.get('practice_task')}")
+                    
+                    p_c1, p_c2 = st.columns(2)
+                    with p_c1:
+                        st.markdown("**Expected Answer Components:**")
+                        for comp in item.get("expected_answer_components", []):
+                            st.markdown(f"- [ ] {comp}")
+                    with p_c2:
+                        st.markdown("**Self-Assessment Criteria:**")
+                        for sa in item.get("self_assessment_criteria", []):
+                            st.markdown(f"- [ ] {sa}")
+
 
 
 elif mode == "Human Review Audit Portal":

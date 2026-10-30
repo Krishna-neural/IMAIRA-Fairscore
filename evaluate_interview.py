@@ -69,6 +69,8 @@ from score.evidence_models import (
 from score.evidence_scorer import DeterministicEvidenceScorer
 from score.uncertainty_models import UncertaintyRecord, UncertaintyPolicy
 from score.uncertainty_engine import UncertaintyEngine
+from score.feedback_compiler import FeedbackCompiler
+from score.feedback_models import CompiledFeedbackReport
 
 # Ensure unpickling works seamlessly across all modules and scripts
 import score.calibrate
@@ -257,6 +259,7 @@ class InterviewEvaluator:
         self.llm_engine = LLMEvaluationEngine()
         self.evidence_scorer = DeterministicEvidenceScorer()
         self.uncertainty_engine = UncertaintyEngine()
+        self.feedback_compiler = FeedbackCompiler(api_key=self.llm_engine.api_key)
         print("[INIT] All systems ready.\n")
 
     def evaluate_file(self, audio_path: Path, forced_qid: Optional[str] = None) -> Dict[str, Any]:
@@ -373,7 +376,10 @@ class InterviewEvaluator:
         cal_structure = scorecard.calibrated_structure_5pt
         overall_fairscore = scorecard.overall_fairscore_5pt
 
-        # Step 6: Build Timestamped Diagnostics
+        # Step 6: Feedback Compilation (Implementation 4)
+        feedback_report = self.feedback_compiler.compile(scorecard)
+
+        # Step 7: Build Timestamped Diagnostics
         corrections_applied = []
         for e in recovery_res.audit_log:
             if e.decision == "CORRECTED":
@@ -416,6 +422,7 @@ class InterviewEvaluator:
             "actionable_feedback": llm_res.get("actionable_feedback", []),
             "corrections_made": corrections_applied,
             "evidence_scorecard": scorecard.model_dump(),
+            "compiled_feedback": feedback_report.model_dump(),
             "uncertainty_records": [r.model_dump() for r in uncertainty_records],
             "evaluation_state": scorecard.evaluation_state
         }
