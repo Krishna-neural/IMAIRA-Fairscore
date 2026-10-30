@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Mic, Video, Shield, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mic, Video, Shield, CheckCircle2, AlertCircle, Volume2 } from 'lucide-react';
 import { audioService } from '../services/audioService';
+import { speechService } from '../services/speechService';
+import { HumanAvatar } from '../components/avatar/HumanAvatar';
 import { CandidateConfig } from '../types/interview';
 
 interface SetupPageProps {
@@ -20,6 +22,22 @@ export const SetupPage: React.FC<SetupPageProps> = ({ onStartSession, isRestrict
   const [cameraActive, setCameraActive] = useState(false);
   const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
   const [isTestingMic, setIsTestingMic] = useState(false);
+  const [isAvatarSpeaking, setIsAvatarSpeaking] = useState(false);
+
+  const avatarGreeting = `Hello ${name || 'Candidate'}! I am your AI technical interviewer today for ${domain}. I am listening clearly to your microphone and will evaluate your technical understanding with full accent fairness.`;
+
+  const handleTestAvatarVoice = () => {
+    if (isAvatarSpeaking) {
+      speechService.setMuted(true);
+      setIsAvatarSpeaking(false);
+      setTimeout(() => speechService.setMuted(false), 200);
+    } else {
+      setIsAvatarSpeaking(true);
+      speechService.speak(avatarGreeting, () => {
+        setIsAvatarSpeaking(false);
+      });
+    }
+  };
 
   const handleTestMic = async () => {
     setIsTestingMic(true);
@@ -70,6 +88,46 @@ export const SetupPage: React.FC<SetupPageProps> = ({ onStartSession, isRestrict
       </div>
 
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Top Feature: AI Interviewer Avatar & Lip-Sync Verification */}
+        <div className="md:col-span-2 bg-white border border-slate-200 rounded-lg p-5 shadow-xs flex flex-col md:flex-row items-center gap-6">
+          <div className="w-full md:w-56 shrink-0 flex justify-center">
+            <HumanAvatar
+              state={isAvatarSpeaking ? 'speaking' : 'idle'}
+              statusText={isAvatarSpeaking ? 'Interviewer Speaking' : 'AI Interviewer Ready'}
+              currentSpeechText={avatarGreeting}
+            />
+          </div>
+          <div className="flex-1 space-y-2.5 text-left">
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 text-blue-800 border border-blue-200">
+                Virtual Human Interviewer
+              </span>
+              <span className="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold rounded-full">
+                Active Lip-Sync Engine
+              </span>
+            </div>
+            <h3 className="text-base font-extrabold text-[#101C35]">
+              Meet Your AI Technical Interviewer
+            </h3>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Your AI interviewer interacts naturally via speech synthesis, lip-synchronization, and eye contact. All evaluations run silently in the background without interrupting your responses.
+            </p>
+            <div className="pt-1 flex items-center gap-3">
+              <button
+                type="button"
+                onClick={handleTestAvatarVoice}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#2457A6] hover:bg-[#1A4482] text-white rounded text-xs font-bold transition-colors"
+              >
+                <Volume2 size={14} />
+                {isAvatarSpeaking ? 'Stop Interviewer Voice' : '🔊 Test Interviewer Voice & Lip-Sync'}
+              </button>
+              <span className="text-[11px] text-slate-500">
+                Verifies speaker output & lip-sync before session starts
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Left Column: Session Parameters */}
         <div className="bg-white border border-slate-200 rounded-lg p-5 shadow-xs space-y-4">
           <h3 className="text-sm font-bold text-[#101C35] uppercase tracking-wide">

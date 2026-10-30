@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { HumanAvatar } from '../components/avatar/HumanAvatar';
+import { speechService } from '../services/speechService';
+import { Volume2 } from 'lucide-react';
 
 interface LandingPageProps {
   onStartInterview: () => void;
@@ -9,6 +12,22 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   onStartInterview,
   onExploreJudge,
 }) => {
+  const [isPlayingDemo, setIsPlayingDemo] = useState(false);
+  const demoText =
+    "How do hash tables resolve collision, and what is the asymptotic difference between separate chaining and open addressing?";
+
+  const handleToggleDemo = () => {
+    if (isPlayingDemo) {
+      speechService.setMuted(true);
+      setIsPlayingDemo(false);
+      setTimeout(() => speechService.setMuted(false), 200);
+    } else {
+      setIsPlayingDemo(true);
+      speechService.speak(demoText, () => {
+        setIsPlayingDemo(false);
+      });
+    }
+  };
   return (
     <div className="space-y-16 py-6">
       {/* Hero Section with Right-Side Realistic Product Preview */}
@@ -49,14 +68,27 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px]">Session Active</span>
           </div>
           <div className="p-4 space-y-3.5 text-xs text-slate-700">
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded space-y-1">
-              <span className="font-bold text-blue-900 block">Virtual Human Interviewer:</span>
-              <p className="italic text-slate-800">
-                "How do hash tables resolve collision, and what is the asymptotic difference between separate chaining and open addressing?"
-              </p>
+            {/* Interactive Human Avatar Preview */}
+            <div className="flex justify-center">
+              <HumanAvatar
+                state={isPlayingDemo ? 'speaking' : 'idle'}
+                statusText={isPlayingDemo ? 'AI Interviewer Speaking' : 'Virtual Interviewer Ready'}
+                currentSpeechText={demoText}
+              />
             </div>
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={handleToggleDemo}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-[#2457A6] border border-blue-200 rounded text-xs font-bold transition-colors"
+              >
+                <Volume2 size={13} />
+                {isPlayingDemo ? 'Stop Voice Demo' : '🔊 Hear AI Interviewer Ask Question'}
+              </button>
+            </div>
+
             <div className="p-3 bg-blue-50/60 border border-blue-200 rounded space-y-1">
-              <span className="font-bold text-blue-950 block">Candidate Transcript (Acoustically Verified):</span>
+              <span className="font-bold text-blue-950 block">Candidate Spoken Response (Acoustically Verified):</span>
               <p className="text-slate-800">
                 "We store key-value pairs in a <span className="bg-emerald-100 text-emerald-800 font-bold px-1 rounded">hash map</span> with linked lists for chaining..."
               </p>

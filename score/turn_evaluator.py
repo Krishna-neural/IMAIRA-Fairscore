@@ -121,35 +121,45 @@ class TurnEvaluator:
         canonical_answer = curr_q.answer if curr_q else ""
         key_concepts = curr_q.key_concepts if curr_q else []
 
-        for item in rubric_breakdown:
+        for idx, item in enumerate(rubric_breakdown):
             if item["marks_lost"] > 0:
                 stmt = item["concept_statement"]
                 model_fix = f"To fully address this requirement: articulate that {stmt.lower()}"
                 if canonical_answer:
-                    for sent in canonical_answer.split("."):
-                        clean_sent = sent.strip()
-                        if any(w.lower() in clean_sent.lower() for w in stmt.split() if len(w) > 4):
-                            model_fix = clean_sent + "."
-                            break
+                    sents = [s.strip() for s in canonical_answer.split(".") if s.strip()]
+                    if idx < len(sents):
+                        model_fix = sents[idx] + "."
+                    else:
+                        model_fix = sents[0] + "."
 
                 technical_knowledge_gaps.append({
+                    "question_id": question_id,
                     "criterion_id": item["idea_id"],
+                    "dimension": curr_q.subcategory if curr_q else "Core Engineering Competence",
                     "concept": stmt,
                     "status": "partial" if item["verdict"] == "partially_demonstrated" else "missing",
                     "marks_lost": item["marks_lost"],
+                    "missing_concepts": [c for c in key_concepts if c.lower() not in raw_text.lower()],
+                    "quote": raw_text[:85] + ("..." if len(raw_text) > 85 else "") if raw_text else "",
                     "issue_explanation": f"The candidate's response lacked comprehensive coverage of: '{stmt}'.",
                     "model_sentence_fix": model_fix,
+                    "fix_sentence": model_fix,
                     "remedial_guidance": f"Review {curr_q.subcategory if curr_q else 'core concepts'}: focus on explaining mechanisms, tradeoffs, and failure modes."
                 })
 
         if not technical_knowledge_gaps:
             technical_knowledge_gaps.append({
+                "question_id": question_id,
                 "criterion_id": "ALL_SATISFIED",
+                "dimension": curr_q.subcategory if curr_q else "Core Engineering Competence",
                 "concept": "Complete Technical Mastery",
                 "status": "satisfied",
                 "marks_lost": 0.0,
+                "missing_concepts": [],
+                "quote": raw_text[:85] + ("..." if len(raw_text) > 85 else "") if raw_text else "",
                 "issue_explanation": "All core technical concepts and architectural invariants were successfully demonstrated.",
                 "model_sentence_fix": "Maintain this level of structured technical articulation in subsequent interview turns.",
+                "fix_sentence": "Maintain this level of structured technical articulation in subsequent interview turns.",
                 "remedial_guidance": "Demonstrated comprehensive understanding."
             })
 

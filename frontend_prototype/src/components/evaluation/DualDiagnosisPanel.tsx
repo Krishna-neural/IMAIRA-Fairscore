@@ -75,6 +75,7 @@ export const DualDiagnosisPanel: React.FC<DualDiagnosisPanelProps> = ({
                     <span className="font-bold text-[#2457A6] text-[11px]">
                       {gap.question_id ? `Question ${gap.question_id}` : `Criterion #${idx + 1}`}
                       {gap.dimension ? ` • ${gap.dimension}` : ''}
+                      {(gap as any).concept ? ` • ${(gap as any).concept}` : ''}
                     </span>
                     <span className="px-2 py-0.5 bg-red-50 text-red-700 border border-red-200 rounded text-[10px] font-bold">
                       -{gap.marks_lost || 5} marks
@@ -111,7 +112,7 @@ export const DualDiagnosisPanel: React.FC<DualDiagnosisPanelProps> = ({
                     </span>
                     <div className="p-2.5 bg-emerald-50/70 border border-emerald-200 rounded text-[#101C35] font-semibold flex items-start gap-1.5 text-xs">
                       <ArrowRight size={14} className="text-emerald-700 shrink-0 mt-0.5" />
-                      <span>{gap.fix_sentence}</span>
+                      <span>{gap.fix_sentence || (gap as any).model_sentence_fix || (gap as any).concept || "Articulate required algorithmic mechanisms, tradeoffs, and failure modes."}</span>
                     </div>
                   </div>
                 </div>

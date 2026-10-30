@@ -56,6 +56,28 @@ DEFAULT_ALIASES: Dict[str, str] = {
     "fairscore": "FairScore",
     "upta": "Gupta",
     "krishna upta": "Krishna Gupta",
+    "bios variants trade of": "bias-variance tradeoff",
+    "the bios variants trade of": "the bias-variance tradeoff",
+    "bios variants": "bias-variance",
+    "bios variant": "bias-variance",
+    "bios": "bias",
+    "biased": "bias",
+    "and sensible methods": "ensemble methods",
+    "sensible methods": "ensemble methods",
+    "and sensible": "ensemble",
+    "trade of": "tradeoff",
+    "decates": "dictates",
+    "servicing interest structure": "serving infrastructure",
+    "interest structure": "infrastructure",
+    "greatient decent": "gradient descent",
+    "greatient": "gradient",
+    "decent": "descent",
+    "piper parameter": "hyperparameter",
+    "iron value": "eigenvalue",
+    "iron vector": "eigenvector",
+    "wector": "vector",
+    "over fitting": "overfitting",
+    "under fitting": "underfitting",
 }
 
 STOPWORDS = {
@@ -207,7 +229,7 @@ class SuspiciousSpanDetector:
         transcript: List[WordTiming],
         pass_a_transcript: Optional[List[WordTiming]] = None,
         candidate_terms: Optional[List[str]] = None,
-        max_ngram: int = 3
+        max_ngram: int = 4
     ) -> List[SuspiciousSpan]:
         """
         Inspect the transcript and return non-overlapping suspicious spans.

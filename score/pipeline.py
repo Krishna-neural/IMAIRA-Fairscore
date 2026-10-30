@@ -238,6 +238,14 @@ def run_fairscore_pipeline(
             "fix_sentence": "Conclude your answer with a definitive summary summarizing key tradeoffs."
         })
 
+    if not missed_feedback_candidates:
+        missed_feedback_candidates.append({
+            "criterion_id": "Overall Technical Articulation",
+            "marks_lost": 0.0,
+            "quote": transcript_text[:min(80, len(transcript_text))],
+            "fix_sentence": "Strong conceptual articulation. Continue structuring answers with explicit tradeoffs and production failure modes."
+        })
+
     top_feedback = generate_top_missed_feedback(missed_feedback_candidates, top_n=3, max_words=30)
 
     # 8. Token generation

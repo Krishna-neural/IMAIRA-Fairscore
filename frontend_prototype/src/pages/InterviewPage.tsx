@@ -283,7 +283,7 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
           dimension: g.dimension || 'Content Coverage',
           marks_lost: g.marks_lost || 5,
           quote: g.quote || '',
-          fix_sentence: g.fix_sentence || '',
+          fix_sentence: g.fix_sentence || g.model_sentence_fix || '',
           question_id: g.question_id || 'ENG001',
         })) || [],
         flags: {

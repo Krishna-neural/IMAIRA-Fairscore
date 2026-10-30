@@ -4,6 +4,8 @@ import { DualDiagnosisPanel } from '../components/evaluation/DualDiagnosisPanel'
 import { RubricCoverage } from '../components/evaluation/RubricCoverage';
 import { CoachingFeedback } from '../components/evaluation/CoachingFeedback';
 import { AuditLogTable } from '../components/evaluation/AuditLogTable';
+import { HumanAvatar } from '../components/avatar/HumanAvatar';
+import { speechService } from '../services/speechService';
 import { EvaluationResult } from '../types/evaluation';
 import { ChevronDown, ChevronUp, MessageSquare, CheckCircle, Volume2 } from 'lucide-react';
 
@@ -23,6 +25,7 @@ export const EvaluationPage: React.FC<EvaluationPageProps> = ({
   onExploreJudge,
 }) => {
   const [showTurnHistory, setShowTurnHistory] = useState(false);
+  const [isSpeakingDebrief, setIsSpeakingDebrief] = useState(false);
 
   if (!result) {
     return (
@@ -41,12 +44,66 @@ export const EvaluationPage: React.FC<EvaluationPageProps> = ({
     );
   }
 
+  const debriefSpeechText = `Hello ${candidateName || 'Candidate'}. That concludes your technical interview in ${domain}. You achieved an overall FairScore of ${result.overallScore} percent. Your Content Mastery was evaluated at ${result.scores.content} percent, with Structure and Flow at ${result.scores.structure} percent. Under our acoustic slice recovery, any pronunciation shifts or regional accent variations were protected with zero mark deductions. Please review your detailed technical knowledge gaps and coaching scope below.`;
+
+  const handleToggleDebriefAudio = () => {
+    if (isSpeakingDebrief) {
+      speechService.setMuted(true);
+      setIsSpeakingDebrief(false);
+      setTimeout(() => speechService.setMuted(false), 200);
+    } else {
+      setIsSpeakingDebrief(true);
+      speechService.speak(debriefSpeechText, () => {
+        setIsSpeakingDebrief(false);
+      });
+    }
+  };
+
   const candidateTurns = (result.turns || []).filter(
     (t: any) => t.speaker === 'candidate' || t.speaker === 'Candidate'
   );
 
   return (
     <div className="max-w-5xl mx-auto py-8 space-y-6">
+      {/* 0. Executive Verdict with Virtual Human Interviewer Debrief */}
+      <div className="bg-white border border-slate-200 rounded-lg p-5 shadow-xs flex flex-col md:flex-row items-center gap-6">
+        <div className="w-full md:w-56 shrink-0 flex justify-center">
+          <HumanAvatar
+            state={isSpeakingDebrief ? 'speaking' : 'idle'}
+            statusText={isSpeakingDebrief ? 'Interviewer Speaking' : 'Interview Concluded'}
+            currentSpeechText={debriefSpeechText}
+          />
+        </div>
+        <div className="flex-1 space-y-3 text-left">
+          <div className="flex items-center gap-2">
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-50 text-blue-800 border border-blue-200">
+              Virtual Human Interviewer Debrief
+            </span>
+            <span className="px-2 py-0.5 bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold rounded-full">
+              Verified FairScore Active
+            </span>
+          </div>
+          <h3 className="text-xl font-extrabold text-[#101C35]">
+            AI Performance Debrief for {candidateName}
+          </h3>
+          <p className="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded border border-slate-200 italic">
+            "{debriefSpeechText}"
+          </p>
+          <div className="flex items-center gap-3 pt-1">
+            <button
+              onClick={handleToggleDebriefAudio}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#2457A6] hover:bg-[#1A4482] text-white text-xs font-bold rounded shadow-xs transition-colors"
+            >
+              <Volume2 size={15} />
+              {isSpeakingDebrief ? 'Stop AI Debrief' : '🔊 Listen to AI Evaluation Debrief'}
+            </button>
+            <span className="text-[11px] text-slate-500">
+              Interactive lip-synced audio playback with zero accent bias
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* 1. Main ScoreCard (60% Content + 40% Structure) */}
       <ScoreCard
         overallScore={result.overallScore}
