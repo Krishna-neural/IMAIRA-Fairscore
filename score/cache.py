@@ -77,6 +77,13 @@ def execute_with_backoff(
             return func()
         except retry_exceptions as e:
             last_exc = e
+            if "getaddrinfo failed" in str(e) or "NameResolutionError" in type(e).__name__:
+                logger.warning(f"Network offline ({e}); skipping retry backoff.")
+                raise e
+            err_str = str(e)
+            if any(code in err_str for code in ["404", "401", "403", "400", "422"]):
+                logger.warning(f"Non-retryable HTTP client error ({e}); aborting retries.")
+                raise e
             if attempt == max_retries - 1:
                 logger.error(f"Failed after {max_retries} attempts: {e}")
                 raise e

@@ -36,7 +36,12 @@ try:
 except ImportError:
     torch = None
 
-from faster_whisper import WhisperModel
+try:
+    from faster_whisper import WhisperModel
+    HAS_FASTER_WHISPER = True
+except ImportError:
+    WhisperModel = None
+    HAS_FASTER_WHISPER = False
 from contracts.transcript import WordTiming, PassResult, TwoPassTranscription
 
 logger = logging.getLogger("imaira_asr.transcribe")

@@ -44,12 +44,107 @@ DEFAULT_ALIASES: Dict[str, str] = {
     "kubernets": "Kubernetes",
     "dockers": "Docker",
     "resursion": "recursion",
+    "semfor": "semaphore",
+    "semafor": "semaphore",
+    "cubernetes": "Kubernetes",
+    "reddis": "Redis",
+    "asinc": "async",
+    "polymorfism": "polymorphism",
     "im aira": "IMAIRA",
     "imaira": "IMAIRA",
     "fair score": "FairScore",
     "fairscore": "FairScore",
     "upta": "Gupta",
     "krishna upta": "Krishna Gupta",
+    "bios variants trade of": "bias-variance tradeoff",
+    "the bios variants trade of": "the bias-variance tradeoff",
+    "bios variants": "bias-variance",
+    "bios variant": "bias-variance",
+    "bios": "bias",
+    "biased": "bias",
+    "and sensible methods": "ensemble methods",
+    "sensible methods": "ensemble methods",
+    "and sensible": "ensemble",
+    "trade of": "tradeoff",
+    "decates": "dictates",
+    "servicing interest structure": "serving infrastructure",
+    "interest structure": "infrastructure",
+    "greatient decent": "gradient descent",
+    "greatient": "gradient",
+    "decent": "descent",
+    "piper parameter": "hyperparameter",
+    "iron value": "eigenvalue",
+    "iron vector": "eigenvector",
+    "wector": "vector",
+    "over fitting": "overfitting",
+    "under fitting": "underfitting",
+    "die extra": "Dijkstra's",
+    "die extract": "Dijkstra's",
+    "dike straw": "Dijkstra's",
+    "dijkstras": "Dijkstra's",
+    "assumptions complexity": "asymptotic complexity",
+    "as in tonic complexity": "asymptotic complexity",
+    "assymptotic complexity": "asymptotic complexity",
+    "assumptions": "asymptotic",
+    "as in tonic": "asymptotic",
+    "assymptotic": "asymptotic",
+    "be plus tree": "B+ tree",
+    "b plus tree": "B+ tree",
+    "be tree": "B-tree",
+    "be tray": "B-tree",
+    "be true": "B-tree",
+    "b three": "B-tree",
+    "b tree": "B-tree",
+    "breath first search": "breadth-first search",
+    "breath first": "breadth-first",
+    "breadth first": "breadth-first",
+    "deft first search": "depth-first search",
+    "death first search": "depth-first search",
+    "depth first": "depth-first",
+    "tell our you cash": "LRU cache",
+    "tell are you cash": "LRU cache",
+    "all are you cash": "LRU cache",
+    "tell our you": "LRU",
+    "tell are you": "LRU",
+    "lru cash": "LRU cache",
+    "lfu cash": "LFU cache",
+    "item potent": "idempotent",
+    "idea potent": "idempotent",
+    "asset properties": "ACID properties",
+    "cup theorem": "CAP theorem",
+    "pack sauce": "Paxos",
+    "packs us": "Paxos",
+    "wrapped consensus": "Raft consensus",
+    "charting database": "sharding",
+    "moot acts": "mutex",
+    "moot access": "mutex",
+    "mute x": "mutex",
+    "mutants": "mutex",
+    "current see": "concurrency",
+    "concurrent see": "concurrency",
+    "dad lock": "deadlock",
+    "start vation": "starvation",
+    "ray's condition": "race condition",
+    "rays condition": "race condition",
+    "quick sort": "QuickSort",
+    "quicksilver": "QuickSort",
+    "merge sort": "MergeSort",
+    "heap sort": "HeapSort",
+    "memorization": "memoization",
+    "memoisation": "memoization",
+    "big oh": "Big-O",
+    "big o": "Big-O",
+    "priority q": "priority queue",
+    "bst": "binary search tree",
+    "avl tree": "AVL tree",
+    "red black tree": "Red-Black tree",
+    "crux call": "Kruskal's algorithm",
+    "prims": "Prim's algorithm",
+    "belman ford": "Bellman-Ford",
+    "floyd marshall": "Floyd-Warshall",
+    "topo sort": "topological sort",
+    "try data structure": "trie",
+    "polymer ism": "polymorphism",
 }
 
 STOPWORDS = {
@@ -135,6 +230,21 @@ class SuspiciousSpanDetector:
                 deduped.append(t)
         self.terms = deduped
         self.terms_lower = [t.lower() for t in self.terms]
+        self.terms_set = set(self.terms_lower)
+
+    def _is_known_term(self, word: str) -> bool:
+        """Check if word or common inflection is already in technical glossary."""
+        w = clean_text(word)
+        if not w:
+            return True
+        if hasattr(self, 'terms_set') and w in self.terms_set:
+            return True
+        for suffix in ['s', 'es', 'ed', 'ing', 'ly', 'ize', 'ise', 'tion', 'able', 'ive']:
+            if w.endswith(suffix):
+                stem = w[:-len(suffix)]
+                if hasattr(self, 'terms_set') and (stem in self.terms_set or (stem + 'e') in self.terms_set):
+                    return True
+        return False
 
     def _is_stop_span(self, words: List[WordTiming]) -> bool:
         """Return True if all words in span are stopwords or single non-alpha characters."""
@@ -186,7 +296,7 @@ class SuspiciousSpanDetector:
         transcript: List[WordTiming],
         pass_a_transcript: Optional[List[WordTiming]] = None,
         candidate_terms: Optional[List[str]] = None,
-        max_ngram: int = 3
+        max_ngram: int = 4
     ) -> List[SuspiciousSpan]:
         """
         Inspect the transcript and return non-overlapping suspicious spans.
@@ -260,6 +370,8 @@ class SuspiciousSpanDetector:
                 # A. Direct alias dictionary match
                 if span_clean in self.aliases:
                     target = self.aliases[span_clean]
+                    if target.lower() == span_clean.lower():
+                        continue
                     fuzz_sc, comb_sc, p_match = self.score_candidate(span_text, target)
                     candidates.append(SuspiciousSpan(
                         span_id=f"span_{i}_{i+n}",
@@ -278,7 +390,10 @@ class SuspiciousSpanDetector:
                     ))
                     continue
 
-                # B. Low confidence trigger
+                # B. Low confidence / Unknown term trigger
+                if self._is_known_term(span_clean):
+                    continue
+
                 if min_c < self.conf_threshold:
                     if not self.terms:
                         continue
@@ -304,7 +419,7 @@ class SuspiciousSpanDetector:
                                 fuzzy_score=round(fuzz_sc, 1),
                                 phonetic_match=p_match,
                                 combined_score=round(comb_sc, 1),
-                                reason="low_conf_glossary"
+                                reason="phonetic_glossary_match" if p_match else "low_conf_glossary"
                             ))
 
         # 3. Greedy Non-Overlapping Selection

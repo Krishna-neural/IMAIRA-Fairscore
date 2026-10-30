@@ -1,156 +1,212 @@
-# IMAIRA FairScore — AI Technical Mock Interview Evaluator
+# IMAIRA FairScore — Unified AI Mock Interviewer & Evidence-Driven Evaluation Platform
 
-IMAIRA FairScore is a high-precision, production-grade technical interview evaluation pipeline designed to assess engineering candidates fairly, objectively, and comprehensively.
+> **"Grade what you know, not how you sound."**
 
-The system transcribes spoken technical answers, recovers accent and domain-term misrecognitions, detects conceptual misconceptions, evaluates rubric completeness, scores answer structure, and computes an isotonic calibrated **Overall FairScore ($1.0 - 5.0$)**.
+An enterprise-grade, accent-fair, and evidence-grounded AI technical interview platform designed to decouple technical knowledge from speech communication disfluencies, regional accents, and ASR artifacts.
+
+Built for the **Integraminds AI FRONTIER Software Track** second-round technical evaluation.
 
 ---
 
-## Quick Start (Single-Command Execution)
+## 🌟 Overview & Product Vision
 
-### Option A: Double-Click (Zero Terminal Setup)
-1. Dump your interview audio recordings (`.wav`, `.mp3`, `.m4a`) into:
-   ```
-   IMAIRA-Fairscore/data/recordings/
-   ```
-2. Double-click **`RUN_EVALUATION.bat`** (located in `Deviathon2.0/` or `IMAIRA-Fairscore/`).
-3. View results in terminal and in [`reports/interview_evaluation_report.md`](reports/interview_evaluation_report.md).
+Conventional automated interview systems suffer from severe phonetic, accent, and cultural biases. Standard automatic speech recognition (ASR) engines routinely mistranscribe technical domain terms spoken in non-native or regional accents (e.g., transcribing *"hash map"* as *"has map"*, or *"semaphore"* as *"semfor"*). Compounding this error, naive LLM evaluators penalize candidates for speech disfluencies, L2 grammar patterns, and ASR artifacts, incorrectly conflating communication accent with technical competence.
 
-### Option B: Terminal / Command Line
+**IMAIRA FairScore** solves this problem through an end-to-end multi-stage pipeline:
+1. **Interactive Virtual Human Interviewer:** Real-time interactive conversational interviewer with live audio streaming, webcam integrity monitoring, and realistic turn-taking.
+2. **Two-Pass ASR with Real-Time Acoustic Slice Recovery:** A 2,000-term technical engineering glossary (`data/glossary.csv`) coupled with RapidFuzz lexical matching, Jellyfish Metaphone phonetic indexing, and conservative acoustic re-verification.
+3. **Decoupled Evidence-First Scoring:**
+   - **Content Mastery (60%):** Evaluates underlying conceptual understanding against semantic rubric propositions with 3-run mode voting at $T=0$. Invariant to ASR errors, syntax, and fillers.
+   - **Structure & Coherence (40%):** Evaluates Framing (35%), Coherence (40%), and Closure (25%) decoupled from factual accuracy.
+4. **Isotonic Score Calibration:** Calibrated against empirical human reference scores via 5-fold cross-validated isotonic regression models.
+5. **Confidence-Aware Uncertainty Protection:** Recognizes acoustic ambiguity and awards provisional credit so accent artifacts are never penalized as technical deficiencies.
+6. **Actionable Dual Feedback:** Strictly differentiates between *Technical Knowledge Gaps* (missing concepts, marks lost, model sentence fix) and *Pronunciation/Articulation Scopes of Improvement*.
+7. **Institutional Placement Intelligence:** Centralized analytics cohort intelligence, skill gap detection, and automated evaluation audit for university placement officers.
+
+---
+
+## 🏗️ System Architecture
+
+```text
+                     Candidate Microphone / Audio Input
+                                    │
+                                    ▼
+                 Audio Ingestion & Streaming Transport
+                      (Web Audio API / WebSocket)
+                                    │
+                                    ▼
+       ┌────────────────────────────────────────────────────────┐
+       │   ASR Pipeline: Two-Pass + Real-Time Slice Recovery    │
+       │   • Pass 1: Streaming WordTiming Tokens                │
+       │   • Pass 2: 2,000-Term Glossary & Metaphone Matching   │
+       │   • Slice Re-Verification: Abstains on Ambiguity       │
+       └────────────────────────────┬───────────────────────────┘
+                                    │
+                                    ▼
+                         Verified Technical Transcript
+                                    │
+         ┌──────────────────────────┴──────────────────────────┐
+         ▼                                                     ▼
+┌─────────────────────────────────┐           ┌─────────────────────────────────┐
+│     Content Evaluation (60%)    │           │    Structure Evaluation (40%)   │
+│  • Grounded in QandA.json       │           │  • Framing (35%)                │
+│  • 3-Run Mode Voting at T=0     │           │  • Coherence & Flow (40%)       │
+│  • Verbatim Evidence Quotes     │           │  • Closure & Summary (25%)      │
+└────────────────┬────────────────┘           └────────────────┬────────────────┘
+                 │                                             │
+                 └──────────────────────┬──────────────────────┘
+                                        │
+                                        ▼
+                      ┌─────────────────────────────────┐
+                      │    Isotonic Score Calibration   │
+                      │  • Calibrator Content (619 B)   │
+                      │  • Calibrator Structure (603 B) │
+                      │  • Cumulative FairScore (1.0-5.0)│
+                      └─────────────────┬───────────────┘
+                                        │
+                                        ▼
+         ┌──────────────────────────────┴──────────────────────────────┐
+         ▼                                                             ▼
+┌─────────────────────────────────┐                   ┌─────────────────────────────────┐
+│   Implementation 4: Feedback    │                   │   Implementation 5: Placement   │
+│   • Technical Knowledge Gaps    │                   │   Officer Cohort Intelligence   │
+│   • Pronunciation Scopes        │                   │   • Concept Mastery Heatmaps    │
+│   • Max 3 Actionable Fixes      │                   │   • Uncertainty Audit & Drift   │
+└─────────────────────────────────┘                   └─────────────────────────────────┘
+```
+
+---
+
+## 🚀 Quick Start
+
+### Option 1: Full-Stack Web Platform (Interactive Virtual Human)
+
+Launch the FastAPI backend server:
 ```powershell
-# From the IMAIRA-Fairscore directory:
-..\torch-env\Scripts\python evaluate_interview.py
+python -m api.main
+```
+Open your browser to:
+- **Interactive Interview:** `http://localhost:8002/`
+- **Judge Technical Console:** `http://localhost:8002/#judge`
+- **FastAPI OpenAPI Docs:** `http://localhost:8002/docs`
 
-# Or evaluate a specific file or folder:
-..\torch-env\Scripts\python evaluate_interview.py data/recordings/test_voice_v3.wav
+Launch the React + TypeScript frontend prototype:
+```powershell
+cd frontend_prototype
+npm install
+npm run dev
+```
+
+### Option 2: Single-Command Batch Audio Evaluation
+
+Evaluate pre-recorded audio answers (.wav, .mp3, .m4a) against the 120-question reference dataset:
+```powershell
+# Run batch evaluation on recordings in data/recordings/
+python evaluate_interview.py
+
+# Or evaluate a specific audio file:
+python evaluate_interview.py data/recordings/test_voice_v3.wav
+```
+The final evaluation report will be generated at [`reports/interview_evaluation_report.md`](reports/interview_evaluation_report.md).
+
+---
+
+## 🧪 Comprehensive Verification & Test Suite
+
+Run the full automated test suite (unit tests, scoring contracts, calibration, and git hygiene):
+```powershell
+python -m pytest tests/ -v
+```
+
+Run pre-flight hardware and asset diagnostics:
+```powershell
+python check_setup.py
+```
+
+Run Judge Testing Lab (18 automated stress and invariant tests):
+```powershell
+python -c "from tests.judge_lab import run_all_lab_tests; res = run_all_lab_tests(); print('All passed:', all(r['passed'] for r in res))"
 ```
 
 ---
 
-## System Architecture
+## 📁 Repository Structure
 
-```
-                    ┌───────────────────────────────────────────────┐
-                    │ Spoken Candidate Audio (.wav / .mp3 / .m4a)   │
-                    └──────────────────────┬────────────────────────┘
-                                           │
-                                           ▼
-┌───────────────────────────────────────────────────────────────────────────────────┐
-│ 1. TWO-PASS ASR & ACCENT RECOVERY (asr/)                                          │
-│    • Pass 1: Initial Whisper transcription with word timestamps                   │
-│    • Pass 2: Prompt-biased re-decoding & acoustic phonetic discrepancy detection │
-│    • Recovery: Acoustic term re-verification against domain glossary              │
-└──────────────────────────────────────────┬────────────────────────────────────────┘
-                                           │
-                                           ▼
-┌───────────────────────────────────────────────────────────────────────────────────┐
-│ 2. QUESTION MATCHER & RUBRIC ALIGNMENT (score/)                                   │
-│    • Matches candidate answer against 120 benchmark questions (data/QandA.json)   │
-│    • Loads question-specific criteria & negative constraints                      │
-└──────────────────────────────────────────┬────────────────────────────────────────┘
-                                           │
-                                           ▼
-┌───────────────────────────────────────────────────────────────────────────────────┐
-│ 3. MULTI-DIMENSIONAL SCORING ENGINE                                               │
-│    • Content Completeness (1.0 - 5.0): Rubric idea-by-idea criteria match         │
-│    • Content Correctness  (1.0 - 5.0): Factual consistency & misconception check  │
-│    • Answer Structure     (1.0 - 5.0): Framing, logical coherence, closure        │
-│    • Timestamps [t_start, t_end]: Aligns quotes, corrections & errors to audio    │
-└──────────────────────────────────────────┬────────────────────────────────────────┘
-                                           │
-                                           ▼
-┌───────────────────────────────────────────────────────────────────────────────────┐
-│ 4. ISOTONIC SCORE CALIBRATION (artifacts/)                                        │
-│    • Non-parametric monotonic mapping learned from benchmark evaluations          │
-│    • Overall FairScore = 0.60 * Calibrated_Content + 0.40 * Calibrated_Structure  │
-└──────────────────────────────────────────┬────────────────────────────────────────┘
-                                           │
-                                           ▼
-┌───────────────────────────────────────────────────────────────────────────────────┐
-│ 5. GENERATED REPORTS (reports/)                                                   │
-│    • reports/interview_evaluation_report.md  (Executive markdown report)          │
-│    • reports/interview_evaluation_report.json (Machine-readable diagnostics)      │
-└───────────────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## Directory & File Guide
-
-```
-Deviathon2.0/
-├── RUN_EVALUATION.bat          # Top-level launcher for one-click evaluation
-├── torch-env/                  # Python 3.11 environment with PyTorch CUDA & Whisper
-└── IMAIRA-Fairscore/           # Core Project Repository
-    ├── RUN_EVALUATION.bat      # In-project launcher
-    ├── evaluate_interview.py   # Unified evaluation engine (ASR + Rubric + Scores)
-    │
-    ├── asr/                    # Speech Recognition & Domain Recovery
-    │   ├── transcribe.py       # Two-pass Faster-Whisper transcriber
-    │   ├── span_detector.py    # Phonetic discrepancy & domain span detector
-    │   ├── recover.py          # Acoustic slice recovery for accent errors
-    │   └── profile_baseline.py # GPU inference latency & memory profiling
-    │
-    ├── score/                  # Evaluation & Scoring
-    │   ├── content.py          # Content completeness & correctness judge
-    │   ├── structure.py        # Answer structure judge (framing, coherence, closure)
-    │   ├── calibrate.py        # Isotonic regression calibration models
-    │   ├── rubrics.py          # 120-question rubric loader and schemas
-    │   ├── qanda.py            # Q&A data parser and validator
-    │   └── cache.py            # SQLite cache for score evaluation
-    │
-    ├── contracts/              # Shared Data Contracts
-    │   └── transcript.py       # Pydantic schemas (WordTiming, RecoveryAuditEntry)
-    │
-    ├── data/                   # Rubrics, Reference Data & Audio Drop-Folder
-    │   ├── recordings/         # DROP FOLDER for candidate voice recordings
-    │   ├── rubrics_120.json    # 120 standardized interview questions & rubrics
-    │   ├── QandA.json          # Technical questions with domain reference answers
-    │   ├── glossary.csv/.txt   # Technical terms for accent & domain recovery
-    │   ├── dataset_dev_240.json# Calibration development dataset (240 entries)
-    │   └── dataset_heldout_60.json # Held-out benchmark dataset (60 entries)
-    │
-    ├── artifacts/              # Trained Machine Learning Models
-    │   ├── calibrator_content.pkl   # Isotonic model for content scoring
-    │   ├── calibrator_structure.pkl # Isotonic model for structure scoring
-    │   └── calibrator_metadata.json # Calibration training metrics
-    │
-    ├── reports/                # Evaluation & Benchmark Outputs
-    │   ├── interview_evaluation_report.md   # Latest candidate report
-    │   └── interview_evaluation_report.json # Detailed timestamped JSON
-    │
-    ├── eval/                   # Benchmarks & Offline Validation
-    │   ├── validate_recovery.py # ASR recovery precision/recall benchmarks
-    │   ├── scorer_only.py       # Scorer accent-invariance validation
-    │   └── agreement.py         # Human-machine agreement ceiling analysis
-    │
-    ├── scripts/                # Dataset Utilities
-    │   ├── build_datasets.py        # Builds calibration datasets
-    │   └── rebuild_qanda_dataset.py # Re-syncs Q&A rubrics
-    │
-    ├── tests/                  # Automated Test Suite (36/36 Passing)
-    │   ├── test_cpu1_pipeline.py    # Calibration, rubrics, & architectural tests
-    │   ├── test_qanda_integration.py# Q&A data integrity tests
-    │   ├── test_transcribe.py       # ASR transcription tests
-    │   ├── test_span_detector.py    # Phonetic span detector tests
-    │   └── test_recover.py          # Acoustic term recovery tests
-    │
-    ├── config.yaml             # Core configuration (models, thresholds, weights)
-    ├── requirements.txt        # Base dependencies
-    ├── requirements-gpu.txt    # CUDA-accelerated dependencies
-    ├── .gitignore              # Clean gitignore excluding audio, cache, & models
-    └── .env.example            # Environment variables template
+```text
+IMAIRA-Fairscore/
+├── api/
+│   ├── main.py                     # FastAPI application & WebSocket /ws/stream server
+│   └── __init__.py
+├── artifacts/
+│   ├── calibrator_content.pkl      # Isotonic content regression model
+│   └── calibrator_structure.pkl    # Isotonic structure regression model
+├── asr/
+│   ├── recover.py                  # Real-time acoustic slice recovery & fuzzy matching
+│   ├── span_detector.py            # Suspect span detector with phonetic indexing
+│   ├── stream_bridge.py            # Streaming audio transport & buffer bridge
+│   ├── transcribe.py               # Two-pass Faster-Whisper transcriber
+│   └── vocabulary_extractor.py     # Technical domain vocabulary extractor
+├── contracts/
+│   ├── score_request.json          # Score API contract schema
+│   ├── score_response.json         # Score API response schema
+│   └── transcript.py               # WordTiming, SuspiciousSpan, TwoPassTranscription
+├── data/
+│   ├── glossary.csv                # 2,000+ technical CS/engineering terms
+│   ├── QandA.json                  # 120 validated technical questions & reference answers
+│   └── rubrics_120.json            # 120 semantic rubric proposition definitions
+├── feedback/
+│   ├── generate.py                 # Actionable coaching fix generator
+│   └── validate.py                 # Coaching recommendation schema validator
+├── frontend/
+│   ├── static/                     # Embedded Web SPA (Served at http://localhost:8002/)
+│   └── app.py                      # Alternative Streamlit frontend
+├── frontend_prototype/             # Modern React + Vite + TypeScript Virtual Human UI
+│   ├── src/
+│   │   ├── components/avatar/      # 3D/Canvas Human Avatar & Lip-Sync
+│   │   ├── components/interview/   # Live captions, question card, chat stream
+│   │   ├── components/integrity/   # Camera & proctoring integrity monitor
+│   │   ├── pages/InterviewPage.tsx # Virtual Human Mock Interviewer experience
+│   │   └── pages/EvaluationPage.tsx# Final FairScore scorecard & dual feedback
+│   └── package.json
+├── interview/
+│   └── conversational.py           # Multi-turn dialog state machine & anti-injection
+├── reports/
+│   ├── scorer_robustness_report.json # 120-question accent invariance stress test results
+│   └── calibration_evaluation_report.json # 5-fold CV isotonic calibration metrics
+├── score/
+│   ├── calibrate.py                # Isotonic score calibrator
+│   ├── comm.py                     # Pace (WPM) & fluency analyzer
+│   ├── content.py                  # 3-run T=0 Content Judge
+│   ├── pipeline.py                 # Unified FairScore evaluation pipeline
+│   ├── qanda.py                    # Question & answer dataset loader
+│   ├── rubrics.py                  # SemanticRubricIdea & QuestionRubric models
+│   └── structure.py                # Decoupled Structure & Coherence Judge
+├── tests/
+│   ├── judge_lab.py                # Interactive 18-test testing lab engine
+│   ├── test_api_endpoints.py       # FastAPI endpoint tests
+│   ├── test_cpu1_pipeline.py       # 96 core scoring & calibration tests
+│   ├── test_frontend.py            # Session state lifecycle tests
+│   ├── test_qanda_integration.py   # Q&A dataset validation tests
+│   └── test_recover.py             # Acoustic slice recovery tests
+├── check_setup.py                  # System diagnostic checker
+├── evaluate_interview.py           # Batch CLI interview evaluator
+└── requirements.txt                # Production Python dependencies
 ```
 
 ---
 
-## What the System Reports for Every Recording
+## 🛡️ Security, Privacy & Integrity Invariants
 
-1. **Exact Timestamps $[t_{\text{start}}, t_{\text{end}}]$:** Word-level timestamps for every spoken phrase, correction, and evidence citation.
-2. **What Was Corrected:** A complete audit trail of candidate misrecognitions and accent corrections.
-3. **Where the Candidate Got Wrong:** Critical misconceptions, conceptual gaps, and missing technical ideas with severity flags (`[CRITICAL]`, `[MODERATE]`, `[MINOR]`).
-4. **Official Scores ($1.0 - 5.0$):**
-   - **Content Completeness:** Rubric idea coverage ($1.0 - 5.0$).
-   - **Content Correctness:** Factual accuracy and absence of technical fallacies ($1.0 - 5.0$).
-   - **Answer Structure:** Framing, Coherence, and Closure ($1.0 - 5.0$).
-   - **Calibrated Overall FairScore:** Blended score via Isotonic Regression ($1.0 - 5.0$).
+1. **Server-Side Scoring Enforcement:** Candidates cannot alter scoring formulas, criteria weights, or model configurations client-side.
+2. **Prompt-Injection Defense:** Strict regex and semantic heuristics intercept jailbreaks, developer mode triggers, and scoring override commands (`"ignore previous instructions"`), firmly refusing overrides without leaking system prompts.
+3. **Webcam Privacy Isolation:** Camera preview is 100% client-side. Zero video frames are recorded or transmitted to the server. Video presence has **zero influence** on Content scores.
+4. **Deterministic Evaluation:** Scoring uses temperature $T=0.0$ with 3-run mode voting and fixed uncertainty boundaries to prevent score variance across identical submissions.
+
+---
+
+## 🏆 Competition Credentials
+
+- **Track:** Integraminds AI FRONTIER Software Track
+- **Round:** Second-Round Technical Evaluation
+- **Repository:** [https://github.com/Krishna-neural/IMAIRA-Fairscore.git](https://github.com/Krishna-neural/IMAIRA-Fairscore.git)
+- **Tagline:** *"Grade what you know, not how you sound."*

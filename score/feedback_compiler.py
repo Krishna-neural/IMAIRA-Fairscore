@@ -46,7 +46,7 @@ class FeedbackCompiler:
     def __init__(
         self,
         api_key: Optional[str] = None,
-        gemini_model: str = "gemini-3.8-flash",
+        gemini_model: str = "gemini-3.5-flash",
         max_opportunities: int = 3,
         validator: Optional[FeedbackValidator] = None
     ):

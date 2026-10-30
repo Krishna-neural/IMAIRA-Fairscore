@@ -5,10 +5,14 @@ data/*
 !data/rubrics_120.json
 !data/evidence_question_bank.json
 !data/fairness_benchmark_groups.json
+!data/glossary.csv
 .cache/
 .pytest_cache/
 *.sqlite
 *.sqlite3
+*.db
+artifacts/sessions.db
+artifacts/sessions/
 *.wav
 *.mp3
 *.m4a
@@ -19,3 +23,5 @@ transcripts_cache/
 test_output.json
 *.exe
 asr/baseline_profile_*.json
+frontend_prototype/node_modules/
+# frontend_prototype/dist/ tracked for zero-dependency Python/Docker serving
