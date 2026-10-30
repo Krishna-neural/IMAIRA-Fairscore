@@ -312,11 +312,61 @@ class SessionManager:
     def conclude_session(
         self,
         session_id: str,
-        final_scorecard: Dict[str, Any]
+        final_scorecard: Optional[Dict[str, Any]] = None
     ) -> Optional[UnifiedSession]:
         session = self.get_session(session_id)
         if not session:
             return None
+
+        # Auto-aggregate from turn evaluations if final_scorecard is omitted
+        if not final_scorecard:
+            eval_turns = [t for t in session.turns if t.evaluation and isinstance(t.evaluation, dict)]
+            if eval_turns:
+                content_scores = [t.evaluation.get("scores", {}).get("content_pct", 50) for t in eval_turns]
+                struct_scores = [t.evaluation.get("scores", {}).get("structure_pct", 50) for t in eval_turns]
+                comm_scores = [t.evaluation.get("scores", {}).get("communication_pct", 75) for t in eval_turns]
+                fair_5pt = [t.evaluation.get("scores", {}).get("overall_fairscore_5pt", 3.0) for t in eval_turns]
+                fair_pct = [t.evaluation.get("scores", {}).get("overall_fairscore_pct", 50.0) for t in eval_turns]
+
+                avg_content = round(sum(content_scores) / len(content_scores), 1)
+                avg_struct = round(sum(struct_scores) / len(struct_scores), 1)
+                avg_comm = round(sum(comm_scores) / len(comm_scores), 1)
+                avg_fair_5pt = round(sum(fair_5pt) / len(fair_5pt), 2)
+                avg_fair_pct = round(sum(fair_pct) / len(fair_pct), 1)
+
+                all_tech_gaps = []
+                all_pronounce = []
+                for t in eval_turns:
+                    dual = t.evaluation.get("dual_diagnosis", {})
+                    all_tech_gaps.extend(dual.get("technical_knowledge_gaps", []))
+                    all_pronounce.extend(dual.get("pronunciation_improvements", []))
+
+                final_scorecard = {
+                    "session_id": session_id,
+                    "candidate_name": session.candidate_name,
+                    "domain": session.domain,
+                    "difficulty": session.difficulty,
+                    "questions_evaluated": len(eval_turns),
+                    "total_turns": len(session.turns),
+                    "overall_fairscore": avg_fair_pct,
+                    "overall_fairscore_5pt": avg_fair_5pt,
+                    "content_score": avg_content,
+                    "structure_score": avg_struct,
+                    "communication_score": avg_comm,
+                    "summary_verdict": "Demonstrates Solid Competence" if avg_fair_pct >= 65.0 else ("Developing Competence" if avg_fair_pct >= 40.0 else "Needs Foundational Review"),
+                    "cumulative_dual_diagnosis": {
+                        "technical_knowledge_gaps": all_tech_gaps,
+                        "pronunciation_improvements": all_pronounce,
+                        "accent_penalty_applied": False,
+                        "acoustic_protection_active": True
+                    }
+                }
+            else:
+                final_scorecard = {
+                    "session_id": session_id,
+                    "overall_fairscore": 0.0,
+                    "summary_verdict": "No evaluated responses"
+                }
 
         session.stage = InterviewStage.COMPLETED
         session.final_scorecard = final_scorecard

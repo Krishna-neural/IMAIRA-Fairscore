@@ -24,6 +24,7 @@ from interview.session_manager import (
     UnifiedSession,
 )
 from score.qanda import QnARecord, get_qanda_by_id, load_qanda
+from score.turn_evaluator import TurnEvaluator
 
 logger = logging.getLogger("imaira.conversational")
 
@@ -79,6 +80,7 @@ class ConversationalInterviewer:
         self.questions = questions or load_qanda(q_path if q_path.exists() else "data/QandA.json")
         self.questions_by_id = {q.id: q for q in self.questions}
         self.session_manager = session_manager or SessionManager()
+        self.turn_evaluator = TurnEvaluator()
 
     def start_session(
         self,
@@ -233,6 +235,22 @@ class ConversationalInterviewer:
                 "session_state": state.model_dump()
             }
 
+        # Stage 4: Silent evidence-grounded scoring & dual diagnosis for technical questions
+        if curr_q and state.stage in (InterviewStage.TECHNICAL_QUESTION, InterviewStage.FOLLOW_UP) and not injection_warning:
+            try:
+                evaluation = self.turn_evaluator.evaluate_turn(
+                    question_id=curr_q.id,
+                    question_text=curr_q.question,
+                    recovered_utterance=recovered_utterance or candidate_text,
+                    raw_utterance=raw_utterance or candidate_text,
+                    slice_recovery_log=slice_recovery_log,
+                    word_timings=word_timings,
+                    curr_q=curr_q
+                )
+            except Exception as e:
+                logger.warning(f"Turn evaluation error for question {curr_q.id}: {e}")
+                evaluation = None
+
         # 2. Stage-based state machine
         if state.stage == InterviewStage.GREETING:
             state.stage = InterviewStage.TECHNICAL_QUESTION
@@ -338,7 +356,8 @@ class ConversationalInterviewer:
             "stage": state.stage.value if isinstance(state.stage, InterviewStage) else str(state.stage),
             "current_question": self._get_current_question(state),
             "injection_detected": False,
-            "session_state": state.model_dump()
+            "session_state": state.model_dump(),
+            "evaluation": evaluation
         }
 
     def _get_current_question(self, state: Union[InterviewSessionState, UnifiedSession]) -> Optional[QnARecord]:
