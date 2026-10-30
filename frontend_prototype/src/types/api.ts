@@ -46,6 +46,10 @@ export interface InterviewTurnResponse {
   is_concluded: boolean;
   current_question?: Question;
   current_question_detail?: any;
+  question_index?: number;
+  total_questions?: number;
+  is_follow_up?: boolean;
+  topic_probe_number?: number;
   verified_candidate_utterance: string;
   raw_utterance?: string;
   recovered_utterance?: string;

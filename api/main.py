@@ -563,6 +563,11 @@ def process_interview_turn(req: InterviewTurnRequest):
         "difficulty": curr_q.difficulty if curr_q else None,
         "key_concepts": curr_q.key_concepts if curr_q else []
     } if curr_q else None
+    turn_result["current_question"] = turn_result.get("current_question_detail")
+    turn_result["question_index"] = state.current_q_index + 1
+    turn_result["total_questions"] = len(state.question_ids)
+    turn_result["is_follow_up"] = (state.stage == InterviewStage.FOLLOW_UP)
+    turn_result["topic_probe_number"] = getattr(state, "turns_on_current_q", 1)
 
     # 4. Attach real-time slice recovery telemetry to response
     turn_result["status"] = "success"

@@ -1,6 +1,9 @@
+import { phoneticRecovery, RecoveryAuditItem } from './phoneticRecovery';
+
 export interface SpeechRecognitionResult {
   provisional: string;
   finalized: string;
+  recoveredTerms?: RecoveryAuditItem[];
 }
 
 export class SpeechService {
@@ -16,6 +19,11 @@ export class SpeechService {
   private currentUtterance: SpeechSynthesisUtterance | null = null;
   private mouthMovementCallback: ((isOpen: boolean, viseme: number) => void) | null = null;
   private mouthAnimInterval: any = null;
+  private currentLang: string =
+    typeof navigator !== 'undefined' &&
+    (navigator.language === 'en-IN' || (navigator as any).languages?.includes('en-IN'))
+      ? 'en-IN'
+      : 'en-US';
 
   constructor() {
     this.initRecognition();
@@ -35,7 +43,7 @@ export class SpeechService {
       this.recognition.continuous = true;
       this.recognition.interimResults = true;
       this.recognition.maxAlternatives = 1;
-      this.recognition.lang = 'en-US';
+      this.recognition.lang = this.currentLang;
 
       this.recognition.onstart = () => {
         // Recognition stream active
@@ -56,10 +64,16 @@ export class SpeechService {
         }
         this.currentProvisional = interim;
 
+        // Stage 1 Real-time Acoustic & Phonetic Technical Recovery
+        const recoveredFinal = phoneticRecovery.recoverText(this.finalizedBuffer);
+        const recoveredInterim = phoneticRecovery.recoverText(this.currentProvisional);
+        const allRecoveries = [...recoveredFinal.auditItems, ...recoveredInterim.auditItems];
+
         if (this.interimCallback) {
           this.interimCallback({
-            provisional: this.currentProvisional,
-            finalized: this.finalizedBuffer,
+            provisional: recoveredInterim.text,
+            finalized: recoveredFinal.text,
+            recoveredTerms: allRecoveries,
           });
         }
       };
@@ -203,6 +217,32 @@ export class SpeechService {
     }
   }
 
+  setLanguage(lang: string) {
+    this.currentLang = lang;
+    if (this.recognition) {
+      try {
+        this.recognition.lang = lang;
+      } catch (_) {}
+    }
+  }
+
+  getLanguage(): string {
+    return this.currentLang;
+  }
+
+  setFinalizedBuffer(text: string) {
+    this.finalizedBuffer = text;
+    this.currentProvisional = '';
+    const rec = phoneticRecovery.recoverText(text);
+    if (this.interimCallback) {
+      this.interimCallback({
+        provisional: '',
+        finalized: rec.text,
+        recoveredTerms: rec.auditItems,
+      });
+    }
+  }
+
   stopListening(): string {
     this.isListening = false;
     if (this.restartTimeout) {
@@ -220,10 +260,11 @@ export class SpeechService {
       } catch (_) {}
     }
 
-    const fullUtterance = (this.finalizedBuffer + ' ' + this.currentProvisional).trim();
+    const rawUtterance = (this.finalizedBuffer + ' ' + this.currentProvisional).trim();
+    const recovered = phoneticRecovery.recoverText(rawUtterance);
     this.finalizedBuffer = '';
     this.currentProvisional = '';
-    return fullUtterance;
+    return recovered.text;
   }
 
   setMuted(muted: boolean) {

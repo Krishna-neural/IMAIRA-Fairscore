@@ -172,12 +172,12 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
       };
 
       const updatedTurns = [...session.turns, candidateTurn, aiTurn];
-      const nextIndex = turnResp.current_question ? session.questionIndex + 1 : session.questionIndex;
+      const nextIndex = turnResp.question_index || session.questionIndex;
 
       setSession({
         ...session,
         turns: updatedTurns,
-        currentQuestion: turnResp.current_question || session.currentQuestion,
+        currentQuestion: turnResp.current_question || turnResp.current_question_detail || session.currentQuestion,
         questionIndex: nextIndex,
         isConcluded: turnResp.is_concluded,
       });
@@ -308,15 +308,27 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
           communication,
         },
         calibratedScores: {
-          content: scorecard?.content_score ? Number((1.0 + (scorecard.content_score / 100.0) * 4.0).toFixed(2)) : 4.0,
-          structure: scorecard?.structure_score ? Number((1.0 + (scorecard.structure_score / 100.0) * 4.0).toFixed(2)) : 3.8,
-          communication: scorecard?.communication_score ? Number((1.0 + (scorecard.communication_score / 100.0) * 4.0).toFixed(2)) : 4.1,
+        calibratedScores: {
+          content: scorecard?.calibrated_scores?.content
+            ? Number(scorecard.calibrated_scores.content)
+            : Number((1.0 + (content / 100.0) * 4.0).toFixed(2)),
+          structure: scorecard?.calibrated_scores?.structure
+            ? Number(scorecard.calibrated_scores.structure)
+            : Number((1.0 + (structure / 100.0) * 4.0).toFixed(2)),
+          communication: scorecard?.calibrated_scores?.communication
+            ? Number(scorecard.calibrated_scores.communication)
+            : Number((1.0 + (communication / 100.0) * 4.0).toFixed(2)),
         },
         feedback: scorecard?.cumulative_dual_diagnosis?.technical_knowledge_gaps?.map((g: any) => ({
-          dimension: g.dimension || 'Content Coverage',
-          marks_lost: typeof g.marks_lost === 'number' ? g.marks_lost : 0,
+          dimension: g.dimension || config.domain || 'Technical Knowledge Mastery',
+          marks_lost: typeof g.marks_lost === 'number' ? g.marks_lost : 10,
           quote: g.quote || '',
-          fix_sentence: g.fix_sentence || g.model_sentence_fix || '',
+          fix_sentence: g.fix_sentence || g.model_sentence_fix || `Articulate core algorithmic mechanics, asymptotic space-time bounds, and failure modes for ${g.concept || config.domain}.`,
+          question_id: g.question_id || 'ENG001',
+        })) || [],
+        flags: finalFlags,
+          quote: g.quote || '',
+          fix_sentence: g.fix_sentence || g.model_sentence_fix || `Articulate core algorithmic mechanics, asymptotic space-time bounds, and failure modes for ${g.concept || config.domain}.`,
           question_id: g.question_id || 'ENG001',
         })) || [],
         flags: finalFlags,

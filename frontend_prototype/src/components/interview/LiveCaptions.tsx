@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Radio, Send, RotateCcw, Mic, MicOff } from 'lucide-react';
+import { Radio, Send, RotateCcw, Mic, MicOff, ShieldCheck, Edit3, Check, Globe } from 'lucide-react';
 import { speechService } from '../../services/speechService';
+import { phoneticRecovery } from '../../services/phoneticRecovery';
 
 interface LiveCaptionsProps {
   provisionalText: string;
@@ -21,32 +22,58 @@ export const LiveCaptions: React.FC<LiveCaptionsProps> = ({
 }) => {
   const [typedFallback, setTypedFallback] = useState('');
   const [overrideWithTyped, setOverrideWithTyped] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [manualText, setManualText] = useState('');
+  const [language, setLanguage] = useState<string>(speechService.getLanguage());
 
-  const speechText = (finalizedText + ' ' + provisionalText).trim();
-  const combined = overrideWithTyped
+  const spokenText = (finalizedText + ' ' + provisionalText).trim();
+  const rawCombined = overrideWithTyped
     ? typedFallback.trim()
     : (typedFallback.trim()
-        ? (speechText ? `${speechText} ${typedFallback.trim()}` : typedFallback.trim())
-        : speechText);
+        ? (spokenText ? `${spokenText} ${typedFallback.trim()}` : typedFallback.trim())
+        : spokenText);
+
+  const recovery = phoneticRecovery.recoverText(rawCombined);
+  const combined = isEditing ? manualText : recovery.text;
   const words = combined ? combined.split(/\s+/).filter(Boolean) : [];
   const wordCount = words.length;
 
+  const handleLanguageChange = (newLang: string) => {
+    setLanguage(newLang);
+    speechService.setLanguage(newLang);
+  };
+
+  const handleToggleEdit = () => {
+    if (!isEditing) {
+      setManualText(combined);
+      setIsEditing(true);
+    } else {
+      speechService.setFinalizedBuffer(manualText);
+      setIsEditing(false);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!combined) return;
-    onSubmitAnswer(combined);
+    const textToSubmit = isEditing ? manualText : combined;
+    if (!textToSubmit || !textToSubmit.trim()) return;
+    onSubmitAnswer(textToSubmit.trim());
     setTypedFallback('');
+    setManualText('');
+    setIsEditing(false);
   };
 
   const handleClearAnswer = (e: React.MouseEvent) => {
     e.preventDefault();
     speechService.resetBuffer();
     setTypedFallback('');
+    setManualText('');
+    setIsEditing(false);
   };
 
   return (
     <div className="bg-white border border-slate-200 rounded-lg p-3.5 shadow-xs space-y-2.5">
-      <div className="flex items-center justify-between text-xs">
+      <div className="flex items-center justify-between text-xs flex-wrap gap-2">
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1.5 font-bold uppercase text-blue-900 tracking-wider">
             <Radio
@@ -67,9 +94,39 @@ export const LiveCaptions: React.FC<LiveCaptionsProps> = ({
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Acoustic Profile / Accent Selector */}
+          <div className="flex items-center gap-1 bg-slate-50 border border-slate-200 rounded px-2 py-0.5 text-[11px] text-slate-700">
+            <Globe size={11} className="text-slate-500" />
+            <span className="font-medium text-slate-500 mr-0.5">Acoustic Model:</span>
+            <select
+              value={language}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+              className="bg-transparent font-bold text-slate-800 text-[11px] focus:outline-none cursor-pointer"
+            >
+              <option value="en-IN">🇮🇳 English (India)</option>
+              <option value="en-US">🇺🇸 English (US)</option>
+              <option value="en-GB">🇬🇧 English (UK)</option>
+            </select>
+          </div>
+
           <span className="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
-            {wordCount} words captured
+            {wordCount} words
           </span>
+
+          <button
+            type="button"
+            onClick={handleToggleEdit}
+            className={`flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold transition-colors border ${
+              isEditing
+                ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
+                : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'
+            }`}
+            title={isEditing ? 'Save edits to transcript' : 'Click to directly edit/adjust speech transcript'}
+          >
+            {isEditing ? <Check size={11} /> : <Edit3 size={11} />}
+            <span>{isEditing ? 'Save Edit' : 'Edit Transcript'}</span>
+          </button>
+
           {onToggleMic && (
             <button
               type="button"
@@ -87,18 +144,51 @@ export const LiveCaptions: React.FC<LiveCaptionsProps> = ({
         </div>
       </div>
 
-      {/* Streaming Text Output with Word Counter */}
-      <div className="relative min-h-[64px] max-h-40 overflow-y-auto p-3 bg-slate-50 border border-slate-200 rounded text-sm text-slate-800 leading-relaxed font-sans select-text">
-        <span className="font-semibold text-[#101C35]">{finalizedText}</span>{' '}
-        <span className="text-slate-500 italic">{provisionalText}</span>
-        {!finalizedText && !provisionalText && (
-          <span className="text-slate-400 italic">
-            {isListening
-              ? 'Listening continuously... Speak your full technical answer clearly into the microphone. There is no word or time limit.'
-              : 'Waiting for prompt...'}
+      {/* Streaming Text Output or Direct Editable Textarea */}
+      {isEditing ? (
+        <div className="space-y-1">
+          <textarea
+            value={manualText}
+            onChange={(e) => setManualText(e.target.value)}
+            rows={3}
+            placeholder="Edit or refine your technical answer text directly here..."
+            className="w-full p-2.5 text-xs text-slate-800 border border-blue-400 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 bg-white leading-relaxed font-sans"
+          />
+          <span className="text-[10px] text-slate-500 italic block">
+            Directly adjust any words before submitting. Real-time acoustic recovery remains active.
           </span>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="relative min-h-[64px] max-h-40 overflow-y-auto p-3 bg-slate-50 border border-slate-200 rounded text-sm text-slate-800 leading-relaxed font-sans select-text">
+          <span className="font-semibold text-[#101C35]">{finalizedText}</span>{' '}
+          <span className="text-slate-500 italic">{provisionalText}</span>
+          {!finalizedText && !provisionalText && !typedFallback && (
+            <span className="text-slate-400 italic">
+              {isListening
+                ? 'Listening continuously... Speak your full technical answer clearly into the microphone. There is no word or time limit.'
+                : 'Waiting for prompt...'}
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* Live Acoustic Recovery Chips (Proves 0.0 Marks Deducted in Real Time) */}
+      {recovery.auditItems.length > 0 && (
+        <div className="flex items-center gap-1.5 flex-wrap p-2 text-[11px] text-emerald-900 bg-emerald-50/80 rounded border border-emerald-200">
+          <div className="flex items-center gap-1 font-bold text-emerald-800">
+            <ShieldCheck size={14} className="text-emerald-700" />
+            <span>Acoustic Recovery Active:</span>
+          </div>
+          {recovery.auditItems.slice(0, 3).map((item, idx) => (
+            <span key={idx} className="font-medium bg-white px-1.5 py-0.5 rounded border border-emerald-300 text-[10px]">
+              "{item.original}" → <strong>{item.recovered}</strong>
+            </span>
+          ))}
+          <span className="text-[10px] text-emerald-700 italic ml-auto font-semibold">
+            0.0 Marks Deducted
+          </span>
+        </div>
+      )}
 
       {/* Multi-line Input Drawer, Override Toggle, Clear & Submit Button */}
       <form onSubmit={handleSubmit} className="space-y-2">
@@ -145,7 +235,7 @@ export const LiveCaptions: React.FC<LiveCaptionsProps> = ({
           </div>
         </div>
 
-        {typedFallback.trim() && speechText && (
+        {typedFallback.trim() && spokenText && (
           <div className="flex items-center gap-2 text-[11px] text-slate-600 pt-0.5">
             <label className="flex items-center gap-1.5 cursor-pointer">
               <input

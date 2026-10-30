@@ -334,12 +334,44 @@ class SessionManager:
                 avg_fair_5pt = round(sum(fair_5pt) / len(fair_5pt), 2)
                 avg_fair_pct = round(sum(fair_pct) / len(fair_pct), 1)
 
+                cal_content_5pt = round(1.0 + (avg_content / 100.0) * 4.0, 2)
+                cal_struct_5pt = round(1.0 + (avg_struct / 100.0) * 4.0, 2)
+                cal_comm_5pt = round(1.0 + (avg_comm / 100.0) * 4.0, 2)
+
                 all_tech_gaps = []
                 all_pronounce = []
                 for t in eval_turns:
                     dual = t.evaluation.get("dual_diagnosis", {})
                     all_tech_gaps.extend(dual.get("technical_knowledge_gaps", []))
                     all_pronounce.extend(dual.get("pronunciation_improvements", []))
+
+                # Deduplicate gaps by criterion_id and enforce non-empty fix sentences
+                seen_cids = set()
+                unique_tech_gaps = []
+                for g in all_tech_gaps:
+                    cid = g.get("criterion_id") or g.get("concept")
+                    if cid and cid in seen_cids:
+                        continue
+                    if cid:
+                        seen_cids.add(cid)
+                    fix = (g.get("fix_sentence") or g.get("model_sentence_fix") or "").strip()
+                    if not fix or len(fix) < 5:
+                        concept_name = g.get("concept") or session.domain
+                        fix = f"Articulate core algorithmic mechanics, asymptotic space-time bounds, and failure modes for {concept_name}."
+                    unique_tech_gaps.append({
+                        "question_id": g.get("question_id") or "ENG001",
+                        "criterion_id": g.get("criterion_id") or f"crit_{len(unique_tech_gaps)+1}",
+                        "dimension": g.get("dimension") or session.domain or "Core Engineering Competence",
+                        "concept": g.get("concept") or g.get("dimension") or "Technical Requirement",
+                        "status": g.get("status", "missing"),
+                        "marks_lost": float(g.get("marks_lost", 10.0)),
+                        "missing_concepts": g.get("missing_concepts", []),
+                        "quote": g.get("quote", ""),
+                        "issue_explanation": g.get("issue_explanation", "Candidate omitted core architectural requirement."),
+                        "model_sentence_fix": fix,
+                        "fix_sentence": fix,
+                        "remedial_guidance": g.get("remedial_guidance", f"Review core concepts in {session.domain}.")
+                    })
 
                 final_scorecard = {
                     "session_id": session_id,
@@ -353,9 +385,14 @@ class SessionManager:
                     "content_score": avg_content,
                     "structure_score": avg_struct,
                     "communication_score": avg_comm,
+                    "calibrated_scores": {
+                        "content": cal_content_5pt,
+                        "structure": cal_struct_5pt,
+                        "communication": cal_comm_5pt
+                    },
                     "summary_verdict": "Demonstrates Solid Competence" if avg_fair_pct >= 65.0 else ("Developing Competence" if avg_fair_pct >= 40.0 else "Needs Foundational Review"),
                     "cumulative_dual_diagnosis": {
-                        "technical_knowledge_gaps": all_tech_gaps,
+                        "technical_knowledge_gaps": unique_tech_gaps,
                         "pronunciation_improvements": all_pronounce,
                         "accent_penalty_applied": False,
                         "acoustic_protection_active": True
