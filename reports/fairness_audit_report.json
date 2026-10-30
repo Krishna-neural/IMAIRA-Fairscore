@@ -6,7 +6,7 @@
     "asr_model": "faster-whisper/large-v3",
     "gemini_model": "gemini-3.8-flash",
     "scoring_version": "2.0-evidence-first",
-    "created_at": "2026-10-30T04:47:34.230825"
+    "created_at": "2026-10-30T05:59:53.833631"
   },
   "total_groups": 3,
   "valid_groups": 3,
@@ -20,77 +20,7 @@
       "group_id": "FAIR_001",
       "question_id": "Q084",
       "total_recordings": 4,
-      "valid_recordings": 4,
-      "highest_score": 48.0,
-      "lowest_score": 48.0,
-      "score_range": 0.0,
-      "mean_score": 48.0,
-      "median_score": 48.0,
-      "std_dev": 0.0,
-      "percentiles": {
-        "p25": 48.0,
-        "p50": 48.0,
-        "p75": 48.0,
-        "p90": 48.0
-      },
-      "passed_tolerance": true,
-      "tolerance_threshold": 5.0,
-      "criterion_score_ranges": {
-        "Q084_IDEA_1": 0.0,
-        "Q084_IDEA_2": 0.0,
-        "Q084_IDEA_3": 0.0
-      },
-      "technical_term_recall": 0.125,
-      "false_correction_rate": 0.0,
-      "provisional_evaluations_count": 0,
-      "diagnostic_attribution": {
-        "primary_driver": "consistent_scoring",
-        "asr_error_detected": false,
-        "max_criterion_drift": 0.0,
-        "provisional_safeguard_triggered": false
-      },
-      "human_agreement_mae": 47.0
-    },
-    {
-      "group_id": "FAIR_002",
-      "question_id": "Q120",
-      "total_recordings": 4,
-      "valid_recordings": 4,
-      "highest_score": 79.8,
-      "lowest_score": 79.8,
-      "score_range": 0.0,
-      "mean_score": 79.8,
-      "median_score": 79.8,
-      "std_dev": 0.0,
-      "percentiles": {
-        "p25": 79.8,
-        "p50": 79.8,
-        "p75": 79.8,
-        "p90": 79.8
-      },
-      "passed_tolerance": true,
-      "tolerance_threshold": 5.0,
-      "criterion_score_ranges": {
-        "Q120_IDEA_1": 0.0,
-        "Q120_IDEA_2": 0.0,
-        "Q120_IDEA_3": 0.0
-      },
-      "technical_term_recall": 0.25,
-      "false_correction_rate": 0.0,
-      "provisional_evaluations_count": 0,
-      "diagnostic_attribution": {
-        "primary_driver": "consistent_scoring",
-        "asr_error_detected": false,
-        "max_criterion_drift": 0.0,
-        "provisional_safeguard_triggered": false
-      },
-      "human_agreement_mae": 18.2
-    },
-    {
-      "group_id": "FAIR_003",
-      "question_id": "Q109",
-      "total_recordings": 3,
-      "valid_recordings": 3,
+      "valid_recordings": 2,
       "highest_score": 14.3,
       "lowest_score": 14.3,
       "score_range": 0.0,
@@ -106,18 +36,88 @@
       "passed_tolerance": true,
       "tolerance_threshold": 5.0,
       "criterion_score_ranges": {
-        "Q109_IDEA_1": 0.0,
-        "Q109_IDEA_2": 0.5,
+        "Q084_IDEA_1": 0.5,
+        "Q084_IDEA_2": 0.0,
+        "Q084_IDEA_3": 0.5
+      },
+      "technical_term_recall": 0.125,
+      "false_correction_rate": 0.0,
+      "provisional_evaluations_count": 2,
+      "diagnostic_attribution": {
+        "primary_driver": "consistent_scoring",
+        "asr_error_detected": true,
+        "max_criterion_drift": 0.5,
+        "provisional_safeguard_triggered": true
+      },
+      "human_agreement_mae": 80.7
+    },
+    {
+      "group_id": "FAIR_002",
+      "question_id": "Q120",
+      "total_recordings": 4,
+      "valid_recordings": 2,
+      "highest_score": 14.3,
+      "lowest_score": 14.3,
+      "score_range": 0.0,
+      "mean_score": 14.3,
+      "median_score": 14.3,
+      "std_dev": 0.0,
+      "percentiles": {
+        "p25": 14.3,
+        "p50": 14.3,
+        "p75": 14.3,
+        "p90": 14.3
+      },
+      "passed_tolerance": true,
+      "tolerance_threshold": 5.0,
+      "criterion_score_ranges": {
+        "Q120_IDEA_1": 0.0,
+        "Q120_IDEA_2": 0.0,
+        "Q120_IDEA_3": 0.0
+      },
+      "technical_term_recall": 0.25,
+      "false_correction_rate": 0.0,
+      "provisional_evaluations_count": 2,
+      "diagnostic_attribution": {
+        "primary_driver": "consistent_scoring",
+        "asr_error_detected": true,
+        "max_criterion_drift": 0.0,
+        "provisional_safeguard_triggered": true
+      },
+      "human_agreement_mae": 83.7
+    },
+    {
+      "group_id": "FAIR_003",
+      "question_id": "Q109",
+      "total_recordings": 3,
+      "valid_recordings": 2,
+      "highest_score": 14.3,
+      "lowest_score": 14.3,
+      "score_range": 0.0,
+      "mean_score": 14.3,
+      "median_score": 14.3,
+      "std_dev": 0.0,
+      "percentiles": {
+        "p25": 14.3,
+        "p50": 14.3,
+        "p75": 14.3,
+        "p90": 14.3
+      },
+      "passed_tolerance": true,
+      "tolerance_threshold": 5.0,
+      "criterion_score_ranges": {
+        "Q109_IDEA_1": 0.5,
+        "Q109_IDEA_2": 0.0,
         "Q109_IDEA_3": 0.0
       },
       "technical_term_recall": 0.0,
       "false_correction_rate": 0.0,
-      "provisional_evaluations_count": 0,
+      "provisional_evaluations_count": 2,
       "diagnostic_attribution": {
         "primary_driver": "consistent_scoring",
-        "asr_error_detected": false,
+        "asr_error_detected": true,
         "max_criterion_drift": 0.5,
-        "provisional_safeguard_triggered": false
+        "provisional_safeguard_triggered": true
       },
       "human_agreement_mae": 77.7
     }

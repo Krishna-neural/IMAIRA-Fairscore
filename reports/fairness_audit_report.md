@@ -1,5 +1,5 @@
 # IMAIRA FairScore — Cross-Speaker Fairness & Consistency Audit Report
-**Experiment ID:** `EXP_FAIRNESS_2026_01` | **Date:** 2026-10-30T04:47:34.230825
+**Experiment ID:** `EXP_FAIRNESS_2026_01` | **Date:** 2026-10-30T05:59:53.833631
 **Tolerance Benchmark:** `Score Range <= 5.0 points (0-100 scale)`
 **Overall Compliance Verdict:** **COMPLIANT**
 
@@ -17,9 +17,9 @@
 
 | Group ID | Question | N Recs | Min Score | Max Score | Range | Mean ± Std | Status |
 |---|---|---:|---:|---:|---:|---:|---:|
-| `FAIR_001` | `Q084` | 4 | 48.0 | 48.0 | **0.0** | 48.0 ± 0.0 | ✅ PASS |
-| `FAIR_002` | `Q120` | 4 | 79.8 | 79.8 | **0.0** | 79.8 ± 0.0 | ✅ PASS |
-| `FAIR_003` | `Q109` | 3 | 14.3 | 14.3 | **0.0** | 14.3 ± 0.0 | ✅ PASS |
+| `FAIR_001` | `Q084` | 2 | 14.3 | 14.3 | **0.0** | 14.3 ± 0.0 | ✅ PASS |
+| `FAIR_002` | `Q120` | 2 | 14.3 | 14.3 | **0.0** | 14.3 ± 0.0 | ✅ PASS |
+| `FAIR_003` | `Q109` | 2 | 14.3 | 14.3 | **0.0** | 14.3 ± 0.0 | ✅ PASS |
 
 ---
 ## 3. Diagnostic Breakdown & Attribution
@@ -28,23 +28,23 @@ The Fairness Audit Lab analyzes whether score differences originated from genuin
 
 ### Group FAIR_001 (Q084)
 - **Technical-Term Recall:** `12.5%`
-- **Provisional Safeguards Triggered:** `0` recordings protected
-- **Human Reference Agreement (MAE):** `47.00 points`
-- **Criterion Score Ranges:** Q084_IDEA_1: 0.0, Q084_IDEA_2: 0.0, Q084_IDEA_3: 0.0
+- **Provisional Safeguards Triggered:** `2` recordings protected
+- **Human Reference Agreement (MAE):** `80.70 points`
+- **Criterion Score Ranges:** Q084_IDEA_1: 0.5, Q084_IDEA_2: 0.0, Q084_IDEA_3: 0.5
 - **Primary Diagnostic Attribution:** `consistent_scoring`
 
 ### Group FAIR_002 (Q120)
 - **Technical-Term Recall:** `25.0%`
-- **Provisional Safeguards Triggered:** `0` recordings protected
-- **Human Reference Agreement (MAE):** `18.20 points`
+- **Provisional Safeguards Triggered:** `2` recordings protected
+- **Human Reference Agreement (MAE):** `83.70 points`
 - **Criterion Score Ranges:** Q120_IDEA_1: 0.0, Q120_IDEA_2: 0.0, Q120_IDEA_3: 0.0
 - **Primary Diagnostic Attribution:** `consistent_scoring`
 
 ### Group FAIR_003 (Q109)
 - **Technical-Term Recall:** `0.0%`
-- **Provisional Safeguards Triggered:** `0` recordings protected
+- **Provisional Safeguards Triggered:** `2` recordings protected
 - **Human Reference Agreement (MAE):** `77.70 points`
-- **Criterion Score Ranges:** Q109_IDEA_1: 0.0, Q109_IDEA_2: 0.5, Q109_IDEA_3: 0.0
+- **Criterion Score Ranges:** Q109_IDEA_1: 0.5, Q109_IDEA_2: 0.0, Q109_IDEA_3: 0.0
 - **Primary Diagnostic Attribution:** `consistent_scoring`
 
 ---
