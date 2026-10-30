@@ -743,7 +743,10 @@ async def websocket_stream_endpoint(websocket: WebSocket):
 
 # --- Static Web App Mounting ---
 
-if STATIC_DIR.exists():
+PROTOTYPE_DIST = BASE_DIR / "frontend_prototype" / "dist"
+if PROTOTYPE_DIST.exists():
+    app.mount("/", StaticFiles(directory=str(PROTOTYPE_DIST), html=True), name="static")
+elif STATIC_DIR.exists():
     app.mount("/", StaticFiles(directory=str(STATIC_DIR), html=True), name="static")
 
 
