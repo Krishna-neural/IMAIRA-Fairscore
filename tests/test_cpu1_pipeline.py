@@ -364,6 +364,7 @@ def test_git_branch_isolation():
     valid_branches = {
         "feature/cpu1-content-structure-calibration",
         "feature/asr-4050",
+        "feature/unified-interview-integration",
         "main"
     }
     assert current_branch in valid_branches, (
