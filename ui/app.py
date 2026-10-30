@@ -33,6 +33,7 @@ from score.uncertainty_models import (
     RubricStatus
 )
 from score.uncertainty_engine import UncertaintyEngine
+from eval.fairness_audit import FairnessAuditLab
 
 # Page Configuration
 st.set_page_config(
@@ -123,7 +124,7 @@ uncertainty_engine = UncertaintyEngine()
 
 # Sidebar: File / Question Selection
 st.sidebar.header("📁 Evaluation Source")
-mode = st.sidebar.radio("Data Source Mode", ["Inspect Batch Results", "Live Interactive Simulator", "Human Review Audit Portal"])
+mode = st.sidebar.radio("Data Source Mode", ["Fairness Audit Lab (Placement Officer)", "Inspect Batch Results", "Live Interactive Simulator", "Human Review Audit Portal"])
 
 # Load recent evaluation report
 report_path = REPO_ROOT / "reports" / "interview_evaluation_report.json"
@@ -136,7 +137,91 @@ if report_path.exists():
         pass
 
 
-if mode == "Inspect Batch Results" and evaluation_data:
+if mode == "Fairness Audit Lab (Placement Officer)":
+    st.markdown("### ⚖️ Placement-Officer Fairness Audit Lab")
+    st.markdown(
+        "**Core Mandate:** Measure whether IMAIRA evaluates equivalent technical answers consistently "
+        "when spoken by different individuals with different accents and recording environments. "
+        "Acceptance Threshold: **Score Range $\\le 5.0$ points out of 100**."
+    )
+
+    fairness_lab = FairnessAuditLab()
+    summary = fairness_lab.run_full_audit()
+
+    # Overview KPIs
+    k1, k2, k3, k4 = st.columns(4)
+    with k1:
+        st.metric("Fairness Pass Rate", f"{summary.fairness_pass_rate_pct}%", f"{summary.passed_groups}/{summary.valid_groups} Groups")
+    with k2:
+        st.metric("Avg Cross-Speaker Range", f"{summary.average_score_range:.1f} pts", help="Target: <= 5.0 points")
+    with k3:
+        st.metric("Max Observed Disparity", f"{summary.max_observed_score_range:.1f} pts", help="Target: <= 5.0 points")
+    with k4:
+        st.metric("Audit Compliance", summary.overall_recommendation)
+
+    st.markdown("---")
+    st.subheader("📊 Equivalent-Answer Group Benchmarks")
+
+    # Table of groups
+    table_rows = []
+    for m in summary.group_metrics:
+        status_badge = "✅ PASS" if m.passed_tolerance else "❌ FAIL"
+        table_rows.append({
+            "Group ID": m.group_id,
+            "Question ID": m.question_id,
+            "Recordings": m.valid_recordings,
+            "Min Score": f"{m.lowest_score:.1f}",
+            "Max Score": f"{m.highest_score:.1f}",
+            "Score Range": f"{m.score_range:.1f} pts",
+            "Mean ± Std": f"{m.mean_score:.1f} ± {m.std_dev:.1f}",
+            "Status": status_badge
+        })
+    st.table(table_rows)
+
+    # Detailed Group Inspector
+    st.markdown("---")
+    st.subheader("🔍 Deep-Dive Answer Group Inspector")
+    groups = fairness_lab.load_groups()
+    if groups:
+        group_map = {g.group_id: g for g in groups}
+        sel_gid = st.selectbox("Select Equivalent Answer Group to Inspect", list(group_map.keys()), format_func=lambda gid: f"[{gid}] {group_map[gid].question_id}: {group_map[gid].question_text}")
+        sel_g = group_map[sel_gid]
+
+        st.markdown(f"**Question:** `{sel_g.question_text}`")
+        st.caption(f"Domain: **{sel_g.domain}** | Reference: **{sel_g.expected_answer_reference}**")
+        st.info(f"💡 **Substantive Equivalence:** {sel_g.substantive_concept_summary}")
+
+        # Inspect recordings in this group
+        st.markdown("#### Spoken Recordings Evaluated")
+        for r in sel_g.recordings:
+            with st.expander(f"🎙️ {r.recording_id} — {r.experimental_conditions.speaker_label} ({r.audio_reference})", expanded=True):
+                r_col1, r_col2 = st.columns([3, 1])
+                with r_col1:
+                    st.write(f"- **Acoustic Environment:** `{r.experimental_conditions.recording_environment}` | **Microphone:** `{r.experimental_conditions.microphone_type}`")
+                    st.write(f"- **Accent / Cadence:** {r.experimental_conditions.accent_description or 'Standard'}")
+                    if r.raw_transcript:
+                        st.write(f"- **Spoken Transcript:** _{r.raw_transcript}_")
+                with r_col2:
+                    if r.content_score_100 is not None:
+                        st.metric("Content Score (0-100)", f"{r.content_score_100:.1f}")
+                    if r.fairscore_5pt is not None:
+                        st.metric("FairScore (1-5)", f"{r.fairscore_5pt:.2f}")
+
+                # Audio player if file exists
+                a_path = REPO_ROOT / r.audio_reference
+                if a_path.exists():
+                    st.audio(str(a_path))
+
+    # Export Report Button
+    st.markdown("---")
+    if st.button("📄 Export Comprehensive Fairness Audit Report", type="primary"):
+        json_p, md_p = fairness_lab.export_audit_reports(summary)
+        st.success("Audit reports successfully generated in `reports/`!")
+        with open(md_p, "r", encoding="utf-8") as f:
+            st.download_button("Download Executive Markdown Report", f.read(), file_name="fairness_audit_report.md", mime="text/markdown")
+
+
+elif mode == "Inspect Batch Results" and evaluation_data:
     filenames = [item["filename"] for item in evaluation_data]
     selected_file = st.sidebar.selectbox("Select Candidate Recording", filenames)
     record = next((item for item in evaluation_data if item["filename"] == selected_file), None)
