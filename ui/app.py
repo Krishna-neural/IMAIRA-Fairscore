@@ -35,6 +35,8 @@ from score.uncertainty_models import (
 from score.uncertainty_engine import UncertaintyEngine
 from eval.fairness_audit import FairnessAuditLab
 from score.feedback_compiler import FeedbackCompiler
+from analytics.cohort_models import AuthContext, CohortFilter
+from analytics.cohort_intelligence import CohortIntelligenceEngine
 
 # Page Configuration
 st.set_page_config(
@@ -124,8 +126,27 @@ scorer = DeterministicEvidenceScorer()
 uncertainty_engine = UncertaintyEngine()
 
 # Sidebar: File / Question Selection
-st.sidebar.header("📁 Evaluation Source")
-mode = st.sidebar.radio("Data Source Mode", ["Fairness Audit Lab (Placement Officer)", "Inspect Batch Results", "Live Interactive Simulator", "Human Review Audit Portal"])
+st.sidebar.header("📁 Navigation & Access Control")
+
+# Role-Based Access Control Selection
+user_role = st.sidebar.selectbox("Active User Role", ["Placement Officer / Administrator", "Student / Candidate"])
+is_officer = (user_role == "Placement Officer / Administrator")
+
+if is_officer:
+    nav_options = [
+        "Placement Officer Intelligence (Cohort Analytics)",
+        "Fairness Audit Lab (Cross-Speaker Consistency)",
+        "Inspect Candidate Batch Results",
+        "Human Review Audit Portal",
+        "Live Interactive Simulator"
+    ]
+else:
+    nav_options = [
+        "Inspect Candidate Batch Results",
+        "Live Interactive Simulator"
+    ]
+
+mode = st.sidebar.radio("Navigation View", nav_options)
 
 # Load recent evaluation report
 report_path = REPO_ROOT / "reports" / "interview_evaluation_report.json"
@@ -138,7 +159,172 @@ if report_path.exists():
         pass
 
 
-if mode == "Fairness Audit Lab (Placement Officer)":
+if mode == "Placement Officer Intelligence (Cohort Analytics)":
+    st.markdown("### 🎓 Placement Officer Intelligence Dashboard")
+    st.markdown(
+        "**Institutional Analytics:** Cohort Performance, Student Skill Gaps & AI Evaluation Quality Monitoring.<br>"
+        "**Core Principle:** <em>Never interpret low student scores as proof of poor student capability "
+        "without examining evaluation quality and recognition uncertainty.</em>",
+        unsafe_allow_html=True
+    )
+
+    auth = AuthContext(
+        user_id="OFFICER_CHIEF_01",
+        role="placement_officer" if is_officer else "student"
+    )
+
+    if not auth.is_authorized():
+        st.error("🔒 **ACCESS DENIED:** You are logged in with the 'Student / Candidate' role. Students are strictly restricted from cohort-level placement intelligence.")
+        st.stop()
+
+    # Cohort Filters
+    with st.expander("🔍 Cohort Filter Controls", expanded=True):
+        f_col1, f_col2, f_col3 = st.columns(3)
+        with f_col1:
+            domain_filter = st.selectbox("Technical Domain", ["All Domains", "Cloud Infrastructure", "Operating Systems", "Software Architecture", "Data Structures", "DevOps & Software Engineering"])
+        with f_col2:
+            status_filter = st.selectbox("Evaluation Status", ["all", "final_verified", "provisional", "pending_review"])
+        with f_col3:
+            score_range = st.slider("Content Score Range (0-100)", 0.0, 100.0, (0.0, 100.0))
+
+    c_filter = CohortFilter(
+        domain=None if domain_filter == "All Domains" else domain_filter,
+        evaluation_status=status_filter,
+        min_content_score=score_range[0],
+        max_content_score=score_range[1]
+    )
+
+    engine = CohortIntelligenceEngine()
+    report = engine.generate_report(auth=auth, c_filter=c_filter)
+    kpis = report.kpis
+    quality = report.quality_breakdown
+
+    # Section 1: Executive KPI Cards
+    st.markdown("#### 1. 📊 Cohort Performance Overview")
+    k1, k2, k3, k4 = st.columns(4)
+    with k1:
+        st.metric("Total Students Assessed", f"{kpis.total_students_enrolled}", f"{kpis.total_interviews_conducted} Total Interviews")
+    with k2:
+        st.metric("Avg Verified Content Score", f"{kpis.average_verified_content_score:.1f} / 100", f"Median: {kpis.median_content_score:.1f} | σ={kpis.content_score_std_dev:.1f}")
+    with k3:
+        prov_label = f"{kpis.average_provisional_content_score:.1f} / 100" if kpis.average_provisional_content_score is not None else "None Active"
+        st.metric("Avg Provisional Score", prov_label, f"{quality.provisional_evaluations_count} ASR-Ambiguous Evaluations")
+    with k4:
+        st.metric("Evaluations Requiring Review", f"{kpis.evaluations_requiring_review_pct:.1f}%", f"{kpis.unresolved_evaluations_count} Unresolved", delta_color="inverse")
+
+    # Score Distribution Histogram Buckets
+    st.caption("Content Score Distribution Across Cohort:")
+    b1, b2, b3, b4 = st.columns(4)
+    with b1:
+        st.info(f"**80–100 (Exemplary):** {kpis.score_distribution_buckets.get('80-100', 0)} interviews")
+    with b2:
+        st.success(f"**60–79 (Proficient):** {kpis.score_distribution_buckets.get('60-79', 0)} interviews")
+    with b3:
+        st.warning(f"**40–59 (Developing):** {kpis.score_distribution_buckets.get('40-59', 0)} interviews")
+    with b4:
+        st.error(f"**0–39 (Needs Attention):** {kpis.score_distribution_buckets.get('0-39', 0)} interviews")
+
+    st.markdown("---")
+
+    # Section 2: Student Skill Gap Analytics
+    st.markdown("#### 2. 🎯 Student Skill Gap Intelligence")
+    st.caption("Identifies recurring concept failures across the cohort. Distinguishes genuine knowledge gaps from speech recognition noise.")
+
+    if not quality.top_skill_gaps:
+        st.success("No critical cohort skill gaps detected for the selected filters.")
+    else:
+        for idx, gap in enumerate(quality.top_skill_gaps, 1):
+            with st.expander(f"Skill Gap {idx}: {gap.concept_name[:60]} — {gap.average_marks_lost:.2f} avg marks lost ({gap.failure_rate_pct}% fail rate)", expanded=(idx <= 2)):
+                sg1, sg2 = st.columns([2, 1])
+                with sg1:
+                    st.write(f"- **Domain:** `{gap.domain}` | **Criterion ID:** `{gap.criterion_id}`")
+                    st.write(f"- **Students Assessed:** `{gap.students_assessed_count}` | **Students Missing:** `{gap.students_missing_count}`")
+                    st.write(f"- **Average Marks Lost:** `{gap.average_marks_lost} / {gap.max_possible_marks} marks`")
+                    st.write(f"- **Recommended Institutional Action:** *{gap.recommended_training_topic}*")
+                with sg2:
+                    if gap.is_confirmed_skill_gap:
+                        st.success("✅ **Confirmed Student Skill Gap** (Low ASR confounding)")
+                    else:
+                        st.warning(f"⚠️ **ASR Confounded Gap ({gap.asr_uncertainty_impact_pct}% of failures had ASR ambiguity)**")
+
+    st.markdown("---")
+
+    # Section 3: Evaluation Quality Monitoring (4 Categories)
+    st.markdown("#### 3. 🔍 Evaluation Quality Monitoring (The 4 Distinct Dimensions)")
+    st.caption("Helps placement officers separate student capability deficits from speech recognition and scoring engine uncertainty.")
+
+    q_tab1, q_tab2, q_tab3, q_tab4 = st.tabs([
+        "1. Verified Student Skill Gaps",
+        "2. ASR Recognition Problems",
+        "3. Uncertain Decisions",
+        "4. Human Disagreements"
+    ])
+
+    with q_tab1:
+        st.markdown("##### Category 1: Confirmed Student Knowledge Deficits")
+        st.write(f"Total confirmed conceptual deficiencies verified against transcripts: **{quality.confirmed_skill_gaps_count}**")
+        st.caption("These deficiencies reflect genuine student knowledge gaps, confirmed by verbatim transcript absence and zero speech recognition confusion.")
+
+    with q_tab2:
+        st.markdown("##### Category 2: Speech Recognition (ASR) Incidents")
+        st.write(f"- **Suspicious Transcript Spans Flagged:** `{quality.suspicious_segments_count}`")
+        st.write(f"- **Audio-Verified Acoustic Slice Corrections:** `{quality.audio_verified_corrections_count}`")
+        st.write(f"- **Unresolved ASR Spans:** `{quality.unresolved_asr_segments_count}`")
+        st.write(f"- **Interviews with ASR Incidents:** `{quality.interviews_with_asr_issues}`")
+        st.info("ASR incidents are acoustic recognition artifacts and are prevented from causing automatic student failure.")
+
+    with q_tab3:
+        st.markdown("##### Category 3: Uncertain Evaluation Decisions")
+        st.write(f"- **Provisional Evaluations Active:** `{quality.provisional_evaluations_count}`")
+        st.write(f"- **Evaluations Pending Human Review:** `{quality.pending_human_reviews_count}`")
+        st.write(f"- **Candidate Marks Protected by Uncertainty Safeguards:** `{quality.marks_affected_by_uncertainty:.1f} points`")
+        st.warning("Provisional credit is granted when acoustic evidence is ambiguous, preventing students from being penalized by ASR failures.")
+
+    with q_tab4:
+        st.markdown("##### Category 4: Human-versus-System Agreement")
+        if quality.human_reviewed_count == 0:
+            st.info("No paired human reference evaluations configured for this cohort filter.")
+        else:
+            st.write(f"- **Human-Reviewed Benchmark Recordings:** `{quality.human_reviewed_count}`")
+            st.write(f"- **Mean Absolute Error (MAE):** `{quality.human_system_mae or 'N/A'} points`")
+            st.write(f"- **Significant Disagreements (>15 pts):** `{quality.significant_disagreements_count}`")
+
+    st.markdown("---")
+
+    # Section 4: Evaluation Quality Alerts
+    st.markdown("#### 4. 🚨 Evaluation Quality Alerts & Management")
+    if not report.alerts:
+        st.success("All systems operating nominally. Zero quality alerts active.")
+    else:
+        for a in report.alerts:
+            sev_color = "red" if a.severity in {"critical", "high"} else ("orange" if a.severity == "medium" else "blue")
+            with st.expander(f"[{a.severity.upper()}] {a.title} ({a.category}) — Status: {a.status.upper()}"):
+                st.markdown(f"**Description:** {a.description}")
+                st.markdown(f"**Recommended Action:** {a.recommended_action}")
+                st.markdown(f"**Affected Interviews:** `{a.affected_interview_count}` | **Detected At:** `{a.detection_timestamp}`")
+                
+                col_btn1, col_btn2 = st.columns(2)
+                with col_btn1:
+                    if st.button(f"Mark Under Review [{a.alert_id}]", key=f"rev_{a.alert_id}"):
+                        engine.update_alert_status(a.alert_id, "under_review", reviewer_notes="Assigned to assessment team.")
+                        st.info("Alert updated to UNDER_REVIEW.")
+                        st.rerun()
+                with col_btn2:
+                    if st.button(f"Mark Resolved [{a.alert_id}]", key=f"res_{a.alert_id}"):
+                        engine.update_alert_status(a.alert_id, "resolved", reviewer_notes="Root cause addressed.")
+                        st.success("Alert resolved.")
+                        st.rerun()
+
+    # Section 5: Report Export
+    st.markdown("---")
+    if st.button("📄 Export Complete Institutional Placement Intelligence Report", type="primary"):
+        json_p, md_p = engine.export_dashboard_reports(report)
+        st.success(f"Report exported to `{md_p}` and `{json_p}`!")
+        with open(md_p, "r", encoding="utf-8") as f:
+            st.download_button("Download Executive Institutional Report", f.read(), file_name="placement_intelligence_report.md", mime="text/markdown")
+
+
+elif mode == "Fairness Audit Lab (Cross-Speaker Consistency)":
     st.markdown("### ⚖️ Placement-Officer Fairness Audit Lab")
     st.markdown(
         "**Core Mandate:** Measure whether IMAIRA evaluates equivalent technical answers consistently "
@@ -222,7 +408,7 @@ if mode == "Fairness Audit Lab (Placement Officer)":
             st.download_button("Download Executive Markdown Report", f.read(), file_name="fairness_audit_report.md", mime="text/markdown")
 
 
-elif mode == "Inspect Batch Results" and evaluation_data:
+elif mode == "Inspect Candidate Batch Results" and evaluation_data:
     filenames = [item["filename"] for item in evaluation_data]
     selected_file = st.sidebar.selectbox("Select Candidate Recording", filenames)
     record = next((item for item in evaluation_data if item["filename"] == selected_file), None)
