@@ -45,12 +45,8 @@ class TestTwoPassTranscribe(unittest.TestCase):
         pass_a_text = "hello my name is Krishna Gupta artificial intelligence"
         pass_b_text = "hello my name is krishna upta machine learning"
 
-        if not HAS_FASTER_WHISPER:
-            # Test candidate extraction directly via TwoPassTranscriber method
-            candidates = TwoPassTranscriber.extract_candidates(None, pass_a_text, pass_b_text, terms)
-        else:
-            transcriber = get_transcriber(compute_type="float16")
-            candidates = transcriber.extract_candidates(pass_a_text, pass_b_text, terms)
+        # Test candidate extraction directly via TwoPassTranscriber method
+        candidates = TwoPassTranscriber.extract_candidates(None, pass_a_text, pass_b_text, terms)
 
         self.assertIn("Krishna Gupta", candidates)
         self.assertIn("artificial intelligence", candidates)

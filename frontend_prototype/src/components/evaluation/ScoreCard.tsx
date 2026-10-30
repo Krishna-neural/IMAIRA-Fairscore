@@ -27,16 +27,16 @@ export const ScoreCard: React.FC<ScoreCardProps> = ({
       ? 'Developing Competence'
       : 'Needs Foundational Review');
 
-  const overall5pt = ((overallScore / 100) * 5.0).toFixed(2);
+  const overall5pt = (1.0 + (overallScore / 100) * 4.0).toFixed(2);
   const calContent = calibratedScores.content
     ? Number(calibratedScores.content).toFixed(2)
-    : ((scores.content / 100) * 5.0).toFixed(2);
+    : (1.0 + (scores.content / 100) * 4.0).toFixed(2);
   const calStructure = calibratedScores.structure
     ? Number(calibratedScores.structure).toFixed(2)
-    : ((scores.structure / 100) * 5.0).toFixed(2);
+    : (1.0 + (scores.structure / 100) * 4.0).toFixed(2);
   const calComm = calibratedScores.communication
     ? Number(calibratedScores.communication).toFixed(2)
-    : ((scores.communication / 100) * 5.0).toFixed(2);
+    : (1.0 + (scores.communication / 100) * 4.0).toFixed(2);
 
   return (
     <div className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm mb-6">

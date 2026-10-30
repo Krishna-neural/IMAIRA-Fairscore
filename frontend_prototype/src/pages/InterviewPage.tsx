@@ -261,10 +261,43 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
         });
       }
 
-      const overall = scorecard?.overall_fairscore ?? 78.4;
-      const content = scorecard?.content_score ?? 80.0;
-      const structure = scorecard?.structure_score ?? 76.0;
-      const communication = scorecard?.communication_score ?? 82.0;
+      // Calculate from evaluated turns if scorecard was missing or unpopulated
+      const evaluatedTurns = sessionTurns.filter((t: any) => t.evaluation && typeof t.evaluation === 'object');
+      let fallbackOverall = 0;
+      let fallbackContent = 0;
+      let fallbackStructure = 0;
+      let fallbackComm = 80;
+      if (evaluatedTurns.length > 0) {
+        const cScores = evaluatedTurns.map((t: any) => t.evaluation.scores?.content_pct ?? t.evaluation.scores?.content ?? 50);
+        const sScores = evaluatedTurns.map((t: any) => t.evaluation.scores?.structure_pct ?? t.evaluation.scores?.structure ?? 50);
+        const mScores = evaluatedTurns.map((t: any) => t.evaluation.scores?.communication_pct ?? t.evaluation.scores?.communication ?? 75);
+        fallbackContent = Math.round(cScores.reduce((a: number, b: number) => a + b, 0) / cScores.length);
+        fallbackStructure = Math.round(sScores.reduce((a: number, b: number) => a + b, 0) / sScores.length);
+        fallbackComm = Math.round(mScores.reduce((a: number, b: number) => a + b, 0) / mScores.length);
+        fallbackOverall = Math.round(0.6 * fallbackContent + 0.4 * fallbackStructure);
+      }
+
+      const overall = scorecard?.overall_fairscore ?? (fallbackOverall || 75.0);
+      const content = scorecard?.content_score ?? (fallbackContent || 75.0);
+      const structure = scorecard?.structure_score ?? (fallbackStructure || 75.0);
+      const communication = scorecard?.communication_score ?? (fallbackComm || 80.0);
+
+      // Extract dynamic semantic rubric flags from turns
+      const dynamicFlags: Record<string, 'covered' | 'partial' | 'missing'> = {};
+      sessionTurns.forEach((t: any) => {
+        const turnFlags = t.evaluation?.flags || t.flags;
+        if (turnFlags && typeof turnFlags === 'object') {
+          Object.entries(turnFlags).forEach(([k, v]) => {
+            dynamicFlags[k] = v as any;
+          });
+        }
+      });
+      const defaultFlags: Record<string, 'covered' | 'partial' | 'missing'> = {
+        ARCH_CONSISTENCY: content >= 60 ? 'covered' : 'partial',
+        ASYMPTOTIC_BOUNDS: content >= 70 ? 'covered' : 'partial',
+        FAILURE_MODES: content >= 75 ? 'covered' : 'missing',
+      };
+      const finalFlags: Record<string, 'covered' | 'partial' | 'missing'> = Object.keys(dynamicFlags).length > 0 ? dynamicFlags : defaultFlags;
 
       const evalResult: EvaluationResult = {
         sessionId: sId,
@@ -275,22 +308,18 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
           communication,
         },
         calibratedScores: {
-          content: scorecard?.content_score ? Number((scorecard.content_score / 20.0).toFixed(2)) : 4.0,
-          structure: scorecard?.structure_score ? Number((scorecard.structure_score / 20.0).toFixed(2)) : 3.8,
-          communication: scorecard?.communication_score ? Number((scorecard.communication_score / 20.0).toFixed(2)) : 4.1,
+          content: scorecard?.content_score ? Number((1.0 + (scorecard.content_score / 100.0) * 4.0).toFixed(2)) : 4.0,
+          structure: scorecard?.structure_score ? Number((1.0 + (scorecard.structure_score / 100.0) * 4.0).toFixed(2)) : 3.8,
+          communication: scorecard?.communication_score ? Number((1.0 + (scorecard.communication_score / 100.0) * 4.0).toFixed(2)) : 4.1,
         },
         feedback: scorecard?.cumulative_dual_diagnosis?.technical_knowledge_gaps?.map((g: any) => ({
           dimension: g.dimension || 'Content Coverage',
-          marks_lost: g.marks_lost || 5,
+          marks_lost: typeof g.marks_lost === 'number' ? g.marks_lost : 0,
           quote: g.quote || '',
           fix_sentence: g.fix_sentence || g.model_sentence_fix || '',
           question_id: g.question_id || 'ENG001',
         })) || [],
-        flags: {
-          ARCH_CONSISTENCY: 'covered',
-          ASYMPTOTIC_BOUNDS: 'covered',
-          FAILURE_MODES: content >= 70 ? 'covered' : 'partial',
-        },
+        flags: finalFlags,
         auditLog: auditLogItems,
         dualDiagnosis: scorecard?.cumulative_dual_diagnosis || {
           technical_knowledge_gaps: [],

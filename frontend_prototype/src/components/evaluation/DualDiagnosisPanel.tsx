@@ -24,7 +24,7 @@ export const DualDiagnosisPanel: React.FC<DualDiagnosisPanelProps> = ({
           question_id: fb.question_id || 'ENG001',
           dimension: fb.dimension || 'Content Coverage',
           missing_concepts: [],
-          marks_lost: fb.marks_lost || 5,
+          marks_lost: typeof fb.marks_lost === 'number' ? fb.marks_lost : 0,
           quote: fb.quote || '',
           fix_sentence: fb.fix_sentence || '',
         }));
@@ -66,7 +66,11 @@ export const DualDiagnosisPanel: React.FC<DualDiagnosisPanelProps> = ({
 
           <div className="space-y-3">
             {techGaps.length > 0 ? (
-              techGaps.map((gap, idx) => (
+              techGaps.map((gap, idx) => {
+                const isSatisfied = (gap as any).status === 'satisfied' || (gap as any).criterion_id === 'ALL_SATISFIED' || gap.marks_lost === 0;
+                const marksLost = typeof gap.marks_lost === 'number' ? gap.marks_lost : (isSatisfied ? 0 : 5);
+
+                return (
                 <div
                   key={idx}
                   className="p-3.5 bg-slate-50 border border-slate-200 rounded-lg text-xs space-y-2"
@@ -77,9 +81,15 @@ export const DualDiagnosisPanel: React.FC<DualDiagnosisPanelProps> = ({
                       {` • ${gap.dimension || (gap as any).concept || 'Technical Knowledge Mastery'}`}
                       {(gap as any).concept && (gap as any).concept !== gap.dimension ? ` (${(gap as any).concept})` : ''}
                     </span>
-                    <span className="px-2 py-0.5 bg-red-50 text-red-700 border border-red-200 rounded text-[10px] font-bold">
-                      -{gap.marks_lost || 5} marks
-                    </span>
+                    {isSatisfied ? (
+                      <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded text-[10px] font-bold">
+                        Full Mastery (0 marks lost)
+                      </span>
+                    ) : (
+                      <span className="px-2 py-0.5 bg-red-50 text-red-700 border border-red-200 rounded text-[10px] font-bold">
+                        -{marksLost} marks
+                      </span>
+                    )}
                   </div>
 
                   {gap.missing_concepts && gap.missing_concepts.length > 0 ? (
@@ -133,7 +143,8 @@ export const DualDiagnosisPanel: React.FC<DualDiagnosisPanelProps> = ({
                     })()}
                   </div>
                 </div>
-              ))
+                );
+              })
             ) : (
               <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-center space-y-1">
                 <CheckCircle2 size={24} className="text-emerald-700 mx-auto" />

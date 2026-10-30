@@ -24,4 +24,4 @@ test_output.json
 *.exe
 asr/baseline_profile_*.json
 frontend_prototype/node_modules/
-frontend_prototype/dist/
+# frontend_prototype/dist/ tracked for zero-dependency Python/Docker serving

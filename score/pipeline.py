@@ -251,7 +251,7 @@ def run_fairscore_pipeline(
     # 8. Token generation
     tokens = word_tokens or [
         {"word": w, "start": round(i * 0.4, 2), "end": round((i + 1) * 0.4, 2), "conf": 0.95, "corrected_from": None}
-        for i, w in enumerate(transcript_text.split()[:20])
+        for i, w in enumerate(transcript_text.split())
     ]
 
     return {

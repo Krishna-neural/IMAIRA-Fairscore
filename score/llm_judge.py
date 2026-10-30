@@ -335,7 +335,7 @@ class LLMEvaluationEngine:
 
         # Word segments with timestamps
         segments_lines = []
-        for w in word_timings[:60]:  # Cap to first 60 word timings for prompt compactness
+        for w in word_timings[:300]:  # Up to 300 word timings for comprehensive acoustic evidence grounding
             segments_lines.append(f"[{w.start:.2f}s - {w.end:.2f}s] \"{w.word}\"")
         segments_formatted = "\n".join(segments_lines)
 
