@@ -756,7 +756,7 @@ elif STATIC_DIR.exists():
 
 
 if __name__ == "__main__":
-    port = int(os.getenv("FAIRSCORE_PORT", 8002))
+    port = int(os.getenv("PORT", os.getenv("FAIRSCORE_PORT", 8002)))
     host = os.getenv("FAIRSCORE_HOST", "0.0.0.0")
     print(f"Starting IMAIRA FairScore Server on http://{host}:{port}")
     uvicorn.run("api.main:app", host=host, port=port, reload=False)
