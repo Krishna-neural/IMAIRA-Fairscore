@@ -14,6 +14,7 @@ import { integrityMonitor } from '../services/integrityMonitor';
 import { InterviewSession, UtteranceTurn, CandidateConfig } from '../types/interview';
 import { IntegrityWarning, RestrictionState } from '../types/integrity';
 import { EvaluationResult } from '../types/evaluation';
+import { Radio, Mic, Volume2, ShieldCheck, Sparkles, HeartHandshake } from 'lucide-react';
 
 interface InterviewPageProps {
   config: CandidateConfig;
@@ -146,7 +147,7 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
     setIsListening(false);
     setIsProcessing(true);
     setAvatarState('processing');
-    setAvatarStatusText('Analyzing Technical Answer...');
+    setAvatarStatusText('Analyzing Technical Answer & Acoustic Recovery...');
 
     try {
       const turnResp = await apiService.submitTurn({
@@ -215,7 +216,6 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
     setAvatarStatusText('Generating Calibrated Scorecard & Cumulative Dual Diagnosis...');
 
     try {
-      // 1. Conclude interview on backend: auto-aggregates FairScore (60% C + 40% S) & Dual Diagnosis
       let scorecard: any = null;
       let fullSession: any = null;
 
@@ -226,7 +226,6 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
         console.warn('[InterviewPage] /interview/conclude failed, proceeding to fallback:', concludeErr);
       }
 
-      // 2. Fetch full session details from SQLite database
       try {
         fullSession = await apiService.getSession(sId);
       } catch (sessErr) {
@@ -250,7 +249,6 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
         });
       });
 
-      // Default audit fallback item if candidate had clean articulation
       if (auditLogItems.length === 0) {
         auditLogItems.push({
           timestamp_range: '[Verified Session]',
@@ -261,7 +259,6 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
         });
       }
 
-      // Calculate from evaluated turns if scorecard was missing or unpopulated
       const evaluatedTurns = sessionTurns.filter((t: any) => t.evaluation && typeof t.evaluation === 'object');
       let fallbackOverall = 0;
       let fallbackContent = 0;
@@ -282,7 +279,6 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
       const structure = scorecard?.structure_score ?? (fallbackStructure || 75.0);
       const communication = scorecard?.communication_score ?? (fallbackComm || 80.0);
 
-      // Extract dynamic semantic rubric flags from turns
       const dynamicFlags: Record<string, 'covered' | 'partial' | 'missing'> = {};
       sessionTurns.forEach((t: any) => {
         const turnFlags = t.evaluation?.flags || t.flags;
@@ -367,13 +363,11 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
     }
   };
 
-  // Integrity warning callback
   const handleWarningTriggered = (warning: IntegrityWarning) => {
     setWarningCount(warning.warningNumber);
     setActiveWarning(warning);
   };
 
-  // If user is restricted, show restriction view
   if (restrictionState.isRestricted) {
     return (
       <RestrictionView
@@ -388,10 +382,62 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
   }
 
   return (
-    <div className="py-4 space-y-4">
-      {/* 3-Panel Corporate Interview Architecture */}
+    <div className="py-4 space-y-4 font-sans">
+      {/* Dynamic Conversational State Banner */}
+      <div className={`p-3.5 rounded-xl border flex items-center justify-between transition-all shadow-xs ${
+        avatarState === 'speaking'
+          ? 'bg-blue-50/90 border-blue-200 text-blue-950'
+          : isListening
+          ? 'bg-emerald-50/90 border-emerald-300 text-emerald-950 ring-2 ring-emerald-500/20'
+          : 'bg-amber-50/90 border-amber-200 text-amber-950'
+      }`}>
+        <div className="flex items-center gap-3">
+          {avatarState === 'speaking' ? (
+            <div className="p-2 bg-blue-100 rounded-lg text-[#2457A6]">
+              <Volume2 size={20} className="animate-pulse" />
+            </div>
+          ) : isListening ? (
+            <div className="p-2 bg-emerald-100 rounded-lg text-emerald-700">
+              <Mic size={20} className="animate-bounce" />
+            </div>
+          ) : (
+            <div className="p-2 bg-amber-100 rounded-lg text-amber-700">
+              <Sparkles size={20} className="animate-spin" />
+            </div>
+          )}
+
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-black uppercase tracking-wider">
+                {avatarState === 'speaking'
+                  ? 'AI Interviewer is Speaking'
+                  : isListening
+                  ? 'Your Turn to Speak — We Are Listening!'
+                  : 'Analyzing Technical Answer...'}
+              </span>
+              <span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-white/80 border border-slate-200">
+                Question {session?.questionIndex || 1} of {session?.totalQuestions || config.numQuestions}
+              </span>
+            </div>
+            <p className="text-xs opacity-80 mt-0.5">
+              {avatarState === 'speaking'
+                ? 'Listen to the question carefully. Click "Replay Question" anytime if you want to hear it again.'
+                : isListening
+                ? 'Speak in your natural pace and accent. You can speak as long as you need; pauses will never deduct marks.'
+                : 'Acoustically verifying technical terms against 2,000-term glossary and evaluating rubric propositions.'}
+            </p>
+          </div>
+        </div>
+
+        <div className="hidden sm:flex items-center gap-2 text-xs font-semibold px-3 py-1.5 bg-white/90 rounded-lg border border-slate-200 shadow-xs">
+          <ShieldCheck size={16} className="text-emerald-600" />
+          <span>Accent Fairness Active</span>
+        </div>
+      </div>
+
+      {/* 3-Column Interview Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
-        {/* Left Column (3.5 cols): Virtual Human Interviewer & Waveform Canvas */}
+        {/* Left Column (4 cols): AI Avatar & Waveform */}
         <div className="lg:col-span-4 space-y-3">
           <HumanAvatar
             state={avatarState}
@@ -400,30 +446,35 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
             onReplayQuestion={() => speechService.speak(currentSpeechText)}
           />
 
-          {/* Clean Audio Waveform Canvas */}
-          <div className="bg-white border border-slate-200 rounded-lg p-3 shadow-xs">
-            <span className="text-[11px] font-bold uppercase text-slate-500 block mb-1">
-              Audio Waveform Frequency
-            </span>
+          {/* Real-Time Waveform Frequency Canvas */}
+          <div className="bg-white border border-slate-200 rounded-xl p-3 shadow-xs">
+            <div className="flex items-center justify-between text-[11px] font-bold text-slate-500 uppercase mb-1.5">
+              <span>Candidate Audio Waveform</span>
+              <span className={isListening && !isMicMuted ? 'text-emerald-600' : 'text-slate-400'}>
+                {isListening && !isMicMuted ? '● Mic Live' : '○ Standby'}
+              </span>
+            </div>
             <canvas
               ref={waveformCanvasRef}
               width={280}
-              height={36}
-              className="w-full rounded border border-slate-200 bg-slate-50"
+              height={40}
+              className="w-full rounded-lg border border-slate-200 bg-slate-50"
             />
           </div>
 
-          {/* ASR Mode Card */}
-          <div className="bg-white border border-slate-200 rounded-lg p-3 text-xs text-slate-600 shadow-xs space-y-1">
-            <span className="font-bold text-[#101C35] block">ASR Engine Mode:</span>
-            <p className="text-[11px] text-slate-500">
-              Pass 1: Sub-second streaming hypothesis<br />
-              Pass 2: 2,000-Term Glossary Recovery & Abstention
+          {/* Fairness Guarantee Card */}
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-3.5 text-xs text-blue-950 shadow-xs space-y-1.5">
+            <div className="flex items-center gap-1.5 font-bold text-[#2457A6]">
+              <ShieldCheck size={16} />
+              <span>Vernacular Fairness Protocol</span>
+            </div>
+            <p className="text-[11px] text-slate-600 leading-relaxed">
+              Tuned for Indian English (Tamil, Telugu, Kannada, Hindi cadence). Technical terminology is matched phonetically with RapidFuzz + Metaphone; delivery hesitation carries <strong>0% penalty</strong>.
             </p>
           </div>
         </div>
 
-        {/* Center Column (5 cols): Question, Conversation, Live Streaming Transcription & Controls */}
+        {/* Center Column (5 cols): Question, Chat Stream, Live Captions, and Controls */}
         <div className="lg:col-span-5 space-y-3">
           <QuestionCard
             question={session?.currentQuestion || null}
@@ -471,7 +522,7 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
           />
         </div>
 
-        {/* Right Column (3 cols): Interviewer Integrity Monitor & Session Metadata */}
+        {/* Right Column (3 cols): Integrity Panel & Session Details */}
         <div className="lg:col-span-3 space-y-3">
           <IntegrityPanel
             stream={cameraStream}
@@ -480,37 +531,43 @@ export const InterviewPage: React.FC<InterviewPageProps> = ({
           />
 
           {/* Session Telemetry Card */}
-          <div className="bg-white border border-slate-200 rounded-lg p-3.5 shadow-xs text-xs space-y-2">
-            <h4 className="font-bold text-[#101C35] uppercase tracking-wide border-b border-slate-100 pb-1.5">
-              Session Metadata
+          <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-xs text-xs space-y-2.5">
+            <h4 className="font-black text-[#101C35] uppercase tracking-wide border-b border-slate-100 pb-2">
+              Candidate Session Details
             </h4>
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <div className="flex justify-between">
                 <span className="text-slate-500">Candidate:</span>
-                <span className="font-semibold text-slate-900">{config.name}</span>
+                <span className="font-bold text-slate-900">{config.name}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">Domain:</span>
-                <span className="font-semibold text-slate-900 truncate max-w-[150px]">{config.domain}</span>
+                <span className="font-semibold text-slate-900 truncate max-w-[140px]" title={config.domain}>
+                  {config.domain}
+                </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">Difficulty:</span>
                 <span className="font-semibold text-slate-900">{config.difficulty}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">Pipeline Latency:</span>
-                <span className="font-mono font-semibold text-emerald-700">&lt; 35ms</span>
+                <span className="text-slate-500">Scoring Weight:</span>
+                <span className="font-bold text-[#2457A6]">60% Cont • 40% Struct</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">Scoring Engine:</span>
-                <span className="font-semibold text-blue-800">Calibrated Isotonic</span>
+                <span className="text-slate-500">Accent Deduction:</span>
+                <span className="font-bold text-emerald-700">0.0 Marks (Protected)</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-500">Pipeline Latency:</span>
+                <span className="font-mono font-semibold text-emerald-700">&lt; 35ms</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Three-Warning Notification Modal */}
+      {/* Warning Notification Modal */}
       <WarningModal
         warning={activeWarning}
         onDismiss={() => setActiveWarning(null)}
