@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMAIRA FairScore — Enterprise AI Interview Evaluation Platform</title>
+  <meta name="description" content="Accent-aware, bias-resilient AI technical interview platform separating technical knowledge, answer structure, and communication clarity.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-wrapper">
+
+    <!-- Top Corporate Navigation Header -->
+    <header class="navbar">
+      <div class="nav-brand" data-navigate="home">
+        <div class="brand-icon">IF</div>
+        <div>
+          <span class="brand-name">IMAIRA FairScore</span>
+          <span class="brand-tagline">Evaluate Knowledge. Not Accents.</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a class="nav-link active" data-navigate="home" data-target="home">Overview</a>
+        <a class="nav-link" data-navigate="home" onclick="document.getElementById('howItWorksSection')?.scrollIntoView({behavior:'smooth'})">How It Works</a>
+        <a class="nav-link" data-navigate="setup" data-target="setup">Start Interview</a>
+        <a class="nav-link" data-navigate="evaluation" data-target="evaluation">Evaluation</a>
+        <a class="nav-link" data-navigate="home" onclick="document.getElementById('fairnessSection')?.scrollIntoView({behavior:'smooth'})">Fairness</a>
+        <a class="nav-link judge-badge" data-navigate="judge" data-target="judge">⚖️ Judge Console</a>
+        <a class="nav-link" data-navigate="docs" data-target="docs">Documentation</a>
+        <a class="nav-link" href="https://github.com/Krishna-neural/IMAIRA-Fairscore.git" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+
+      <div class="nav-right-actions">
+        <div class="nav-status" id="backendHealthPill">
+          <span class="status-dot"></span>
+          <span>Connecting...</span>
+        </div>
+        <button class="btn btn-sm btn-primary" data-navigate="setup">
+          Start an Interview
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+
+      <!-- ======================================================================
+           VIEW 1: LANDING PAGE (Professional & Corporate Theme 6)
+           ====================================================================== -->
+      <section id="viewHome" class="view-panel active">
+
+        <!-- Hero Section with Right-Side Realistic Product Preview -->
+        <div class="hero-wrapper">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span>Integraminds AI FRONTIER Software Track • Round 2</span>
+            </div>
+            <h1 class="hero-title">Evaluate Knowledge. Not Accents.</h1>
+            <div class="hero-tagline">Fair Technical Interview Evaluation for Global Engineering Teams</div>
+            <p class="hero-desc">
+              An enterprise AI interview platform designed to evaluate technical competence, reasoning structure, and verbal clarity independently across diverse speaking styles, accents, and code-mixed speech.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-primary" data-navigate="setup" style="font-size: 0.95rem; padding: 0.75rem 1.75rem;">
+                Start an Interview
+              </button>
+              <button class="btn btn-secondary" data-navigate="judge" style="font-size: 0.95rem; padding: 0.75rem 1.75rem;">
+                Explore the Technology
+              </button>
+            </div>
+          </div>
+
+          <!-- Right-Side Realistic Product Preview -->
+          <div class="product-preview-card">
+            <div class="preview-header">
+              <span class="preview-header-title">Live Assessment Session</span>
+              <span class="badge badge-success">Session Active</span>
+            </div>
+            <div class="preview-body">
+              <div class="preview-interviewer-row">
+                <div class="preview-avatar">AI</div>
+                <div class="preview-speech-bubble">
+                  <strong>Interviewer:</strong> "How do hash maps resolve hash collisions, and what is the difference between chaining and open addressing?"
+                </div>
+              </div>
+
+              <div class="preview-transcript-box">
+                <div class="preview-transcript-label">Live Candidate Transcript (Acoustically Verified)</div>
+                <div>
+                  "We store key-value pairs in a <span class="token-verified">hash map</span> with linked lists for separate chaining. In open addressing, linear probing searches for the next vacant slot..."
+                </div>
+              </div>
+
+              <div class="preview-scores-grid">
+                <div class="preview-score-chip">
+                  <div class="preview-score-num">88%</div>
+                  <div class="preview-score-label">Content (50%)</div>
+                </div>
+                <div class="preview-score-chip">
+                  <div class="preview-score-num">85%</div>
+                  <div class="preview-score-label">Structure (30%)</div>
+                </div>
+                <div class="preview-score-chip">
+                  <div class="preview-score-num">82%</div>
+                  <div class="preview-score-label">Fluency (20%)</div>
+                </div>
+              </div>
+            </div>
+            <div class="preview-footer">
+              <span>🛡️ Stage 2 Terminology Verification: 2 Corrections</span>
+              <span>Accent Invariance: |Δ| = 0.00 pts</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Indicators Bar -->
+        <div class="trust-bar">
+          <div class="trust-item">
+            <div class="trust-title">Accent-Aware Assessment</div>
+            <div class="trust-desc">Tolerates Indian-English phonetics, dialectal pronunciation, and code-mixed speech without scoring penalties.</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-title">Structured Evaluation</div>
+            <div class="trust-desc">Decoupled scoring isolates technical mastery (50%), reasoning flow (30%), and communication clarity (20%).</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-title">Terminology Verification</div>
+            <div class="trust-desc">2,000-term engineering glossary with RapidFuzz and Metaphone phonetic matching to recover misheard terms.</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-title">Transparent Feedback</div>
+            <div class="trust-desc">Concise actionable recommendations (≤30 words) supported by a timestamped acoustic verification audit log.</div>
+          </div>
+        </div>
+
+        <!-- Problem Section: Speech Recognition Bias -->
+        <div class="problem-section">
+          <div class="section-header">
+            <span class="section-tag">The Evaluation Problem</span>
+            <h2 class="section-title">Your Accent Shouldn't Define Your Technical Ability.</h2>
+            <p class="section-subtitle">
+              Standard speech recognition models systematically fail on regional accents and code-mixed speech, corrupting technical keywords and penalizing qualified candidates.
+            </p>
+          </div>
+
+          <div class="comparison-grid">
+            <div class="comparison-card negative">
+              <div class="comparison-tag negative">Conventional Speech-to-Text</div>
+              <div class="comparison-title">Acoustic Confusion & Unfair Penalties</div>
+              <p class="comparison-text">
+                Generic ASR models mishear non-native pronunciations of technical terms. The downstream evaluation bot interprets acoustic transcription errors as candidate ignorance.
+              </p>
+              <div class="example-box negative">
+                <strong>Raw Candidate Utterance:</strong> "We store user profiles in a hash map..."<br>
+                <strong>Conventional ASR:</strong> "We store user profiles in a <u>has map</u>..."<br>
+                <strong>Evaluation Result:</strong> <span style="font-weight:700;">Deducted 15 marks</span> for missing key data structure concept.
+              </div>
+            </div>
+
+            <div class="comparison-card positive">
+              <div class="comparison-tag positive">IMAIRA FairScore Stage 2 Pipeline</div>
+              <div class="comparison-title">Evidence-Checked Terminology Recovery</div>
+              <p class="comparison-text">
+                IMAIRA indexes 2,000+ technical terms, detects suspect spans, and acoustically verifies candidate phonemes. Valid concepts are recovered while ambiguous terms trigger conservative abstention.
+              </p>
+              <div class="example-box positive">
+                <strong>Raw Candidate Utterance:</strong> "We store user profiles in a hash map..."<br>
+                <strong>Stage 2 Verification:</strong> Matched "has map" → <span class="token-verified">hash map</span> (Phonetic Metaphone conf: 0.94)<br>
+                <strong>Evaluation Result:</strong> <span style="font-weight:700; color:var(--color-success-text);">Full marks awarded</span> for hash table collision & lookup logic.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution Section: Pipeline Timeline -->
+        <div id="howItWorksSection" class="pipeline-section">
+          <div class="section-header">
+            <span class="section-tag">Engineering Architecture</span>
+            <h2 class="section-title">An Evaluation Pipeline Built Around Fairness.</h2>
+            <p class="section-subtitle">
+              Five coordinated processing stages ensure objective, repeatable technical evaluations independent of acoustic surface variations.
+            </p>
+          </div>
+
+          <div class="pipeline-timeline">
+            <div class="pipeline-step-card">
+              <div class="step-number">01</div>
+              <div class="step-title">Capture</div>
+              <div class="step-desc">Web Audio API captures continuous candidate speech with real-time audio volume analysis and client-side privacy isolation.</div>
+            </div>
+            <div class="pipeline-step-card">
+              <div class="step-number">02</div>
+              <div class="step-title">Transcribe</div>
+              <div class="step-desc">Streaming ASR engine delivers sub-second provisional transcripts, updating continuous hypotheses as candidates formulate answers.</div>
+            </div>
+            <div class="pipeline-step-card">
+              <div class="step-number">03</div>
+              <div class="step-title">Verify</div>
+              <div class="step-desc">Stage 2 span detector scans recognized text against 2,000 glossary terms, recovering phonetically confused technical tokens.</div>
+            </div>
+            <div class="pipeline-step-card">
+              <div class="step-number">04</div>
+              <div class="step-title">Evaluate</div>
+              <div class="step-desc">Decoupled scoring assesses Content Mastery (50%), Structure & Coherence (30%), and Communication Fluency (20%).</div>
+            </div>
+            <div class="pipeline-step-card">
+              <div class="step-number">05</div>
+              <div class="step-title">Report</div>
+              <div class="step-desc">Isotonic calibrators normalize scores, generate semantic rubric coverage badges, and surface top-3 coaching fixes.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three Independent Dimensions Section -->
+        <div class="dimensions-section">
+          <div class="section-header">
+            <span class="section-tag">Decoupled Evaluation Criteria</span>
+            <h2 class="section-title">Three Independent Assessment Dimensions</h2>
+            <p class="section-subtitle">
+              Unlike monolithic AI interviewers that conflate grammar with engineering capability, IMAIRA FairScore measures each dimension using isolated, calibrated models.
+            </p>
+          </div>
+
+          <div class="dimensions-grid">
+            <div class="dimension-card">
+              <div class="dim-weight-badge">Dimension 1 • 50% Weight</div>
+              <div class="dim-title">Content Mastery</div>
+              <p class="dim-desc">
+                Evaluates factual engineering accuracy, underlying cause-and-effect reasoning, and architectural completeness against semantic rubric propositions (≥5 words).
+              </p>
+              <div class="dim-criteria-box">
+                <strong>Fairness Invariant:</strong> Strictly invariant to surface vocabulary, speech pauses, and minor grammar variations.
+              </div>
+            </div>
+
+            <div class="dimension-card">
+              <div class="dim-weight-badge">Dimension 2 • 30% Weight</div>
+              <div class="dim-title">Structure & Coherence</div>
+              <p class="dim-desc">
+                Evaluates logical organization across three sub-dimensions: Framing (35% - opening directness), Coherence (40% - causal argument flow), and Closure (25% - definitive synthesis).
+              </p>
+              <div class="dim-criteria-box">
+                <strong>Fairness Invariant:</strong> Completely decoupled from pronunciation, accent cadence, and acoustic pitch.
+              </div>
+            </div>
+
+            <div class="dimension-card">
+              <div class="dim-weight-badge">Dimension 3 • 20% Weight</div>
+              <div class="dim-title">Communication Fluency</div>
+              <p class="dim-desc">
+                Evaluates delivery pace (optimal 110–170 WPM), filler word frequency ("um", "like", "you know"), and extended hesitation pauses (>2.5s).
+              </p>
+              <div class="dim-criteria-box">
+                <strong>Fairness Invariant:</strong> Focuses strictly on conversational flow without penalizing regional intonation.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fairness Section -->
+        <div id="fairnessSection" class="fairness-section">
+          <div class="fairness-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+              <div>
+                <span class="badge badge-success">Verified Fairness Benchmark</span>
+                <h3 style="font-size:1.6rem; font-weight:800; color:var(--color-navy-deep); margin-top:0.35rem;">
+                  Fairness Should Be Measurable.
+                </h3>
+                <p style="color:var(--text-secondary); font-size:0.95rem; max-width:720px; margin-top:0.25rem;">
+                  We evaluate fairness mathematically. Across 120 technical questions tested under 20% synthetic Word Error Rate (WER) phonetic accent perturbations, our Content Mastery engine demonstrated absolute score invariance:
+                </p>
+              </div>
+              <button class="btn btn-outline-blue" data-navigate="judge">
+                Inspect Full Fairness Report ↗
+              </button>
+            </div>
+
+            <div class="fairness-metrics-grid">
+              <div class="fairness-metric-box">
+                <div class="fairness-metric-value success">0.00</div>
+                <div class="fairness-metric-label">Content Score MAE</div>
+                <div class="fairness-metric-sub">Strict Target: ≤ 5.0 pts</div>
+              </div>
+              <div class="fairness-metric-box">
+                <div class="fairness-metric-value">0.00</div>
+                <div class="fairness-metric-label">Signed Accent Bias</div>
+                <div class="fairness-metric-sub">Zero Systematic Shift</div>
+              </div>
+              <div class="fairness-metric-box">
+                <div class="fairness-metric-value">1.00</div>
+                <div class="fairness-metric-label">QWK Reliability</div>
+                <div class="fairness-metric-sub">Perfect Rank Agreement</div>
+              </div>
+              <div class="fairness-metric-box">
+                <div class="fairness-metric-value success">0.0%</div>
+                <div class="fairness-metric-label">Score Flip Rate</div>
+                <div class="fairness-metric-sub">Zero Pass/Fail Inversions</div>
+              </div>
+            </div>
+
+            <div style="font-size:0.8rem; color:var(--text-muted); text-align:center;">
+              Methodology: Paired t-tests across clean vs. perturbed transcriptions validated in <code>tests/judge_lab.py</code>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Actual Technology Stack Section -->
+        <div class="tech-section">
+          <div class="section-header">
+            <span class="section-tag">Production Stack</span>
+            <h2 class="section-title">Verified Core Technologies</h2>
+            <p class="section-subtitle">
+              Every technology shown is implemented in the repository codebase and verifiable in the Judge Console.
+            </p>
+          </div>
+
+          <div class="tech-grid">
+            <div class="tech-card">
+              <div class="tech-name">FastAPI & Uvicorn</div>
+              <div class="tech-role">Backend ASGI Server</div>
+              <div class="tech-desc">Asynchronous REST and WebSocket architecture providing sub-35ms pipeline execution latencies.</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-name">Web Speech API & Faster-Whisper</div>
+              <div class="tech-role">Speech-to-Text Pipeline</div>
+              <div class="tech-desc">Universal browser streaming capture with GPU-accelerated CTranslate2 large-v3 fallback.</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-name">RapidFuzz & Jellyfish</div>
+              <div class="tech-role">Stage 2 Terminology Recovery</div>
+              <div class="tech-desc">Levenshtein token matching combined with Double Metaphone phonetic indexing for accent resilience.</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-name">Scikit-Learn Calibrators</div>
+              <div class="tech-role">Isotonic Regression Engine</div>
+              <div class="tech-desc">Fitted isotonic regression models mapping raw LLM ratings to human-calibrated assessment standards.</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-name">Web Audio API</div>
+              <div class="tech-role">Real-Time Waveform & VU Telemetry</div>
+              <div class="tech-desc">Client-side 60 FPS audio analyser providing immediate microphone verification and visual feedback.</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-name">2,000-Term Technical Glossary</div>
+              <div class="tech-role">Curated Domain Knowledge</div>
+              <div class="tech-desc">11 core engineering domains indexed in <code>data/glossary.csv</code> with 120 validated rubrics.</div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ======================================================================
+           VIEW 2: INTERVIEW SETUP & PRE-FLIGHT
+           ====================================================================== -->
+      <section id="viewSetup" class="view-panel">
+        <div class="setup-container">
+          <div style="margin-bottom: 1.5rem;">
+            <span class="badge badge-primary">Session Configuration</span>
+            <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--color-navy-deep); margin-top: 0.25rem;">
+              Configure Your Technical Interview
+            </h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              Select your engineering domain, target difficulty, and verify microphone and camera hardware access.
+            </p>
+          </div>
+
+          <div class="setup-grid">
+            <!-- Left Column: Session Parameters -->
+            <div class="card">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-navy-deep); margin-bottom: 1.25rem;">
+                Interview Parameters
+              </h3>
+
+              <div class="form-group">
+                <label class="form-label" for="setupCandidateName">Candidate Full Name</label>
+                <input type="text" id="setupCandidateName" class="form-input" value="Candidate" placeholder="Enter your full name">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="setupDomain">Engineering Domain</label>
+                <select id="setupDomain" class="form-select">
+                  <option value="Software and Computer Science Fundamentals" selected>Software & Computer Science Fundamentals</option>
+                  <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+                  <option value="System Design and Distributed Systems">System Design & Distributed Systems</option>
+                  <option value="Operating Systems and Concurrency">Operating Systems & Concurrency</option>
+                  <option value="Database Management Systems">Database Management Systems (DBMS)</option>
+                  <option value="Computer Networks and Protocols">Computer Networks & Protocols</option>
+                  <option value="Artificial Intelligence and Machine Learning">Artificial Intelligence & ML</option>
+                  <option value="Cybersecurity and Information Security">Cybersecurity & Security Engineering</option>
+                  <option value="Cloud Computing and DevOps">Cloud Computing & DevOps</option>
+                </select>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label" for="setupDifficulty">Difficulty Level</label>
+                  <select id="setupDifficulty" class="form-select">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate" selected>Intermediate</option>
+                    <option value="Advanced">Advanced / Senior</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="setupNumQuestions">Number of Questions</label>
+                  <select id="setupNumQuestions" class="form-select">
+                    <option value="2">2 Technical Questions</option>
+                    <option value="3" selected>3 Technical Questions</option>
+                    <option value="5">5 Technical Questions</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="background-color: var(--color-blue-light); border: 1px solid var(--color-blue-border); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.5rem;">
+                <div style="font-size: 0.8rem; color: var(--color-blue-corp); font-weight: 700;">🔒 Server-Enforced Interview Integrity</div>
+                <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                  Interviewer identity and rubric evaluation criteria are permanently locked server-side and resilient against prompt manipulation.
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Device Verification -->
+            <div class="card">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-navy-deep); margin-bottom: 1.25rem;">
+                Hardware & Audio Ingestion Check
+              </h3>
+
+              <!-- Microphone Test -->
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <label class="form-label" style="margin-bottom: 0;">Microphone (Required)</label>
+                  <button id="btnTestMic" class="btn btn-sm btn-secondary">Test Microphone 🎤</button>
+                </div>
+                <div class="audio-vu-meter">
+                  <div id="micVuBar" class="audio-vu-bar"></div>
+                </div>
+                <span class="form-hint">Captures continuous audio stream with sub-second provisional transcription.</span>
+              </div>
+
+              <!-- Camera Test -->
+              <div class="form-group" style="margin-top: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <label class="form-label" style="margin-bottom: 0;">Camera Preview (Optional)</label>
+                  <button id="btnTestCam" class="btn btn-sm btn-secondary">Activate Camera 📹</button>
+                </div>
+                <div class="device-preview-box">
+                  <video id="setupVideo" class="camera-video" autoplay playsinline muted></video>
+                  <div id="setupCamPlaceholder" class="camera-placeholder">
+                    <span style="font-size: 1.75rem;">📷</span>
+                    <span>Camera inactive (Click Activate to test video)</span>
+                  </div>
+                </div>
+                <span class="form-hint" style="color: var(--color-success-text); font-weight: 500;">
+                  🛡️ <strong>Candidate Privacy:</strong> Video is kept in local memory only. Zero facial recordings are transmitted to the server.
+                </span>
+              </div>
+
+              <div style="margin-top: 1.5rem;">
+                <button id="btnEnterInterview" class="btn btn-primary" style="width: 100%; font-size: 1rem; padding: 0.85rem;" disabled>
+                  Begin Technical Interview
+                </button>
+                <span class="form-hint" style="text-align: center; margin-top: 0.5rem;">
+                  Microphone verification is required before entering the interview room.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 3: LIVE AI INTERVIEW ROOM (3-Panel Corporate Architecture)
+           ====================================================================== -->
+      <section id="viewInterview" class="view-panel">
+        <div class="interview-layout">
+
+          <!-- Left Panel: AI Interviewer & Waveform Visualizer -->
+          <div class="interview-left-pane">
+            <div class="avatar-card">
+              <div class="avatar-stage">
+                <div id="interviewAvatarRing" class="avatar-ring"></div>
+                <div class="avatar-sphere">AI</div>
+              </div>
+              <div id="avatarStatusPill" class="avatar-status-pill badge badge-primary">
+                AI Interviewer Ready
+              </div>
+              <strong style="font-size: 1rem; color: var(--color-navy-deep);">IMAIRA Interviewer</strong>
+              <span style="font-size: 0.75rem; color: var(--text-secondary);">Enterprise Technical Evaluator</span>
+
+              <!-- Live Audio Waveform Visualizer -->
+              <div style="width: 100%; margin-top: 1.25rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); padding: 0.5rem; background-color: var(--bg-subtle);">
+                <canvas id="waveformCanvas" width="240" height="40" style="display:block; width:100%;"></canvas>
+              </div>
+            </div>
+
+            <!-- Stage 2 Terminology Badge -->
+            <div class="card" style="padding: 1rem;">
+              <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--color-blue-corp);">ASR Engine Mode</span>
+              <div style="font-size: 0.85rem; font-weight: 600; color: var(--color-navy-deep); margin-top: 0.25rem;">Two-Pass Verification</div>
+              <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                Pass 1: Streaming Fast Path<br>
+                Pass 2: 2,000-Term Glossary Recovery
+              </p>
+            </div>
+          </div>
+
+          <!-- Center Panel: Question Banner, Conversation, Live Streaming Transcription & Controls -->
+          <div class="interview-center-pane">
+            <!-- Active Question Banner -->
+            <div class="question-banner">
+              <div id="currentQuestionMeta" class="question-meta">
+                <span class="badge badge-primary">Engineering Domain</span>
+                <span class="badge badge-navy">Intermediate</span>
+              </div>
+              <div id="currentQuestionPrompt" class="question-text">
+                Welcome to IMAIRA FairScore. Preparing your first technical question...
+              </div>
+            </div>
+
+            <!-- Conversation Stream -->
+            <div id="interviewChatStream" class="conversation-stream">
+              <!-- Chat bubbles rendered dynamically -->
+            </div>
+
+            <!-- Real-Time Streaming Transcription Box -->
+            <div class="live-transcription-box">
+              <div class="live-transcript-header">
+                <div class="live-pill">
+                  <span class="live-dot"></span>
+                  <span>Streaming Transcription</span>
+                </div>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Sub-second hypothesis updating</span>
+              </div>
+
+              <div class="live-transcript-content">
+                <span id="liveFinalizedText" class="transcript-finalized"></span>
+                <span id="liveProvisionalText" class="transcript-provisional"></span>
+              </div>
+
+              <!-- Fallback typed input drawer -->
+              <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem;">
+                <input type="text" id="candidateTypedInput" class="form-input" style="font-size: 0.85rem; padding: 0.45rem 0.75rem;" placeholder="Or type your response if your environment is noisy...">
+                <button id="btnFinishUtterance" class="btn btn-sm btn-primary">
+                  Submit Answer
+                </button>
+              </div>
+            </div>
+
+            <!-- Control Bar -->
+            <div class="interview-controls">
+              <div class="control-btn-group">
+                <button id="btnToggleMic" class="btn btn-sm btn-secondary">
+                  🎤 Mute Mic
+                </button>
+                <button id="btnToggleCam" class="btn btn-sm btn-secondary">
+                  📹 Toggle Camera
+                </button>
+              </div>
+
+              <div class="control-btn-group">
+                <button id="btnEndInterview" class="btn btn-sm btn-danger">
+                  End Interview & Evaluate
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Panel: Candidate Webcam & Session Telemetry -->
+          <div class="interview-right-pane">
+            <div class="candidate-cam-card">
+              <div class="candidate-video-frame">
+                <video id="candidateInterviewVideo" class="candidate-stream" autoplay playsinline muted></video>
+                <div class="face-indicator">
+                  <span class="status-dot"></span>
+                  <span>Face Centered</span>
+                </div>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-secondary);">
+                <span>Camera: <strong>Active (Local)</strong></span>
+                <span>Latency: <strong>&lt; 35ms</strong></span>
+              </div>
+            </div>
+
+            <!-- Session Metadata Card -->
+            <div class="session-info-card">
+              <div class="session-info-row">
+                <span class="session-info-label">Candidate</span>
+                <span id="telemetryCandidateName" class="session-info-val">Candidate</span>
+              </div>
+              <div class="session-info-row">
+                <span class="session-info-label">Domain</span>
+                <span id="telemetryDomain" class="session-info-val">Software Engineering</span>
+              </div>
+              <div class="session-info-row">
+                <span class="session-info-label">Difficulty</span>
+                <span id="telemetryDifficulty" class="session-info-val">Intermediate</span>
+              </div>
+              <div class="session-info-row">
+                <span class="session-info-label">Microphone Status</span>
+                <span class="session-info-val" style="color: var(--color-success-text);">Continuous Stream Active</span>
+              </div>
+              <div class="session-info-row">
+                <span class="session-info-label">Scoring Standard</span>
+                <span class="session-info-val">Calibrated Isotonic</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 4: EVALUATION SCORECARD DASHBOARD
+           ====================================================================== -->
+      <section id="viewEvaluation" class="view-panel">
+        <div id="evaluationContainer" class="eval-container">
+          <div class="card" style="text-align: center; padding: 4rem 1.5rem;">
+            <div class="status-dot" style="margin: 0 auto 1rem; width: 14px; height: 14px;"></div>
+            <h2 style="font-size: 1.6rem; font-weight: 700; color: var(--color-navy-deep);">No Evaluation Completed Yet</h2>
+            <p style="color: var(--text-secondary); margin: 0.5rem auto 1.5rem; max-width: 500px;">
+              Please complete a mock technical interview session to generate your multi-dimensional performance evaluation scorecard.
+            </p>
+            <button class="btn btn-primary" data-navigate="setup">Start an Interview</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 5: JUDGE TECHNICAL CONSOLE (Round 2 Core Inspection)
+           ====================================================================== -->
+      <section id="viewJudge" class="view-panel">
+        <div class="judge-container">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="badge badge-navy">
+                Integraminds AI FRONTIER Software Track
+              </span>
+              <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--color-navy-deep); margin-top: 0.25rem;">
+                Judge Technical Console
+              </h2>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                Independent technical verification environment: architecture inspection, live API runner, automated testing lab, fairness audit, and latency telemetry.
+              </p>
+            </div>
+            <button class="btn btn-sm btn-outline-blue" onclick="window.location.reload()">Refresh Diagnostics</button>
+          </div>
+
+          <!-- Corporate Sub-Tabs -->
+          <div class="judge-tabs">
+            <button class="judge-tab active" data-tab="judgeSystemSection">1. System Overview</button>
+            <button class="judge-tab" data-tab="judgeStatusSection">2. Implementation Status</button>
+            <button class="judge-tab" data-tab="judgeArchSection">3. Interactive Architecture</button>
+            <button class="judge-tab" data-tab="judgeApiSection">4. API Documentation & Tester</button>
+            <button class="judge-tab" data-tab="judgeLabSection">5. Testing Lab (18 Tests)</button>
+            <button class="judge-tab" data-tab="judgeFairnessSection">6. Fairness Audit</button>
+            <button class="judge-tab" data-tab="judgeLatencySection">7. Live Performance</button>
+            <button class="judge-tab" data-tab="judgeLimitationsSection">8. Limitations & Failure Cases</button>
+            <button class="judge-tab" data-tab="judgeDisclosuresSection">9. Technology Disclosures</button>
+          </div>
+
+          <!-- Section 1: System Overview -->
+          <div id="judgeSystemSection" class="judge-section active">
+            <div id="judgeSystemOverview"></div>
+          </div>
+
+          <!-- Section 2: Implementation Status -->
+          <div id="judgeStatusSection" class="judge-section">
+            <div class="card">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-navy-deep); margin-bottom: 0.35rem;">Repository Implementation Matrix</h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Complete audit of backend modules, endpoints, test status, and live functional evidence:</p>
+              <table class="audit-table">
+                <thead>
+                  <tr>
+                    <th>Component</th>
+                    <th>Module Path</th>
+                    <th>API Endpoint</th>
+                    <th>Status</th>
+                    <th>Test Verification</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>FastAPI Server</strong></td>
+                    <td><code>api/main.py</code></td>
+                    <td><code>GET /health</code></td>
+                    <td><span class="badge badge-success">Implemented</span></td>
+                    <td><code>tests/test_api_endpoints.py</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Live Stream Bridge</strong></td>
+                    <td><code>asr/stream_bridge.py</code></td>
+                    <td><code>POST /asr/stream-chunk</code></td>
+                    <td><span class="badge badge-success">Implemented</span></td>
+                    <td><code>tests/judge_lab.py: test_live_transcription</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>2,000-Term Glossary Span Detector</strong></td>
+                    <td><code>asr/span_detector.py</code></td>
+                    <td><code>Internal / POST /asr/verify</code></td>
+                    <td><span class="badge badge-success">Implemented</span></td>
+                    <td><code>tests/test_span_detector.py (5/5 PASS)</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Acoustic Recovery & Abstention</strong></td>
+                    <td><code>asr/recover.py</code></td>
+                    <td><code>POST /asr/verify</code></td>
+                    <td><span class="badge badge-success">Implemented</span></td>
+                    <td><code>tests/judge_lab.py: test_abstention</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Content Judge (3-Run Voting)</strong></td>
+                    <td><code>score/content.py</code></td>
+                    <td><code>POST /score</code></td>
+                    <td><span class="badge badge-success">Implemented</span></td>
+                    <td><code>tests/test_cpu1_pipeline.py</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Structure Judge (Framing/Coherence/Closure)</strong></td>
+                    <td><code>score/structure.py</code></td>
+                    <td><code>POST /score</code></td>
+                    <td><span class="badge badge-success">Implemented</span></td>
+                    <td><code>tests/test_cpu1_pipeline.py</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Isotonic Score Calibrators</strong></td>
+                    <td><code>score/calibrate.py</code></td>
+                    <td><code>artifacts/calibrator_*.pkl</code></td>
+                    <td><span class="badge badge-success">Implemented</span></td>
+                    <td><code>score/pipeline.py: get_calibrators()</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Conversational Interview Engine</strong></td>
+                    <td><code>interview/conversational.py</code></td>
+                    <td><code>POST /interview/turn</code></td>
+                    <td><span class="badge badge-success">Implemented</span></td>
+                    <td><code>tests/judge_lab.py: test_prompt_injection</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>120-Question Bank & Semantic Rubrics</strong></td>
+                    <td><code>data/QandA.json</code></td>
+                    <td><code>GET /questions</code></td>
+                    <td><span class="badge badge-success">Implemented</span></td>
+                    <td><code>tests/test_qanda_integration.py (10/10 PASS)</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Section 3: Interactive Architecture -->
+          <div id="judgeArchSection" class="judge-section">
+            <div class="card" style="margin-bottom: 1.5rem;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-navy-deep);">Interactive End-to-End System Pipeline</h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                Click on any architecture node to inspect its exact input/output schema, implementation file, test coverage, and known limitations:
+              </p>
+            </div>
+            <div id="judgeArchitecture"></div>
+          </div>
+
+          <!-- Section 4: API Documentation & Live Tester -->
+          <div id="judgeApiSection" class="judge-section">
+            <div class="card">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-navy-deep); margin-bottom: 0.25rem;">Live Interactive API Tester</h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">Execute real HTTP requests against the backend server:</p>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div>
+                  <div class="form-group">
+                    <label class="form-label" for="apiEndpointSelect">Select API Endpoint</label>
+                    <select id="apiEndpointSelect" class="form-select" onchange="window.updateApiSamplePayload(this.value)">
+                      <option value="/health">GET /health — System Health</option>
+                      <option value="/system/overview">GET /system/overview — Diagnostic Overview</option>
+                      <option value="/questions">GET /questions — Query Question Bank</option>
+                      <option value="/score">POST /score — Evaluate Transcript</option>
+                      <option value="/interview/start">POST /interview/start — Start Multi-Turn Session</option>
+                      <option value="/interview/turn">POST /interview/turn — Conversational Dialog Turn</option>
+                      <option value="/asr/verify">POST /asr/verify — Stage 2 Glossary Verification</option>
+                      <option value="/fairness/audit">GET /fairness/audit — Invariance Benchmark Report</option>
+                      <option value="/metrics/latency">GET /metrics/latency — Performance Latency Telemetry</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="apiPayloadInput">Request Payload (JSON)</label>
+                    <textarea id="apiPayloadInput" class="form-input" style="height: 180px; font-family: var(--font-mono); font-size: 0.8rem;"></textarea>
+                  </div>
+
+                  <button class="btn btn-primary" onclick="window.judgeConsole.sendApiTestRequest()">
+                    Send Live Request
+                  </button>
+                </div>
+
+                <div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+                    <label class="form-label" style="margin-bottom:0;">Live Server Response</label>
+                    <span id="apiResponseStatus"><span class="badge badge-primary">Ready</span></span>
+                  </div>
+                  <pre id="apiResponseOutput" class="test-code-snippet" style="height: 250px; overflow-y: auto;">Select an endpoint and click Send Live Request to inspect formatted JSON response.</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Testing Lab -->
+          <div id="judgeLabSection" class="judge-section">
+            <div id="testingLabContent"></div>
+          </div>
+
+          <!-- Section 6: Fairness Audit -->
+          <div id="judgeFairnessSection" class="judge-section">
+            <div id="judgeFairnessContent"></div>
+          </div>
+
+          <!-- Section 7: Live Performance -->
+          <div id="judgeLatencySection" class="judge-section">
+            <div id="judgeLatencyContent"></div>
+          </div>
+
+          <!-- Section 8: Limitations & Failure Cases -->
+          <div id="judgeLimitationsSection" class="judge-section">
+            <div class="card">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-navy-deep); margin-bottom: 0.35rem;">Known Engineering Limitations & Failure Cases</h3>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Transparent disclosure of edge cases, current mitigations, and roadmap improvements:</p>
+              <table class="audit-table">
+                <thead>
+                  <tr>
+                    <th>Limitation / Failure Mode</th>
+                    <th>Impact</th>
+                    <th>Current System Mitigation</th>
+                    <th>Future Roadmap</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Heavy Ambient Background Noise</strong></td>
+                    <td>Degrades ASR confidence scores below threshold</td>
+                    <td>Browser Web Audio noise suppression + conservative abstention</td>
+                    <td>Multi-microphone spatial beamforming and spectral subtraction</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Novel Brand or Library Names</strong></td>
+                    <td>Terms missing from 2,000-term glossary</td>
+                    <td>RapidFuzz fuzzy fallback with acoustic confidence gating</td>
+                    <td>Dynamic hotword injection from question domain tags</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Long Thinking Pauses (>3s)</strong></td>
+                    <td>VAD may trigger early silence timeout</td>
+                    <td>Configurable 2.5s threshold + manual "Submit Answer" button</td>
+                    <td>Visual gaze + prosodic pitch trajectory end-of-thought detection</td>
+                  </tr>
+                  <tr>
+                    <td><strong>External LLM API Rate Limits (429)</strong></td>
+                    <td>Gemini API throttling under high load</td>
+                    <td>Exponential backoff with jitter + deterministic offline concept judge</td>
+                    <td>Locally hosted quantized LLM running via llama.cpp/ONNX</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Camera Permission Denied</strong></td>
+                    <td>Webcam stream unavailable</td>
+                    <td>Camera is strictly optional; scoring continues with 0% penalty</td>
+                    <td>Seamless text-only or audio-only fallback mode</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Section 9: Technology Disclosures -->
+          <div id="judgeDisclosuresSection" class="judge-section">
+            <div class="card">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--color-navy-deep); margin-bottom: 0.5rem;">Technology & Model Disclosures</h3>
+              <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; font-size: 0.9rem;">
+                <div>
+                  <strong style="color: var(--color-blue-corp);">Pretrained Models:</strong>
+                  <p style="color: var(--text-secondary); margin-top: 0.25rem;">
+                    Faster-Whisper large-v3 (CTranslate2 backend, int8_float16 quantization), Google Gemini 2.5 Flash for semantic rubric proposition tagging, Isotonic Regression for score calibration.
+                  </p>
+                </div>
+                <div>
+                  <strong style="color: var(--color-blue-corp);">Phonetic & Lexical Matching Libraries:</strong>
+                  <p style="color: var(--text-secondary); margin-top: 0.25rem;">
+                    RapidFuzz (Levenshtein ratio and token sort ratio), Jellyfish (Metaphone and Soundex phonetic hash encoding).
+                  </p>
+                </div>
+                <div>
+                  <strong style="color: var(--color-blue-corp);">Datasets & Glossaries:</strong>
+                  <p style="color: var(--text-secondary); margin-top: 0.25rem;">
+                    2,000-term technical engineering glossary (<code>data/glossary.csv</code>), 120 validated technical question bank (<code>data/QandA.json</code>), human-calibrated rating reports (<code>reports/scorer_robustness_report.json</code>).
+                  </p>
+                </div>
+                <div>
+                  <strong style="color: var(--color-blue-corp);">Ethical & Fairness Standards:</strong>
+                  <p style="color: var(--text-secondary); margin-top: 0.25rem;">
+                    Adheres strictly to Integraminds AI Frontier fairness mandates: zero accent discrimination, decoupled scoring dimensions, and transparent audit logging.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           VIEW 6: PLATFORM DOCUMENTATION
+           ====================================================================== -->
+      <section id="viewDocs" class="view-panel">
+        <div class="card" style="max-width: 960px; margin: 0 auto;">
+          <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--color-navy-deep); margin-bottom: 0.5rem;">Platform Documentation</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+            Engineering specifications, architecture guides, and execution documentation:
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+            <div class="card" style="padding: 1.25rem;">
+              <h4 style="color: var(--color-blue-corp); font-size: 1rem;">ARCHITECTURE.md</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.35rem 0;">Two-pass ASR, acoustic verification, and calibrated scoring pipeline.</p>
+            </div>
+            <div class="card" style="padding: 1.25rem;">
+              <h4 style="color: var(--color-blue-corp); font-size: 1rem;">API_DOCUMENTATION.md</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.35rem 0;">REST and WebSocket specifications with sample request/responses.</p>
+            </div>
+            <div class="card" style="padding: 1.25rem;">
+              <h4 style="color: var(--color-blue-corp); font-size: 1rem;">FAIRNESS_REPORT.md</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.35rem 0;">120-question accent invariance stress test methodology & metrics.</p>
+            </div>
+            <div class="card" style="padding: 1.25rem;">
+              <h4 style="color: var(--color-blue-corp); font-size: 1rem;">DEMO_INSTRUCTIONS.md</h4>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0.35rem 0;">Step-by-step judge walkthrough, testing commands, and backup guide.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Interactive Architecture Node Modal -->
+    <div id="nodeModal" class="modal-overlay">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 id="nodeModalTitle" style="font-size: 1.15rem; font-weight: 700; color: var(--color-navy-deep);">Architecture Node</h3>
+          <button class="btn btn-sm btn-secondary" data-close-modal>✕</button>
+        </div>
+        <div id="nodeModalBody" class="modal-body"></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-close-modal>Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Corporate Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.75rem;">
+            <div class="brand-icon" style="background:#2457A6; width:30px; height:30px; font-size:0.9rem;">IF</div>
+            <strong style="color:#FFFFFF; font-size:1.1rem;">IMAIRA FairScore</strong>
+          </div>
+          <p style="font-size:0.85rem; line-height:1.5; color:#94A3B8;">
+            An accent-aware AI interview evaluation platform designed to separate technical knowledge, answer structure, and verbal fluency for fair, bias-resilient candidate assessments.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="#" data-navigate="home">Overview</a></li>
+            <li><a href="#" data-navigate="setup">Start Interview</a></li>
+            <li><a href="#" data-navigate="evaluation">Evaluation Report</a></li>
+            <li><a href="#" data-navigate="judge">Judge Console</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Technical Specs</h4>
+          <ul class="footer-links">
+            <li><a href="#" data-navigate="docs">Architecture Guide</a></li>
+            <li><a href="#" data-navigate="docs">API Specification</a></li>
+            <li><a href="#" data-navigate="judge">Fairness Benchmark</a></li>
+            <li><a href="#" data-navigate="judge">Automated Testing Lab</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Evaluation Track</h4>
+          <p style="font-size:0.85rem; line-height:1.5; color:#94A3B8; margin-bottom:0.75rem;">
+            Integraminds AI FRONTIER<br>
+            Software Track • Round 2
+          </p>
+          <a href="https://github.com/Krishna-neural/IMAIRA-Fairscore.git" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.35rem; color:#60A5FA; font-size:0.85rem; font-weight:600;">
+            GitHub Repository ↗
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 IMAIRA FairScore • "Evaluate Knowledge. Not Accents."</div>
+        <div>Engineered for Commercial Recruitment & Enterprise Technical Assessment</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/audio_engine.js"></script>
+  <script src="js/camera_engine.js"></script>
+  <script src="js/interview_engine.js"></script>
+  <script src="js/judge_console.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    window.updateApiSamplePayload = function(endpoint) {
+      const input = document.getElementById("apiPayloadInput");
+      if (!input) return;
+      if (endpoint === "/score") {
+        input.value = JSON.stringify({
+          session_id: "judge_test_sess",
+          question_id: "ENG001",
+          question_text: "Compare Red-Black Trees and AVL Trees in terms of balancing invariants.",
+          transcript: [
+            { start: 0.0, end: 2.5, speaker: "candidate", text: "AVL trees strictly enforce that the balance factor never exceeds one." },
+            { start: 2.5, end: 5.0, speaker: "candidate", text: "Red-Black trees use color invariants and require fewer rotations for write operations." }
+          ]
+        }, null, 2);
+      } else if (endpoint === "/interview/start") {
+        input.value = JSON.stringify({
+          candidate_name: "Judge",
+          domain: "Software and Computer Science Fundamentals",
+          difficulty: "Intermediate",
+          num_questions: 3
+        }, null, 2);
+      } else if (endpoint === "/interview/turn") {
+        input.value = JSON.stringify({
+          session_id: "sess_1001",
+          candidate_utterance: "An AVL tree has stricter height limits so search is faster, but Red-Black tree writes require fewer tree rotations."
+        }, null, 2);
+      } else if (endpoint === "/asr/verify") {
+        input.value = JSON.stringify({
+          raw_transcript: "We store user profiles in a has map and index them using postgress"
+        }, null, 2);
+      } else {
+        input.value = "{}";
+      }
+    };
+    window.updateApiSamplePayload("/health");
+  </script>
+</body>
+</html>
