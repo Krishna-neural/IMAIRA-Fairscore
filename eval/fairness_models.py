@@ -97,7 +97,7 @@ class ExperimentConfig(BaseModel):
     dataset_version: str = "1.0"
     tolerance_threshold: float = 5.0
     asr_model: str = "faster-whisper/large-v3"
-    gemini_model: str = "gemini-3.8-flash"
+    gemini_model: str = "gemini-3.5-flash"
     scoring_version: str = "2.0-evidence-first"
     created_at: str = Field(default_factory=lambda: datetime.utcnow().isoformat())
 

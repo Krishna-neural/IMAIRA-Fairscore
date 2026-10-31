@@ -14,7 +14,8 @@ from asr.transcribe import (
     load_glossary_terms,
     TwoPassTranscriber,
     get_transcriber,
-    transcribe_audio
+    transcribe_audio,
+    HAS_FASTER_WHISPER
 )
 
 class TestTwoPassTranscribe(unittest.TestCase):
@@ -32,6 +33,8 @@ class TestTwoPassTranscribe(unittest.TestCase):
         ]
 
     def test_audio_duration(self):
+        if not Path(self.audio_path).exists():
+            raise unittest.SkipTest("asr/test.wav not present")
         duration = get_audio_duration_sec(self.audio_path)
         self.assertAlmostEqual(duration, 37.074, places=1)
 
@@ -42,8 +45,9 @@ class TestTwoPassTranscribe(unittest.TestCase):
         pass_a_text = "hello my name is Krishna Gupta artificial intelligence"
         pass_b_text = "hello my name is krishna upta machine learning"
 
-        transcriber = get_transcriber(compute_type="float16")
-        candidates = transcriber.extract_candidates(pass_a_text, pass_b_text, terms)
+        # Test candidate extraction directly via TwoPassTranscriber method
+        candidates = TwoPassTranscriber.extract_candidates(None, pass_a_text, pass_b_text, terms)
+
         self.assertIn("Krishna Gupta", candidates)
         self.assertIn("artificial intelligence", candidates)
         self.assertIn("machine learning", candidates)
@@ -79,6 +83,9 @@ class TestTwoPassTranscribe(unittest.TestCase):
         self.assertIsNone(contract_dict["transcript"][0]["corrected_from"])
 
     def test_full_two_pass_transcribe(self):
+        if not HAS_FASTER_WHISPER or not Path(self.audio_path).exists():
+            raise unittest.SkipTest("faster_whisper or asr/test.wav not available")
+
         res = transcribe_audio(
             audio_path=self.audio_path,
             domain_terms=self.glossary,
