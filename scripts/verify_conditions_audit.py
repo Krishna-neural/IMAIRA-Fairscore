@@ -17,7 +17,7 @@ from pathlib import Path
 from collections import defaultdict
 import numpy as np
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
 def run_verification():
     report_json_path = REPO_ROOT / "reports" / "interview_evaluation_report.json"

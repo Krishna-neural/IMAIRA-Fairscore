@@ -1,5 +1,5 @@
 {
-  "severity": "moderate_20pct_wer",
+  "severity": "severe_30pct_wer",
   "num_questions": 120,
   "dimensions": {
     "content": {
@@ -94,30 +94,30 @@
       "domain": "Machine Learning",
       "clean_scores": {
         "content": 5.0,
-        "structure": 4.5,
-        "overall": 4.8
+        "structure": 4.8,
+        "overall": 4.92
       },
       "accent_scores": {
         "content": 5.0,
-        "structure": 4.5,
-        "overall": 4.8
+        "structure": 4.8,
+        "overall": 4.92
       },
       "score_diff_overall": 0.0,
       "clean_transcript_snippet": "To address Explain gradient descent and how the learning rate affects optimizati...",
-      "accent_transcript_snippet": "To address Explain greatient descent and how de learning rate affects optimizati..."
+      "accent_transcript_snippet": "To address Explain greatient decent and how de learning rate affects optimizatio..."
     },
     {
       "question_id": "Q002",
       "domain": "Machine Learning",
       "clean_scores": {
         "content": 5.0,
-        "structure": 4.5,
-        "overall": 4.8
+        "structure": 4.8,
+        "overall": 4.92
       },
       "accent_scores": {
         "content": 5.0,
-        "structure": 4.5,
-        "overall": 4.8
+        "structure": 4.8,
+        "overall": 4.92
       },
       "score_diff_overall": 0.0,
       "clean_transcript_snippet": "To address What is the bias-variance tradeoff and how does model complexity rela...",
@@ -128,47 +128,47 @@
       "domain": "Machine Learning",
       "clean_scores": {
         "content": 5.0,
-        "structure": 4.5,
-        "overall": 4.8
+        "structure": 4.8,
+        "overall": 4.92
       },
       "accent_scores": {
         "content": 5.0,
-        "structure": 4.5,
-        "overall": 4.8
+        "structure": 4.8,
+        "overall": 4.92
       },
       "score_diff_overall": 0.0,
       "clean_transcript_snippet": "To address Describe overfitting and explain three common techniques to prevent i...",
-      "accent_transcript_snippet": "To address Describe over fitting and explain three common techniques to prevent ..."
+      "accent_transcript_snippet": "To address Describe over fitting and explain tree common techniques to prevent i..."
     },
     {
       "question_id": "Q004",
       "domain": "Machine Learning",
       "clean_scores": {
         "content": 5.0,
-        "structure": 4.5,
-        "overall": 4.8
+        "structure": 4.8,
+        "overall": 4.92
       },
       "accent_scores": {
         "content": 5.0,
-        "structure": 4.5,
-        "overall": 4.8
+        "structure": 4.8,
+        "overall": 4.92
       },
       "score_diff_overall": 0.0,
       "clean_transcript_snippet": "To address Explain how the backpropagation algorithm computes gradients in neura...",
-      "accent_transcript_snippet": "To address Explain how de backpropagation algorithm computes greatients in neura..."
+      "accent_transcript_snippet": "To address Explain how de back propogation algorithm computes greatients in neur..."
     },
     {
       "question_id": "Q005",
       "domain": "Machine Learning",
       "clean_scores": {
         "content": 5.0,
-        "structure": 4.5,
-        "overall": 4.8
+        "structure": 4.8,
+        "overall": 4.92
       },
       "accent_scores": {
         "content": 5.0,
-        "structure": 4.5,
-        "overall": 4.8
+        "structure": 4.8,
+        "overall": 4.92
       },
       "score_diff_overall": 0.0,
       "clean_transcript_snippet": "To address What is the difference between L1 (Lasso) and L2 (Ridge) regularizati...",

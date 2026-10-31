@@ -1,27 +1,52 @@
+# Environment & secrets
 .env
+*.local
 config.local.yaml
+
+# Data files (only track curated evaluation contracts and benchmarks)
 data/*
 !data/QandA.json
 !data/rubrics_120.json
 !data/evidence_question_bank.json
 !data/fairness_benchmark_groups.json
 !data/glossary.csv
+!data/glossary.txt
+!data/dataset_dev_240.json
+!data/dataset_heldout_60.json
+
+# Caches & temporary runtimes
 .cache/
 .pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+transcripts_cache/
+test_output.json
+
+# Databases & local sessions
 *.sqlite
 *.sqlite3
 *.db
 artifacts/sessions.db
 artifacts/sessions/
+
+# Audio binaries (processed in-memory per privacy invariant)
 *.wav
 *.mp3
 *.m4a
 *.flac
-__pycache__/
-.ipynb_checkpoints/
-transcripts_cache/
-test_output.json
+*.ogg
+asr/*.m4a
+asr/*.wav
+
+# Compiled binaries & logs
 *.exe
+*.log
 asr/baseline_profile_*.json
+
+# Frontend node dependencies (dist is tracked for zero-config Docker/Python deployment)
 frontend_prototype/node_modules/
-# frontend_prototype/dist/ tracked for zero-dependency Python/Docker serving
+frontend_prototype/.vite/
+.DS_Store
+Thumbs.db
