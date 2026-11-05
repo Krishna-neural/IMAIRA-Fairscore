@@ -351,6 +351,17 @@ IMAIRA-Fairscore/
 
 ---
 
+## 📜 Open Source & Community Governance
+
+IMAIRA FairScore is an open-source initiative released under the **[MIT License](LICENSE)**. We welcome contributions from researchers, educators, and software engineers passionate about linguistic fairness in AI.
+
+- 📘 **[Contributing Guidelines](CONTRIBUTING.md)** — Architectural invariants, local development setup, and pull request workflow.
+- 🤝 **[Code of Conduct](CODE_OF_CONDUCT.md)** — Contributor Covenant v2.1 standards for an inclusive, discrimination-free community.
+- 🔒 **[Security & Privacy Policy](SECURITY.md)** — Vulnerability reporting and candidate voice privacy guarantees.
+- 🐛 **[Issue Tracker](https://github.com/Krishna-neural/IMAIRA-Fairscore/issues)** — Bug reports and feature proposals.
+
+---
+
 ## 👥 Authors & Acknowledgments
 
 - **Developed for:** Integraminds AI FRONTIER — Software Track

@@ -39,6 +39,10 @@ artifacts/sessions/
 *.ogg
 asr/*.m4a
 asr/*.wav
+asr/*.mp4
+*.mp4
+*.webm
+artifacts/audio/
 
 # Compiled binaries & logs
 *.exe
